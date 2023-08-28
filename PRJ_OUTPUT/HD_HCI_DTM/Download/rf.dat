@@ -1,0 +1,39 @@
+mem_lpm_config:8f 19 02 # will set to LPM Control, first byte will change to two bit, so lpm bit 26:31 for soft use  Positive bias up, negative bias down
+mem_lpm_buckcnt:0a 0b ef 07
+mem_lpm_hibernate_switch:00
+mem_gpio_wakeup_low:00 00 00 00 00 00 00 00
+mem_touch_gpio2_wakeup:00 00 00 00
+mem_fcomp_mul:02
+
+mem_fcomp_div:18		#xtal select 18 24M   08 16M
+
+mem_iscan_window:20 00
+mem_iscan_interval:00 02
+mem_pscan_window:16 00
+mem_pscan_interval:00 02
+mem_inq_window:20 00
+mem_page_window:30 00
+mem_page_to:00 30
+mem_rx_window_init:80 03
+mem_rx_window_sniff:00 0a
+
+#if you find lpo_time not near 0x2a, you must think the pre timer maybe error.
+#DVDD 0.1uF, VFB 1uF    Time:   DVDD up time: 4us, VFB up time: 255us
+#DVDD 0.1uF, VFB 10uF    Time:   DVDD up time: 4us, VFB up time: 305us 
+#clock unit is internal 32K, 1 step is near 32us
+#so we set:
+#1: digldo pre-on counter(DVDD):  0x04
+#2: exen pre-on counter(VFB):  0x20
+#3: xtal pre-on counter(XTAL) set to zero becouse it will set in lpm_cal_xtal_startup
+#byte4 must close <retention memory chip select> first
+mem_lpm_xtalcnt:00 20 1c bf 07
+mem_lpm_ctrl3:00 80 10 64
+
+mem_ef_base:30 ff 87
+mem_eeprom_block_size:80
+
+mem_rf_init:
+ff
+
+mem_rf_init_ptr:mem_rf_init
+

@@ -1,0 +1,1620 @@
+Archive member included to satisfy reference by file (symbol)
+
+d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(save-restore.o)
+                              output/obj/att.o (__riscv_save_12)
+d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0/../../../../riscv32-unknown-elf/lib\libc.a(lib_a-memcmp.o)
+                              output/obj/att.o (memcmp)
+d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0/../../../../riscv32-unknown-elf/lib\libc.a(lib_a-memcpy.o)
+                              output/obj/yc11xx_ipc.o (memcpy)
+d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0/../../../../riscv32-unknown-elf/lib\libc.a(lib_a-memset.o)
+                              output/obj/yc_debug.o (memset)
+
+Allocating common symbols
+Common symbol       size              file
+
+gHaltLogFlag        0x2               output/obj/yc_debug.o
+gFacStoreinfo       0xa               output/obj/yc_dev_bt.o
+prepareLen          0x1               output/obj/att.o
+gHaltLogValue       0x2               output/obj/yc_debug.o
+gOsEnterCriticalCnt
+                    0x2               output/obj/yc11xx.o
+prepareHandle       0x1               output/obj/att.o
+txptr               0x4               output/obj/yc_debug.o
+gHciDataDebug       0x18              output/obj/yc11xx_dev_bt_data_trans.o
+gRecinfo            0x3d              output/obj/yc_dev_bt.o
+
+Discarded input sections
+
+ .text          0x0000000000000000        0x0 output/obj/main.o
+ .data          0x0000000000000000        0x0 output/obj/main.o
+ .bss           0x0000000000000000        0x0 output/obj/main.o
+ .text.bt_task_run
+                0x0000000000000000       0x18 output/obj/main.o
+ .text          0x0000000000000000        0x0 output/obj/yc_debug.o
+ .data          0x0000000000000000        0x0 output/obj/yc_debug.o
+ .bss           0x0000000000000000        0x0 output/obj/yc_debug.o
+ .text.write_long_value
+                0x0000000000000000       0x1c output/obj/yc_debug.o
+ .text.print_round_buffer
+                0x0000000000000000       0x74 output/obj/yc_debug.o
+ .text.print_log_buffer_is_empty
+                0x0000000000000000       0x44 output/obj/yc_debug.o
+ .text.print_log
+                0x0000000000000000       0x64 output/obj/yc_debug.o
+ .text.print_log_get_lock
+                0x0000000000000000       0x32 output/obj/yc_debug.o
+ .text.print_log_free_lock
+                0x0000000000000000        0xe output/obj/yc_debug.o
+ .text.print_protocol_to_uart
+                0x0000000000000000       0x7e output/obj/yc_debug.o
+ .text.print_hci_h4_to_uart_raw
+                0x0000000000000000       0x7a output/obj/yc_debug.o
+ .text.print_hci_h4_to_uart
+                0x0000000000000000       0x24 output/obj/yc_debug.o
+ .text.print_string_empty_fuction
+                0x0000000000000000       0x14 output/obj/yc_debug.o
+ .text.print_format_string_buffer
+                0x0000000000000000       0x18 output/obj/yc_debug.o
+ .text.print_format_string
+                0x0000000000000000      0x270 output/obj/yc_debug.o
+ .rodata.g_pcHex2.2886
+                0x0000000000000000        0x4 output/obj/yc_debug.o
+ .rodata.g_pcHex1.2885
+                0x0000000000000000        0x4 output/obj/yc_debug.o
+ .rodata.g_pcHex2.2990
+                0x0000000000000000        0x4 output/obj/yc_debug.o
+ .rodata.g_pcHex1.2989
+                0x0000000000000000        0x4 output/obj/yc_debug.o
+ .text          0x0000000000000000        0x0 output/obj/yc11xx.o
+ .data          0x0000000000000000        0x0 output/obj/yc11xx.o
+ .bss           0x0000000000000000        0x0 output/obj/yc11xx.o
+ .text.Toolmemcpy
+                0x0000000000000000       0x30 output/obj/yc11xx.o
+ .text.xstrlen  0x0000000000000000       0x1a output/obj/yc11xx.o
+ .text.error_handle
+                0x0000000000000000       0x14 output/obj/yc11xx.o
+ .text.whileDelay
+                0x0000000000000000       0x28 output/obj/yc11xx.o
+ .text.whileDelayshort
+                0x0000000000000000       0x26 output/obj/yc11xx.o
+ .text.xramcmp  0x0000000000000000       0x32 output/obj/yc11xx.o
+ .text.xramcpy  0x0000000000000000       0x2c output/obj/yc11xx.o
+ .text.math_abs
+                0x0000000000000000        0xa output/obj/yc11xx.o
+ .text.CoreReg_ClkControl
+                0x0000000000000000       0x82 output/obj/yc11xx.o
+ .text.CoreReg_LpmWrite
+                0x0000000000000000       0x1e output/obj/yc11xx.o
+ .text.CoreReg_LpmWriteCtrl
+                0x0000000000000000       0x1a output/obj/yc11xx.o
+ .text.CoreReg_LpmWriteCtrl2
+                0x0000000000000000       0x1a output/obj/yc11xx.o
+ .text.CoreReg_LpmWriteGpioLowWake
+                0x0000000000000000       0x1a output/obj/yc11xx.o
+ .text.CoreReg_LpmWriteGpioHighWake
+                0x0000000000000000       0x1a output/obj/yc11xx.o
+ .text.CoreReg_LpmWriteCounter
+                0x0000000000000000       0x1a output/obj/yc11xx.o
+ .text.CoreReg_LpmWriteBuckCfg
+                0x0000000000000000       0x1c output/obj/yc11xx.o
+ .text.CoreReg_LpmWriteChargeCtrl
+                0x0000000000000000       0x1c output/obj/yc11xx.o
+ .text.CoreReg_LpmWriteXtal32kCtrl
+                0x0000000000000000       0x1c output/obj/yc11xx.o
+ .text.CoreReg_LpmWrite2EnterScanMode
+                0x0000000000000000       0x1a output/obj/yc11xx.o
+ .text.CoreReg_LpmWrite2ChargeLowHighWakeup
+                0x0000000000000000       0x1a output/obj/yc11xx.o
+ .text.CoreReg_LpmWrite2LdoControl
+                0x0000000000000000       0x1a output/obj/yc11xx.o
+ .text.CoreReg_LpmWrite2Gpio2TouchWake
+                0x0000000000000000       0x1a output/obj/yc11xx.o
+ .text.CoreReg_LpmAppRegRead
+                0x0000000000000000       0x24 output/obj/yc11xx.o
+ .text.CoreReg_LpmAppRegWrite
+                0x0000000000000000       0x1a output/obj/yc11xx.o
+ .text.CoreReg_LpmAppRegFirstPowerOnControl
+                0x0000000000000000       0x3c output/obj/yc11xx.o
+ .text.CoreReg_LpmAppRegChargePowerOffControl
+                0x0000000000000000       0x3c output/obj/yc11xx.o
+ .text.Audio_AdcDSMDIV_12MConfig
+                0x0000000000000000       0x44 output/obj/yc11xx.o
+ .text.Audio_AdcDSMDIV_12MEnable
+                0x0000000000000000       0x2e output/obj/yc11xx.o
+ .text.Audio_AdcDSMDIV_11MConfig
+                0x0000000000000000       0x44 output/obj/yc11xx.o
+ .text.Audio_AdcDSMDIV_11MEnable
+                0x0000000000000000       0x2e output/obj/yc11xx.o
+ .text.Audio_ClkInit
+                0x0000000000000000       0x50 output/obj/yc11xx.o
+ .text.SYS_RESET
+                0x0000000000000000        0xc output/obj/yc11xx.o
+ .text          0x0000000000000000        0x0 output/obj/malloc.o
+ .data          0x0000000000000000        0x0 output/obj/malloc.o
+ .bss           0x0000000000000000        0x0 output/obj/malloc.o
+ .text.Memory_GetHeapStats
+                0x0000000000000000       0x62 output/obj/malloc.o
+ .text          0x0000000000000000        0x0 output/obj/yc11xx_bt_interface.o
+ .data          0x0000000000000000        0x0 output/obj/yc11xx_bt_interface.o
+ .bss           0x0000000000000000        0x0 output/obj/yc11xx_bt_interface.o
+ .data.gpHFPCallState
+                0x0000000000000000        0x4 output/obj/yc11xx_bt_interface.o
+ .text.Bt_SndCmdBLE
+                0x0000000000000000       0x1e output/obj/yc11xx_bt_interface.o
+ .text.Bt_SndCmdStopReconTws
+                0x0000000000000000       0x1c output/obj/yc11xx_bt_interface.o
+ .text.Bt_SndCmdChargePowerOff
+                0x0000000000000000       0x1c output/obj/yc11xx_bt_interface.o
+ .text.Bt_SndCmdChargeStartPowerOn
+                0x0000000000000000       0x1c output/obj/yc11xx_bt_interface.o
+ .text.Bt_SndCmdChargeStopPowerOff
+                0x0000000000000000       0x1c output/obj/yc11xx_bt_interface.o
+ .text.Bt_SndCmdChargeChargeInscEnb
+                0x0000000000000000       0x1c output/obj/yc11xx_bt_interface.o
+ .text.Bt_SndCmdChargeChargeInscEnbClear
+                0x0000000000000000       0x1c output/obj/yc11xx_bt_interface.o
+ .text.Bt_SndCmdOtaReset
+                0x0000000000000000       0x1c output/obj/yc11xx_bt_interface.o
+ .text.Bt_CheckVpInProcess
+                0x0000000000000000       0x12 output/obj/yc11xx_bt_interface.o
+ .text.Bt_SndCmdTwsUser1
+                0x0000000000000000       0x1c output/obj/yc11xx_bt_interface.o
+ .text.Bt_SndCmdTwsUser2
+                0x0000000000000000       0x1c output/obj/yc11xx_bt_interface.o
+ .text.Bt_SndCmdTwsUser3
+                0x0000000000000000       0x1c output/obj/yc11xx_bt_interface.o
+ .text.Bt_SndCmdTwsUser4
+                0x0000000000000000       0x1c output/obj/yc11xx_bt_interface.o
+ .text.Bt_SndCmdTwsUser5
+                0x0000000000000000       0x1c output/obj/yc11xx_bt_interface.o
+ .text.Bt_SndCmdTwsUser6
+                0x0000000000000000       0x1c output/obj/yc11xx_bt_interface.o
+ .text.Bt_SndCmdTwsUser7
+                0x0000000000000000       0x1c output/obj/yc11xx_bt_interface.o
+ .text.Bt_SndCmdTwsFixVoicePlay
+                0x0000000000000000       0x1c output/obj/yc11xx_bt_interface.o
+ .text.Bt_SndCmdPlayPause
+                0x0000000000000000       0x58 output/obj/yc11xx_bt_interface.o
+ .text.Bt_SndCmdBackward
+                0x0000000000000000       0x1c output/obj/yc11xx_bt_interface.o
+ .text.Bt_SndCmdForward
+                0x0000000000000000       0x1c output/obj/yc11xx_bt_interface.o
+ .text.Bt_SndCmdVolUp
+                0x0000000000000000       0x1c output/obj/yc11xx_bt_interface.o
+ .text.Bt_SndCmdVolDown
+                0x0000000000000000       0x1c output/obj/yc11xx_bt_interface.o
+ .text.Bt_SndCmdVolChange
+                0x0000000000000000       0x1c output/obj/yc11xx_bt_interface.o
+ .text.Bt_SndCmdAcceptCall
+                0x0000000000000000       0x1c output/obj/yc11xx_bt_interface.o
+ .text.Bt_SndCmdHangup
+                0x0000000000000000       0x1c output/obj/yc11xx_bt_interface.o
+ .text.Bt_SndCmdRedial
+                0x0000000000000000       0x1c output/obj/yc11xx_bt_interface.o
+ .text.Bt_SndCmdThreeWayReleaseAll
+                0x0000000000000000       0x1c output/obj/yc11xx_bt_interface.o
+ .text.Bt_SndCmdThreeWayReleaseNAcp
+                0x0000000000000000       0x1c output/obj/yc11xx_bt_interface.o
+ .text.Bt_SndCmdThreeWay_HoldNAcp
+                0x0000000000000000       0x1c output/obj/yc11xx_bt_interface.o
+ .text.Bt_SndCmdRecognition
+                0x0000000000000000       0x1c output/obj/yc11xx_bt_interface.o
+ .text.Bt_SndCmdRecognitionStop
+                0x0000000000000000       0x1c output/obj/yc11xx_bt_interface.o
+ .text.Bt_SndCmdTwsSyncPwroff
+                0x0000000000000000       0x1c output/obj/yc11xx_bt_interface.o
+ .text.Bt_SndCmdTwsSlaveInStorage
+                0x0000000000000000       0x1c output/obj/yc11xx_bt_interface.o
+ .text.Bt_SndCmdTwsMasterInStorage
+                0x0000000000000000       0x26 output/obj/yc11xx_bt_interface.o
+ .text.Bt_TwsSyncPowerOff
+                0x0000000000000000       0x18 output/obj/yc11xx_bt_interface.o
+ .text.Bt_TwsInStorage
+                0x0000000000000000       0x32 output/obj/yc11xx_bt_interface.o
+ .text.Bt_SndCmdReconnect
+                0x0000000000000000       0x34 output/obj/yc11xx_bt_interface.o
+ .text.Bt_SndCmdStopReconnect
+                0x0000000000000000       0x1a output/obj/yc11xx_bt_interface.o
+ .text.Bt_SndCmdHFPStartSync
+                0x0000000000000000        0x2 output/obj/yc11xx_bt_interface.o
+ .text.Bt_CheckAllowTishiWork
+                0x0000000000000000        0xc output/obj/yc11xx_bt_interface.o
+ .text.Bt_SndCmdWaitMaster
+                0x0000000000000000       0x1c output/obj/yc11xx_bt_interface.o
+ .text.Bt_SndCmdWaitSlave
+                0x0000000000000000       0x1c output/obj/yc11xx_bt_interface.o
+ .text.Bt_SndCmdExitTWS
+                0x0000000000000000       0x1c output/obj/yc11xx_bt_interface.o
+ .text.Bt_SndCmdTwsNoConnectTransCmdPowerOff
+                0x0000000000000000       0x1c output/obj/yc11xx_bt_interface.o
+ .text.Bt_SndCmdTwsNoConnectTransCmdInStore
+                0x0000000000000000       0x1c output/obj/yc11xx_bt_interface.o
+ .text.Bt_SndCmdTwsNoConnectTransCmdChangeLanguageEn
+                0x0000000000000000       0x1c output/obj/yc11xx_bt_interface.o
+ .text.Bt_SndCmdTwsNoConnectTransCmdChangeLanguageCh
+                0x0000000000000000       0x1c output/obj/yc11xx_bt_interface.o
+ .text.Bt_SndCmdTwsNoConnectTransCmdSwitchOALOFF
+                0x0000000000000000       0x1c output/obj/yc11xx_bt_interface.o
+ .text.Bt_SndCmdTwsNoConnectTransCmdSwitchOALON
+                0x0000000000000000       0x1c output/obj/yc11xx_bt_interface.o
+ .text.Bt_CheckAVRCPConnected
+                0x0000000000000000       0x30 output/obj/yc11xx_bt_interface.o
+ .text.Bt_CheckA2DPConnected
+                0x0000000000000000       0x30 output/obj/yc11xx_bt_interface.o
+ .text.Bt_CheckA2DPStart
+                0x0000000000000000       0x10 output/obj/yc11xx_bt_interface.o
+ .text.Bt_CheckHfpStart
+                0x0000000000000000       0x10 output/obj/yc11xx_bt_interface.o
+ .text.Bt_CheckHFPIsIncomming
+                0x0000000000000000       0x14 output/obj/yc11xx_bt_interface.o
+ .text.Bt_CheckTwsMasterConnected
+                0x0000000000000000       0x12 output/obj/yc11xx_bt_interface.o
+ .text.Bt_CheckTwsInMasterWorkProcess
+                0x0000000000000000       0x2c output/obj/yc11xx_bt_interface.o
+ .text.Bt_CheckTwsSlaveConnected
+                0x0000000000000000       0x10 output/obj/yc11xx_bt_interface.o
+ .text.Bt_CheckTwsInSlaveWorkProcess
+                0x0000000000000000       0x30 output/obj/yc11xx_bt_interface.o
+ .text.Bt_CheckTwsConnected
+                0x0000000000000000       0x1e output/obj/yc11xx_bt_interface.o
+ .text.Bt_CheckTwsHSPRoleLeft
+                0x0000000000000000       0x12 output/obj/yc11xx_bt_interface.o
+ .text.Bt_CheckHfpLocalInprocess
+                0x0000000000000000       0x12 output/obj/yc11xx_bt_interface.o
+ .text.Bt_CheckVpInprocess
+                0x0000000000000000       0x12 output/obj/yc11xx_bt_interface.o
+ .text.Bt_CheckVpInHardwareWork
+                0x0000000000000000        0xc output/obj/yc11xx_bt_interface.o
+ .text.Bt_CheckMediaPlayInprocess
+                0x0000000000000000       0x10 output/obj/yc11xx_bt_interface.o
+ .text.Bt_CheckInFastSyncMode
+                0x0000000000000000       0x12 output/obj/yc11xx_bt_interface.o
+ .text.Bt_CheckTwsRoleMaster
+                0x0000000000000000       0x12 output/obj/yc11xx_bt_interface.o
+ .text.Bt_CheckTwsRoleSlave
+                0x0000000000000000       0x12 output/obj/yc11xx_bt_interface.o
+ .text.Bt_CheckSCOInHV3EV3Transaction
+                0x0000000000000000       0x10 output/obj/yc11xx_bt_interface.o
+ .text.Bt_CheckSCOInHV3Transaction
+                0x0000000000000000       0x10 output/obj/yc11xx_bt_interface.o
+ .text.Bt_GetMac
+                0x0000000000000000       0x2a output/obj/yc11xx_bt_interface.o
+ .text.Bt_SndCmdDisconnect
+                0x0000000000000000       0x1a output/obj/yc11xx_bt_interface.o
+ .text.Bt_SndCmdStartDiscovery
+                0x0000000000000000       0x1a output/obj/yc11xx_bt_interface.o
+ .text.Bt_SndCmdStopDiscovery
+                0x0000000000000000       0x1a output/obj/yc11xx_bt_interface.o
+ .text.Bt_SndCmdStartReconTws
+                0x0000000000000000       0x1c output/obj/yc11xx_bt_interface.o
+ .text.Bt_SndCmdPwroff
+                0x0000000000000000       0x1a output/obj/yc11xx_bt_interface.o
+ .text.Bt_SndCmdAudioProcessInfo
+                0x0000000000000000       0x1c output/obj/yc11xx_bt_interface.o
+ .text.Bt_SndCmdExitFastSyncMode
+                0x0000000000000000       0x1c output/obj/yc11xx_bt_interface.o
+ .text.Bt_SndCmdEnterFastSyncMode
+                0x0000000000000000       0x1c output/obj/yc11xx_bt_interface.o
+ .text.Bt_SndCmdLeUpdateConn
+                0x0000000000000000       0x1a output/obj/yc11xx_bt_interface.o
+ .text.Bt_CheckChargeEnable
+                0x0000000000000000       0x28 output/obj/yc11xx_bt_interface.o
+ .text.Bt_LpmUpdateChargeWakeupSetting
+                0x0000000000000000       0x30 output/obj/yc11xx_bt_interface.o
+ .text.MedianFilter
+                0x0000000000000000       0x5a output/obj/yc11xx_bt_interface.o
+ .text.Bt_SndCmdShutdownQspi
+                0x0000000000000000       0x1c output/obj/yc11xx_bt_interface.o
+ .text.Bt_RemoveSCOLink
+                0x0000000000000000       0x1c output/obj/yc11xx_bt_interface.o
+ .text.Bt_CreateSCOLink
+                0x0000000000000000       0x1c output/obj/yc11xx_bt_interface.o
+ .text.Bt_SwitchSCOLinkState
+                0x0000000000000000       0x32 output/obj/yc11xx_bt_interface.o
+ .text.Bt_LpmChangeBBLdoLevel
+                0x0000000000000000       0x78 output/obj/yc11xx_bt_interface.o
+ .text.Bt_SndCmdEnterSniff
+                0x0000000000000000       0x1a output/obj/yc11xx_bt_interface.o
+ .text.Bt_SndCmdExitSniff
+                0x0000000000000000       0x1a output/obj/yc11xx_bt_interface.o
+ .text.Bt_SndCmdTwsOalFunc
+                0x0000000000000000        0x2 output/obj/yc11xx_bt_interface.o
+ .text.Bt_CheckLinkInSniff
+                0x0000000000000000       0x12 output/obj/yc11xx_bt_interface.o
+ .text.Bt_SndCmdEnterTestPlay
+                0x0000000000000000       0x1c output/obj/yc11xx_bt_interface.o
+ .text.Bt_SndCmdEnterTestPause
+                0x0000000000000000       0x1c output/obj/yc11xx_bt_interface.o
+ .text.Bt_SndCmdEnterTestSCO
+                0x0000000000000000       0x1c output/obj/yc11xx_bt_interface.o
+ .text.Bt_SndCmdExitTestSCO
+                0x0000000000000000       0x1c output/obj/yc11xx_bt_interface.o
+ .text.Bt_freq_test_start
+                0x0000000000000000       0x1c output/obj/yc11xx_bt_interface.o
+ .text.Bt_freq_test_end
+                0x0000000000000000        0x2 output/obj/yc11xx_bt_interface.o
+ .text.Bt_CheckTwsInPlayWork
+                0x0000000000000000       0x14 output/obj/yc11xx_bt_interface.o
+ .debug_info    0x0000000000000000     0x18f0 output/obj/yc11xx_bt_interface.o
+ .debug_abbrev  0x0000000000000000      0x3e1 output/obj/yc11xx_bt_interface.o
+ .debug_loc     0x0000000000000000      0x2ad output/obj/yc11xx_bt_interface.o
+ .debug_aranges
+                0x0000000000000000      0x318 output/obj/yc11xx_bt_interface.o
+ .debug_ranges  0x0000000000000000      0x370 output/obj/yc11xx_bt_interface.o
+ .debug_line    0x0000000000000000     0x152f output/obj/yc11xx_bt_interface.o
+ .debug_str     0x0000000000000000      0xfca output/obj/yc11xx_bt_interface.o
+ .comment       0x0000000000000000       0x12 output/obj/yc11xx_bt_interface.o
+ .debug_frame   0x0000000000000000      0x958 output/obj/yc11xx_bt_interface.o
+ .text          0x0000000000000000        0x0 output/obj/yc11xx_ipc.o
+ .data          0x0000000000000000        0x0 output/obj/yc11xx_ipc.o
+ .bss           0x0000000000000000        0x0 output/obj/yc11xx_ipc.o
+ .text.IPC_TxPacket
+                0x0000000000000000       0x88 output/obj/yc11xx_ipc.o
+ .text.IPC_TxControlCmd
+                0x0000000000000000       0x80 output/obj/yc11xx_ipc.o
+ .text.IPC_TxAclCmd
+                0x0000000000000000       0x80 output/obj/yc11xx_ipc.o
+ .rodata.__FUNCTION__.2878
+                0x0000000000000000        0xd output/obj/yc11xx_ipc.o
+ .rodata.__FUNCTION__.2889
+                0x0000000000000000       0x11 output/obj/yc11xx_ipc.o
+ .rodata.__FUNCTION__.2894
+                0x0000000000000000        0xd output/obj/yc11xx_ipc.o
+ .text          0x0000000000000000        0x0 output/obj/yc11xx_gpio.o
+ .data          0x0000000000000000        0x0 output/obj/yc11xx_gpio.o
+ .bss           0x0000000000000000        0x0 output/obj/yc11xx_gpio.o
+ .rodata.GPIO_Init.str1.4
+                0x0000000000000000       0x26 output/obj/yc11xx_gpio.o
+ .text.GPIO_Init
+                0x0000000000000000       0x5c output/obj/yc11xx_gpio.o
+ .text.GPIO_ReadDataBit
+                0x0000000000000000       0xc4 output/obj/yc11xx_gpio.o
+ .text.GPIO_GetInterruptStatus
+                0x0000000000000000       0xc4 output/obj/yc11xx_gpio.o
+ .text.GPIO_SetInterrupt
+                0x0000000000000000      0x49e output/obj/yc11xx_gpio.o
+ .rodata.GPIO_SetInterrupt
+                0x0000000000000000       0x14 output/obj/yc11xx_gpio.o
+ .text.GPIO_ClearInterrupt
+                0x0000000000000000      0x134 output/obj/yc11xx_gpio.o
+ .text.GPIO_SetLongPressReset
+                0x0000000000000000       0x66 output/obj/yc11xx_gpio.o
+ .text.GPIO_SetLongPressResetTimeOut
+                0x0000000000000000        0xe output/obj/yc11xx_gpio.o
+ .text.GPIO_WakeUp
+                0x0000000000000000      0x290 output/obj/yc11xx_gpio.o
+ .rodata.__FUNCTION__.2294
+                0x0000000000000000        0xa output/obj/yc11xx_gpio.o
+ .rodata.__FUNCTION__.2298
+                0x0000000000000000       0x11 output/obj/yc11xx_gpio.o
+ .rodata.__FUNCTION__.2303
+                0x0000000000000000       0x18 output/obj/yc11xx_gpio.o
+ .rodata.__FUNCTION__.2309
+                0x0000000000000000       0x12 output/obj/yc11xx_gpio.o
+ .rodata.__FUNCTION__.2320
+                0x0000000000000000       0x14 output/obj/yc11xx_gpio.o
+ .debug_info    0x0000000000000000     0x10b1 output/obj/yc11xx_gpio.o
+ .debug_abbrev  0x0000000000000000      0x28d output/obj/yc11xx_gpio.o
+ .debug_loc     0x0000000000000000      0x415 output/obj/yc11xx_gpio.o
+ .debug_aranges
+                0x0000000000000000       0x58 output/obj/yc11xx_gpio.o
+ .debug_ranges  0x0000000000000000       0x48 output/obj/yc11xx_gpio.o
+ .debug_line    0x0000000000000000      0xe7b output/obj/yc11xx_gpio.o
+ .debug_str     0x0000000000000000      0xfb2 output/obj/yc11xx_gpio.o
+ .comment       0x0000000000000000       0x12 output/obj/yc11xx_gpio.o
+ .debug_frame   0x0000000000000000       0xf4 output/obj/yc11xx_gpio.o
+ .text          0x0000000000000000        0x0 output/obj/yc11xx_iwdg.o
+ .data          0x0000000000000000        0x0 output/obj/yc11xx_iwdg.o
+ .bss           0x0000000000000000        0x0 output/obj/yc11xx_iwdg.o
+ .text.IWDG_Init
+                0x0000000000000000       0xa4 output/obj/yc11xx_iwdg.o
+ .text.IWDG_SetReload
+                0x0000000000000000       0x34 output/obj/yc11xx_iwdg.o
+ .text.IWDG_ReloadCounter
+                0x0000000000000000       0x18 output/obj/yc11xx_iwdg.o
+ .text.IWDG_Enable
+                0x0000000000000000       0x4a output/obj/yc11xx_iwdg.o
+ .text.IWDG_Start
+                0x0000000000000000       0x5e output/obj/yc11xx_iwdg.o
+ .text.WDT_IntrClear
+                0x0000000000000000       0x4a output/obj/yc11xx_iwdg.o
+ .text.WDT_IntrEn
+                0x0000000000000000       0x12 output/obj/yc11xx_iwdg.o
+ .rodata.__FUNCTION__.2166
+                0x0000000000000000        0xa output/obj/yc11xx_iwdg.o
+ .rodata.__FUNCTION__.2177
+                0x0000000000000000        0xc output/obj/yc11xx_iwdg.o
+ .rodata.__FUNCTION__.2187
+                0x0000000000000000        0xb output/obj/yc11xx_iwdg.o
+ .rodata.__FUNCTION__.2191
+                0x0000000000000000        0xe output/obj/yc11xx_iwdg.o
+ .text          0x0000000000000000        0x0 output/obj/yc11xx_qspi0.o
+ .data          0x0000000000000000        0x0 output/obj/yc11xx_qspi0.o
+ .bss           0x0000000000000000        0x0 output/obj/yc11xx_qspi0.o
+ .text.qspi0_flash_quadenable
+                0x0000000000000000       0x5a output/obj/yc11xx_qspi0.o
+ .text.qspi0_flash_writedisable
+                0x0000000000000000       0x1a output/obj/yc11xx_qspi0.o
+ .text.qspi0_flash_precmd
+                0x0000000000000000       0x1c output/obj/yc11xx_qspi0.o
+ .text._qspi0_flash_chiperase
+                0x0000000000000000       0x38 output/obj/yc11xx_qspi0.o
+ .text._qspi0_flash_read
+                0x0000000000000000       0xf2 output/obj/yc11xx_qspi0.o
+ .text._qspi0_flash_JEDECID
+                0x0000000000000000       0x34 output/obj/yc11xx_qspi0.o
+ .text.qspi0_flash_blockerase32k
+                0x0000000000000000       0x38 output/obj/yc11xx_qspi0.o
+ .text.qspi0_flash_blockerase64k
+                0x0000000000000000       0x38 output/obj/yc11xx_qspi0.o
+ .text.qspi0_flash_blockerasepage
+                0x0000000000000000       0x38 output/obj/yc11xx_qspi0.o
+ .text.qspi0_flash_chiperase
+                0x0000000000000000       0x30 output/obj/yc11xx_qspi0.o
+ .text.qspi0_flash_read
+                0x0000000000000000       0x44 output/obj/yc11xx_qspi0.o
+ .text.qspi0_flash_JEDECID
+                0x0000000000000000       0x38 output/obj/yc11xx_qspi0.o
+ .text.QSPI0_SetInter
+                0x0000000000000000       0x1c output/obj/yc11xx_qspi0.o
+ .text.QSPI0_ClearInter
+                0x0000000000000000       0x1e output/obj/yc11xx_qspi0.o
+ .text          0x0000000000000000        0x0 output/obj/yc11xx_systick.o
+ .data          0x0000000000000000        0x0 output/obj/yc11xx_systick.o
+ .bss           0x0000000000000000        0x0 output/obj/yc11xx_systick.o
+ .bss.g_systick_unitUs
+                0x0000000000000000        0x4 output/obj/yc11xx_systick.o
+ .text.SysTick_Config
+                0x0000000000000000       0x2c output/obj/yc11xx_systick.o
+ .text.SysTick_TimerGet1usTicks
+                0x0000000000000000       0x28 output/obj/yc11xx_systick.o
+ .text.SysTick_Init
+                0x0000000000000000       0x32 output/obj/yc11xx_systick.o
+ .text.SysTick_IrqInit
+                0x0000000000000000       0x6c output/obj/yc11xx_systick.o
+ .text.SysTick_CheckInFastDpll
+                0x0000000000000000       0x12 output/obj/yc11xx_systick.o
+ .text.System_LdoCoreVsel
+                0x0000000000000000       0x64 output/obj/yc11xx_systick.o
+ .text.System_ChangeDPLL
+                0x0000000000000000       0x5e output/obj/yc11xx_systick.o
+ .text.System_ChangeXtal24M
+                0x0000000000000000       0x4a output/obj/yc11xx_systick.o
+ .text.SysTick_DelayMs
+                0x0000000000000000       0x20 output/obj/yc11xx_systick.o
+ .text.SysTick_DelayUs
+                0x0000000000000000       0x58 output/obj/yc11xx_systick.o
+ .rodata.CSWTCH.10
+                0x0000000000000000        0x4 output/obj/yc11xx_systick.o
+ .text          0x0000000000000000        0x0 output/obj/yc11xx_lpm.o
+ .data          0x0000000000000000        0x0 output/obj/yc11xx_lpm.o
+ .bss           0x0000000000000000        0x0 output/obj/yc11xx_lpm.o
+ .text.Lpm_GetM0LpmReg
+                0x0000000000000000       0x12 output/obj/yc11xx_lpm.o
+ .text          0x0000000000000000        0x0 output/obj/yc11xx_dev_bt_aap.o
+ .data          0x0000000000000000        0x0 output/obj/yc11xx_dev_bt_aap.o
+ .bss           0x0000000000000000        0x0 output/obj/yc11xx_dev_bt_aap.o
+ .rodata.aap_switch_mode_rsp
+                0x0000000000000000        0xb output/obj/yc11xx_dev_bt_aap.o
+ .text          0x0000000000000000        0x0 output/obj/yc11xx_dev_bt_data_trans.o
+ .data          0x0000000000000000        0x0 output/obj/yc11xx_dev_bt_data_trans.o
+ .bss           0x0000000000000000        0x0 output/obj/yc11xx_dev_bt_data_trans.o
+ .text.Bt_HciFifo_DeInit
+                0x0000000000000000       0x26 output/obj/yc11xx_dev_bt_data_trans.o
+ .text.Bt_HciGetSendBufferPtr
+                0x0000000000000000       0x1a output/obj/yc11xx_dev_bt_data_trans.o
+ .text.Bt_GetRespinUsedBufferNum
+                0x0000000000000000        0xa output/obj/yc11xx_dev_bt_data_trans.o
+ .text.Bt_HciGetUsedBufferNum
+                0x0000000000000000        0xe output/obj/yc11xx_dev_bt_data_trans.o
+ .rodata.Bt_SppSendData.str1.4
+                0x0000000000000000       0x24 output/obj/yc11xx_dev_bt_data_trans.o
+ .text.Bt_SppSendData
+                0x0000000000000000       0x44 output/obj/yc11xx_dev_bt_data_trans.o
+ .text.Bt_SppCallback
+                0x0000000000000000        0x2 output/obj/yc11xx_dev_bt_data_trans.o
+ .text.Bt_ScoCallback
+                0x0000000000000000        0x2 output/obj/yc11xx_dev_bt_data_trans.o
+ .text          0x0000000000000000        0x0 output/obj/yc11xx_dev_qspi.o
+ .data          0x0000000000000000        0x0 output/obj/yc11xx_dev_qspi.o
+ .bss           0x0000000000000000        0x0 output/obj/yc11xx_dev_qspi.o
+ .text.QSPI_ReadFlashDataToXRAM
+                0x0000000000000000       0xca output/obj/yc11xx_dev_qspi.o
+ .text.QSPI_ReadFlashData
+                0x0000000000000000       0x6c output/obj/yc11xx_dev_qspi.o
+ .text.QSPI_EraseFlashPage
+                0x0000000000000000       0x74 output/obj/yc11xx_dev_qspi.o
+ .text.QSPI_WritePageFlashData
+                0x0000000000000000       0xf4 output/obj/yc11xx_dev_qspi.o
+ .text          0x0000000000000000        0x0 output/obj/yc_dev_bt.o
+ .data          0x0000000000000000        0x0 output/obj/yc_dev_bt.o
+ .bss           0x0000000000000000        0x0 output/obj/yc_dev_bt.o
+ .text.ENCRYPT_FAIL
+                0x0000000000000000        0x2 output/obj/yc_dev_bt.o
+ .data.gFacRecinfo
+                0x0000000000000000        0x4 output/obj/yc_dev_bt.o
+ .text.bt_set_adv_type
+                0x0000000000000000        0xe output/obj/yc_dev_bt.o
+ .text.bt_set_adv_addr_type
+                0x0000000000000000        0xa output/obj/yc_dev_bt.o
+ .text.bt_set_ce_length_num
+                0x0000000000000000        0xa output/obj/yc_dev_bt.o
+ .text.bt_set_auth_for_security_req
+                0x0000000000000000        0xa output/obj/yc_dev_bt.o
+ .text.bt_send_security_request
+                0x0000000000000000       0x12 output/obj/yc_dev_bt.o
+ .text.bt_update_mtu
+                0x0000000000000000       0x12 output/obj/yc_dev_bt.o
+ .text.bt_update_slave_feature
+                0x0000000000000000       0x12 output/obj/yc_dev_bt.o
+ .text.bt_update_dle
+                0x0000000000000000       0x12 output/obj/yc_dev_bt.o
+ .text.bt_renew_scan_rsp
+                0x0000000000000000       0x36 output/obj/yc_dev_bt.o
+ .text.bt_start_le_adv
+                0x0000000000000000      0x122 output/obj/yc_dev_bt.o
+ .text.bt_le_conn_updata_param_req
+                0x0000000000000000       0x74 output/obj/yc_dev_bt.o
+ .text.bt_set_le_mtu_size
+                0x0000000000000000       0x14 output/obj/yc_dev_bt.o
+ .text.bt_disable_le_tx_md
+                0x0000000000000000       0x1c output/obj/yc_dev_bt.o
+ .text.bt_enable_le_tx_md
+                0x0000000000000000       0x1c output/obj/yc_dev_bt.o
+ .text.bt_check_le_in_adv
+                0x0000000000000000       0x10 output/obj/yc_dev_bt.o
+ .text.bt_get_le_state
+                0x0000000000000000        0xa output/obj/yc_dev_bt.o
+ .text.bt_set_le_state
+                0x0000000000000000        0xa output/obj/yc_dev_bt.o
+ .text.bt_disconnect_reason_get
+                0x0000000000000000        0xe output/obj/yc_dev_bt.o
+ .text.bt_pair_fail_reason_get
+                0x0000000000000000        0xa output/obj/yc_dev_bt.o
+ .text.bt_send_le_disconnect
+                0x0000000000000000       0x22 output/obj/yc_dev_bt.o
+ .text.bt_conn_arg_update_status_get
+                0x0000000000000000        0xa output/obj/yc_dev_bt.o
+ .text.bt_enable_le_latecy
+                0x0000000000000000       0x1c output/obj/yc_dev_bt.o
+ .text.bt_disable_le_latecy
+                0x0000000000000000       0x1c output/obj/yc_dev_bt.o
+ .text.bt_connect_enc_protect
+                0x0000000000000000       0x2a output/obj/yc_dev_bt.o
+ .text.bt_check_lpm_allow
+                0x0000000000000000       0x58 output/obj/yc_dev_bt.o
+ .text.bt_set_lpm_overhead_wake_time
+                0x0000000000000000        0xe output/obj/yc_dev_bt.o
+ .text.bt_set_connect_lpm_period
+                0x0000000000000000       0x2e output/obj/yc_dev_bt.o
+ .bss.rssi_buffer
+                0x0000000000000000        0x8 output/obj/yc_dev_bt.o
+ .bss.rssi_counter
+                0x0000000000000000        0x1 output/obj/yc_dev_bt.o
+ .text.bt_dynamic_switch_power
+                0x0000000000000000       0x86 output/obj/yc_dev_bt.o
+ .text.bt_white_filter_policy
+                0x0000000000000000        0xa output/obj/yc_dev_bt.o
+ .text.bt_add_white_list
+                0x0000000000000000       0x6a output/obj/yc_dev_bt.o
+ .text.bt_clear_white_list
+                0x0000000000000000        0xa output/obj/yc_dev_bt.o
+ .text.Flash_CheckFlashRecordCRC
+                0x0000000000000000       0x50 output/obj/yc_dev_bt.o
+ .text.Flash_FacStoreInfoCrc
+                0x0000000000000000       0x3e output/obj/yc_dev_bt.o
+ .text.Flash_FacStoreInfoCRCCheck
+                0x0000000000000000       0x3a output/obj/yc_dev_bt.o
+ .text.Bt_ReadFacStoreInfoFromFlash
+                0x0000000000000000       0x66 output/obj/yc_dev_bt.o
+ .text.Flash_LoadFacStoreInfo
+                0x0000000000000000       0x5e output/obj/yc_dev_bt.o
+ .text.Flash_LoadFlashRecord
+                0x0000000000000000       0x6c output/obj/yc_dev_bt.o
+ .text.Bt_ReadAddrFromFlash
+                0x0000000000000000       0xd0 output/obj/yc_dev_bt.o
+ .text.Bt_CheckIsPaired
+                0x0000000000000000       0x16 output/obj/yc_dev_bt.o
+ .text.Bt_CheckFastPairedWorkOn
+                0x0000000000000000       0x16 output/obj/yc_dev_bt.o
+ .text.Bt_ClearFastPaired
+                0x0000000000000000       0x30 output/obj/yc_dev_bt.o
+ .text.Bt_ClearAddrToFlash
+                0x0000000000000000       0x28 output/obj/yc_dev_bt.o
+ .text.Bt_ClearLinkkey
+                0x0000000000000000       0x26 output/obj/yc_dev_bt.o
+ .rodata.Bt_ClearRemoteDevInfo.str1.4
+                0x0000000000000000       0x18 output/obj/yc_dev_bt.o
+ .text.Bt_ClearRemoteDevInfo
+                0x0000000000000000       0x56 output/obj/yc_dev_bt.o
+ .text.Bt_ClearDeviceNvdataInfo
+                0x0000000000000000       0x52 output/obj/yc_dev_bt.o
+ .text.Bt_ClearNvdataItem
+                0x0000000000000000       0x2c output/obj/yc_dev_bt.o
+ .text.bt_random_data_get
+                0x0000000000000000       0x2e output/obj/yc_dev_bt.o
+ .text          0x0000000000000000        0x0 output/obj/hci_dtm_test.o
+ .data          0x0000000000000000        0x0 output/obj/hci_dtm_test.o
+ .bss           0x0000000000000000        0x0 output/obj/hci_dtm_test.o
+ .text.hci_freq_test_end
+                0x0000000000000000       0x12 output/obj/hci_dtm_test.o
+ .text.bt_set_freq_point
+                0x0000000000000000        0xa output/obj/hci_dtm_test.o
+ .text          0x0000000000000000        0x0 output/obj/att.o
+ .data          0x0000000000000000        0x0 output/obj/att.o
+ .bss           0x0000000000000000        0x0 output/obj/att.o
+ .text.u8_to_u16
+                0x0000000000000000       0x12 output/obj/att.o
+ .text.ATT_SendExchangeMtuReq
+                0x0000000000000000       0x4a output/obj/att.o
+ .text.ATT_sendWriteReq
+                0x0000000000000000       0x5e output/obj/att.o
+ .text.ATT_sendNotify
+                0x0000000000000000       0x6a output/obj/att.o
+ .text          0x0000000000000000        0x0 output/obj/remote_control.o
+ .data          0x0000000000000000        0x0 output/obj/remote_control.o
+ .bss           0x0000000000000000        0x0 output/obj/remote_control.o
+ .text          0x0000000000000000        0x0 output/obj/att_list.o
+ .data          0x0000000000000000        0x0 output/obj/att_list.o
+ .bss           0x0000000000000000        0x0 output/obj/att_list.o
+ .text.Get_AttListSize
+                0x0000000000000000        0x4 output/obj/att_list.o
+ .data          0x0000000000000000        0x0 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(save-restore.o)
+ .bss           0x0000000000000000        0x0 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(save-restore.o)
+ .eh_frame      0x0000000000000000       0xf8 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(save-restore.o)
+ .data          0x0000000000000000        0x0 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0/../../../../riscv32-unknown-elf/lib\libc.a(lib_a-memcmp.o)
+ .bss           0x0000000000000000        0x0 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0/../../../../riscv32-unknown-elf/lib\libc.a(lib_a-memcmp.o)
+ .data          0x0000000000000000        0x0 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0/../../../../riscv32-unknown-elf/lib\libc.a(lib_a-memcpy.o)
+ .bss           0x0000000000000000        0x0 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0/../../../../riscv32-unknown-elf/lib\libc.a(lib_a-memcpy.o)
+ .data          0x0000000000000000        0x0 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0/../../../../riscv32-unknown-elf/lib\libc.a(lib_a-memset.o)
+ .bss           0x0000000000000000        0x0 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0/../../../../riscv32-unknown-elf/lib\libc.a(lib_a-memset.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+LOAD output/obj/main.o
+LOAD output/obj/yc_debug.o
+LOAD output/obj/yc11xx.o
+LOAD output/obj/malloc.o
+LOAD output/obj/yc11xx_bt_interface.o
+LOAD output/obj/yc11xx_ipc.o
+LOAD output/obj/yc11xx_gpio.o
+LOAD output/obj/yc11xx_iwdg.o
+LOAD output/obj/yc11xx_qspi0.o
+LOAD output/obj/yc11xx_systick.o
+LOAD output/obj/yc11xx_lpm.o
+LOAD output/obj/yc11xx_dev_bt_aap.o
+LOAD output/obj/yc11xx_dev_bt_data_trans.o
+LOAD output/obj/yc11xx_dev_qspi.o
+LOAD output/obj/yc_dev_bt.o
+LOAD output/obj/hci_dtm_test.o
+LOAD output/obj/att.o
+LOAD output/obj/remote_control.o
+LOAD output/obj/att_list.o
+LOAD output/obj/startup_rv32.o
+LOAD d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a
+START GROUP
+LOAD d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0/../../../../riscv32-unknown-elf/lib\libc.a
+LOAD d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0/../../../../riscv32-unknown-elf/lib\libgloss.a
+END GROUP
+LOAD d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a
+                0x0000000001000000                . = 0x1000000
+
+.text           0x0000000001000000      0x680
+ *startup_rv32.o()
+ .text          0x0000000001000000        0x0 output/obj/startup_rv32.o
+ .data          0x0000000001000000        0x0 output/obj/startup_rv32.o
+ .bss           0x0000000001000000        0x0 output/obj/startup_rv32.o
+ .text.startup  0x0000000001000000      0x14c output/obj/startup_rv32.o
+                0x0000000001000096                disable_mie
+                0x000000000100009e                enable_mie
+                0x00000000010000a8                Default_IRQHandler
+ *fill*         0x000000000100014c       0x34 
+ .text.trap     0x0000000001000180      0x160 output/obj/startup_rv32.o
+                0x0000000001000180                trap
+                0x00000000010001d8                lpo_delay
+                0x00000000010001de                trap_c
+                0x0000000001000200                NMI_Handler
+                0x0000000001000200                UART_IRQHandler
+                0x0000000001000200                SBC_ERR1_IRQHandl
+                0x0000000001000200                SBC_ERR0_IRQHandl
+                0x0000000001000200                UARTB_IRQHandler
+                0x0000000001000200                PWM3_IRQHandler
+                0x0000000001000200                IIS_IRQHandler
+                0x0000000001000200                BT_IRQHandler
+                0x0000000001000200                PWM1_IRQHandler
+                0x0000000001000200                SPI_IRQHandler
+                0x0000000001000200                PWM5_IRQHandler
+                0x0000000001000200                PWM2_IRQHandler
+                0x0000000001000200                Default_Handler
+                0x0000000001000200                QSPI1_IRQHandler
+                0x0000000001000200                ADC_IRQHandler
+                0x0000000001000200                PWM4_IRQHandler
+                0x0000000001000200                USB_IRQHandler
+                0x0000000001000200                IIC_IRQHandler
+                0x0000000001000200                IICD1_IRQHandler
+                0x0000000001000200                PWM7_IRQHandler
+                0x0000000001000200                SDMA_IRQHandler
+                0x0000000001000200                WDT_IRQHandler
+                0x0000000001000200                DEB_IRQHandler
+                0x0000000001000200                QSPI2_IRQHandler
+                0x0000000001000200                PWM0_IRQHandler
+                0x0000000001000200                HOST_IRQHandler
+                0x0000000001000200                DMA_IRQHandler
+                0x0000000001000200                SD_IRQHandler
+                0x0000000001000200                WDT2_IRQHandler
+                0x0000000001000200                QSPI_IRQHandler
+                0x0000000001000200                PWM6_IRQHandler
+                0x0000000001000200                FFT_IRQHandler
+                0x0000000001000200                GPIO_IRQHandler
+ .debug_line    0x00000000010002e0      0x2a7 output/obj/startup_rv32.o
+ .debug_info    0x0000000001000587       0x22 output/obj/startup_rv32.o
+ .debug_abbrev  0x00000000010005a9       0x12 output/obj/startup_rv32.o
+ *fill*         0x00000000010005bb        0x5 
+ .debug_aranges
+                0x00000000010005c0       0x28 output/obj/startup_rv32.o
+ .debug_str     0x00000000010005e8       0x76 output/obj/startup_rv32.o
+ *fill*         0x000000000100065e        0x2 
+ .debug_ranges  0x0000000001000660       0x20 output/obj/startup_rv32.o
+                0x0000000001001000                . = 0x1001000
+
+.text1          0x0000000001001000     0x37c4
+ *app_config.o()
+ *(.text*)
+ .text.bt_init  0x0000000001001000       0x5e output/obj/main.o
+ .text.chip_task_run
+                0x000000000100105e        0xe output/obj/main.o
+ .text.chip_init
+                0x000000000100106c       0x36 output/obj/main.o
+ .text.startup.main
+                0x00000000010010a2       0x18 output/obj/main.o
+                0x00000000010010a2                main
+ .text.uart_txBuffer
+                0x00000000010010ba       0x1c output/obj/yc_debug.o
+                0x00000000010010ba                uart_txBuffer
+ .text.uart_txChar
+                0x00000000010010d6       0x7c output/obj/yc_debug.o
+                0x00000000010010d6                uart_txChar
+ .text.init_debugUart
+                0x0000000001001152       0xc6 output/obj/yc_debug.o
+                0x0000000001001152                init_debugUart
+ .text.debugUart_pollTx
+                0x0000000001001218        0xa output/obj/yc_debug.o
+                0x0000000001001218                debugUart_pollTx
+ .text.yichip_debug_uart_protocol
+                0x0000000001001222       0x32 output/obj/yc_debug.o
+                0x0000000001001222                yichip_debug_uart_protocol
+ .text.init_print_log
+                0x0000000001001254      0x142 output/obj/yc_debug.o
+                0x0000000001001254                init_print_log
+ .text.print_log_to_uart
+                0x0000000001001396       0xfa output/obj/yc_debug.o
+                0x0000000001001396                print_log_to_uart
+ .text.print_string_to_uart
+                0x0000000001001490       0x48 output/obj/yc_debug.o
+                0x0000000001001490                print_string_to_uart
+ .text.print_string
+                0x00000000010014d8       0x34 output/obj/yc_debug.o
+                0x00000000010014d8                print_string
+ .text.print_string_log_raw
+                0x000000000100150c      0x24c output/obj/yc_debug.o
+                0x000000000100150c                print_string_log_raw
+ .text.print_string_log
+                0x0000000001001758       0x30 output/obj/yc_debug.o
+                0x0000000001001758                print_string_log
+ .text.xmemcpy  0x0000000001001788       0x2c output/obj/yc11xx.o
+                0x0000000001001788                xmemcpy
+ .text.hexchar2hex
+                0x00000000010017b4       0x40 output/obj/yc11xx.o
+                0x00000000010017b4                hexchar2hex
+ .text._assert_handler
+                0x00000000010017f4        0x2 output/obj/yc11xx.o
+                0x00000000010017f4                _assert_handler
+ .text.SetLockLpmWriteReg
+                0x00000000010017f6       0x30 output/obj/yc11xx.o
+                0x00000000010017f6                SetLockLpmWriteReg
+ .text.SetReleaseLpmWriteReg
+                0x0000000001001826        0xa output/obj/yc11xx.o
+                0x0000000001001826                SetReleaseLpmWriteReg
+ .text.CoreReg_LpmWriteCommon
+                0x0000000001001830       0x84 output/obj/yc11xx.o
+                0x0000000001001830                CoreReg_LpmWriteCommon
+ .text.CoreReg_LpmWrite2
+                0x00000000010018b4       0x10 output/obj/yc11xx.o
+                0x00000000010018b4                CoreReg_LpmWrite2
+ .text.CoreReg_LpmWrite2IceWdtLongRst
+                0x00000000010018c4        0xe output/obj/yc11xx.o
+                0x00000000010018c4                CoreReg_LpmWrite2IceWdtLongRst
+ .text.CoreReg_LpmGetIceWdtLongRst
+                0x00000000010018d2       0x24 output/obj/yc11xx.o
+                0x00000000010018d2                CoreReg_LpmGetIceWdtLongRst
+ .text.wait_lpodelay
+                0x00000000010018f6       0x22 output/obj/yc11xx.o
+                0x00000000010018f6                wait_lpodelay
+ .text.prvInsertBlockIntoFreeList
+                0x0000000001001918       0x4c output/obj/malloc.o
+ .text.Memory_Malloc
+                0x0000000001001964       0xc8 output/obj/malloc.o
+                0x0000000001001964                Memory_Malloc
+ .text.Memory_Free
+                0x0000000001001a2c       0x46 output/obj/malloc.o
+                0x0000000001001a2c                Memory_Free
+ .text.Memory_InitHeap
+                0x0000000001001a72       0x3c output/obj/malloc.o
+                0x0000000001001a72                Memory_InitHeap
+ .text.ipcRx    0x0000000001001aae      0x162 output/obj/yc11xx_ipc.o
+ .text.ipcTx    0x0000000001001c10      0x162 output/obj/yc11xx_ipc.o
+ .text.IPC_IsTxBuffEmpty
+                0x0000000001001d72      0x160 output/obj/yc11xx_ipc.o
+                0x0000000001001d72                IPC_IsTxBuffEmpty
+ .text.IPC_IsRxBuffEmpty
+                0x0000000001001ed2      0x160 output/obj/yc11xx_ipc.o
+                0x0000000001001ed2                IPC_IsRxBuffEmpty
+ .text.IPC_TxBufferIsEnough
+                0x0000000001002032      0x1ee output/obj/yc11xx_ipc.o
+                0x0000000001002032                IPC_TxBufferIsEnough
+ .text.IPC_TxCommon
+                0x0000000001002220       0x96 output/obj/yc11xx_ipc.o
+                0x0000000001002220                IPC_TxCommon
+ .text.IPC_HandleRxPacket
+                0x00000000010022b6       0x88 output/obj/yc11xx_ipc.o
+                0x00000000010022b6                IPC_HandleRxPacket
+ .text.IpcDefaultCallBack
+                0x000000000100233e       0x12 output/obj/yc11xx_ipc.o
+                0x000000000100233e                IpcDefaultCallBack
+ .text.IPC_Init
+                0x0000000001002350        0xa output/obj/yc11xx_ipc.o
+                0x0000000001002350                IPC_Init
+ .text.IWDG_Disable
+                0x000000000100235a       0x3a output/obj/yc11xx_iwdg.o
+                0x000000000100235a                IWDG_Disable
+ .text.prefetch
+                0x0000000001002394       0x14 output/obj/yc11xx_qspi0.o
+                0x0000000001002394                prefetch
+ .text.qspi0_dma_start
+                0x00000000010023a8       0x54 output/obj/yc11xx_qspi0.o
+ .text.qspi0_dma_wait
+                0x00000000010023fc       0x1e output/obj/yc11xx_qspi0.o
+ .text.qspi0_write
+                0x000000000100241a       0x3c output/obj/yc11xx_qspi0.o
+ .text.qspi0_read_write
+                0x0000000001002456       0x38 output/obj/yc11xx_qspi0.o
+ .text.qspi0_flash_cmd
+                0x000000000100248e       0x16 output/obj/yc11xx_qspi0.o
+ .text.qspi0_flash_readstatus1
+                0x00000000010024a4       0x1c output/obj/yc11xx_qspi0.o
+ .text.qspi0_flash_readstatus2
+                0x00000000010024c0       0x1e output/obj/yc11xx_qspi0.o
+ .text.qspi0_flash_waitfinish
+                0x00000000010024de       0x34 output/obj/yc11xx_qspi0.o
+ .text.qspi0_flash_writestatus
+                0x0000000001002512       0x32 output/obj/yc11xx_qspi0.o
+ .text.qspi0_flash_writeenable
+                0x0000000001002544        0xc output/obj/yc11xx_qspi0.o
+ .text._qspi0_flash_write
+                0x0000000001002550       0xa2 output/obj/yc11xx_qspi0.o
+ .text._qspi0_flash_erase
+                0x00000000010025f2       0x46 output/obj/yc11xx_qspi0.o
+ .text.qspi0_flash_sectorerase
+                0x0000000001002638       0x24 output/obj/yc11xx_qspi0.o
+                0x0000000001002638                qspi0_flash_sectorerase
+ .text.qspi0_flash_write
+                0x000000000100265c       0x2c output/obj/yc11xx_qspi0.o
+                0x000000000100265c                qspi0_flash_write
+ .text.qspi0_flash_arealock
+                0x0000000001002688       0x5c output/obj/yc11xx_qspi0.o
+                0x0000000001002688                qspi0_flash_arealock
+ .text.qspi0_flashwrite_lock
+                0x00000000010026e4       0x24 output/obj/yc11xx_qspi0.o
+                0x00000000010026e4                qspi0_flashwrite_lock
+ .text.System_WorkClockGet
+                0x0000000001002708       0x5e output/obj/yc11xx_systick.o
+                0x0000000001002708                System_WorkClockGet
+ .text.RV_TM_IRQHandler
+                0x0000000001002766       0x18 output/obj/yc11xx_systick.o
+                0x0000000001002766                RV_TM_IRQHandler
+ .text.app_sleep_check
+                0x000000000100277e        0x4 output/obj/yc11xx_lpm.o
+                0x000000000100277e                app_sleep_check
+ .text.prepare_before_sleep
+                0x0000000001002782        0x2 output/obj/yc11xx_lpm.o
+                0x0000000001002782                prepare_before_sleep
+ .text.Lpm_SleepWork
+                0x0000000001002784       0x18 output/obj/yc11xx_lpm.o
+                0x0000000001002784                Lpm_SleepWork
+ .text.Lpm_GetWakeFlag
+                0x000000000100279c        0xa output/obj/yc11xx_lpm.o
+                0x000000000100279c                Lpm_GetWakeFlag
+ .text.Lpm_CheckLpmFlag
+                0x00000000010027a6       0x24 output/obj/yc11xx_lpm.o
+                0x00000000010027a6                Lpm_CheckLpmFlag
+ .text.Lpm_PollingWork
+                0x00000000010027ca       0x90 output/obj/yc11xx_lpm.o
+                0x00000000010027ca                Lpm_PollingWork
+ .text.Lpm_unLockLpm
+                0x000000000100285a       0x2e output/obj/yc11xx_lpm.o
+                0x000000000100285a                Lpm_unLockLpm
+ .text.Lpm_LockLpm
+                0x0000000001002888       0x2a output/obj/yc11xx_lpm.o
+                0x0000000001002888                Lpm_LockLpm
+ .text.Lpm_EnableSet
+                0x00000000010028b2        0xa output/obj/yc11xx_lpm.o
+                0x00000000010028b2                Lpm_EnableSet
+ .text.App_AAPSwichModeRsp
+                0x00000000010028bc       0x3e output/obj/yc11xx_dev_bt_aap.o
+                0x00000000010028bc                App_AAPSwichModeRsp
+ .text.App_EvtAAPCallBack
+                0x00000000010028fa      0x116 output/obj/yc11xx_dev_bt_aap.o
+                0x00000000010028fa                App_EvtAAPCallBack
+ .text.Bt_HciFifo_Init
+                0x0000000001002a10       0x42 output/obj/yc11xx_dev_bt_data_trans.o
+                0x0000000001002a10                Bt_HciFifo_Init
+ .text.Bt_HciFifoIn
+                0x0000000001002a52       0x46 output/obj/yc11xx_dev_bt_data_trans.o
+                0x0000000001002a52                Bt_HciFifoIn
+ .text.Bt_HciFifoOut
+                0x0000000001002a98       0x44 output/obj/yc11xx_dev_bt_data_trans.o
+                0x0000000001002a98                Bt_HciFifoOut
+ .text.Bt_HciCheckBufferFull
+                0x0000000001002adc       0x3a output/obj/yc11xx_dev_bt_data_trans.o
+                0x0000000001002adc                Bt_HciCheckBufferFull
+ .text.Bt_HciWaitBufferElement
+                0x0000000001002b16        0xe output/obj/yc11xx_dev_bt_data_trans.o
+                0x0000000001002b16                Bt_HciWaitBufferElement
+ .text.Bt_SndToBtData
+                0x0000000001002b24      0x126 output/obj/yc11xx_dev_bt_data_trans.o
+                0x0000000001002b24                Bt_SndToBtData
+ .text.Bt_SndDataToRespin
+                0x0000000001002c4a       0x54 output/obj/yc11xx_dev_bt_data_trans.o
+                0x0000000001002c4a                Bt_SndDataToRespin
+ .text.Bt_BleSendData
+                0x0000000001002c9e       0x2c output/obj/yc11xx_dev_bt_data_trans.o
+                0x0000000001002c9e                Bt_BleSendData
+ .text.Bt_ParseRcvBLEPacket
+                0x0000000001002cca       0x56 output/obj/yc11xx_dev_bt_data_trans.o
+                0x0000000001002cca                Bt_ParseRcvBLEPacket
+ .text.Bt_ParseBLEL2capPacket
+                0x0000000001002d20       0x18 output/obj/yc11xx_dev_bt_data_trans.o
+                0x0000000001002d20                Bt_ParseBLEL2capPacket
+ .text.Bt_ParseRcvSPPPacket
+                0x0000000001002d38       0x7a output/obj/yc11xx_dev_bt_data_trans.o
+                0x0000000001002d38                Bt_ParseRcvSPPPacket
+ .text.Bt_DataBufferCallBack
+                0x0000000001002db2      0x14e output/obj/yc11xx_dev_bt_data_trans.o
+                0x0000000001002db2                Bt_DataBufferCallBack
+ .text.SetLockQSPI
+                0x0000000001002f00       0x30 output/obj/yc11xx_dev_qspi.o
+                0x0000000001002f00                SetLockQSPI
+ .text.SetReleaseQSPI
+                0x0000000001002f30        0xa output/obj/yc11xx_dev_qspi.o
+                0x0000000001002f30                SetReleaseQSPI
+ .text.QSPI_WriteFlashData
+                0x0000000001002f3a       0x5c output/obj/yc11xx_dev_qspi.o
+                0x0000000001002f3a                QSPI_WriteFlashData
+ .text.QSPI_SectorEraseFlash
+                0x0000000001002f96       0x50 output/obj/yc11xx_dev_qspi.o
+                0x0000000001002f96                QSPI_SectorEraseFlash
+ .text.QSPI_FlashWriteLock
+                0x0000000001002fe6       0x44 output/obj/yc11xx_dev_qspi.o
+                0x0000000001002fe6                QSPI_FlashWriteLock
+ .text.Dev_PowerOn
+                0x000000000100302a        0x2 output/obj/yc_dev_bt.o
+                0x000000000100302a                Dev_PowerOn
+ .text.Dev_WakeUp
+                0x000000000100302c        0xa output/obj/yc_dev_bt.o
+                0x000000000100302c                Dev_WakeUp
+ .text.LE_CONNECTED
+                0x0000000001003036        0x2 output/obj/yc_dev_bt.o
+                0x0000000001003036                LE_CONNECTED
+ .text.LE_DISCONNECTED
+                0x0000000001003038        0x2 output/obj/yc_dev_bt.o
+                0x0000000001003038                LE_DISCONNECTED
+ .text.PAIR_DONE
+                0x000000000100303a        0x2 output/obj/yc_dev_bt.o
+                0x000000000100303a                PAIR_DONE
+ .text.PAIR_FAIL
+                0x000000000100303c        0x2 output/obj/yc_dev_bt.o
+                0x000000000100303c                PAIR_FAIL
+ .text.ENCRYPT_DONE
+                0x000000000100303e        0x2 output/obj/yc_dev_bt.o
+                0x000000000100303e                ENCRYPT_DONE
+ .text.CONN_PARAM_ACCEPTED
+                0x0000000001003040        0x2 output/obj/yc_dev_bt.o
+                0x0000000001003040                CONN_PARAM_ACCEPTED
+ .text.LE_LTK_LOST
+                0x0000000001003042        0x2 output/obj/yc_dev_bt.o
+                0x0000000001003042                LE_LTK_LOST
+ .text.bt_state_init
+                0x0000000001003044        0xa output/obj/yc_dev_bt.o
+                0x0000000001003044                bt_state_init
+ .text.bt_set_le_addr
+                0x000000000100304e       0x6a output/obj/yc_dev_bt.o
+                0x000000000100304e                bt_set_le_addr
+ .text.bt_set_local_dle
+                0x00000000010030b8       0x3e output/obj/yc_dev_bt.o
+                0x00000000010030b8                bt_set_local_dle
+ .text.bt_check_le_connected
+                0x00000000010030f6       0x10 output/obj/yc_dev_bt.o
+                0x00000000010030f6                bt_check_le_connected
+ .text.bt_set_adv_random
+                0x0000000001003106       0x1a output/obj/yc_dev_bt.o
+                0x0000000001003106                bt_set_adv_random
+ .text.bt_set_tx_power
+                0x0000000001003120        0xa output/obj/yc_dev_bt.o
+                0x0000000001003120                bt_set_tx_power
+ .text.Bt_SaveBleDeviceInfoToFlash
+                0x000000000100312a      0x180 output/obj/yc_dev_bt.o
+                0x000000000100312a                Bt_SaveBleDeviceInfoToFlash
+ .text.Flash_CalFlashRecordCRC
+                0x00000000010032aa       0x2a output/obj/yc_dev_bt.o
+                0x00000000010032aa                Flash_CalFlashRecordCRC
+ .text.Flash_UpdateFlashRecordInfo
+                0x00000000010032d4       0x5a output/obj/yc_dev_bt.o
+                0x00000000010032d4                Flash_UpdateFlashRecordInfo
+ .text.Bt_EvtCallBack
+                0x000000000100332e      0x16a output/obj/yc_dev_bt.o
+                0x000000000100332e                Bt_EvtCallBack
+ .text.Bt_BleCallBack
+                0x0000000001003498        0x2 output/obj/yc_dev_bt.o
+                0x0000000001003498                Bt_BleCallBack
+ .text.Bt_UpdateDeviceNvdataInfo
+                0x000000000100349a      0x1ce output/obj/yc_dev_bt.o
+                0x000000000100349a                Bt_UpdateDeviceNvdataInfo
+ .text.hci_freq_tx_test
+                0x0000000001003668       0x24 output/obj/hci_dtm_test.o
+                0x0000000001003668                hci_freq_tx_test
+ .text.Write_DataParse
+                0x000000000100368c        0x2 output/obj/att.o
+                0x000000000100368c                Write_DataParse
+ .text.Read_Parse
+                0x000000000100368e        0x2 output/obj/att.o
+                0x000000000100368e                Read_Parse
+ .text.Read_Blob_Parse
+                0x0000000001003690        0x2 output/obj/att.o
+                0x0000000001003690                Read_Blob_Parse
+ .text.ATT_SendErrorRsp
+                0x0000000001003692       0x26 output/obj/att.o
+ .text.ATT_WriteCmd
+                0x00000000010036b8       0x1e output/obj/att.o
+ .text.ATT_ExecuteWriteReq
+                0x00000000010036d6       0x44 output/obj/att.o
+ .text.ATT_PrepareWriteReq
+                0x000000000100371a       0x9c output/obj/att.o
+ .text.ATT_WriteReq
+                0x00000000010037b6       0x46 output/obj/att.o
+ .text.ATT_ReadReq_ByGroupType
+                0x00000000010037fc      0x17c output/obj/att.o
+ .text.ATT_ReadBlobReq
+                0x0000000001003978       0x54 output/obj/att.o
+ .text.ATT_ReadReq
+                0x00000000010039cc       0x36 output/obj/att.o
+ .text.ATT_ReadReq_ByType
+                0x0000000001003a02      0x234 output/obj/att.o
+ .text.ATT_Find_ByType_Value
+                0x0000000001003c36       0xb0 output/obj/att.o
+ .text.ATT_FindInformationReq
+                0x0000000001003ce6       0xe8 output/obj/att.o
+ .text.ATT_UpdateMtu
+                0x0000000001003dce       0x4c output/obj/att.o
+ .text.ATT_ExchangeMtuReq
+                0x0000000001003e1a       0x5a output/obj/att.o
+ .text.ATT_Send
+                0x0000000001003e74       0x1e output/obj/att.o
+                0x0000000001003e74                ATT_Send
+ .text.ATT_Parse
+                0x0000000001003e92      0x130 output/obj/att.o
+                0x0000000001003e92                ATT_Parse
+ .text.app_task_run
+                0x0000000001003fc2        0x2 output/obj/remote_control.o
+                0x0000000001003fc2                app_task_run
+ .text.app_init
+                0x0000000001003fc4       0x30 output/obj/remote_control.o
+                0x0000000001003fc4                app_init
+ .text.Find_AttTable_ByHandle
+                0x0000000001003ff4       0x14 output/obj/att_list.o
+                0x0000000001003ff4                Find_AttTable_ByHandle
+ .text.Find_AttTable_ByHandleRange_Type
+                0x0000000001004008       0x40 output/obj/att_list.o
+                0x0000000001004008                Find_AttTable_ByHandleRange_Type
+ .text.Find_AttTable_ByHandleRange_Type_Data
+                0x0000000001004048       0x4c output/obj/att_list.o
+                0x0000000001004048                Find_AttTable_ByHandleRange_Type_Data
+ .text          0x0000000001004094       0x60 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(save-restore.o)
+                0x0000000001004094                __riscv_save_12
+                0x000000000100409c                __riscv_save_9
+                0x000000000100409c                __riscv_save_11
+                0x000000000100409c                __riscv_save_10
+                0x000000000100409c                __riscv_save_8
+                0x00000000010040aa                __riscv_save_4
+                0x00000000010040aa                __riscv_save_6
+                0x00000000010040aa                __riscv_save_5
+                0x00000000010040aa                __riscv_save_7
+                0x00000000010040c4                __riscv_save_3
+                0x00000000010040c4                __riscv_save_2
+                0x00000000010040c4                __riscv_save_1
+                0x00000000010040c4                __riscv_save_0
+                0x00000000010040d0                __riscv_restore_12
+                0x00000000010040d4                __riscv_restore_11
+                0x00000000010040d4                __riscv_restore_9
+                0x00000000010040d4                __riscv_restore_10
+                0x00000000010040d4                __riscv_restore_8
+                0x00000000010040de                __riscv_restore_5
+                0x00000000010040de                __riscv_restore_7
+                0x00000000010040de                __riscv_restore_6
+                0x00000000010040de                __riscv_restore_4
+                0x00000000010040e8                __riscv_restore_3
+                0x00000000010040e8                __riscv_restore_0
+                0x00000000010040e8                __riscv_restore_2
+                0x00000000010040e8                __riscv_restore_1
+ .text          0x00000000010040f4       0x26 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0/../../../../riscv32-unknown-elf/lib\libc.a(lib_a-memcmp.o)
+                0x00000000010040f4                memcmp
+ .text          0x000000000100411a       0xba d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0/../../../../riscv32-unknown-elf/lib\libc.a(lib_a-memcpy.o)
+                0x000000000100411a                memcpy
+ .text          0x00000000010041d4       0xa8 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0/../../../../riscv32-unknown-elf/lib\libc.a(lib_a-memset.o)
+                0x00000000010041d4                memset
+ *(.rdata*)
+ *(.rodata*)
+ *fill*         0x000000000100427c        0x0 
+ .rodata.bt_init.str1.4
+                0x000000000100427c        0xd output/obj/main.o
+ *fill*         0x0000000001004289        0x3 
+ .rodata.print_string_log_raw.str1.4
+                0x000000000100428c       0x32 output/obj/yc_debug.o
+ *fill*         0x00000000010042be        0x2 
+ .rodata.Memory_Malloc.str1.4
+                0x00000000010042c0       0x1f output/obj/malloc.o
+ *fill*         0x00000000010042df        0x1 
+ .rodata.__FUNCTION__.2818
+                0x00000000010042e0        0xe output/obj/malloc.o
+ *fill*         0x00000000010042ee        0x2 
+ .rodata.IPC_TxPacket.str1.4
+                0x00000000010042f0       0x28 output/obj/yc11xx_ipc.o
+ .rodata.IpcDefaultCallBack.str1.4
+                0x0000000001004318       0x16 output/obj/yc11xx_ipc.o
+ *fill*         0x000000000100432e        0x2 
+ .rodata.__FUNCTION__.2884
+                0x0000000001004330        0xd output/obj/yc11xx_ipc.o
+ *fill*         0x000000000100433d        0x3 
+ .rodata.__FUNCTION__.2899
+                0x0000000001004340       0x13 output/obj/yc11xx_ipc.o
+ *fill*         0x0000000001004353        0x1 
+ .rodata.IWDG_Init.str1.4
+                0x0000000001004354       0x26 output/obj/yc11xx_iwdg.o
+ *fill*         0x000000000100437a        0x2 
+ .rodata.__FUNCTION__.2182
+                0x000000000100437c        0xd output/obj/yc11xx_iwdg.o
+ *fill*         0x0000000001004389        0x3 
+ .rodata.aap_rsp
+                0x000000000100438c       0x12 output/obj/yc11xx_dev_bt_aap.o
+ *fill*         0x000000000100439e        0x2 
+ .rodata.AAP_manufac1
+                0x00000000010043a0       0x96 output/obj/yc11xx_dev_bt_aap.o
+ *fill*         0x0000000001004436        0x2 
+ .rodata.AAP_manufac2
+                0x0000000001004438        0x8 output/obj/yc11xx_dev_bt_aap.o
+ .rodata.AAP_manufac3
+                0x0000000001004440       0x2f output/obj/yc11xx_dev_bt_aap.o
+ *fill*         0x000000000100446f        0x1 
+ .rodata.AAP_manufac4
+                0x0000000001004470       0x16 output/obj/yc11xx_dev_bt_aap.o
+ *fill*         0x0000000001004486        0x2 
+ .rodata.AAP_AcpAnc1
+                0x0000000001004488        0xc output/obj/yc11xx_dev_bt_aap.o
+ .rodata.AAP_StartAnc2
+                0x0000000001004494        0xd output/obj/yc11xx_dev_bt_aap.o
+                0x0000000001004494                AAP_StartAnc2
+ *fill*         0x00000000010044a1        0x3 
+ .rodata.AAP_AncRst3
+                0x00000000010044a4       0xbc output/obj/yc11xx_dev_bt_aap.o
+ .rodata.AAP_StopAnc4
+                0x0000000001004560        0xd output/obj/yc11xx_dev_bt_aap.o
+ *fill*         0x000000000100456d        0x3 
+ .rodata.Bt_HciCheckBufferFull.str1.4
+                0x0000000001004570       0x15 output/obj/yc11xx_dev_bt_data_trans.o
+ *fill*         0x0000000001004585        0x3 
+ .rodata.Bt_SndToBtData
+                0x0000000001004588       0x18 output/obj/yc11xx_dev_bt_data_trans.o
+ .rodata.Bt_BleSendData.str1.4
+                0x00000000010045a0       0x18 output/obj/yc11xx_dev_bt_data_trans.o
+ .rodata.Bt_DataBufferCallBack
+                0x00000000010045b8       0x18 output/obj/yc11xx_dev_bt_data_trans.o
+ .rodata.bt_start_le_adv.str1.4
+                0x00000000010045d0       0xa3 output/obj/yc_dev_bt.o
+ *fill*         0x0000000001004673        0x1 
+ .rodata.Bt_SaveBleDeviceInfoToFlash
+                0x0000000001004674       0x14 output/obj/yc_dev_bt.o
+ .rodata.Bt_EvtCallBack.str1.4
+                0x0000000001004688       0x80 output/obj/yc_dev_bt.o
+ .rodata.Bt_UpdateDeviceNvdataInfo.str1.4
+                0x0000000001004708       0x1b output/obj/yc_dev_bt.o
+ *fill*         0x0000000001004723        0x1 
+ .rodata.ATT_UpdateMtu.str1.4
+                0x0000000001004724       0x3d output/obj/att.o
+ *fill*         0x0000000001004761        0x3 
+ .rodata.ATT_Parse.str1.4
+                0x0000000001004764       0x1a output/obj/att.o
+ *fill*         0x000000000100477e        0x2 
+ .rodata.app_init.str1.4
+                0x0000000001004780       0x28 output/obj/remote_control.o
+                                         0x26 (size before relaxing)
+ .rodata.PRIMARY_SERVICE
+                0x00000000010047a8        0x2 output/obj/att_list.o
+                0x00000000010047a8                PRIMARY_SERVICE
+ *fill*         0x00000000010047aa        0x2 
+ .rodata.GATT_INCLUDE
+                0x00000000010047ac        0x2 output/obj/att_list.o
+                0x00000000010047ac                GATT_INCLUDE
+ *fill*         0x00000000010047ae        0x2 
+ .rodata.GATT_CHARACTERISTIC
+                0x00000000010047b0        0x2 output/obj/att_list.o
+                0x00000000010047b0                GATT_CHARACTERISTIC
+ *fill*         0x00000000010047b2        0x2 
+ .rodata.Att_List
+                0x00000000010047b4       0x10 output/obj/att_list.o
+                0x00000000010047b4                Att_List
+ *(.srodata*)
+ *(.eh_frame*)
+ *(.srodata.cst*)
+                0x00000000010047c4                _sidata = ALIGN (0x4)
+
+.rela.dyn       0x00000000010047c4        0x0
+ .rela.text.chip_init
+                0x00000000010047c4        0x0 output/obj/main.o
+ .rela.text.uart_txChar
+                0x00000000010047c4        0x0 output/obj/main.o
+ .rela.text.init_debugUart
+                0x00000000010047c4        0x0 output/obj/main.o
+ .rela.text.print_log_to_uart
+                0x00000000010047c4        0x0 output/obj/main.o
+ .rela.text.CoreReg_LpmWriteCommon
+                0x00000000010047c4        0x0 output/obj/main.o
+ .rela.text.Memory_Malloc
+                0x00000000010047c4        0x0 output/obj/main.o
+ .rela.text.ipcRx
+                0x00000000010047c4        0x0 output/obj/main.o
+ .rela.text.ipcTx
+                0x00000000010047c4        0x0 output/obj/main.o
+ .rela.text.IPC_TxCommon
+                0x00000000010047c4        0x0 output/obj/main.o
+ .rela.text.IPC_HandleRxPacket
+                0x00000000010047c4        0x0 output/obj/main.o
+ .rela.text.Lpm_PollingWork
+                0x00000000010047c4        0x0 output/obj/main.o
+ .rela.text.Bt_HciFifo_Init
+                0x00000000010047c4        0x0 output/obj/main.o
+ .rela.text.Bt_SndToBtData
+                0x00000000010047c4        0x0 output/obj/main.o
+ .rela.text.Bt_DataBufferCallBack
+                0x00000000010047c4        0x0 output/obj/main.o
+ .rela.text.QSPI_WriteFlashData
+                0x00000000010047c4        0x0 output/obj/main.o
+ .rela.text.QSPI_SectorEraseFlash
+                0x00000000010047c4        0x0 output/obj/main.o
+ .rela.text.QSPI_FlashWriteLock
+                0x00000000010047c4        0x0 output/obj/main.o
+ .rela.text.Dev_WakeUp
+                0x00000000010047c4        0x0 output/obj/main.o
+ .rela.data.gpRecinfo
+                0x00000000010047c4        0x0 output/obj/main.o
+ .rela.text.Flash_UpdateFlashRecordInfo
+                0x00000000010047c4        0x0 output/obj/main.o
+ .rela.text.Bt_EvtCallBack
+                0x00000000010047c4        0x0 output/obj/main.o
+ .rela.text.ATT_WriteCmd
+                0x00000000010047c4        0x0 output/obj/main.o
+ .rela.text.ATT_ExecuteWriteReq
+                0x00000000010047c4        0x0 output/obj/main.o
+ .rela.text.ATT_PrepareWriteReq
+                0x00000000010047c4        0x0 output/obj/main.o
+ .rela.text.ATT_WriteReq
+                0x00000000010047c4        0x0 output/obj/main.o
+ .rela.text.ATT_ReadBlobReq
+                0x00000000010047c4        0x0 output/obj/main.o
+ .rela.text.ATT_ReadReq
+                0x00000000010047c4        0x0 output/obj/main.o
+ .rela.text.startup
+                0x00000000010047c4        0x0 output/obj/main.o
+ .rela.text.trap
+                0x00000000010047c4        0x0 output/obj/main.o
+
+.local
+ *(.local*)
+                0x0000000010010000                . = 0x10010000
+
+.debug          0x0000000010010000    0x12685
+ *(.debug_info*)
+ .debug_info    0x0000000010010000      0xccc output/obj/main.o
+ .debug_info    0x0000000010010ccc     0x1bc3 output/obj/yc_debug.o
+ .debug_info    0x000000001001288f     0x153b output/obj/yc11xx.o
+ .debug_info    0x0000000010013dca      0xcaa output/obj/malloc.o
+ .debug_info    0x0000000010014a74     0x1042 output/obj/yc11xx_ipc.o
+ .debug_info    0x0000000010015ab6      0xd8b output/obj/yc11xx_iwdg.o
+ .debug_info    0x0000000010016841     0x171d output/obj/yc11xx_qspi0.o
+ .debug_info    0x0000000010017f5e      0xf39 output/obj/yc11xx_systick.o
+ .debug_info    0x0000000010018e97      0xad2 output/obj/yc11xx_lpm.o
+ .debug_info    0x0000000010019969      0xd73 output/obj/yc11xx_dev_bt_aap.o
+ .debug_info    0x000000001001a6dc     0x1466 output/obj/yc11xx_dev_bt_data_trans.o
+ .debug_info    0x000000001001bb42      0xf35 output/obj/yc11xx_dev_qspi.o
+ .debug_info    0x000000001001ca77     0x2013 output/obj/yc_dev_bt.o
+ .debug_info    0x000000001001ea8a      0x9ba output/obj/hci_dtm_test.o
+ .debug_info    0x000000001001f444     0x1c31 output/obj/att.o
+ .debug_info    0x0000000010021075      0x9e1 output/obj/remote_control.o
+ .debug_info    0x0000000010021a56      0xc09 output/obj/att_list.o
+ .debug_info    0x000000001002265f       0x26 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(save-restore.o)
+
+.data           0x0000000010010000       0x38 load address 0x00000000010047c4
+                0x0000000010010000                _sdata = .
+ *(.data*)
+ .data.IPCHandleCb
+                0x0000000010010000       0x34 output/obj/main.o
+ .data.gpRecinfo
+                0x0000000010010034        0x4 output/obj/yc_dev_bt.o
+                0x0000000010010034                gpRecinfo
+ *(.sdata)
+                0x0000000010010038                _edata = .
+
+.bss            0x0000000010010038       0xb7 load address 0x00000000010047fc
+                0x0000000010010038                _sbss = .
+ *(EXCLUDE_FILE(*yc_audio.o) *.bss*)
+ .bss.g_yc_debug_manager
+                0x0000000010010038       0x1c output/obj/yc_debug.o
+ .bss.xFreeBytesRemaining
+                0x0000000010010054        0x4 output/obj/malloc.o
+ .bss.xMinimumEverFreeBytesRemaining
+                0x0000000010010058        0x4 output/obj/malloc.o
+ .bss.xNumberOfSuccessfulAllocations
+                0x000000001001005c        0x4 output/obj/malloc.o
+ .bss.xNumberOfSuccessfulFrees
+                0x0000000010010060        0x4 output/obj/malloc.o
+ .bss.xStart    0x0000000010010064        0x8 output/obj/malloc.o
+ .bss.pxEnd     0x000000001001006c        0x4 output/obj/malloc.o
+ .bss.ipc_handle_cb_array
+                0x0000000010010070        0x4 output/obj/yc11xx_ipc.o
+ .bss.g_systickIrqCallback
+                0x0000000010010074        0x4 output/obj/yc11xx_systick.o
+ .bss.gpHciDataFifo
+                0x0000000010010078        0x4 output/obj/yc11xx_dev_bt_data_trans.o
+                0x0000000010010078                gpHciDataFifo
+ .bss.gBLEState
+                0x000000001001007c        0x2 output/obj/yc_dev_bt.o
+ *(*.scommon*)
+ *(EXCLUDE_FILE(*yc_audio.o) COMMON)
+ *fill*         0x000000001001007e        0x2 
+ COMMON         0x0000000010010080        0x8 output/obj/yc_debug.o
+                0x0000000010010080                gHaltLogFlag
+                0x0000000010010082                gHaltLogValue
+                0x0000000010010084                txptr
+ COMMON         0x0000000010010088        0x2 output/obj/yc11xx.o
+                0x0000000010010088                gOsEnterCriticalCnt
+ *fill*         0x000000001001008a        0x2 
+ COMMON         0x000000001001008c       0x18 output/obj/yc11xx_dev_bt_data_trans.o
+                0x000000001001008c                gHciDataDebug
+ COMMON         0x00000000100100a4       0x49 output/obj/yc_dev_bt.o
+                0x00000000100100a4                gFacStoreinfo
+                0x00000000100100b0                gRecinfo
+ COMMON         0x00000000100100ed        0x2 output/obj/att.o
+                0x00000000100100ed                prepareLen
+                0x00000000100100ee                prepareHandle
+                0x00000000100100ef                _retention_end = .
+                0x0000000010011000                . = 0x10011000
+                0x0000000000000001                ASSERT ((_retention_end < .), retention data size overflow)
+
+.noretention0   0x0000000010011000     0x2260 load address 0x00000000010057c4
+ *(*.memory_protect_under_lpm*)
+ .memory_protect_under_lpm
+                0x0000000010011000     0x2000 output/obj/main.o
+ .memory_protect_under_lpm
+                0x0000000010013000       0x36 output/obj/yc_debug.o
+                0x0000000010013000                uarttxbuf
+                0x0000000010013034                uartrxbuf
+ *fill*         0x0000000010013036        0x2 
+ .memory_protect_under_lpm
+                0x0000000010013038      0x128 output/obj/yc11xx_ipc.o
+ .memory_protect_under_lpm
+                0x0000000010013160      0x100 output/obj/att.o
+                0x0000000010013160                prepareRcv
+
+.noretention
+ *(*.bss*)
+ *(COMMON)
+                0x0000000010013260                _ebss = .
+                0x000000001001d800                . = 0x1001d800
+                0x000000001001d800                _stack = .
+                0x0000000000000001                ASSERT ((_ebss < _stack), data size overflow)
+OUTPUT(./output/out.elf elf32-littleriscv)
+
+.debug_abbrev   0x0000000000000000     0x377b
+ .debug_abbrev  0x0000000000000000      0x2a2 output/obj/main.o
+ .debug_abbrev  0x00000000000002a2      0x52a output/obj/yc_debug.o
+ .debug_abbrev  0x00000000000007cc      0x3af output/obj/yc11xx.o
+ .debug_abbrev  0x0000000000000b7b      0x2b3 output/obj/malloc.o
+ .debug_abbrev  0x0000000000000e2e      0x2f4 output/obj/yc11xx_ipc.o
+ .debug_abbrev  0x0000000000001122      0x287 output/obj/yc11xx_iwdg.o
+ .debug_abbrev  0x00000000000013a9      0x439 output/obj/yc11xx_qspi0.o
+ .debug_abbrev  0x00000000000017e2      0x2fe output/obj/yc11xx_systick.o
+ .debug_abbrev  0x0000000000001ae0      0x271 output/obj/yc11xx_lpm.o
+ .debug_abbrev  0x0000000000001d51      0x293 output/obj/yc11xx_dev_bt_aap.o
+ .debug_abbrev  0x0000000000001fe4      0x461 output/obj/yc11xx_dev_bt_data_trans.o
+ .debug_abbrev  0x0000000000002445      0x2d3 output/obj/yc11xx_dev_qspi.o
+ .debug_abbrev  0x0000000000002718      0x5ad output/obj/yc_dev_bt.o
+ .debug_abbrev  0x0000000000002cc5      0x242 output/obj/hci_dtm_test.o
+ .debug_abbrev  0x0000000000002f07      0x3bc output/obj/att.o
+ .debug_abbrev  0x00000000000032c3      0x22d output/obj/remote_control.o
+ .debug_abbrev  0x00000000000034f0      0x277 output/obj/att_list.o
+ .debug_abbrev  0x0000000000003767       0x14 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(save-restore.o)
+
+.debug_aranges  0x0000000000000000      0xa28
+ .debug_aranges
+                0x0000000000000000       0x40 output/obj/main.o
+ .debug_aranges
+                0x0000000000000040       0xc8 output/obj/yc_debug.o
+ .debug_aranges
+                0x0000000000000108      0x168 output/obj/yc11xx.o
+ .debug_aranges
+                0x0000000000000270       0x40 output/obj/malloc.o
+ .debug_aranges
+                0x00000000000002b0       0x78 output/obj/yc11xx_ipc.o
+ .debug_aranges
+                0x0000000000000328       0x58 output/obj/yc11xx_iwdg.o
+ .debug_aranges
+                0x0000000000000380      0x110 output/obj/yc11xx_qspi0.o
+ .debug_aranges
+                0x0000000000000490       0x78 output/obj/yc11xx_systick.o
+ .debug_aranges
+                0x0000000000000508       0x68 output/obj/yc11xx_lpm.o
+ .debug_aranges
+                0x0000000000000570       0x28 output/obj/yc11xx_dev_bt_aap.o
+ .debug_aranges
+                0x0000000000000598       0xb0 output/obj/yc11xx_dev_bt_data_trans.o
+ .debug_aranges
+                0x0000000000000648       0x60 output/obj/yc11xx_dev_qspi.o
+ .debug_aranges
+                0x00000000000006a8      0x208 output/obj/yc_dev_bt.o
+ .debug_aranges
+                0x00000000000008b0       0x30 output/obj/hci_dtm_test.o
+ .debug_aranges
+                0x00000000000008e0       0xc8 output/obj/att.o
+ .debug_aranges
+                0x00000000000009a8       0x28 output/obj/remote_control.o
+ .debug_aranges
+                0x00000000000009d0       0x38 output/obj/att_list.o
+ .debug_aranges
+                0x0000000000000a08       0x20 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(save-restore.o)
+
+.debug_ranges   0x0000000000000000      0xff0
+ .debug_ranges  0x0000000000000000       0x30 output/obj/main.o
+ .debug_ranges  0x0000000000000030      0x170 output/obj/yc_debug.o
+ .debug_ranges  0x00000000000001a0      0x1e8 output/obj/yc11xx.o
+ .debug_ranges  0x0000000000000388       0x30 output/obj/malloc.o
+ .debug_ranges  0x00000000000003b8       0xe0 output/obj/yc11xx_ipc.o
+ .debug_ranges  0x0000000000000498       0x48 output/obj/yc11xx_iwdg.o
+ .debug_ranges  0x00000000000004e0      0x150 output/obj/yc11xx_qspi0.o
+ .debug_ranges  0x0000000000000630       0x68 output/obj/yc11xx_systick.o
+ .debug_ranges  0x0000000000000698       0x58 output/obj/yc11xx_lpm.o
+ .debug_ranges  0x00000000000006f0       0x40 output/obj/yc11xx_dev_bt_aap.o
+ .debug_ranges  0x0000000000000730       0xb8 output/obj/yc11xx_dev_bt_data_trans.o
+ .debug_ranges  0x00000000000007e8       0x50 output/obj/yc11xx_dev_qspi.o
+ .debug_ranges  0x0000000000000838      0x3e8 output/obj/yc_dev_bt.o
+ .debug_ranges  0x0000000000000c20       0x20 output/obj/hci_dtm_test.o
+ .debug_ranges  0x0000000000000c40      0x330 output/obj/att.o
+ .debug_ranges  0x0000000000000f70       0x18 output/obj/remote_control.o
+ .debug_ranges  0x0000000000000f88       0x68 output/obj/att_list.o
+
+.debug_line     0x0000000000000000     0xccba
+ .debug_line    0x0000000000000000      0x462 output/obj/main.o
+ .debug_line    0x0000000000000462     0x1e7a output/obj/yc_debug.o
+ .debug_line    0x00000000000022dc      0xeed output/obj/yc11xx.o
+ .debug_line    0x00000000000031c9      0x845 output/obj/malloc.o
+ .debug_line    0x0000000000003a0e      0xb60 output/obj/yc11xx_ipc.o
+ .debug_line    0x000000000000456e      0x60c output/obj/yc11xx_iwdg.o
+ .debug_line    0x0000000000004b7a     0x11da output/obj/yc11xx_qspi0.o
+ .debug_line    0x0000000000005d54      0x7fb output/obj/yc11xx_systick.o
+ .debug_line    0x000000000000654f      0x4ef output/obj/yc11xx_lpm.o
+ .debug_line    0x0000000000006a3e      0x48a output/obj/yc11xx_dev_bt_aap.o
+ .debug_line    0x0000000000006ec8      0xdbb output/obj/yc11xx_dev_bt_data_trans.o
+ .debug_line    0x0000000000007c83      0x8ab output/obj/yc11xx_dev_qspi.o
+ .debug_line    0x000000000000852e     0x2214 output/obj/yc_dev_bt.o
+ .debug_line    0x000000000000a742      0x24a output/obj/hci_dtm_test.o
+ .debug_line    0x000000000000a98c     0x1b9b output/obj/att.o
+ .debug_line    0x000000000000c527      0x246 output/obj/remote_control.o
+ .debug_line    0x000000000000c76d      0x3bc output/obj/att_list.o
+ .debug_line    0x000000000000cb29      0x191 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(save-restore.o)
+
+.debug_str      0x0000000000000000     0x379d
+ .debug_str     0x0000000000000000      0x6d6 output/obj/main.o
+                                        0x74f (size before relaxing)
+ .debug_str     0x00000000000006d6      0xa75 output/obj/yc_debug.o
+                                       0x10c1 (size before relaxing)
+ .debug_str     0x000000000000114b      0x634 output/obj/yc11xx.o
+                                        0xc1c (size before relaxing)
+ .debug_str     0x000000000000177f      0x23f output/obj/malloc.o
+                                        0x820 (size before relaxing)
+ .debug_str     0x00000000000019be      0x1bf output/obj/yc11xx_ipc.o
+                                        0x7f7 (size before relaxing)
+ .debug_str     0x0000000000001b7d       0xfa output/obj/yc11xx_iwdg.o
+                                        0x734 (size before relaxing)
+ .debug_str     0x0000000000001c77      0x2c0 output/obj/yc11xx_qspi0.o
+                                        0x92e (size before relaxing)
+ .debug_str     0x0000000000001f37      0x46f output/obj/yc11xx_systick.o
+                                        0xa88 (size before relaxing)
+ .debug_str     0x00000000000023a6       0x9a output/obj/yc11xx_lpm.o
+                                        0x6a0 (size before relaxing)
+ .debug_str     0x0000000000002440      0x143 output/obj/yc11xx_dev_bt_aap.o
+                                        0x71f (size before relaxing)
+ .debug_str     0x0000000000002583      0x32b output/obj/yc11xx_dev_bt_data_trans.o
+                                        0xa06 (size before relaxing)
+ .debug_str     0x00000000000028ae      0x10a output/obj/yc11xx_dev_qspi.o
+                                        0x789 (size before relaxing)
+ .debug_str     0x00000000000029b8      0x909 output/obj/yc_dev_bt.o
+                                       0x1058 (size before relaxing)
+ .debug_str     0x00000000000032c1       0x64 output/obj/hci_dtm_test.o
+                                        0x623 (size before relaxing)
+ .debug_str     0x0000000000003325      0x340 output/obj/att.o
+                                        0x995 (size before relaxing)
+ .debug_str     0x0000000000003665       0x30 output/obj/remote_control.o
+                                        0x629 (size before relaxing)
+ .debug_str     0x0000000000003695       0x5b output/obj/att_list.o
+                                        0x6e7 (size before relaxing)
+ .debug_str     0x00000000000036f0       0xad d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(save-restore.o)
+
+.comment        0x0000000000000000       0x11
+ .comment       0x0000000000000000       0x11 output/obj/main.o
+                                         0x12 (size before relaxing)
+ .comment       0x0000000000000011       0x12 output/obj/yc_debug.o
+ .comment       0x0000000000000011       0x12 output/obj/yc11xx.o
+ .comment       0x0000000000000011       0x12 output/obj/malloc.o
+ .comment       0x0000000000000011       0x12 output/obj/yc11xx_ipc.o
+ .comment       0x0000000000000011       0x12 output/obj/yc11xx_iwdg.o
+ .comment       0x0000000000000011       0x12 output/obj/yc11xx_qspi0.o
+ .comment       0x0000000000000011       0x12 output/obj/yc11xx_systick.o
+ .comment       0x0000000000000011       0x12 output/obj/yc11xx_lpm.o
+ .comment       0x0000000000000011       0x12 output/obj/yc11xx_dev_bt_aap.o
+ .comment       0x0000000000000011       0x12 output/obj/yc11xx_dev_bt_data_trans.o
+ .comment       0x0000000000000011       0x12 output/obj/yc11xx_dev_qspi.o
+ .comment       0x0000000000000011       0x12 output/obj/yc_dev_bt.o
+ .comment       0x0000000000000011       0x12 output/obj/hci_dtm_test.o
+ .comment       0x0000000000000011       0x12 output/obj/att.o
+ .comment       0x0000000000000011       0x12 output/obj/remote_control.o
+ .comment       0x0000000000000011       0x12 output/obj/att_list.o
+ .comment       0x0000000000000011       0x12 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0/../../../../riscv32-unknown-elf/lib\libc.a(lib_a-memcmp.o)
+ .comment       0x0000000000000011       0x12 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0/../../../../riscv32-unknown-elf/lib\libc.a(lib_a-memcpy.o)
+
+.debug_frame    0x0000000000000000     0x1dc8
+ .debug_frame   0x0000000000000000       0x98 output/obj/main.o
+ .debug_frame   0x0000000000000098      0x2f8 output/obj/yc_debug.o
+ .debug_frame   0x0000000000000390      0x3d4 output/obj/yc11xx.o
+ .debug_frame   0x0000000000000764       0x84 output/obj/malloc.o
+ .debug_frame   0x00000000000007e8      0x140 output/obj/yc11xx_ipc.o
+ .debug_frame   0x0000000000000928       0xf8 output/obj/yc11xx_iwdg.o
+ .debug_frame   0x0000000000000a20      0x3b8 output/obj/yc11xx_qspi0.o
+ .debug_frame   0x0000000000000dd8      0x140 output/obj/yc11xx_systick.o
+ .debug_frame   0x0000000000000f18       0xc0 output/obj/yc11xx_lpm.o
+ .debug_frame   0x0000000000000fd8       0x4c output/obj/yc11xx_dev_bt_aap.o
+ .debug_frame   0x0000000000001024      0x224 output/obj/yc11xx_dev_bt_data_trans.o
+ .debug_frame   0x0000000000001248      0x150 output/obj/yc11xx_dev_qspi.o
+ .debug_frame   0x0000000000001398      0x60c output/obj/yc_dev_bt.o
+ .debug_frame   0x00000000000019a4       0x40 output/obj/hci_dtm_test.o
+ .debug_frame   0x00000000000019e4      0x334 output/obj/att.o
+ .debug_frame   0x0000000000001d18       0x3c output/obj/remote_control.o
+ .debug_frame   0x0000000000001d54       0x74 output/obj/att_list.o
+
+.debug_loc      0x0000000000000000     0x5b17
+ .debug_loc     0x0000000000000000     0x1060 output/obj/yc_debug.o
+ .debug_loc     0x0000000000001060      0x724 output/obj/yc11xx.o
+ .debug_loc     0x0000000000001784      0x2d2 output/obj/malloc.o
+ .debug_loc     0x0000000000001a56      0x44f output/obj/yc11xx_ipc.o
+ .debug_loc     0x0000000000001ea5      0x153 output/obj/yc11xx_iwdg.o
+ .debug_loc     0x0000000000001ff8      0x86a output/obj/yc11xx_qspi0.o
+ .debug_loc     0x0000000000002862      0x38e output/obj/yc11xx_systick.o
+ .debug_loc     0x0000000000002bf0       0x68 output/obj/yc11xx_lpm.o
+ .debug_loc     0x0000000000002c58      0x1b3 output/obj/yc11xx_dev_bt_aap.o
+ .debug_loc     0x0000000000002e0b      0x5ee output/obj/yc11xx_dev_bt_data_trans.o
+ .debug_loc     0x00000000000033f9      0x755 output/obj/yc11xx_dev_qspi.o
+ .debug_loc     0x0000000000003b4e      0xf5a output/obj/yc_dev_bt.o
+ .debug_loc     0x0000000000004aa8       0x15 output/obj/hci_dtm_test.o
+ .debug_loc     0x0000000000004abd      0xe0c output/obj/att.o
+ .debug_loc     0x00000000000058c9      0x24e output/obj/att_list.o

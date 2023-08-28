@@ -1,0 +1,115 @@
+test_dpll () {
+	for i in {1..100000} ; do
+		relay off
+		sleep 2
+		relay on
+		sleep 2
+		echo $i
+		a=`e 831b|sed '1 d;s/.*:\s*//'`
+		if [ $a != 1d ] ; then 
+			echo dpll error $a
+			exit
+		fi
+	done
+}
+
+test_lpm () {
+	for i in {1..100000} ; do
+		relay off
+		sleep 2
+		echo $i
+		a=`e a|sed 's/.*PC\s*//'`
+		if [ $a != 1cbe ] ; then 
+			echo lpm error $a
+			exit
+		fi
+		a=`e au|sed 's/.*PC\s*//'`
+		a=${a%%:*}
+		if [ $a != e -a $a != f ];then
+			echo stopped $a
+			exit
+		fi
+		relay on
+		sleep 2
+	done
+}
+
+
+test_lpm2 () {
+	for i in {1..100000} ; do
+		export CH=0
+		echo $i
+		a=`e a|sed 's/.*PC\s*//'`
+		if [ $a != 1cbe ] ; then 
+			echo lpm error $a
+			exit
+		fi
+		a=`e au|sed 's/.*PC\s*//'`
+		a=${a%%:*}
+		if [ $a != e -a $a != f ];then
+			echo stopped $a
+			exit
+		fi
+		export CH=1
+		e 0 1
+		sleep 1
+	done
+}
+
+enable_flash () {
+	e 8097 000000000000
+	e 808c 070304020506
+	e 8094 00000000000
+	e 809d 0000
+	e 8092 2d2c
+}
+
+enable_fpga_flash () {
+	e 8097 040307020506
+}
+
+enable_adc () {
+	e 8978 80
+	e 8979 e0
+	e 897a 68
+	e 897b a8
+	e 897c 55
+	e 897d 18
+	e 8980 ff
+	e 8981 30
+
+	e 897f e1
+	e 897e f1
+	e 897e e1
+	e 897e f3
+	e 803e 1ff
+	e 803b a0
+}
+
+test_tx () {
+	e pu
+	e 8903 7fa7
+	e 8960 0e38e285
+	e 895f 44
+	e 895f c4
+	e 8900 01ff7fb77de03c
+	e 8955 f0d8
+	e ru radio_ctrl 1
+}
+
+test_gpio () {
+	e 8080 8080808080808080
+	e 8088 8080808080808080
+	e 8090 8080808080808080
+	e 8098 8080808080808080
+	e 812a 8080808080808080
+	return
+	e 8080 4040404040404040
+	e 8088 4040404040404040
+	e 8090 4040404040404040
+	e 8098 4040400000404040
+	e 812a 4040400000404040
+}
+
+test_gpio
+#enable_fpga_flash

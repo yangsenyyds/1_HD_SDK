@@ -1,0 +1,25 @@
+ifdef FUNCTION_TEST_ZCODE
+org z
+z_test_empty_work:
+	//call ice_break
+	fetch 2,0x4ff0
+	increase 1,pdata
+	store 2,0x4ff0
+	nop 100
+	nop 100
+	nop 100
+
+	rtn
+org z
+z_test_empty_work1:
+	//call ice_break
+	fetch 2,0x4ff2
+	increase 1,pdata
+	store 2,0x4ff2
+	nop 100
+	nop 100
+	nop 100
+
+	rtn
+endif
+	

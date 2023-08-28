@@ -1,0 +1,454 @@
+mem_patch00:
+84   #mem_patch00
+00   #mem_patch01
+00   #mem_patch02
+00   #mem_patch03
+00   #mem_patch04
+00   #mem_patch05
+00   #mem_patch06
+00   #mem_patch07
+01   #mem_patch08
+00   #mem_patch09
+00   #mem_patch0a
+00   #mem_patch0b
+20   #mem_patch0c
+00   #mem_patch0d
+00   #mem_patch0e
+00   #mem_patch0f
+80   #mem_patch10
+c2   #mem_patch11
+01   #mem_patch12
+00   #mem_patch13
+20   #mem_patch14
+00   #mem_patch15
+14   #mem_patch16
+00   #mem_patch17
+00   #mem_patch18
+00   #mem_patch19
+00   #mem_patch1a
+00   #mem_patch1b
+80   #mem_patch1c
+68   #mem_patch1d
+00   #mem_patch1e
+00   #mem_patch1f
+00   #mem_patch20
+00   #mem_patch21
+d0   #mem_patch22
+60   #mem_patch23
+c7   #mem_patch24
+c0   #mem_patch25
+40   #mem_patch26
+e0   #mem_patch27
+00   #mem_patch28
+00   #mem_patch29
+90   #mem_patch2a
+a8   #mem_patch2b
+00   #mem_patch2c
+00   #mem_patch2d
+00   #mem_patch2e
+00   #mem_patch2f
+00   #mem_patch30
+00   #mem_patch31
+00   #mem_patch32
+00   #mem_patch33
+00   #mem_patch34
+00   #mem_patch35
+00   #mem_patch36
+00   #mem_patch37
+00   #mem_patch38
+00   #mem_patch39
+00   #mem_patch3a
+00   #mem_patch3b
+00   #mem_patch3c
+00   #mem_patch3d
+18   #mem_patch3e
+00   #mem_patch3f
+
+
+
+##############NVRAM CONFIG##############
+mem_nv_data_ptr:mem_nv_data
+mem_nv_data_number:01
+#####################################
+
+##############BLUETOOTH CONFIG##############
+###commom###
+mem_device_option:10
+mem_lmp_version:09 0e 05 06 00
+###ble###
+mem_le_lap:33 55 66 78 F1 60
+mem_le_scan_data_len:05
+mem_le_scan_data:
+'\09BLE
+
+
+mem_le_adv_channel_map:07 
+mem_le_adv_enable:00
+mem_le_scan_type:01
+mem_le_scan_own_addr_type:00
+mem_le_scan_interval:28
+mem_le_scan_window:0c 00
+mem_le_adv_interval:30 00 
+mem_le_transmit_window:50
+mem_le_adv_own_addr_type:00
+
+
+mem_secure_connections_enable:00
+mem_le_pairing_mode:01
+mem_le_pres:02 03 00 01 10 02 03 #justwork
+
+mem_le_pairing_handle:00 00
+
+mem_le_interval_min:
+06 00 #min interval
+0a 00 #max interval
+00 00 #latency
+2c 01 #timeout
+
+
+mem_le_local_mtu:fb 00
+mem_le_remote_mtu:17
+mem_local_rx_max_octets:1b 00 48 08 1b 00 48 08  # 1b
+mem_le_local_feature:fd 5f
+
+###3.0###
+mem_lmp_io_cap_payload_iocap:03 00 00
+mem_role_switch_flag:00
+mem_scan_mode:00
+mem_lap:11 FF 33 FF 8c 60
+mem_class: 04 04 24
+mem_local_name_length:
+'1121G-1
+
+mem_sniff_param_interval:40 00
+mem_sniff_param_attempt:01
+mem_sniff_param_timeout:01
+mem_unsniff2sniff_timer:0a
+mem_ssp_enable:00
+mem_ui_profile_supported:48
+mem_app_connection_options:17
+mem_eir_enable:01
+mem_all_uuid_16bits:
+05
+03#Type: Complete list of 16-bit UUIDs
+1e11 0e11 0811 0d11 0b11
+
+mem_all_uuid_128bits:00
+
+
+#mem_le_att_list:write m0
+
+
+mem_lpm_mode:00
+# context_search_sniff_cont need 5 gap. prog load to connection_dispatch need near 500us
+mem_lpm_overhead:10
+mem_lpm_interval:00 02
+mem_lpm_mult:63
+mem_lpm_mult_timeout:00
+mem_ptt:01
+mem_features:
+ff
+ff
+8f
+fa	#fe--EDR  F8--BR  fa
+8b	#AFHclose 83  #AFHenable_slave cap and classification LMP_SLAVE_AFH_CLASSIFICATION enable 9b, disable 8b
+b9    #9d
+59
+82
+
+mem_xip_option:5d c0 bb
+#single line.
+#mem_xip_option:4c 00 03
+#mem_xip_option:4e 08 6b
+
+#mem_ui_le_uuid_table:mem_le_att_list
+
+mem_seqi:7f
+
+mem_codec_msbc_support:00
+mem_codec_type:01
+
+mem_UI_HF_brsf_feature:373637 #30 33 30 
+mem_ipc_enable:01
+
+mem_tws_function_enable:01
+mem_tws_state:00 #slave
+#mem_tws_state:45 #master
+#mem_tws_bdaddr:86 74 72 60 23 55
+mem_tws_bdaddr:96 55 12 11 33 63
+mem_tws_allow_pairing:01
+mem_vp_addr:00 00 07
+
+mem_tws_rf_start_anchor:80 07   # 0x1e0 40us,   0x78 10us,   0x4b0 100us,   0x618 130us  0x780 160us
+mem_tws_rf_rcv_window_size:00 00
+
+# 72us + hardware_delay(18us) + mem_tws_rf_slave_send_full_packet_sleep_time + reserve(60us) = 200us
+mem_tws_rf_packet_rx_window_size:60 09
+mem_tws_rf_slave_send_full_packet_sleep_time:58 02 # 50us
+# send delay is mem_tws_rf_slave_send_full_packet_sleep_time, so we can think the judge below
+# mem_tws_rf_packet_rx_window_size - (72us + hardware_delay(18us) + mem_tws_rf_slave_send_full_packet_sleep_time/2) = 200us - 115us = 85us
+mem_tws_rf_master_check_raw_id_time:fc 03
+mem_le_tws_scan_interval:28 00
+mem_le_tws_scan_window:0c 00
+mem_param_le_tws_adv_interval_normal:00 01 
+mem_param_le_tws_adv_interval_master_listen:58 00 
+
+# Tws Important timer param        start
+# master timeout must small than slave timeout
+mem_param_tws_timeout_master:53
+mem_param_tws_timeout_slave:58
+# Need big to normal connection timeout, becouse our role switch may be error.
+mem_param_tws_observe_wait_connect_timeout_no_connect:3c
+# Need think may be master disconnect timeout not same
+mem_param_tws_observe_wait_connect_timeout_error_disconnect:c8
+# Need big then mem_param_tws_timeout_master
+mem_param_tws_slave_loss_link_listen_master_timeout:58
+
+mem_param_tws_poll_slave:0d
+
+# In FPGA, should use limit value.
+mem_param_tws_adv_send_retry_limit:03
+
+#For master wait slave connected timeout, unit is 100ms
+mem_param_tws_master_wait_slave_timeout:20
+
+#For master switch wait timeout, unit is count
+mem_param_tws_m2s_ack_send_timeout:14
+
+#For master receive poll null skip count
+mem_param_tws_poll_null_ack_interval:02
+mem_param_tws_poll_null_ack_interval_sniff:01
+# Tws Important timer param        end
+
+# For limit queue size, need change here
+# mem_param_a2dp_buffer_judge_add_limit:10
+mem_param_a2dp_buffer_judge_add_limit:40
+mem_param_a2dp_buffer_judge_drop_limit:64
+mem_param_a2dp_buffer_judge_add_buffer_limit:02
+
+
+# a2dp memory setting
+mem_param_a2dp_dac_sbc_same_buffer_flag:01
+
+mem_rf_debug_enable: 00
+mem_rf_debug_rf_rx_debug_gpio: 0d
+mem_rf_debug_rf_tx_debug_gpio: 0e
+mem_rf_debug_rf_sync_detect_debug_gpio: 0f
+mem_rf_debug_rf_crc_error_debug_gpio: 13
+
+#mem_app_debug_info_timer use to set first debug timeout
+#mem_param_app_debug_info_timeout use to set period
+mem_app_debug_info_timer:05
+mem_param_app_debug_info_timeout:32
+
+mem_param_tws_tx_power:00
+
+mem_param_tws_send_channel_array:08 24 08 24
+#mem_param_tws_send_channel_array:20 20 20 20
+#mem_param_tws_send_channel_array:08 09 10 11
+
+mem_rf_power_fix:00
+mem_tx_power:00
+mem_param_bt_tx_power:00
+
+mem_system_clk:0c         #12M:0c     24M:18
+
+#mem_param_rf_setup must big then mem_param_pll_setup, be-careful, mem_param_rf_setup real value = 0xEA6 - value
+#we suggest must reserve 0x3A6, means mem_param_rf_setup = (0xEA6 - mem_param_pll_setup - 0x3A6)
+#mem_param_rf_setup:B8 07
+#mem_param_pll_setup:48 03
+#mem_param_rf_setup:00 06
+#mem_param_pll_setup:00 05
+
+#0x0e43 param_tx_setup
+#0x0600 param_rf_setup
+#0x0600 param_conn_access 
+#0x03bb param_clke_cal
+#0x0500 param_pll_setup		// 120 is minimum
+#0x0d00 param_rx_setup	// 114us before sync
+#mem_param_tx_setup  wait tx time
+#mem_param_rf_setup   rf dpll startup time   184us
+#mem_param_pll_setup  pll time
+#mem_param_clke_cal  79us
+mem_param_tx_setup:95 0e
+mem_param_rf_setup:00 06
+mem_param_conn_access:b0 04
+mem_param_clke_cal:bb 03
+mem_param_pll_setup:00 05
+mem_param_rx_setup:00 0d
+
+
+#2000 param_dpll_start_delay
+#3750 param_rt_rthalfslot
+#480 param_clke_cal_le_1m	//preamble(1B) & access address(4B) time (1+4)*8*1 * 12
+#288 	param_clke_cal_le_2m	//preamble(2B) & access address(4B) time (1+4)*8*1 * 12
+#282 param_clke_cal_le_coded	//preamble(80us) & access address(256us)-312.5us(0.5slot)
+mem_param_dpll_start_delay:d0 07
+mem_param_rt_rthalfslot:a6 0e
+mem_param_clke_cal_le_1m:e0 01
+mem_param_clke_cal_le_2m:20 01
+mem_param_clke_cal_le_coded:1a 01
+mem_audio_output_setting: 01
+mem_mram_qspi_tx_addr:00 de
+
+
+# For setting left right channel
+mem_hsp_role:00
+# For setting allow rssi setting
+mem_tws_allow_pairing_rssi_limit:45
+# For setting auto change role
+mem_auto_hsp_role:01
+
+
+
+# For setting eq enable or not
+mem_eq_flag:00
+
+# For setting bit pool
+mem_get_media_type:
+00
+00
+3f
+ff
+08
+23  # bitpool
+mem_sep2_media_type:00 02 80 01 8c 80 00 00
+mem_threeway_cmd_len:
+07 43 48 4c 44 3d 32 0d
+
+mem_param_tws_no_connect_adv_interval:50 00
+
+mem_param_tws_connect_l2cap_active_ch_cnt_limit:04
+
+mem_param_tws_s_connecting_in_paging:40 01
+mem_param_tws_s_connecting_in_slave_switch_listen:50 00
+mem_param_tws_spec_rcv_rssi_limit:45
+
+
+
+#################### buffer define start ######################
+
+mem_param_zcode_buff:00 3d
+mem_param_ipc_tx_buf:00 3e 00
+
+# avoid mem_param_ipc_tx_buf buffer.
+mem_param_alloc_normal_buffer_start_address:00 10 00
+mem_param_alloc_normal_buffer_max_length:83 00
+mem_param_alloc_big_buffer_start_address:20 15 00
+mem_param_alloc_big_buffer_max_length:0e 01
+
+
+mem_alloc_normal_total_size:0a
+mem_alloc_big_total_size:14
+mem_snd_br_total_size:0a
+mem_snd_ble_total_size:14
+mem_media_total_size:0a
+mem_lcp_total_size:0a
+mem_sco_tx_total_size:05
+mem_snd_hci_total_size:0a
+
+# must small or equal then mem_media_total_size
+mem_param_a2dp_max_allow_packet_cache:0a
+
+
+# ipc define
+#mem_param_ipc_mem_block_start_addr
+mem_param_ipc_to_bt_buf_start_addr:00 30 00
+mem_param_ipc_to_bt_buf_end_addr:00 33 00
+mem_param_ipc_to_bt_wptr_addr:00 33 00
+mem_param_ipc_to_bt_rptr_addr:04 33 00
+mem_param_ipc_to_m0_wptr_addr:08 33 00
+mem_param_ipc_to_m0_rptr_addr:0c 33 00
+mem_param_ipc_to_m0_buf_start_addr:50 33 00
+mem_param_ipc_to_m0_buf_end_addr:00 35 00
+#mem_param_ipc_mem_block_end_addr
+
+
+# debug define
+mem_param_debug_log_func_enable:00
+mem_param_debug_log_initial_flag_addr:10 33 00
+mem_param_debug_log_lock_flag_cm0_addr:11 33 00
+mem_param_debug_log_lock_flag_respin_addr:12 33 00
+mem_param_debug_log_lock_victim_addr:13 33 00
+mem_param_debug_log_read_index_addr:14 33 00
+mem_param_debug_log_write_index_addr:16 33 00
+mem_param_debug_log_buffer_start_addr:18 33 00
+mem_param_debug_log_buffer_end_addr:50 33 00
+
+#################### buffer define end ######################
+
+
+
+
+
+#no soft gain
+mem_gain_fix:ff
+
+
+
+mem_param_l2cap_channel_param_rfcomm:00 03
+mem_param_l2cap_channel_param_media:3a 02 #570: 0x23a
+mem_param_l2cap_channel_param_hid:00 03
+
+mem_tws_a2dp_retrans:01
+mem_tws_sco_retrans:01
+mem_public_code_svn_version_code:00 00 00 00 00 00 00 00 00
+mem_ota_version:0a 00
+mem_ota_write_handle:06
+mem_ota_notify_handle:03
+mem_ota_buck_size:00 20
+mem_ota_packet_max_len:f0 00
+mem_ota_update_flag:01
+
+
+
+
+mem_spp_rfcomm_channel:03
+mem_hfp_rfcomm_channel:01
+
+
+mem_param_m0_respin_sco_buffer_start_addr:00 3d 00
+mem_mtu_size:17
+mem_soft_version:32 69
+#mem_param_m0_respin_sco_buffer_start_addr:10 de 01
+
+mem_lpm_config:8f 19 02 # will set to LPM Control, first byte will change to two bit, so lpm bit 26:31 for soft use  Positive bias up, negative bias down
+mem_lpm_buckcnt:0a 0b ef 07
+mem_lpm_hibernate_switch:00
+mem_gpio_wakeup_low:00 00 00 00 00 00 00 00
+mem_touch_gpio2_wakeup:00 00 00 00
+mem_fcomp_mul:02
+
+mem_fcomp_div:18		#xtal select 18 24M   08 16M
+
+mem_iscan_window:20 00
+mem_iscan_interval:00 02
+mem_pscan_window:16 00
+mem_pscan_interval:00 02
+mem_inq_window:20 00
+mem_page_window:30 00
+mem_page_to:00 30
+mem_rx_window_init:80 03
+mem_rx_window_sniff:00 0a
+
+#if you find lpo_time not near 0x2a, you must think the pre timer maybe error.
+#DVDD 0.1uF, VFB 1uF    Time:   DVDD up time: 4us, VFB up time: 255us
+#DVDD 0.1uF, VFB 10uF    Time:   DVDD up time: 4us, VFB up time: 305us 
+#clock unit is internal 32K, 1 step is near 32us
+#so we set:
+#1: digldo pre-on counter(DVDD):  0x04
+#2: exen pre-on counter(VFB):  0x20
+#3: xtal pre-on counter(XTAL) set to zero becouse it will set in lpm_cal_xtal_startup
+#byte4 must close <retention memory chip select> first
+mem_lpm_xtalcnt:00 20 1c bf 07
+mem_lpm_ctrl3:00 80 10 64
+
+mem_ef_base:30 ff 87
+mem_eeprom_block_size:80
+
+mem_rf_init:
+ff
+
+mem_rf_init_ptr:mem_rf_init
+
+
