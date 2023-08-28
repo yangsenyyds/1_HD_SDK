@@ -91,8 +91,6 @@
 #define IR_IO           (GPIO_4)
 #define IR_RCV_PIN      (GPIO_5)
 
-#define RAW_BUFFER_LENGTH (508)
-
 #define PWR_KEYNUM      (1)
 #define VOL_UP_KEYNUM   (17)
 #define VOL_DOWN_KEYNUM (20)
@@ -110,6 +108,17 @@ typedef enum {
     ir_vol_ = ir_vol + 0x8,
     ir_mute = ir_vol_ + 0x8,
     first_done = ir_mute + 0x8,
+    HD_TV_DATA = 0x3FE00,
+    HD_INPUT_DATA = 0x3FC00,
+    HD_VOL_DATA = 0x3FA00,
+    HD_VOL__DATA = 0x3F800,
+    HD_MUTE__DATA = 0x3F600,
+    HD_LEFT_DATA = 0x3F200,
+    HD_RIGHT_DATA = 0x3F000,
+    HD_UP_DATA = 0x3F400,
+    HD_DOWN_DATA = 0x3EC00,
+    HD_MENU_DATA = 0x3EE00,
+    HD_BACK_DATA = 0x3EA00,
 } FlashRecordAddr_TypeDef; //存储数据需要 8字节
 
 

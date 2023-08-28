@@ -146,10 +146,10 @@ static const KeyBuf_TypeDef KeyBuf[] = {
     {0xFF, 0x00, 4, 57}, // 
 
     {0x9D, 0x00, 4, 57}, //  36
+    {0xBC, 0x00, 4, 57}, // 
+    {0xB4, 0x00, 4, 57}, // 
     {0xB0, 0x00, 4, 57}, // 
-    {0x98, 0x00, 4, 57}, // 
-    {0xB1, 0x00, 4, 57}, // 
-    {0xA0, 0x00, 4, 57}, // 
+    {0xB3, 0x00, 4, 57}, // 
 
     {0x98, 0x00, 4, 57}, //  41
     {0xFF, 0x00, 4, 57}, // 
@@ -292,7 +292,7 @@ static void key_pressed_handle(void)
                 keynum_second = 0;
                 key_pressed_time = 0;
                 led_state = true;
-                led_on(LED_1,200,800);
+                led_on(LED_2,200,60000);
                 Bt_ClearRemoteDevInfo();
                 Bt_ClearDeviceNvdataInfo();
                 start_adv(ADV_TYPE_NOMAL, 0x10,true);
@@ -411,7 +411,7 @@ static void keyvalue_handle(key_report_t* key_report)
 void action_after_mic_close(void)
 {
     led_state = false;
-    led_off(LED_1);
+    led_off(LED_2);
     voice_key_state = false;
 }
 

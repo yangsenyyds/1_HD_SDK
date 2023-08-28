@@ -1895,10 +1895,10 @@ static void key_pressed_handle(void)
             {
                 if(key_pressed_num == 0){
                     key_pressed_time = 0;
-#ifdef FUNCTION_WATCH_DOG    
+#ifdef FUNCTION_WATCH_DOG
                     IWDG_Disable(WDT);   //bt watch dog     
                     IWDG_Disable(WDT2);  //riscv watch dog
-#endif                    
+#endif 
                     swtimer_start(ir_receive_timernum, 100, TIMER_START_REPEAT);
                     return ;
                 }
@@ -2513,10 +2513,12 @@ void action_after_led_blk(void)
         led_on(LED_1, 0, 0);
     }
 }
+
 void action_after_mic_close(void){
     led_state = false;
     led_off(LED_1);
 }
+
 void LE_LTK_LOST(void)
 {
     DEBUG_LOG_BT("BT_EVT_LE_LTK_LOST \r\n");

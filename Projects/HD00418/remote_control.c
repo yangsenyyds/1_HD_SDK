@@ -73,7 +73,7 @@ static const uint8_t ir_data[] = {
 static const KeyBuf_TypeDef KeyBuf[] = {
     {0x00, 0x00, 0, 0},
 
-    {0x00, 0x00, 4, 57}, // INPUT  1
+    {0x2A, 0x02, 4, 57}, // INPUT  1
     {0x2A, 0x02, 4, 57}, // POWER 1
     {0x21, 0x02, 4, 57}, // 1
     {0x8B, 0x01, 4, 57}, // 2
@@ -350,7 +350,7 @@ static void keyvalue_handle(key_report_t* key_report)
 void action_after_mic_close(void)
 {
     led_state = false;
-    led_off(LED_1);
+    led_off(LED_2);
     voice_key_state = false;
 }
 

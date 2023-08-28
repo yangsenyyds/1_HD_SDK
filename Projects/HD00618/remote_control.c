@@ -42,6 +42,26 @@ enum{
     Right_Col = 4,
     Right_Keynum = 11,
     Home_Keynum = 7,
+
+    Input_Keynum = 5,
+    Input_Col = 4,
+    TV_Keynum = 2,
+    TV_Col = 1,
+    IR_VOL_Keynum = 19,
+    IR_VOL__Keynum = 22,
+    IR_MUTE_Keynum = 21,
+    IR_LEFT_Keynum = 27,
+    IR_RIGHT_Keynum = 28,
+    IR_UP_Keynum = 29,
+    IR_DOWN_Keynum = 31,
+    IR_MENU_Keynum = 30,
+    IR_BACK_Keynum = 32,
+
+    LED_STATE_NORMAL = 0,
+    LED_STATE_NO_OFF = 1,
+    LED_STATE_SLEEP = 2,
+    LED_LEARN_LONG = 3,
+    LED_LEARN_CONTINU = 4,
     CONN_PARAM = 49,
 };
 
@@ -188,6 +208,7 @@ static uint8_t s_4a18_send_timernum = 0xFF;
 static uint8_t encrypt_report_timernum = 0xFF;
 static uint8_t low_power_timernum = 0xFF;
 static uint8_t adv_timernum = 0xFF;
+static uint8_t ir_receive_timernum = 0xFF;
 static bool encrypt_state;
 static bool first_pair;
 static bool tx_power_switch = true;
@@ -195,6 +216,10 @@ static uint32_t sleep_time_state;
 static bool dis_encrypt_state;
 static bool conn_param_state;
 static uint8_t wake_up_state;
+
+static uint8_t continu_ir_receive;
+static uint8_t send_state;
+static uint8_t led_state;
 
 static bool SecretKey_Check(void)
 {
@@ -298,6 +323,60 @@ static void start_adv(enum advType type, uint16_t adv_interval, bool timeout)
         if (timeout) {
             app_sleep_lock_set(ADV_LOCK, true);
             app_sleep_timer_set(DIRECT_ADV_TIME);
+        }
+    }
+}
+
+static void ir_receive_handle(void){
+    if(continu_ir_receive == false)
+    {
+        tempStartTimer = 0;
+ir_fail:
+        memset(&irparams,0,sizeof(irparams));
+        keyscan_stop();
+        key_wakeup_set();
+        DEBUG_LOG_STRING("receive \r\n");
+        System_ChangeDPLL(CLOCK_DPLL_192M_multiple);
+        OS_ENTER_CRITICAL();
+
+        uint8_t JUDE_receive = ir_receive();
+
+        OS_EXIT_CRITICAL();
+        System_ChangeXtal24M();
+        keyscan_start();
+        DEBUG_LOG_STRING("JUDE_receive =%d  \r\n",JUDE_receive);
+
+        if(JUDE_receive == IR_LEARN_OVERTIME)
+        {
+            swtimer_stop(ir_receive_timernum);
+            led_state = LED_STATE_SLEEP;            
+            led_on(LED_1,200, 600);
+            uint16_t len = sizeof(send_state);
+            flash_read(HD_SEND_STATE, (uint8_t*)&send_state, len);
+        }
+        else if(JUDE_receive == IR_LEARN_SUCE)
+        {
+            key_pressed_time = 0;
+            continu_ir_receive = true;
+            send_state = IR_RECEIVE_JUDGE_STATE;
+            led_state = LED_LEARN_LONG;
+            led_on(LED_1, 200, 600);
+            DEBUG_LOG_STRING("200  \r\n");
+
+        }
+        else if(JUDE_receive == IR_LEARN_FAIL){
+            led_state = LED_LEARN_LONG;
+            led_on(LED_1, 0, 0);
+            goto ir_fail;
+        }
+    }
+    else{
+        if(key_pressed_time++ > 300)
+        {
+            swtimer_stop(ir_receive_timernum);
+            key_pressed_time = 0;     
+            led_on(LED_1,200, 600);
+            send_state = NORMAL;
         }
     }
 }

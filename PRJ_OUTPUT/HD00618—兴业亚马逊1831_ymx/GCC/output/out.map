@@ -129,13 +129,13 @@ Discarded input sections
                 0x0000000000000000       0x18 output/obj/yc_debug.o
  .text.print_format_string
                 0x0000000000000000      0x270 output/obj/yc_debug.o
- .rodata.g_pcHex2.3672
+ .rodata.g_pcHex2.3683
                 0x0000000000000000        0x4 output/obj/yc_debug.o
- .rodata.g_pcHex1.3671
+ .rodata.g_pcHex1.3682
                 0x0000000000000000        0x4 output/obj/yc_debug.o
- .rodata.g_pcHex2.3776
+ .rodata.g_pcHex2.3787
                 0x0000000000000000        0x4 output/obj/yc_debug.o
- .rodata.g_pcHex1.3775
+ .rodata.g_pcHex1.3786
                 0x0000000000000000        0x4 output/obj/yc_debug.o
  .text          0x0000000000000000        0x0 output/obj/yc_nvic.o
  .data          0x0000000000000000        0x0 output/obj/yc_nvic.o
@@ -407,7 +407,7 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 output/obj/yc11xx_ipc.o
  .text.IPC_TxPacket
                 0x0000000000000000       0x88 output/obj/yc11xx_ipc.o
- .rodata.__FUNCTION__.3664
+ .rodata.__FUNCTION__.3675
                 0x0000000000000000        0xd output/obj/yc11xx_ipc.o
  .text          0x0000000000000000        0x0 output/obj/yc11xx_audio_adc.o
  .data          0x0000000000000000        0x0 output/obj/yc11xx_audio_adc.o
@@ -1455,8 +1455,8 @@ Discarded input sections
                 0x0000000000000000       0x5e output/obj/ir_select.o
  .rodata.brand_DVB_init
                 0x0000000000000000       0x10 output/obj/ir_select.o
- .debug_info    0x0000000000000000     0x4826 output/obj/ir_select.o
- .debug_abbrev  0x0000000000000000      0x328 output/obj/ir_select.o
+ .debug_info    0x0000000000000000     0x4825 output/obj/ir_select.o
+ .debug_abbrev  0x0000000000000000      0x31f output/obj/ir_select.o
  .debug_loc     0x0000000000000000     0x2164 output/obj/ir_select.o
  .debug_aranges
                 0x0000000000000000       0x70 output/obj/ir_select.o
@@ -1469,7 +1469,7 @@ Discarded input sections
  .data          0x0000000000000000        0x0 output/obj/ir_learn_from_remote.o
  .bss           0x0000000000000000        0x0 output/obj/ir_learn_from_remote.o
  .memory_protect_under_lpm
-                0x0000000000000000      0xffc output/obj/ir_learn_from_remote.o
+                0x0000000000000000      0x40c output/obj/ir_learn_from_remote.o
  .text.SYS_TimerRead
                 0x0000000000000000        0x8 output/obj/ir_learn_from_remote.o
  .text.SYS_TimerCountGet
@@ -1479,15 +1479,15 @@ Discarded input sections
  .rodata.ir_receive.str1.4
                 0x0000000000000000       0x4f output/obj/ir_learn_from_remote.o
  .text.ir_receive
-                0x0000000000000000      0x512 output/obj/ir_learn_from_remote.o
+                0x0000000000000000      0x51a output/obj/ir_learn_from_remote.o
  .rodata.cst8   0x0000000000000000        0x8 output/obj/ir_learn_from_remote.o
- .debug_info    0x0000000000000000      0xfae output/obj/ir_learn_from_remote.o
- .debug_abbrev  0x0000000000000000      0x309 output/obj/ir_learn_from_remote.o
- .debug_loc     0x0000000000000000      0x248 output/obj/ir_learn_from_remote.o
+ .debug_info    0x0000000000000000      0xfad output/obj/ir_learn_from_remote.o
+ .debug_abbrev  0x0000000000000000      0x300 output/obj/ir_learn_from_remote.o
+ .debug_loc     0x0000000000000000      0x231 output/obj/ir_learn_from_remote.o
  .debug_aranges
                 0x0000000000000000       0x38 output/obj/ir_learn_from_remote.o
- .debug_ranges  0x0000000000000000       0xd0 output/obj/ir_learn_from_remote.o
- .debug_line    0x0000000000000000     0x10bb output/obj/ir_learn_from_remote.o
+ .debug_ranges  0x0000000000000000       0xb8 output/obj/ir_learn_from_remote.o
+ .debug_line    0x0000000000000000     0x10ad output/obj/ir_learn_from_remote.o
  .debug_str     0x0000000000000000      0x9e2 output/obj/ir_learn_from_remote.o
  .comment       0x0000000000000000       0x12 output/obj/ir_learn_from_remote.o
  .debug_frame   0x0000000000000000       0x9c output/obj/ir_learn_from_remote.o
@@ -2200,7 +2200,7 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 output/obj/celt_encoder.o
  .text.celt_encoder_get_size
                 0x0000000000000000       0x30 output/obj/celt_encoder.o
- .rodata.C.4953
+ .rodata.C.4964
                 0x0000000000000000        0xa output/obj/celt_encoder.o
  .text          0x0000000000000000        0x0 output/obj/gain_quant.o
  .data          0x0000000000000000        0x0 output/obj/gain_quant.o
@@ -2506,7 +2506,7 @@ Discarded input sections
  .text          0x0000000000000000        0x0 output/obj/mathops.o
  .data          0x0000000000000000        0x0 output/obj/mathops.o
  .bss           0x0000000000000000        0x0 output/obj/mathops.o
- .rodata.C.4466
+ .rodata.C.4477
                 0x0000000000000000        0xa output/obj/mathops.o
  .text          0x0000000000000000        0x0 output/obj/NLSF2A.o
  .data          0x0000000000000000        0x0 output/obj/NLSF2A.o
@@ -2515,9 +2515,9 @@ Discarded input sections
                 0x0000000000000000       0xa8 output/obj/NLSF2A.o
  .text.silk_NLSF2A
                 0x0000000000000000      0x15a output/obj/NLSF2A.o
- .rodata.ordering16.5007
+ .rodata.ordering16.5018
                 0x0000000000000000       0x10 output/obj/NLSF2A.o
- .rodata.ordering10.5008
+ .rodata.ordering10.5019
                 0x0000000000000000        0xa output/obj/NLSF2A.o
  .debug_info    0x0000000000000000     0x13f4 output/obj/NLSF2A.o
  .debug_abbrev  0x0000000000000000      0x2f8 output/obj/NLSF2A.o
@@ -2607,7 +2607,7 @@ Discarded input sections
                 0x0000000000000000        0xa output/obj/celt.o
  .rodata.str1.4
                 0x0000000000000000       0x95 output/obj/celt.o
- .rodata.error_strings.5199
+ .rodata.error_strings.5210
                 0x0000000000000000       0x20 output/obj/celt.o
  .text          0x0000000000000000        0x0 output/obj/dec_API.o
  .data          0x0000000000000000        0x0 output/obj/dec_API.o
@@ -3669,9 +3669,9 @@ Discarded input sections
                 0x0000000000000000      0x3de output/obj/opus_multistream_encoder.o
  .text.opus_multistream_encoder_destroy
                 0x0000000000000000       0x18 output/obj/opus_multistream_encoder.o
- .rodata.diff_table.5459
+ .rodata.diff_table.5470
                 0x0000000000000000       0x22 output/obj/opus_multistream_encoder.o
- .rodata.C.4957
+ .rodata.C.4968
                 0x0000000000000000        0xa output/obj/opus_multistream_encoder.o
  .debug_info    0x0000000000000000     0x359c output/obj/opus_multistream_encoder.o
  .debug_abbrev  0x0000000000000000      0x5ef output/obj/opus_multistream_encoder.o
@@ -3780,7 +3780,7 @@ Discarded input sections
                 0x0000000000000000       0x7a output/obj/quant_bands.o
  .text.unquant_energy_finalise
                 0x0000000000000000       0xbe output/obj/quant_bands.o
- .rodata.C.4721
+ .rodata.C.4732
                 0x0000000000000000        0xa output/obj/quant_bands.o
  .text          0x0000000000000000        0x0 output/obj/autocorr_FIX.o
  .data          0x0000000000000000        0x0 output/obj/autocorr_FIX.o
@@ -5537,7 +5537,7 @@ LOAD d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib
  .rodata.Memory_Malloc.str1.4
                 0x00000000010184a0       0x1f output/obj/malloc.o
  *fill*         0x00000000010184bf        0x1 
- .rodata.__FUNCTION__.3604
+ .rodata.__FUNCTION__.3615
                 0x00000000010184c0        0xe output/obj/malloc.o
  *fill*         0x00000000010184ce        0x2 
  .rodata.IPC_TxPacket.str1.4
@@ -5545,16 +5545,16 @@ LOAD d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib
  .rodata.IpcDefaultCallBack.str1.4
                 0x00000000010184f8       0x16 output/obj/yc11xx_ipc.o
  *fill*         0x000000000101850e        0x2 
- .rodata.__FUNCTION__.3670
+ .rodata.__FUNCTION__.3681
                 0x0000000001018510        0xd output/obj/yc11xx_ipc.o
  *fill*         0x000000000101851d        0x3 
- .rodata.__FUNCTION__.3675
+ .rodata.__FUNCTION__.3686
                 0x0000000001018520       0x11 output/obj/yc11xx_ipc.o
  *fill*         0x0000000001018531        0x3 
- .rodata.__FUNCTION__.3680
+ .rodata.__FUNCTION__.3691
                 0x0000000001018534        0xd output/obj/yc11xx_ipc.o
  *fill*         0x0000000001018541        0x3 
- .rodata.__FUNCTION__.3685
+ .rodata.__FUNCTION__.3696
                 0x0000000001018544       0x13 output/obj/yc11xx_ipc.o
  *fill*         0x0000000001018557        0x1 
  .rodata.g_adc_cicfircoeffTtablel
@@ -6330,12 +6330,12 @@ LOAD d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib
  .rodata.tapset_icdf
                 0x000000000101a124        0x3 output/obj/celt_encoder.o
  *fill*         0x000000000101a127        0x1 
- .rodata.inv_table.5211
+ .rodata.inv_table.5222
                 0x000000000101a128       0x80 output/obj/celt_encoder.o
- .rodata.intensity_thresholds.5791
+ .rodata.intensity_thresholds.5802
                 0x000000000101a1a8       0x2a output/obj/celt_encoder.o
  *fill*         0x000000000101a1d2        0x2 
- .rodata.intensity_histeresis.5792
+ .rodata.intensity_histeresis.5803
                 0x000000000101a1d4       0x2a output/obj/celt_encoder.o
  *fill*         0x000000000101a1fe        0x2 
  .rodata.cst4   0x000000000101a200        0xc output/obj/celt_encoder.o
@@ -6383,18 +6383,18 @@ LOAD d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib
  .rodata.tf_select_table
                 0x000000000101c544       0x20 output/obj/celt.o
                 0x000000000101c544                tf_select_table
- .rodata.gains.5179
+ .rodata.gains.5190
                 0x000000000101c564       0x12 output/obj/celt.o
  *fill*         0x000000000101c576        0x2 
  .rodata.ordery_table
                 0x000000000101c578       0x78 output/obj/bands.o
- .rodata.exp2_table8.5413
+ .rodata.exp2_table8.5424
                 0x000000000101c5f0       0x10 output/obj/bands.o
- .rodata.bit_interleave_table.5572
+ .rodata.bit_interleave_table.5583
                 0x000000000101c600       0x10 output/obj/bands.o
- .rodata.bit_deinterleave_table.5582
+ .rodata.bit_deinterleave_table.5593
                 0x000000000101c610       0x10 output/obj/bands.o
- .rodata.SPREAD_FACTOR.5044
+ .rodata.SPREAD_FACTOR.5055
                 0x000000000101c620        0xc output/obj/vq.o
  .rodata.CELT_PVQ_U_DATA
                 0x000000000101c62c     0x13e0 output/obj/cwrs.o
@@ -6403,7 +6403,7 @@ LOAD d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib
  .rodata.SMALL_DIV_TABLE
                 0x000000000101da48      0x204 output/obj/entcode.o
                 0x000000000101da48                SMALL_DIV_TABLE
- .rodata.correction.3546
+ .rodata.correction.3557
                 0x000000000101dc4c       0x20 output/obj/entcode.o
  .rodata.eMeans
                 0x000000000101dc6c       0x19 output/obj/quant_bands.o
@@ -6876,7 +6876,7 @@ LOAD d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib
  *(.local*)
                 0x0000000010010000                . = 0x10010000
 
-.debug          0x0000000010010000    0x574a3
+.debug          0x0000000010010000    0x57618
  *(.debug_info*)
  .debug_info    0x0000000010010000      0xe21 output/obj/main.o
  .debug_info    0x0000000010010e21     0x1cae output/obj/yc_debug.o
@@ -6900,52 +6900,52 @@ LOAD d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib
  .debug_info    0x00000000100251d5     0x21a7 output/obj/yc_dev_bt.o
  .debug_info    0x000000001002737c      0xf7b output/obj/yc_ota.o
  .debug_info    0x00000000100282f7     0x1c67 output/obj/att.o
- .debug_info    0x0000000010029f5e      0xf2f output/obj/flash.o
- .debug_info    0x000000001002ae8d      0xbfa output/obj/app_queue.o
- .debug_info    0x000000001002ba87      0xc31 output/obj/factory_test.o
- .debug_info    0x000000001002c6b8     0x11be output/obj/app_sleep.o
- .debug_info    0x000000001002d876      0xcbb output/obj/vbat.o
- .debug_info    0x000000001002e531     0x1626 output/obj/keyscan.o
- .debug_info    0x000000001002fb57     0x11b0 output/obj/led.o
- .debug_info    0x0000000010030d07      0xed3 output/obj/ir_send.o
- .debug_info    0x0000000010031bda     0x2a87 output/obj/ir_load.o
- .debug_info    0x0000000010034661     0x24e8 output/obj/ir_lib.o
- .debug_info    0x0000000010036b49     0x1236 output/obj/ir_learn_from_tv.o
- .debug_info    0x0000000010037d7f     0x159f output/obj/audio.o
- .debug_info    0x000000001003931e     0x1dd3 output/obj/pitch.o
- .debug_info    0x000000001003b0f1      0xc4b output/obj/lin2log.o
- .debug_info    0x000000001003bd3c     0x10d1 output/obj/entdec.o
- .debug_info    0x000000001003ce0d      0xc89 output/obj/biquad_alt.o
- .debug_info    0x000000001003da96     0x3b13 output/obj/opus_encoder.o
- .debug_info    0x00000000100415a9     0x4734 output/obj/celt_encoder.o
- .debug_info    0x0000000010045cdd     0x1258 output/obj/kiss_fft.o
- .debug_info    0x0000000010046f35     0x1979 output/obj/rate.o
- .debug_info    0x00000000100488ae     0x12f1 output/obj/entenc.o
- .debug_info    0x0000000010049b9f     0x1186 output/obj/modes.o
- .debug_info    0x000000001004ad25      0xe09 output/obj/mathops.o
- .debug_info    0x000000001004bb2e     0x1299 output/obj/celt.o
- .debug_info    0x000000001004cdc7     0x2533 output/obj/opus_decoder.o
- .debug_info    0x000000001004f2fa      0xb07 output/obj/log2lin.o
- .debug_info    0x000000001004fe01     0x487a output/obj/bands.o
- .debug_info    0x000000001005467b     0x1bcf output/obj/vq.o
- .debug_info    0x000000001005624a      0xea6 output/obj/cwrs.o
- .debug_info    0x00000000100570f0      0xc16 output/obj/entcode.o
- .debug_info    0x0000000010057d06      0xe39 output/obj/laplace.o
- .debug_info    0x0000000010058b3f     0x11d7 output/obj/celt_lpc.o
- .debug_info    0x0000000010059d16      0xf05 output/obj/opus.o
- .debug_info    0x000000001005ac1b     0x1683 output/obj/repacketizer.o
- .debug_info    0x000000001005c29e     0x121d output/obj/mdct.o
- .debug_info    0x000000001005d4bb      0xd21 output/obj/opus_codec_drv.o
- .debug_info    0x000000001005e1dc     0x2079 output/obj/quant_bands.o
- .debug_info    0x0000000010060255     0x358d output/obj/remote_control.o
- .debug_info    0x00000000100637e2     0x1537 output/obj/att_list.o
- .debug_info    0x0000000010064d19      0x3b6 ./../../../APP/SECRETKEY\libSecretKey.a(SecretKey.o)
- .debug_info    0x00000000100650cf      0xbd7 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(_clzsi2.o)
- .debug_info    0x0000000010065ca6      0x7ab d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(muldf3.o)
- .debug_info    0x0000000010066451      0x202 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(fixunsdfsi.o)
- .debug_info    0x0000000010066653      0x2c0 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(floatsidf.o)
- .debug_info    0x0000000010066913       0x26 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(save-restore.o)
- .debug_info    0x0000000010066939      0xb6a d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(_clz.o)
+ .debug_info    0x0000000010029f5e      0xf92 output/obj/flash.o
+ .debug_info    0x000000001002aef0      0xbfa output/obj/app_queue.o
+ .debug_info    0x000000001002baea      0xc31 output/obj/factory_test.o
+ .debug_info    0x000000001002c71b     0x11be output/obj/app_sleep.o
+ .debug_info    0x000000001002d8d9      0xcbb output/obj/vbat.o
+ .debug_info    0x000000001002e594     0x1626 output/obj/keyscan.o
+ .debug_info    0x000000001002fbba     0x11b0 output/obj/led.o
+ .debug_info    0x0000000010030d6a      0xed3 output/obj/ir_send.o
+ .debug_info    0x0000000010031c3d     0x2a86 output/obj/ir_load.o
+ .debug_info    0x00000000100346c3     0x24e8 output/obj/ir_lib.o
+ .debug_info    0x0000000010036bab     0x1299 output/obj/ir_learn_from_tv.o
+ .debug_info    0x0000000010037e44     0x159f output/obj/audio.o
+ .debug_info    0x00000000100393e3     0x1dd3 output/obj/pitch.o
+ .debug_info    0x000000001003b1b6      0xc4b output/obj/lin2log.o
+ .debug_info    0x000000001003be01     0x10d1 output/obj/entdec.o
+ .debug_info    0x000000001003ced2      0xc89 output/obj/biquad_alt.o
+ .debug_info    0x000000001003db5b     0x3b13 output/obj/opus_encoder.o
+ .debug_info    0x000000001004166e     0x4734 output/obj/celt_encoder.o
+ .debug_info    0x0000000010045da2     0x1258 output/obj/kiss_fft.o
+ .debug_info    0x0000000010046ffa     0x1979 output/obj/rate.o
+ .debug_info    0x0000000010048973     0x12f1 output/obj/entenc.o
+ .debug_info    0x0000000010049c64     0x1186 output/obj/modes.o
+ .debug_info    0x000000001004adea      0xe09 output/obj/mathops.o
+ .debug_info    0x000000001004bbf3     0x1299 output/obj/celt.o
+ .debug_info    0x000000001004ce8c     0x2533 output/obj/opus_decoder.o
+ .debug_info    0x000000001004f3bf      0xb07 output/obj/log2lin.o
+ .debug_info    0x000000001004fec6     0x487a output/obj/bands.o
+ .debug_info    0x0000000010054740     0x1bcf output/obj/vq.o
+ .debug_info    0x000000001005630f      0xea6 output/obj/cwrs.o
+ .debug_info    0x00000000100571b5      0xc16 output/obj/entcode.o
+ .debug_info    0x0000000010057dcb      0xe39 output/obj/laplace.o
+ .debug_info    0x0000000010058c04     0x11d7 output/obj/celt_lpc.o
+ .debug_info    0x0000000010059ddb      0xf05 output/obj/opus.o
+ .debug_info    0x000000001005ace0     0x1683 output/obj/repacketizer.o
+ .debug_info    0x000000001005c363     0x121d output/obj/mdct.o
+ .debug_info    0x000000001005d580      0xd21 output/obj/opus_codec_drv.o
+ .debug_info    0x000000001005e2a1     0x2079 output/obj/quant_bands.o
+ .debug_info    0x000000001006031a     0x363d output/obj/remote_control.o
+ .debug_info    0x0000000010063957     0x1537 output/obj/att_list.o
+ .debug_info    0x0000000010064e8e      0x3b6 ./../../../APP/SECRETKEY\libSecretKey.a(SecretKey.o)
+ .debug_info    0x0000000010065244      0xbd7 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(_clzsi2.o)
+ .debug_info    0x0000000010065e1b      0x7ab d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(muldf3.o)
+ .debug_info    0x00000000100665c6      0x202 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(fixunsdfsi.o)
+ .debug_info    0x00000000100667c8      0x2c0 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(floatsidf.o)
+ .debug_info    0x0000000010066a88       0x26 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(save-restore.o)
+ .debug_info    0x0000000010066aae      0xb6a d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(_clz.o)
 
 .data           0x0000000010010000      0x4fc load address 0x0000000001020490
                 0x0000000010010000                _sdata = .
@@ -6970,7 +6970,7 @@ LOAD d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib
  .data.ir_ncnt  0x000000001001004a        0x2 output/obj/ir_send.o
  .data.clk_div  0x000000001001004c        0x1 output/obj/ir_send.o
  *fill*         0x000000001001004d        0x1 
- .data.toggle.4172
+ .data.toggle.4183
                 0x000000001001004e        0x2 output/obj/ir_load.o
  .data.ir_learn_record
                 0x0000000010010050        0x4 output/obj/ir_learn_from_tv.o
@@ -7108,9 +7108,9 @@ LOAD d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib
  *fill*         0x000000001001069d        0x1 
  .bss.coust_code
                 0x000000001001069e        0x2 output/obj/ir_load.o
- .bss.toggle.4186
+ .bss.toggle.4197
                 0x00000000100106a0        0x2 output/obj/ir_load.o
- .bss.coust_code.4188
+ .bss.coust_code.4199
                 0x00000000100106a2        0x2 output/obj/ir_load.o
  .bss.ir_learn_done
                 0x00000000100106a4        0x1 output/obj/ir_learn_from_tv.o
@@ -7258,7 +7258,7 @@ LOAD d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib
                 0x0000000000000001                ASSERT ((_ebss < _stack), data size overflow)
 OUTPUT(./output/out.elf elf32-littleriscv)
 
-.debug_abbrev   0x0000000000000000     0xdf8c
+.debug_abbrev   0x0000000000000000     0xdf7a
  .debug_abbrev  0x0000000000000000      0x2ba output/obj/main.o
  .debug_abbrev  0x00000000000002ba      0x52f output/obj/yc_debug.o
  .debug_abbrev  0x00000000000007e9      0x298 output/obj/yc_nvic.o
@@ -7289,44 +7289,44 @@ OUTPUT(./output/out.elf elf32-littleriscv)
  .debug_abbrev  0x000000000000575c      0x3a2 output/obj/keyscan.o
  .debug_abbrev  0x0000000000005afe      0x34c output/obj/led.o
  .debug_abbrev  0x0000000000005e4a      0x29f output/obj/ir_send.o
- .debug_abbrev  0x00000000000060e9      0x4aa output/obj/ir_load.o
- .debug_abbrev  0x0000000000006593      0x291 output/obj/ir_lib.o
- .debug_abbrev  0x0000000000006824      0x3ba output/obj/ir_learn_from_tv.o
- .debug_abbrev  0x0000000000006bde      0x407 output/obj/audio.o
- .debug_abbrev  0x0000000000006fe5      0x52a output/obj/pitch.o
- .debug_abbrev  0x000000000000750f      0x2ed output/obj/lin2log.o
- .debug_abbrev  0x00000000000077fc      0x367 output/obj/entdec.o
- .debug_abbrev  0x0000000000007b63      0x28e output/obj/biquad_alt.o
- .debug_abbrev  0x0000000000007df1      0x64b output/obj/opus_encoder.o
- .debug_abbrev  0x000000000000843c      0x554 output/obj/celt_encoder.o
- .debug_abbrev  0x0000000000008990      0x336 output/obj/kiss_fft.o
- .debug_abbrev  0x0000000000008cc6      0x3c7 output/obj/rate.o
- .debug_abbrev  0x000000000000908d      0x3cb output/obj/entenc.o
- .debug_abbrev  0x0000000000009458      0x27e output/obj/modes.o
- .debug_abbrev  0x00000000000096d6      0x308 output/obj/mathops.o
- .debug_abbrev  0x00000000000099de      0x379 output/obj/celt.o
- .debug_abbrev  0x0000000000009d57      0x5a7 output/obj/opus_decoder.o
- .debug_abbrev  0x000000000000a2fe      0x230 output/obj/log2lin.o
- .debug_abbrev  0x000000000000a52e      0x633 output/obj/bands.o
- .debug_abbrev  0x000000000000ab61      0x563 output/obj/vq.o
- .debug_abbrev  0x000000000000b0c4      0x2fe output/obj/cwrs.o
- .debug_abbrev  0x000000000000b3c2      0x263 output/obj/entcode.o
- .debug_abbrev  0x000000000000b625      0x332 output/obj/laplace.o
- .debug_abbrev  0x000000000000b957      0x361 output/obj/celt_lpc.o
- .debug_abbrev  0x000000000000bcb8      0x364 output/obj/opus.o
- .debug_abbrev  0x000000000000c01c      0x485 output/obj/repacketizer.o
- .debug_abbrev  0x000000000000c4a1      0x2b3 output/obj/mdct.o
- .debug_abbrev  0x000000000000c754      0x26c output/obj/opus_codec_drv.o
- .debug_abbrev  0x000000000000c9c0      0x47a output/obj/quant_bands.o
- .debug_abbrev  0x000000000000ce3a      0x489 output/obj/remote_control.o
- .debug_abbrev  0x000000000000d2c3      0x28e output/obj/att_list.o
- .debug_abbrev  0x000000000000d551      0x17f ./../../../APP/SECRETKEY\libSecretKey.a(SecretKey.o)
- .debug_abbrev  0x000000000000d6d0      0x242 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(_clzsi2.o)
- .debug_abbrev  0x000000000000d912      0x186 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(muldf3.o)
- .debug_abbrev  0x000000000000da98      0x177 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(fixunsdfsi.o)
- .debug_abbrev  0x000000000000dc0f      0x181 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(floatsidf.o)
- .debug_abbrev  0x000000000000dd90       0x14 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(save-restore.o)
- .debug_abbrev  0x000000000000dda4      0x1e8 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(_clz.o)
+ .debug_abbrev  0x00000000000060e9      0x4a1 output/obj/ir_load.o
+ .debug_abbrev  0x000000000000658a      0x291 output/obj/ir_lib.o
+ .debug_abbrev  0x000000000000681b      0x3ba output/obj/ir_learn_from_tv.o
+ .debug_abbrev  0x0000000000006bd5      0x407 output/obj/audio.o
+ .debug_abbrev  0x0000000000006fdc      0x52a output/obj/pitch.o
+ .debug_abbrev  0x0000000000007506      0x2ed output/obj/lin2log.o
+ .debug_abbrev  0x00000000000077f3      0x367 output/obj/entdec.o
+ .debug_abbrev  0x0000000000007b5a      0x28e output/obj/biquad_alt.o
+ .debug_abbrev  0x0000000000007de8      0x64b output/obj/opus_encoder.o
+ .debug_abbrev  0x0000000000008433      0x554 output/obj/celt_encoder.o
+ .debug_abbrev  0x0000000000008987      0x336 output/obj/kiss_fft.o
+ .debug_abbrev  0x0000000000008cbd      0x3c7 output/obj/rate.o
+ .debug_abbrev  0x0000000000009084      0x3cb output/obj/entenc.o
+ .debug_abbrev  0x000000000000944f      0x27e output/obj/modes.o
+ .debug_abbrev  0x00000000000096cd      0x308 output/obj/mathops.o
+ .debug_abbrev  0x00000000000099d5      0x379 output/obj/celt.o
+ .debug_abbrev  0x0000000000009d4e      0x5a7 output/obj/opus_decoder.o
+ .debug_abbrev  0x000000000000a2f5      0x230 output/obj/log2lin.o
+ .debug_abbrev  0x000000000000a525      0x633 output/obj/bands.o
+ .debug_abbrev  0x000000000000ab58      0x563 output/obj/vq.o
+ .debug_abbrev  0x000000000000b0bb      0x2fe output/obj/cwrs.o
+ .debug_abbrev  0x000000000000b3b9      0x263 output/obj/entcode.o
+ .debug_abbrev  0x000000000000b61c      0x332 output/obj/laplace.o
+ .debug_abbrev  0x000000000000b94e      0x361 output/obj/celt_lpc.o
+ .debug_abbrev  0x000000000000bcaf      0x364 output/obj/opus.o
+ .debug_abbrev  0x000000000000c013      0x485 output/obj/repacketizer.o
+ .debug_abbrev  0x000000000000c498      0x2b3 output/obj/mdct.o
+ .debug_abbrev  0x000000000000c74b      0x26c output/obj/opus_codec_drv.o
+ .debug_abbrev  0x000000000000c9b7      0x47a output/obj/quant_bands.o
+ .debug_abbrev  0x000000000000ce31      0x480 output/obj/remote_control.o
+ .debug_abbrev  0x000000000000d2b1      0x28e output/obj/att_list.o
+ .debug_abbrev  0x000000000000d53f      0x17f ./../../../APP/SECRETKEY\libSecretKey.a(SecretKey.o)
+ .debug_abbrev  0x000000000000d6be      0x242 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(_clzsi2.o)
+ .debug_abbrev  0x000000000000d900      0x186 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(muldf3.o)
+ .debug_abbrev  0x000000000000da86      0x177 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(fixunsdfsi.o)
+ .debug_abbrev  0x000000000000dbfd      0x181 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(floatsidf.o)
+ .debug_abbrev  0x000000000000dd7e       0x14 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(save-restore.o)
+ .debug_abbrev  0x000000000000dd92      0x1e8 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(_clz.o)
 
 .debug_aranges  0x0000000000000000     0x1de8
  .debug_aranges
@@ -7604,7 +7604,7 @@ OUTPUT(./output/out.elf elf32-littleriscv)
  .debug_line    0x0000000000046223      0x191 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(save-restore.o)
  .debug_line    0x00000000000463b4      0x23d d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(_clz.o)
 
-.debug_str      0x0000000000000000     0xd9dd
+.debug_str      0x0000000000000000     0xdb17
  .debug_str     0x0000000000000000      0x797 output/obj/main.o
                                         0x844 (size before relaxing)
  .debug_str     0x0000000000000797      0xa5f output/obj/yc_debug.o
@@ -7649,97 +7649,97 @@ OUTPUT(./output/out.elf elf32-littleriscv)
                                         0x91e (size before relaxing)
  .debug_str     0x0000000000005556      0x2c4 output/obj/att.o
                                         0x9bd (size before relaxing)
- .debug_str     0x000000000000581a      0x156 output/obj/flash.o
-                                        0x839 (size before relaxing)
- .debug_str     0x0000000000005970       0xc5 output/obj/app_queue.o
+ .debug_str     0x000000000000581a      0x1e3 output/obj/flash.o
+                                        0x8c6 (size before relaxing)
+ .debug_str     0x00000000000059fd       0xc5 output/obj/app_queue.o
                                         0x766 (size before relaxing)
- .debug_str     0x0000000000005a35       0xe0 output/obj/factory_test.o
+ .debug_str     0x0000000000005ac2       0xe0 output/obj/factory_test.o
                                         0x761 (size before relaxing)
- .debug_str     0x0000000000005b15      0x1c8 output/obj/app_sleep.o
+ .debug_str     0x0000000000005ba2      0x1c8 output/obj/app_sleep.o
                                         0xfec (size before relaxing)
- .debug_str     0x0000000000005cdd       0xf8 output/obj/vbat.o
+ .debug_str     0x0000000000005d6a       0xf8 output/obj/vbat.o
                                         0x7c5 (size before relaxing)
- .debug_str     0x0000000000005dd5      0x1de output/obj/keyscan.o
+ .debug_str     0x0000000000005e62      0x1de output/obj/keyscan.o
                                        0x100c (size before relaxing)
- .debug_str     0x0000000000005fb3       0xd6 output/obj/led.o
+ .debug_str     0x0000000000006040       0xd6 output/obj/led.o
                                         0xea7 (size before relaxing)
- .debug_str     0x0000000000006089       0xcb output/obj/ir_send.o
+ .debug_str     0x0000000000006116       0xcb output/obj/ir_send.o
                                         0xdca (size before relaxing)
- .debug_str     0x0000000000006154     0x1757 output/obj/ir_load.o
+ .debug_str     0x00000000000061e1     0x1757 output/obj/ir_load.o
                                        0x25bf (size before relaxing)
- .debug_str     0x00000000000078ab     0x13ee output/obj/ir_lib.o
+ .debug_str     0x0000000000007938     0x13ee output/obj/ir_lib.o
                                        0x2cc3 (size before relaxing)
- .debug_str     0x0000000000008c99      0x181 output/obj/ir_learn_from_tv.o
-                                        0x99f (size before relaxing)
- .debug_str     0x0000000000008e1a      0x1ea output/obj/audio.o
+ .debug_str     0x0000000000008d26      0x181 output/obj/ir_learn_from_tv.o
+                                        0xa2c (size before relaxing)
+ .debug_str     0x0000000000008ea7      0x1ea output/obj/audio.o
                                         0xecb (size before relaxing)
- .debug_str     0x0000000000009004      0x333 output/obj/pitch.o
+ .debug_str     0x0000000000009091      0x333 output/obj/pitch.o
                                         0x9d4 (size before relaxing)
- .debug_str     0x0000000000009337       0x76 output/obj/lin2log.o
+ .debug_str     0x00000000000093c4       0x76 output/obj/lin2log.o
                                         0x764 (size before relaxing)
- .debug_str     0x00000000000093ad      0x124 output/obj/entdec.o
+ .debug_str     0x000000000000943a      0x124 output/obj/entdec.o
                                         0x837 (size before relaxing)
- .debug_str     0x00000000000094d1       0x8e output/obj/biquad_alt.o
+ .debug_str     0x000000000000955e       0x8e output/obj/biquad_alt.o
                                         0x78e (size before relaxing)
- .debug_str     0x000000000000955f      0xfd4 output/obj/opus_encoder.o
+ .debug_str     0x00000000000095ec      0xfd4 output/obj/opus_encoder.o
                                        0x19a9 (size before relaxing)
- .debug_str     0x000000000000a533      0x9c9 output/obj/celt_encoder.o
+ .debug_str     0x000000000000a5c0      0x9c9 output/obj/celt_encoder.o
                                        0x15d5 (size before relaxing)
- .debug_str     0x000000000000aefc       0xc8 output/obj/kiss_fft.o
+ .debug_str     0x000000000000af89       0xc8 output/obj/kiss_fft.o
                                         0x87b (size before relaxing)
- .debug_str     0x000000000000afc4      0x11c output/obj/rate.o
+ .debug_str     0x000000000000b051      0x11c output/obj/rate.o
                                         0xae1 (size before relaxing)
- .debug_str     0x000000000000b0e0       0xa4 output/obj/entenc.o
+ .debug_str     0x000000000000b16d       0xa4 output/obj/entenc.o
                                         0x8a4 (size before relaxing)
- .debug_str     0x000000000000b184      0x151 output/obj/modes.o
+ .debug_str     0x000000000000b211      0x151 output/obj/modes.o
                                         0xa07 (size before relaxing)
- .debug_str     0x000000000000b2d5       0x57 output/obj/mathops.o
+ .debug_str     0x000000000000b362       0x57 output/obj/mathops.o
                                         0x7c2 (size before relaxing)
- .debug_str     0x000000000000b32c       0x86 output/obj/celt.o
+ .debug_str     0x000000000000b3b9       0x86 output/obj/celt.o
                                         0x96a (size before relaxing)
- .debug_str     0x000000000000b3b2      0x458 output/obj/opus_decoder.o
+ .debug_str     0x000000000000b43f      0x458 output/obj/opus_decoder.o
                                         0xf5a (size before relaxing)
- .debug_str     0x000000000000b80a       0x34 output/obj/log2lin.o
+ .debug_str     0x000000000000b897       0x34 output/obj/log2lin.o
                                         0x737 (size before relaxing)
- .debug_str     0x000000000000b83e      0x4bf output/obj/bands.o
+ .debug_str     0x000000000000b8cb      0x4bf output/obj/bands.o
                                        0x1141 (size before relaxing)
- .debug_str     0x000000000000bcfd       0xf4 output/obj/vq.o
+ .debug_str     0x000000000000bd8a       0xf4 output/obj/vq.o
                                         0x9a0 (size before relaxing)
- .debug_str     0x000000000000bdf1       0x53 output/obj/cwrs.o
+ .debug_str     0x000000000000be7e       0x53 output/obj/cwrs.o
                                         0x801 (size before relaxing)
- .debug_str     0x000000000000be44       0x36 output/obj/entcode.o
+ .debug_str     0x000000000000bed1       0x36 output/obj/entcode.o
                                         0x775 (size before relaxing)
- .debug_str     0x000000000000be7a       0x6c output/obj/laplace.o
+ .debug_str     0x000000000000bf07       0x6c output/obj/laplace.o
                                         0x7e9 (size before relaxing)
- .debug_str     0x000000000000bee6       0x52 output/obj/celt_lpc.o
+ .debug_str     0x000000000000bf73       0x52 output/obj/celt_lpc.o
                                         0x846 (size before relaxing)
- .debug_str     0x000000000000bf38       0x78 output/obj/opus.o
+ .debug_str     0x000000000000bfc5       0x78 output/obj/opus.o
                                         0x82f (size before relaxing)
- .debug_str     0x000000000000bfb0      0x198 output/obj/repacketizer.o
+ .debug_str     0x000000000000c03d      0x198 output/obj/repacketizer.o
                                         0xa15 (size before relaxing)
- .debug_str     0x000000000000c148       0x3c output/obj/mdct.o
+ .debug_str     0x000000000000c1d5       0x3c output/obj/mdct.o
                                         0x843 (size before relaxing)
- .debug_str     0x000000000000c184       0x65 output/obj/opus_codec_drv.o
+ .debug_str     0x000000000000c211       0x65 output/obj/opus_codec_drv.o
                                         0x732 (size before relaxing)
- .debug_str     0x000000000000c1e9      0x1d4 output/obj/quant_bands.o
+ .debug_str     0x000000000000c276      0x1d4 output/obj/quant_bands.o
                                         0xc98 (size before relaxing)
- .debug_str     0x000000000000c3bd      0x55c output/obj/remote_control.o
-                                       0x277d (size before relaxing)
- .debug_str     0x000000000000c919      0x7f3 output/obj/att_list.o
+ .debug_str     0x000000000000c44a      0x609 output/obj/remote_control.o
+                                       0x28b7 (size before relaxing)
+ .debug_str     0x000000000000ca53      0x7f3 output/obj/att_list.o
                                         0xeb7 (size before relaxing)
- .debug_str     0x000000000000d10c      0x137 ./../../../APP/SECRETKEY\libSecretKey.a(SecretKey.o)
+ .debug_str     0x000000000000d246      0x137 ./../../../APP/SECRETKEY\libSecretKey.a(SecretKey.o)
                                         0x28f (size before relaxing)
- .debug_str     0x000000000000d243      0x321 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(_clzsi2.o)
+ .debug_str     0x000000000000d37d      0x321 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(_clzsi2.o)
                                         0x7c3 (size before relaxing)
- .debug_str     0x000000000000d564      0x2b9 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(muldf3.o)
+ .debug_str     0x000000000000d69e      0x2b9 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(muldf3.o)
                                         0x43f (size before relaxing)
- .debug_str     0x000000000000d81d       0x65 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(fixunsdfsi.o)
+ .debug_str     0x000000000000d957       0x65 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(fixunsdfsi.o)
                                         0x23b (size before relaxing)
- .debug_str     0x000000000000d882      0x101 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(floatsidf.o)
+ .debug_str     0x000000000000d9bc      0x101 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(floatsidf.o)
                                         0x2d2 (size before relaxing)
- .debug_str     0x000000000000d983       0x5a d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(save-restore.o)
+ .debug_str     0x000000000000dabd       0x5a d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(save-restore.o)
                                          0xad (size before relaxing)
- .debug_str     0x000000000000d9dd      0x7a6 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(_clz.o)
+ .debug_str     0x000000000000db17      0x7a6 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(_clz.o)
 
 .comment        0x0000000000000000       0x11
  .comment       0x0000000000000000       0x11 output/obj/main.o

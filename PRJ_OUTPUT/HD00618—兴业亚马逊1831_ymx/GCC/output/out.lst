@@ -15,19 +15,19 @@ Program Header:
 Idx Name           Size      VMA       LMA       File off  Algn  ±Í÷æ
   0 .text          00000680  01000000  01000000  00001000  2**6  CONTENTS, ALLOC, LOAD, READONLY, CODE
   1 .text1         0001f48d  01001000  01001000  00002000  2**3  CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .debug         000574a3  10010000  10010000  000224fc  2**0  CONTENTS, READONLY, DEBUGGING
+  2 .debug         00057618  10010000  10010000  000224fc  2**0  CONTENTS, READONLY, DEBUGGING
   3 .data          000004fc  10010000  01020490  00022000  2**3  CONTENTS, ALLOC, LOAD, DATA
   4 .bss           0000028a  100104fc  0102098c  000224fc  2**2  ALLOC
   5 .noretention0  0000488a  10011000  01021490  000224fc  2**2  ALLOC
   6 .noretention   00000004  1001588c  01025d1c  000224fc  2**2  ALLOC
-  7 .debug_abbrev  0000df8c  00000000  00000000  0007999f  2**0  CONTENTS, READONLY, DEBUGGING
-  8 .debug_aranges 00001de8  00000000  00000000  00087930  2**3  CONTENTS, READONLY, DEBUGGING
-  9 .debug_ranges  000044d0  00000000  00000000  00089718  2**0  CONTENTS, READONLY, DEBUGGING
- 10 .debug_line    000465f1  00000000  00000000  0008dbe8  2**0  CONTENTS, READONLY, DEBUGGING
- 11 .debug_str     0000d9dd  00000000  00000000  000d41d9  2**0  CONTENTS, READONLY, DEBUGGING
- 12 .comment       00000011  00000000  00000000  000e1bb6  2**0  CONTENTS, READONLY
- 13 .debug_frame   000062ec  00000000  00000000  000e1bc8  2**2  CONTENTS, READONLY, DEBUGGING
- 14 .debug_loc     000277d9  00000000  00000000  000e7eb4  2**0  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev  0000df7a  00000000  00000000  00079b14  2**0  CONTENTS, READONLY, DEBUGGING
+  8 .debug_aranges 00001de8  00000000  00000000  00087a90  2**3  CONTENTS, READONLY, DEBUGGING
+  9 .debug_ranges  000044d0  00000000  00000000  00089878  2**0  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_line    000465f1  00000000  00000000  0008dd48  2**0  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_str     0000db17  00000000  00000000  000d4339  2**0  CONTENTS, READONLY, DEBUGGING
+ 12 .comment       00000011  00000000  00000000  000e1e50  2**0  CONTENTS, READONLY
+ 13 .debug_frame   000062ec  00000000  00000000  000e1e64  2**2  CONTENTS, READONLY, DEBUGGING
+ 14 .debug_loc     000277d9  00000000  00000000  000e8150  2**0  CONTENTS, READONLY, DEBUGGING
 SYMBOL TABLE:
 01000000 l    d  .text	00000000 .text
 01001000 l    d  .text1	00000000 .text1
@@ -67,7 +67,7 @@ SYMBOL TABLE:
 10010528 l     O .bss	00000008 xStart
 10010530 l     O .bss	00000004 pxEnd
 01001b34 l     F .text1	0000004c prvInsertBlockIntoFreeList
-010184c0 l     O .text1	0000000e __FUNCTION__.3604
+010184c0 l     O .text1	0000000e __FUNCTION__.3615
 00000000 l    df *ABS*	00000000 software_timer.c
 10010534 l     O .bss	00000060 task_func_timeout
 10010594 l     O .bss	00000030 task_func_array
@@ -80,10 +80,10 @@ SYMBOL TABLE:
 100105c8 l     O .bss	00000004 ipc_handle_cb_array
 01001f54 l     F .text1	00000162 ipcRx
 010020b6 l     F .text1	00000162 ipcTx
-01018510 l     O .text1	0000000d __FUNCTION__.3670
-01018520 l     O .text1	00000011 __FUNCTION__.3675
-01018534 l     O .text1	0000000d __FUNCTION__.3680
-01018544 l     O .text1	00000013 __FUNCTION__.3685
+01018510 l     O .text1	0000000d __FUNCTION__.3681
+01018520 l     O .text1	00000011 __FUNCTION__.3686
+01018534 l     O .text1	0000000d __FUNCTION__.3691
+01018544 l     O .text1	00000013 __FUNCTION__.3696
 00000000 l    df *ABS*	00000000 yc11xx_audio_adc.c
 100105cc l     O .bss	00000001 g_adc_chksum
 00000000 l    df *ABS*	00000000 yc11xx_gpio.c
@@ -219,11 +219,11 @@ SYMBOL TABLE:
 01008224 l     F .text1	00000086 ir_fb739a_ready
 010082aa l     F .text1	00000126 repeat_bit_data_ready
 010083d0 l     F .text1	000000a0 philips_rcmm_bit_data_ready
-1001004e l     O .data	00000002 toggle.4172
+1001004e l     O .data	00000002 toggle.4183
 01008470 l     F .text1	00000142 ir_gemini_ready
 010085b2 l     F .text1	00000224 high_ir_data_ready
-100106a0 l     O .bss	00000002 toggle.4186
-100106a2 l     O .bss	00000002 coust_code.4188
+100106a0 l     O .bss	00000002 toggle.4197
+100106a2 l     O .bss	00000002 coust_code.4199
 010087d6 l     F .text1	000002fa ir_data_ready
 00000000 l    df *ABS*	00000000 ir_lib.c
 01018fc8 l     O .text1	0000000a rpt_TC9012LIAN_9700_BUF
@@ -556,7 +556,7 @@ SYMBOL TABLE:
 0100c25c l     F .text1	0000001e opus_custom_encoder_get_size
 0100c27a l     F .text1	00000078 opus_custom_encoder_init_arch
 0100c332 l     F .text1	0000032e transient_analysis
-0101a128 l     O .text1	00000080 inv_table.5211
+0101a128 l     O .text1	00000080 inv_table.5222
 0100c660 l     F .text1	0000017a patch_transient_decision
 0100c7da l     F .text1	00000116 compute_mdcts
 0100c9a4 l     F .text1	0000004c l1_metric
@@ -569,8 +569,8 @@ SYMBOL TABLE:
 0100d2e8 l     F .text1	00000564 dynalloc_analysis
 0100d84c l     F .text1	0000042a run_prefilter
 0100dc76 l     F .text1	000001fe compute_vbr
-0101a1d4 l     O .text1	0000002a intensity_histeresis.5792
-0101a1a8 l     O .text1	0000002a intensity_thresholds.5791
+0101a1d4 l     O .text1	0000002a intensity_histeresis.5803
+0101a1a8 l     O .text1	0000002a intensity_thresholds.5802
 00000000 l    df *ABS*	00000000 kiss_fft.c
 0100f94e l     F .text1	00000150 kf_bfly2
 0100fa9e l     F .text1	000002c2 kf_bfly4
@@ -608,7 +608,7 @@ SYMBOL TABLE:
 01011582 l     F .text1	00000064 _celt_cos_pi_2
 00000000 l    df *ABS*	00000000 celt.c
 01011748 l     F .text1	000002b6 comb_filter_const_c
-0101c564 l     O .text1	00000012 gains.5179
+0101c564 l     O .text1	00000012 gains.5190
 00000000 l    df *ABS*	00000000 opus_decoder.c
 00000000 l    df *ABS*	00000000 log2lin.c
 00000000 l    df *ABS*	00000000 bands.c
@@ -623,20 +623,20 @@ SYMBOL TABLE:
 0101264a l     F .text1	000000ac deinterleave_hadamard
 010126f6 l     F .text1	000000ac interleave_hadamard
 010127fe l     F .text1	00000078 compute_qn
-0101c5f0 l     O .text1	00000010 exp2_table8.5413
+0101c5f0 l     O .text1	00000010 exp2_table8.5424
 01012876 l     F .text1	0000042e compute_theta
 01012ca4 l     F .text1	0000007c quant_band_n1
 01012d20 l     F .text1	0000037c quant_partition
 0101309c l     F .text1	00000212 quant_band
-0101c600 l     O .text1	00000010 bit_interleave_table.5572
-0101c610 l     O .text1	00000010 bit_deinterleave_table.5582
+0101c600 l     O .text1	00000010 bit_interleave_table.5583
+0101c610 l     O .text1	00000010 bit_deinterleave_table.5593
 010132ae l     F .text1	000002dc quant_band_stereo
 0101358a l     F .text1	00000066 special_hybrid_folding
 00000000 l    df *ABS*	00000000 vq.c
 01013fd8 l     F .text1	0000004a celt_atan01
 01014022 l     F .text1	00000028 celt_inner_prod_c
 0101404a l     F .text1	0000009e exp_rotation1
-0101c620 l     O .text1	0000000c SPREAD_FACTOR.5044
+0101c620 l     O .text1	0000000c SPREAD_FACTOR.5055
 0101489c l     F .text1	00000054 celt_udiv.part.0
 0101422e l     F .text1	00000080 normalise_residual
 010142ae l     F .text1	00000060 extract_collapse_mask
@@ -646,7 +646,7 @@ SYMBOL TABLE:
 010148f0 l     F .text1	0000008a icwrs
 010149ec l     F .text1	0000012c cwrsi
 00000000 l    df *ABS*	00000000 entcode.c
-0101dc4c l     O .text1	00000020 correction.3546
+0101dc4c l     O .text1	00000020 correction.3557
 00000000 l    df *ABS*	00000000 laplace.c
 00000000 l    df *ABS*	00000000 celt_lpc.c
 00000000 l    df *ABS*	00000000 opus.c
@@ -3069,7 +3069,7 @@ Memory_Malloc():
  1001c28:	01018637          	lui	a2,0x1018
  1001c2c:	01018537          	lui	a0,0x1018
  1001c30:	0785                	addi	a5,a5,1
- 1001c32:	4c060613          	addi	a2,a2,1216 # 10184c0 <__FUNCTION__.3604>
+ 1001c32:	4c060613          	addi	a2,a2,1216 # 10184c0 <__FUNCTION__.3615>
  1001c36:	0bd00593          	li	a1,189
  1001c3a:	4a050513          	addi	a0,a0,1184 # 10184a0 <strtol+0x44>
  1001c3e:	70f71023          	sh	a5,1792(a4)
@@ -3998,9 +3998,9 @@ IPC_TxCommon():
  1002716:	01018637          	lui	a2,0x1018
  100271a:	01018537          	lui	a0,0x1018
  100271e:	0785                	addi	a5,a5,1
- 1002720:	51060613          	addi	a2,a2,1296 # 1018510 <__FUNCTION__.3670>
+ 1002720:	51060613          	addi	a2,a2,1296 # 1018510 <__FUNCTION__.3681>
  1002724:	08600593          	li	a1,134
- 1002728:	4d050513          	addi	a0,a0,1232 # 10184d0 <__FUNCTION__.3604+0x10>
+ 1002728:	4d050513          	addi	a0,a0,1232 # 10184d0 <__FUNCTION__.3615+0x10>
  100272c:	70f71023          	sh	a5,1792(a4)
  1002730:	932ff0ef          	jal	ra,1001862 <_assert_handler>
  1002734:	10013537          	lui	a0,0x10013
@@ -4037,9 +4037,9 @@ IPC_TxControlCmd():
  1002796:	01018637          	lui	a2,0x1018
  100279a:	01018537          	lui	a0,0x1018
  100279e:	0785                	addi	a5,a5,1
- 10027a0:	52060613          	addi	a2,a2,1312 # 1018520 <__FUNCTION__.3675>
+ 10027a0:	52060613          	addi	a2,a2,1312 # 1018520 <__FUNCTION__.3686>
  10027a4:	09700593          	li	a1,151
- 10027a8:	4d050513          	addi	a0,a0,1232 # 10184d0 <__FUNCTION__.3604+0x10>
+ 10027a8:	4d050513          	addi	a0,a0,1232 # 10184d0 <__FUNCTION__.3615+0x10>
  10027ac:	70f71023          	sh	a5,1792(a4)
  10027b0:	8b2ff0ef          	jal	ra,1001862 <_assert_handler>
  10027b4:	0068                	addi	a0,sp,12
@@ -4071,9 +4071,9 @@ IPC_TxAclCmd():
  1002800:	01018637          	lui	a2,0x1018
  1002804:	01018537          	lui	a0,0x1018
  1002808:	0785                	addi	a5,a5,1
- 100280a:	53460613          	addi	a2,a2,1332 # 1018534 <__FUNCTION__.3680>
+ 100280a:	53460613          	addi	a2,a2,1332 # 1018534 <__FUNCTION__.3691>
  100280e:	0a700593          	li	a1,167
- 1002812:	4d050513          	addi	a0,a0,1232 # 10184d0 <__FUNCTION__.3604+0x10>
+ 1002812:	4d050513          	addi	a0,a0,1232 # 10184d0 <__FUNCTION__.3615+0x10>
  1002816:	70f71023          	sh	a5,1792(a4)
  100281a:	848ff0ef          	jal	ra,1001862 <_assert_handler>
  100281e:	0068                	addi	a0,sp,12
@@ -4118,9 +4118,9 @@ IPC_HandleRxPacket():
  1002898:	01018637          	lui	a2,0x1018
  100289c:	01018537          	lui	a0,0x1018
  10028a0:	0785                	addi	a5,a5,1
- 10028a2:	54460613          	addi	a2,a2,1348 # 1018544 <__FUNCTION__.3685>
+ 10028a2:	54460613          	addi	a2,a2,1348 # 1018544 <__FUNCTION__.3696>
  10028a6:	0ba00593          	li	a1,186
- 10028aa:	4d050513          	addi	a0,a0,1232 # 10184d0 <__FUNCTION__.3604+0x10>
+ 10028aa:	4d050513          	addi	a0,a0,1232 # 10184d0 <__FUNCTION__.3615+0x10>
  10028ae:	70f71023          	sh	a5,1792(a4)
  10028b2:	fb1fe0ef          	jal	ra,1001862 <_assert_handler>
  10028b6:	bfc9                	j	1002888 <IPC_HandleRxPacket+0x58>
@@ -4129,7 +4129,7 @@ IPC_HandleRxPacket():
 IpcDefaultCallBack():
  10028b8:	7f6152ef          	jal	t0,10180ae <__riscv_save_0>
  10028bc:	01018537          	lui	a0,0x1018
- 10028c0:	4f850513          	addi	a0,a0,1272 # 10184f8 <__FUNCTION__.3604+0x38>
+ 10028c0:	4f850513          	addi	a0,a0,1272 # 10184f8 <__FUNCTION__.3615+0x38>
  10028c4:	e95fe0ef          	jal	ra,1001758 <print_string_log>
  10028c8:	a001                	j	10028c8 <IpcDefaultCallBack+0x10>
 
@@ -11927,7 +11927,7 @@ philips_rcmm_bit_data_ready():
  100841e:	0007d503          	lhu	a0,0(a5)
  1008422:	addff0ef          	jal	ra,1007efe <philips_bit_time>
  1008426:	100107b7          	lui	a5,0x10010
- 100842a:	04e7d503          	lhu	a0,78(a5) # 1001004e <toggle.4172>
+ 100842a:	04e7d503          	lhu	a0,78(a5) # 1001004e <toggle.4183>
  100842e:	6721                	lui	a4,0x8
  1008430:	8d39                	xor	a0,a0,a4
  1008432:	04a79723          	sh	a0,78(a5)
@@ -12167,7 +12167,7 @@ high_ir_data_ready():
  100874a:	c602                	sw	zero,12(sp)
  100874c:	ccaff0ef          	jal	ra,1007c16 <upt_pwm_time_pulse>
  1008750:	10010737          	lui	a4,0x10010
- 1008754:	6a075783          	lhu	a5,1696(a4) # 100106a0 <toggle.4186>
+ 1008754:	6a075783          	lhu	a5,1696(a4) # 100106a0 <toggle.4197>
  1008758:	66a1                	lui	a3,0x8
  100875a:	8fb5                	xor	a5,a5,a3
  100875c:	6af71023          	sh	a5,1696(a4)
@@ -12180,7 +12180,7 @@ high_ir_data_ready():
  1008778:	00811323          	sh	s0,6(sp)
  100877c:	b5d1                	j	1008640 <high_ir_data_ready+0x8e>
  100877e:	10010737          	lui	a4,0x10010
- 1008782:	6a275683          	lhu	a3,1698(a4) # 100106a2 <coust_code.4188>
+ 1008782:	6a275683          	lhu	a3,1698(a4) # 100106a2 <coust_code.4199>
  1008786:	478d                	li	a5,3
  1008788:	00d7f463          	bgeu	a5,a3,1008790 <high_ir_data_ready+0x1de>
  100878c:	6a071123          	sh	zero,1698(a4)
@@ -17341,7 +17341,7 @@ transient_analysis():
  100c3ac:	02f707b3          	mul	a5,a4,a5
  100c3b0:	6aa1                	lui	s5,0x8
  100c3b2:	7ce1                	lui	s9,0xffff8
- 100c3b4:	128b0b13          	addi	s6,s6,296 # 101a128 <inv_table.5211>
+ 100c3b4:	128b0b13          	addi	s6,s6,296 # 101a128 <inv_table.5222>
  100c3b8:	faf42623          	sw	a5,-84(s0)
  100c3bc:	4785                	li	a5,1
  100c3be:	013797b3          	sll	a5,a5,s3
@@ -19981,7 +19981,7 @@ celt_encode_with_ec():
  100e2bc:	00078c63          	beqz	a5,100e2d4 <celt_encode_with_ec+0x460>
  100e2c0:	0101a7b7          	lui	a5,0x101a
  100e2c4:	07ca2787          	flw	fa5,124(s4)
- 100e2c8:	2007a707          	flw	fa4,512(a5) # 101a200 <intensity_histeresis.5792+0x2c>
+ 100e2c8:	2007a707          	flw	fa4,512(a5) # 101a200 <intensity_histeresis.5803+0x2c>
  100e2cc:	a0f717d3          	flt.s	a5,fa4,fa5
  100e2d0:	26078963          	beqz	a5,100e542 <celt_encode_with_ec+0x6ce>
  100e2d4:	f7842783          	lw	a5,-136(s0)
@@ -19991,12 +19991,12 @@ celt_encode_with_ec():
  100e2e2:	068a2783          	lw	a5,104(s4)
  100e2e6:	d007f7d3          	fcvt.s.w	fa5,a5
  100e2ea:	0101a7b7          	lui	a5,0x101a
- 100e2ee:	2047a707          	flw	fa4,516(a5) # 101a204 <intensity_histeresis.5792+0x30>
+ 100e2ee:	2047a707          	flw	fa4,516(a5) # 101a204 <intensity_histeresis.5803+0x30>
  100e2f2:	10e7f753          	fmul.s	fa4,fa5,fa4
  100e2f6:	a0d717d3          	flt.s	a5,fa4,fa3
  100e2fa:	00079c63          	bnez	a5,100e312 <celt_encode_with_ec+0x49e>
  100e2fe:	0101a7b7          	lui	a5,0x101a
- 100e302:	2087a707          	flw	fa4,520(a5) # 101a208 <intensity_histeresis.5792+0x34>
+ 100e302:	2087a707          	flw	fa4,520(a5) # 101a208 <intensity_histeresis.5803+0x34>
  100e306:	10e7f7d3          	fmul.s	fa5,fa5,fa4
  100e30a:	a0f697d3          	flt.s	a5,fa3,fa5
  100e30e:	f0f42423          	sw	a5,-248(s0)
@@ -20898,8 +20898,8 @@ celt_encode_with_ec():
  100ee22:	0101a637          	lui	a2,0x101a
  100ee26:	0101a5b7          	lui	a1,0x101a
  100ee2a:	46d5                	li	a3,21
- 100ee2c:	1d460613          	addi	a2,a2,468 # 101a1d4 <intensity_histeresis.5792>
- 100ee30:	1a858593          	addi	a1,a1,424 # 101a1a8 <intensity_thresholds.5791>
+ 100ee2c:	1d460613          	addi	a2,a2,468 # 101a1d4 <intensity_histeresis.5803>
+ 100ee30:	1a858593          	addi	a1,a1,424 # 101a1a8 <intensity_thresholds.5802>
  100ee34:	0542                	slli	a0,a0,0x10
  100ee36:	8541                	srai	a0,a0,0x10
  100ee38:	016030ef          	jal	ra,1011e4e <hysteresis_decision>
@@ -24734,7 +24734,7 @@ comb_filter():
  1011a3c:	4599                	li	a1,6
  1011a3e:	02b88833          	mul	a6,a7,a1
  1011a42:	0101c737          	lui	a4,0x101c
- 1011a46:	56470713          	addi	a4,a4,1380 # 101c564 <gains.5179>
+ 1011a46:	56470713          	addi	a4,a4,1380 # 101c564 <gains.5190>
  1011a4a:	6691                	lui	a3,0x4
  1011a4c:	983a                	add	a6,a6,a4
  1011a4e:	00081783          	lh	a5,0(a6)
@@ -26043,7 +26043,7 @@ compute_qn():
  101284a:	00757713          	andi	a4,a0,7
  101284e:	0101c7b7          	lui	a5,0x101c
  1012852:	0706                	slli	a4,a4,0x1
- 1012854:	5f078793          	addi	a5,a5,1520 # 101c5f0 <exp2_table8.5413>
+ 1012854:	5f078793          	addi	a5,a5,1520 # 101c5f0 <exp2_table8.5424>
  1012858:	97ba                	add	a5,a5,a4
  101285a:	00079783          	lh	a5,0(a5)
  101285e:	850d                	srai	a0,a0,0x3
@@ -26856,7 +26856,7 @@ quant_band():
  101311c:	7f5040ef          	jal	ra,1018110 <memcpy>
  1013120:	8ca2                	mv	s9,s0
  1013122:	0101c6b7          	lui	a3,0x101c
- 1013126:	60068793          	addi	a5,a3,1536 # 101c600 <bit_interleave_table.5572>
+ 1013126:	60068793          	addi	a5,a3,1536 # 101c600 <bit_interleave_table.5583>
  101312a:	4401                	li	s0,0
  101312c:	cc3e                	sw	a5,24(sp)
  101312e:	09341463          	bne	s0,s3,10131b6 <quant_band+0x11a>
@@ -26954,7 +26954,7 @@ quant_band():
  101323e:	ff6414e3          	bne	s0,s6,1013226 <quant_band+0x18a>
  1013242:	0101c937          	lui	s2,0x101c
  1013246:	4401                	li	s0,0
- 1013248:	61090913          	addi	s2,s2,1552 # 101c610 <bit_deinterleave_table.5582>
+ 1013248:	61090913          	addi	s2,s2,1552 # 101c610 <bit_deinterleave_table.5593>
  101324c:	4b05                	li	s6,1
  101324e:	01341d63          	bne	s0,s3,1013268 <quant_band+0x1cc>
  1013252:	47c2                	lw	a5,16(sp)
@@ -28187,7 +28187,7 @@ exp_rotation():
  10140f8:	8936                	mv	s2,a3
  10140fa:	17fd                	addi	a5,a5,-1
  10140fc:	0101c6b7          	lui	a3,0x101c
- 1014100:	62068693          	addi	a3,a3,1568 # 101c620 <SPREAD_FACTOR.5044>
+ 1014100:	62068693          	addi	a3,a3,1568 # 101c620 <SPREAD_FACTOR.5055>
  1014104:	078a                	slli	a5,a5,0x2
  1014106:	97b6                	add	a5,a5,a3
  1014108:	0007aa83          	lw	s5,0(a5)
@@ -29226,7 +29226,7 @@ ec_tell_frac():
  1014ba8:	078e                	slli	a5,a5,0x3
  1014baa:	0101e6b7          	lui	a3,0x101e
  1014bae:	8f99                	sub	a5,a5,a4
- 1014bb0:	c4c68693          	addi	a3,a3,-948 # 101dc4c <correction.3546>
+ 1014bb0:	c4c68693          	addi	a3,a3,-948 # 101dc4c <correction.3557>
  1014bb4:	070a                	slli	a4,a4,0x2
  1014bb6:	9736                	add	a4,a4,a3
  1014bb8:	4308                	lw	a0,0(a4)
@@ -34190,24 +34190,24 @@ strtol():
  10184ba:	632e636f          	jal	t1,10feaec <_sidata+0xde65c>
 	...
 
-010184c0 <__FUNCTION__.3604>:
+010184c0 <__FUNCTION__.3615>:
  10184c0:	6f6d654d 4d5f7972 6f6c6c61 00000063     Memory_Malloc...
  10184d0:	2e2e2f2e 2f2e2e2f 502f2e2e 6674616c     ./../../../Platf
  10184e0:	2f6d726f 2f6b6473 792f7462 78313163     orm/sdk/bt/yc11x
  10184f0:	70695f78 00632e63 44637049 75616665     x_ipc.c.IpcDefau
  1018500:	6143746c 61426c6c 0d206b63 0000000a     ltCallBack .....
 
-01018510 <__FUNCTION__.3670>:
+01018510 <__FUNCTION__.3681>:
  1018510:	5f435049 6f437854 6e6f6d6d 00000000     IPC_TxCommon....
 
-01018520 <__FUNCTION__.3675>:
+01018520 <__FUNCTION__.3686>:
  1018520:	5f435049 6f437854 6f72746e 646d436c     IPC_TxControlCmd
  1018530:	00000000                                ....
 
-01018534 <__FUNCTION__.3680>:
+01018534 <__FUNCTION__.3691>:
  1018534:	5f435049 63417854 646d436c 00000000     IPC_TxAclCmd....
 
-01018544 <__FUNCTION__.3685>:
+01018544 <__FUNCTION__.3696>:
  1018544:	5f435049 646e6148 7852656c 6b636150     IPC_HandleRxPack
  1018554:	00007465                                et..
 
@@ -35419,7 +35419,7 @@ strtol():
 0101a124 <tapset_icdf>:
  101a124:	00000102                                ....
 
-0101a128 <inv_table.5211>:
+0101a128 <inv_table.5222>:
  101a128:	6e9cffff 333b4656 2125282d 191a1c1f     ...nVF;3-(%!....
  101a138:	14151617 10111213 0e0f0f10 0c0c0d0d     ................
  101a148:	0b0b0c0c 0a0a0a0b 09090909 08080909     ................
@@ -35429,12 +35429,12 @@ strtol():
  101a188:	04040404 04040404 04040404 03030404     ................
  101a198:	03030303 03030303 03030303 02030303     ................
 
-0101a1a8 <intensity_thresholds.5791>:
+0101a1a8 <intensity_thresholds.5802>:
  101a1a8:	00020001 00040003 00060005 00080007     ................
  101a1b8:	00180010 002c0024 00380032 0043003e     ....$.,.2.8.>.C.
  101a1c8:	004f0048 006a0058 00000086              H.O.X.j.....
 
-0101a1d4 <intensity_histeresis.5792>:
+0101a1d4 <intensity_histeresis.5803>:
  101a1d4:	00010001 00010001 00010001 00020001     ................
  101a1e4:	00020002 00020002 00020002 00030003     ................
  101a1f4:	00050004 00080006 00000008 3e99999a     ...............>
@@ -36051,7 +36051,7 @@ strtol():
  101c544:	ff00ff00 ff00ff00 fe00ff00 ff010001     ................
  101c554:	fd00fe00 ff010002 fd00fe00 ff010003     ................
 
-0101c564 <gains.5179>:
+0101c564 <gains.5190>:
  101c564:	1bc82740 3b601098 00002250 0cd06660     @'....`;P"..`f..
  101c574:	00000000                                ....
 
@@ -36065,16 +36065,16 @@ strtol():
  101c5d8:	00000009 00000006 0000000d 00000002     ................
  101c5e8:	0000000a 00000005                       ........
 
-0101c5f0 <exp2_table8.5413>:
+0101c5f0 <exp2_table8.5424>:
  101c5f0:	45ca4000 52ff4c1b 62b35a82 75606ba2     .@.E.L.R.Z.b.k`u
 
-0101c600 <bit_interleave_table.5572>:
+0101c600 <bit_interleave_table.5583>:
  101c600:	01010100 03030302 03030302 03030302     ................
 
-0101c610 <bit_deinterleave_table.5582>:
+0101c610 <bit_deinterleave_table.5593>:
  101c610:	0f0c0300 3f3c3330 cfccc3c0 fffcf3f0     ....03<?........
 
-0101c620 <SPREAD_FACTOR.5044>:
+0101c620 <SPREAD_FACTOR.5055>:
  101c620:	0000000f 0000000a 00000005              ............
 
 0101c62c <CELT_PVQ_U_DATA>:
@@ -36396,7 +36396,7 @@ strtol():
  101dc38:	01073260 0105197f 0103091b 01010101     `2..............
  101dc48:	00000000                                ....
 
-0101dc4c <correction.3546>:
+0101dc4c <correction.3557>:
  101dc4c:	00008b95 00009837 0000a5ff 0000b504     ....7...........
  101dc5c:	0000c567 0000d745 0000eac1 0000ffff     g...E...........
 
