@@ -2,6 +2,7 @@
 #include "yc11xx_ipc.h"
 #include "app_config.h"
 
+#include "yc_debug.h"
 
 WEAK bool app_sleep_check(void){return true;}
 WEAK void prepare_before_sleep(void){}

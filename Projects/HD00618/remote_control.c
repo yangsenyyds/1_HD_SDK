@@ -59,9 +59,12 @@ enum{
 
     LED_STATE_NORMAL = 0,
     LED_STATE_NO_OFF = 1,
-    LED_STATE_SLEEP = 2,
     LED_LEARN_LONG = 3,
     LED_LEARN_CONTINU = 4,
+
+    NORMAL = 0,
+    IR_RECEIVE_JUDGE_STATE = 2,    
+    IR_RECEIVE_STATE = 3,     
     CONN_PARAM = 49,
 };
 
@@ -71,7 +74,6 @@ typedef struct {
     uint16_t handle;
 }KeyBuf_TypeDef;
 
-static const uint8_t MIC_CLOSE[] = {0x00};
 static const uint8_t ir_data[] = {
     0x00,
 
@@ -178,7 +180,7 @@ static const uint8_t *s_4a18_buf_arry[] = {
     s_4a18_buf16, s_4a18_buf17, s_4a18_buf18, s_4a18_buf19, s_4a18_buf20, 
     s_4a18_buf21, s_4a18_buf22, s_4a18_buf_end
 };
-
+static const uint8_t MIC_CLOSE[] = {0x00};
 static const uint8_t scan_rsp_data_buf[] = {0x00};
 static const uint8_t adv_data_buf[] = {0x02, 0x01, 0x05,
 0x03, 0x03, 0x12, 0x18, 0x03, 0x19, 0x80, 0x01, 0x03,
@@ -188,7 +190,7 @@ MEMORY_NOT_PROTECT_UNDER_LPM_ATT static uint16_t ir_learn_buf_cur_offset;
 MEMORY_NOT_PROTECT_UNDER_LPM_ATT static uint16_t ir_learn_buf_len;
 MEMORY_NOT_PROTECT_UNDER_LPM_ATT static uint8_t ir_learn_tag_buf[16];
 
-MEMORY_NOT_PROTECT_UNDER_LPM_ATT static uint8_t key_pressed_time;
+MEMORY_NOT_PROTECT_UNDER_LPM_ATT static uint16_t key_pressed_time;
 MEMORY_NOT_PROTECT_UNDER_LPM_ATT static uint8_t key_pressed_num;
 MEMORY_NOT_PROTECT_UNDER_LPM_ATT static uint8_t keynum_third;
 MEMORY_NOT_PROTECT_UNDER_LPM_ATT static uint8_t keynum_second;
@@ -220,7 +222,8 @@ static uint8_t wake_up_state;
 static uint8_t continu_ir_receive;
 static uint8_t send_state;
 static uint8_t led_state;
-
+static bool ir_receive_success_state;
+static bool learn_state;
 static bool SecretKey_Check(void)
 {
     uint8_t adcbuf[12];
@@ -327,150 +330,12 @@ static void start_adv(enum advType type, uint16_t adv_interval, bool timeout)
     }
 }
 
-static void ir_receive_handle(void){
-    if(continu_ir_receive == false)
-    {
-        tempStartTimer = 0;
-ir_fail:
-        memset(&irparams,0,sizeof(irparams));
-        keyscan_stop();
-        key_wakeup_set();
-        DEBUG_LOG_STRING("receive \r\n");
-        System_ChangeDPLL(CLOCK_DPLL_192M_multiple);
-        OS_ENTER_CRITICAL();
-
-        uint8_t JUDE_receive = ir_receive();
-
-        OS_EXIT_CRITICAL();
-        System_ChangeXtal24M();
-        keyscan_start();
-        DEBUG_LOG_STRING("JUDE_receive =%d  \r\n",JUDE_receive);
-
-        if(JUDE_receive == IR_LEARN_OVERTIME)
-        {
-            swtimer_stop(ir_receive_timernum);
-            led_state = LED_STATE_SLEEP;            
-            led_on(LED_1,200, 600);
-            uint16_t len = sizeof(send_state);
-            flash_read(HD_SEND_STATE, (uint8_t*)&send_state, len);
-        }
-        else if(JUDE_receive == IR_LEARN_SUCE)
-        {
-            key_pressed_time = 0;
-            continu_ir_receive = true;
-            send_state = IR_RECEIVE_JUDGE_STATE;
-            led_state = LED_LEARN_LONG;
-            led_on(LED_1, 200, 600);
-            DEBUG_LOG_STRING("200  \r\n");
-
-        }
-        else if(JUDE_receive == IR_LEARN_FAIL){
-            led_state = LED_LEARN_LONG;
-            led_on(LED_1, 0, 0);
-            goto ir_fail;
-        }
-    }
-    else{
-        if(key_pressed_time++ > 300)
-        {
-            swtimer_stop(ir_receive_timernum);
-            key_pressed_time = 0;     
-            led_on(LED_1,200, 600);
-            send_state = NORMAL;
-        }
-    }
-}
-
 static void adv_handle(void)
 {
     if (bt_check_le_connected()) return;
     else {
     	stop_adv();
     	start_adv(ADV_TYPE_NOMAL, 0x30, true);
-    }
-}
-
-static void key_pressed_handle(void)
-{
-    bool le_connected_state = bt_check_le_connected();
-    
-    if (key_pressed_num == 1 || key_pressed_num == 0)
-    {
-        if (keynum == Home_Keynum)
-        {
-            DEBUG_LOG_STRING("Home_Key: key_pressed_time[%d] \r\n", key_pressed_time);
-
-
-            if (key_pressed_time >= 120)
-            {
-                adv_flag = true;
-                Bt_ClearRemoteDevInfo();
-                Bt_ClearDeviceNvdataInfo();
-                start_adv(ADV_TYPE_NOMAL,0x10,false);
-                app_sleep_lock_set(ADV_LOCK, false);
-                led_on(LED_2, 100, 90000);
-                return;
-            }
-
-            if (key_pressed_num == 0) {
-                key_pressed_time = 0;
-                if(!adv_flag){
-                    led_off(LED_2);
-                }
-                if(flash_record_exist(ir_learn_tag)){
-                    ir_single_send(ir_data[keynum], 1);
-                }
-            }else {
-                key_pressed_time++;
-                swtimer_restart(key_pressed_timernum);
-            }
-        }
-    }
-    else if (key_pressed_num == 2)
-    {
-        if (keynum == Right_Keynum && keynum_second == Back_Keynum && le_connected_state)
-        {
-            DEBUG_LOG_STRING("RESET TV: key_pressed_time[%d] \r\n", key_pressed_time);
-            if (key_pressed_time < 10) {
-                key_pressed_time++;
-                swtimer_restart(key_pressed_timernum);
-            }
-            else if (key_pressed_time >= 10)
-            {
-                uint8_t sendbuf[] = {0x4F, 0x00, 0X00};
-
-                ATT_sendNotify(94, sendbuf, 3);
-                sendbuf[1] = 0XF1;
-                ATT_sendNotify(94, sendbuf, 3);
-            }
-        }
-    }
-    else if (key_pressed_num == 3)
-    {
-        if (keynum == Menu_Keynum && keynum_second == Left_Keynum && keynum_third == Back_Keynum)
-        {
-            DEBUG_LOG_STRING("RESET RCU: key_pressed_time[%d] \r\n", key_pressed_time);
-            if (key_pressed_time < 10) {
-                key_pressed_time++;
-                swtimer_restart(key_pressed_timernum);
-            }
-            else if (key_pressed_time >= 10)
-            {
-                flash_Erase(ir_learn_tag, sizeof(addr_inf_t));
-                ir_learn_data_clr();
-                flash_Erase(first_done, sizeof(addr_inf_t));
-                first_pair = false;
-                flash_write(first_done, (uint8_t *)&first_pair, sizeof(first_pair), STATE_INF);
-
-                if (bt_check_le_connected()) {
-                    uint8_t sendbuf[] = {0x50, 0xF1, 0X00};
-                    ATT_sendNotify(94, sendbuf, 3);
-                }
-                Bt_ClearRemoteDevInfo();
-                Bt_ClearDeviceNvdataInfo();
-                start_adv(ADV_TYPE_NOMAL,0x10,true);
-            }
-        }
     }
 }
 
@@ -524,6 +389,195 @@ static void encrypt_handle(void)
     encrypt_state = true;
 }
 
+static void ir_receive_handle(void){
+    if(continu_ir_receive == false)
+    {
+        tempStartTimer = 0;
+ir_fail:
+        memset(&irparams,0,sizeof(irparams));
+        keyscan_stop();
+        key_wakeup_set();
+        DEBUG_LOG_STRING("receive \r\n");
+        System_ChangeDPLL(CLOCK_DPLL_192M_multiple);
+        
+        OS_ENTER_CRITICAL();
+        uint8_t JUDE_receive = ir_receive();
+        OS_EXIT_CRITICAL();
+        
+        System_ChangeXtal24M();
+        keyscan_start();
+        DEBUG_LOG_STRING("JUDE_receive =%d  \r\n",JUDE_receive);
+
+        if(JUDE_receive == IR_LEARN_OVERTIME)
+        {
+            swtimer_stop(ir_receive_timernum);
+            app_sleep_lock_set(APP_LOCK, false);
+            learn_state = false;
+            led_state = LED_STATE_NORMAL;
+            send_state = NORMAL;
+            led_on(LED_1,200, 600);
+        }
+        else if(JUDE_receive == IR_LEARN_SUCE)
+        {
+            key_pressed_time = 0;
+            continu_ir_receive = true;
+            send_state = IR_RECEIVE_JUDGE_STATE;
+            led_state = LED_LEARN_LONG;
+            led_on(LED_1, 200, 600);
+            DEBUG_LOG_STRING("IR_LEARN_SUCE \r\n");
+
+        }
+        else if(JUDE_receive == IR_LEARN_FAIL) {
+            led_state = LED_STATE_NO_OFF;
+            send_state = IR_RECEIVE_STATE;
+            led_on(LED_1, 0, 0);
+            goto ir_fail;
+        }
+    }
+    else{
+        if(key_pressed_time++ > 300)
+        {
+            swtimer_stop(ir_receive_timernum);
+            app_sleep_lock_set(APP_LOCK, false);
+            learn_state = false;
+            key_pressed_time = 0;
+            led_state = LED_STATE_NORMAL;
+            send_state = NORMAL;
+            led_on(LED_1,200, 600);
+        }
+    }
+}
+
+static void key_pressed_handle(void)
+{
+    bool le_connected_state = bt_check_le_connected();
+    
+    if (key_pressed_num == 1 || key_pressed_num == 0)
+    {
+        if (keynum == Home_Keynum)
+        {
+            DEBUG_LOG_STRING("Home_Key: key_pressed_time[%d] \r\n", key_pressed_time);
+            if (key_pressed_time >= 120)
+            {
+                adv_flag = true;
+                Bt_ClearRemoteDevInfo();
+                Bt_ClearDeviceNvdataInfo();
+                start_adv(ADV_TYPE_NOMAL,0x10,false);
+                app_sleep_lock_set(ADV_LOCK, false);
+                led_on(LED_2, 100, 90000);
+                return;
+            }
+
+            if (key_pressed_num == 0) {
+                key_pressed_time = 0;
+                if(!adv_flag){
+                    led_off(LED_2);
+                }
+                if(flash_record_exist(ir_learn_tag)){
+                    ir_single_send(ir_data[keynum], 1);
+                }
+            }else {
+                key_pressed_time++;
+                swtimer_restart(key_pressed_timernum);
+            }
+        }
+        else if(send_state == IR_RECEIVE_STATE)
+        {
+            key_pressed_time = 0;
+            DEBUG_LOG_STRING("IIR_RECEIVE_STATE \r\n");
+#ifdef FUNCTION_WATCH_DOG
+            IWDG_Disable(WDT);   //bt watch dog     
+            IWDG_Disable(WDT2);  //riscv watch dog
+#endif
+            learn_state = true;
+            swtimer_start(ir_receive_timernum, 100, TIMER_START_REPEAT);
+            return ;
+            
+        }
+    }
+    else if (key_pressed_num == 2)
+    {
+        if (keynum == Right_Keynum && keynum_second == Back_Keynum && le_connected_state)
+        {
+            DEBUG_LOG_STRING("RESET TV: key_pressed_time[%d] \r\n", key_pressed_time);
+            if (key_pressed_time < 10) {
+                key_pressed_time++;
+                swtimer_restart(key_pressed_timernum);
+            }
+            else if (key_pressed_time >= 10)
+            {
+                uint8_t sendbuf[] = {0x4F, 0x00, 0X00};
+
+                ATT_sendNotify(94, sendbuf, 3);
+                sendbuf[1] = 0XF1;
+                ATT_sendNotify(94, sendbuf, 3);
+            }
+        }
+        else if(keynum == Input_Keynum && keynum_second == TV_Keynum)
+        {
+            if(learn_state == NORMAL)
+            {
+                DEBUG_LOG_STRING("Input_Keynum key_pressed_time %d\r\n", key_pressed_time);
+                if(key_pressed_time < 5)
+                {
+                    swtimer_restart(key_pressed_timernum);
+                    key_pressed_time++;
+                    if(key_pressed_time == 5) {
+                        send_state = IR_RECEIVE_STATE;
+                        led_state = LED_LEARN_LONG;
+                        led_on(LED_1,200,1000);
+                    }
+                }            
+                else if(key_pressed_time >= 5)
+                {
+                    swtimer_restart(key_pressed_timernum);
+                }
+            }
+            else {
+                if(key_pressed_time < 2){
+                    swtimer_restart(key_pressed_timernum);
+                    key_pressed_time++;
+                }
+                else{
+                    learn_state = false;
+                    send_state = NORMAL;
+                    led_state = LED_STATE_NORMAL;
+                    led_off(LED_1);
+                }
+            }
+
+        }
+    }
+    else if (key_pressed_num == 3)
+    {
+        if (keynum == Menu_Keynum && keynum_second == Left_Keynum && keynum_third == Back_Keynum)
+        {
+            DEBUG_LOG_STRING("RESET RCU: key_pressed_time[%d] \r\n", key_pressed_time);
+            if (key_pressed_time < 10) {
+                key_pressed_time++;
+                swtimer_restart(key_pressed_timernum);
+            }
+            else if (key_pressed_time >= 10)
+            {
+                flash_Erase(ir_learn_tag, sizeof(addr_inf_t));
+                ir_learn_data_clr();
+                flash_Erase(first_done, sizeof(addr_inf_t));
+                first_pair = false;
+                flash_write(first_done, (uint8_t *)&first_pair, sizeof(first_pair), STATE_INF);
+
+                if (bt_check_le_connected()) {
+                    uint8_t sendbuf[] = {0x50, 0xF1, 0X00};
+                    ATT_sendNotify(94, sendbuf, 3);
+                }
+                Bt_ClearRemoteDevInfo();
+                Bt_ClearDeviceNvdataInfo();
+                start_adv(ADV_TYPE_NOMAL,0x10,true);
+            }
+        }
+    }
+}
+
+
 static void keyvalue_handle(key_report_t *key_report)
 {
     bool le_connected_state = bt_check_le_connected();
@@ -532,8 +586,10 @@ static void keyvalue_handle(key_report_t *key_report)
     key_report->keynum_report_buf[3], key_report->keynum_report_buf[4], key_report->keynum_report_buf[5]);
     if (key_pressed_num == 0)
     {
-        if (!first_pair && !adv_flag && keynum == Home_Keynum) {
+        if (!first_pair && !adv_flag && keynum == Home_Keynum && led_state == LED_STATE_NORMAL) {
             led_off(LED_2);
+        }else if(led_state == LED_STATE_NORMAL) {
+            led_off(LED_1);
         }
 
         if (le_connected_state && encrypt_state)
@@ -543,7 +599,7 @@ static void keyvalue_handle(key_report_t *key_report)
             memset((void *)hid_send_buf, 0, KeyBuf[keynum].key_send_len);
             ATT_sendNotify(KeyBuf[keynum].handle, hid_send_buf, KeyBuf[keynum].key_send_len);
 
-            if (keynum == 2) {
+            if (keynum == Voice_Keynum) {
                 mic_close();
                 led_on(LED_3, 200, 1200);
             }
@@ -561,49 +617,145 @@ static void keyvalue_handle(key_report_t *key_report)
                     key_report->keynum_report_buf[4] + key_report->keynum_report_buf[5];
         factory_KeyProcess(keynum==Voice_Keynum?0xff:keynum);
 
-        if (!first_pair && !adv_flag && keynum == Home_Keynum) {
-            led_on(LED_2, 200, 0);
-        }
-		else if (!first_pair && !adv_flag) {
-            led_on(LED_2, 200, 1200);
-        }
 
-        if (le_connected_state && encrypt_state)
+        if(keynum == Input_Keynum || keynum == TV_Keynum || keynum == IR_VOL_Keynum || keynum == IR_VOL__Keynum || keynum == IR_MUTE_Keynum
+        || keynum == IR_LEFT_Keynum || keynum == IR_RIGHT_Keynum || keynum == IR_UP_Keynum || keynum == IR_DOWN_Keynum || keynum == IR_MENU_Keynum
+        || keynum == IR_BACK_Keynum )
         {
-            uint8_t hid_send_buf[KeyBuf[keynum].key_send_len];
-
-            memset((void*)hid_send_buf, 0, KeyBuf[keynum].key_send_len);
-            memcpy((void*)hid_send_buf, (void*)KeyBuf[keynum].keyvalue, 2);
-            ATT_sendNotify(KeyBuf[keynum].handle, hid_send_buf, KeyBuf[keynum].key_send_len);
-
-            if (keynum == Voice_Keynum) {
-                mic_open();
-                led_on(LED_3, 0, 0);
-            }
-        }
-        else if (!le_connected_state && !adv_flag && keynum == Home_Keynum)
-        {
-            swtimer_start(key_pressed_timernum, UNIT_TIME_1S/10, TIMER_START_ONCE);
-        }
-
-        if(!flash_record_exist(ir_learn_tag))
-        {
-            if (keynum == PWR_KEYNUM || keynum == VOL_UP_KEYNUM || keynum == VOL_DOWN_KEYNUM || keynum == MUTE_KEYNUM)
+            if(send_state == NORMAL)
             {
+                if(led_state == LED_STATE_NORMAL){
+                    led_on(LED_1, 200, 0);
+                }
                 SysTick_DelayMs(100);
                 set_key_press_state(true);
-                ir_tv_learn_send(keynum);
+                if(keynum == Input_Keynum && !flash_read(HD_INPUT_DATA,(uint8_t *)&irparams,sizeof(irparams))) {
+                    ir_remote_learn_send(irparams);
+                }
+                else if(keynum == TV_Keynum && !flash_read(HD_TV_DATA,(uint8_t *)&irparams,sizeof(irparams))) {
+                    ir_remote_learn_send(irparams);
+                }
+                else if(keynum == IR_VOL_Keynum && !flash_read(HD_VOL_DATA,(uint8_t *)&irparams,sizeof(irparams))) {
+                    ir_remote_learn_send(irparams);
+                }
+                else if(keynum == IR_VOL__Keynum && !flash_read(HD_VOL__DATA,(uint8_t *)&irparams,sizeof(irparams))) {
+                    ir_remote_learn_send(irparams);
+                }
+                else if(keynum == IR_MUTE_Keynum && !flash_read(HD_MUTE__DATA,(uint8_t *)&irparams,sizeof(irparams))) {
+                    ir_remote_learn_send(irparams);
+                }
+                else if(keynum == IR_LEFT_Keynum && !flash_read(HD_LEFT_DATA,(uint8_t *)&irparams,sizeof(irparams))) {
+                    ir_remote_learn_send(irparams);
+                }
+                else if(keynum == IR_RIGHT_Keynum && !flash_read(HD_RIGHT_DATA,(uint8_t *)&irparams,sizeof(irparams))) {
+                    ir_remote_learn_send(irparams);
+                }
+                else if(keynum == IR_UP_Keynum && !flash_read(HD_UP_DATA,(uint8_t *)&irparams,sizeof(irparams))) {
+                    ir_remote_learn_send(irparams);
+                }
+                else if(keynum == IR_DOWN_Keynum && !flash_read(HD_DOWN_DATA,(uint8_t *)&irparams,sizeof(irparams))) {
+                    ir_remote_learn_send(irparams);
+                }
+                else if(keynum == IR_MENU_Keynum && !flash_read(HD_MENU_DATA,(uint8_t *)&irparams,sizeof(irparams))) {
+                    ir_remote_learn_send(irparams);
+                }
+                else if(keynum == IR_BACK_Keynum && !flash_read(HD_BACK_DATA,(uint8_t *)&irparams,sizeof(irparams))) {
+                    ir_remote_learn_send(irparams);
+                }                
+            }
+            else if(send_state == IR_RECEIVE_JUDGE_STATE)
+            {
+                switch (keynum)
+                {
+                case Input_Keynum:
+                    flash_write(HD_INPUT_DATA, (uint8_t *)&irparams, sizeof(irparams),CHUNK_INF);
+                    break;
+                case TV_Keynum:
+                    flash_write(HD_TV_DATA, (uint8_t *)&irparams, sizeof(irparams),CHUNK_INF);
+                    break;
+                case IR_VOL_Keynum:
+                    flash_write(HD_VOL_DATA, (uint8_t *)&irparams, sizeof(irparams),CHUNK_INF);
+                    break;
+                case IR_VOL__Keynum:
+                    flash_write(HD_VOL__DATA, (uint8_t *)&irparams, sizeof(irparams),CHUNK_INF);
+                    break;
+                case IR_MUTE_Keynum:
+                    flash_write(HD_MUTE__DATA, (uint8_t *)&irparams, sizeof(irparams),CHUNK_INF);
+                    break;              
+                case IR_LEFT_Keynum:
+                    flash_write(HD_LEFT_DATA, (uint8_t *)&irparams, sizeof(irparams),CHUNK_INF);
+                    break;
+                case IR_RIGHT_Keynum:
+                    flash_write(HD_RIGHT_DATA, (uint8_t *)&irparams, sizeof(irparams),CHUNK_INF);
+                    break;
+                case IR_UP_Keynum:
+                    flash_write(HD_UP_DATA, (uint8_t *)&irparams, sizeof(irparams),CHUNK_INF);
+                    break;
+                case IR_DOWN_Keynum:
+                    flash_write(HD_DOWN_DATA, (uint8_t *)&irparams, sizeof(irparams),CHUNK_INF);
+                    break;
+                case IR_MENU_Keynum:
+                    flash_write(HD_MENU_DATA, (uint8_t *)&irparams, sizeof(irparams),CHUNK_INF);
+                    break;
+                case IR_BACK_Keynum:
+                    flash_write(HD_BACK_DATA, (uint8_t *)&irparams, sizeof(irparams),CHUNK_INF);
+                    break;     
+                }
+                key_pressed_time = 0;
+                send_state = IR_RECEIVE_STATE;                
+                led_state = LED_LEARN_CONTINU;
+                led_on(LED_1, 200, 600);
+                DEBUG_LOG_STRING("KEY_DEVICE OK\r\n");
             }
         }
-        else{
-            if(keynum == Power_Keynum){
-                set_key_press_state(true);
-                ir_comm_send(ir_data[keynum]);  
+        else
+        {
+            if(send_state != NORMAL) return;
+
+            if (!first_pair && !adv_flag && keynum == Home_Keynum) {
+                led_on(LED_2, 200, 0);
             }
-            else if(!le_connected_state && keynum != Home_Keynum){
-                SysTick_DelayMs(100);
-                set_key_press_state(true);
-                ir_comm_send(ir_data[keynum]);
+            else if (!first_pair && !adv_flag) {
+                led_on(LED_2, 200, 1200);
+            }            
+            if (le_connected_state && encrypt_state)
+            {
+                uint8_t hid_send_buf[KeyBuf[keynum].key_send_len];
+
+                memset((void*)hid_send_buf, 0, KeyBuf[keynum].key_send_len);
+                memcpy((void*)hid_send_buf, (void*)KeyBuf[keynum].keyvalue, 2);
+                ATT_sendNotify(KeyBuf[keynum].handle, hid_send_buf, KeyBuf[keynum].key_send_len);
+
+                if (keynum == Voice_Keynum) {
+                    mic_open();
+                    led_on(LED_3, 0, 0);
+                }
+            }
+            else if (!le_connected_state && !adv_flag && keynum == Home_Keynum)
+            {
+                key_pressed_time = 0;
+                swtimer_start(key_pressed_timernum, UNIT_TIME_1S/10, TIMER_START_ONCE);
+            }
+
+            if(!flash_record_exist(ir_learn_tag))
+            {
+                if (keynum == PWR_KEYNUM || keynum == VOL_UP_KEYNUM || keynum == VOL_DOWN_KEYNUM || keynum == MUTE_KEYNUM)
+                {
+                    SysTick_DelayMs(100);
+                    set_key_press_state(true);
+                    ir_tv_learn_send(keynum);
+                }
+            }
+            else{
+                if(keynum == Power_Keynum){
+                    set_key_press_state(true);
+                    ir_comm_send(ir_data[keynum]);  
+                }
+                else if(!le_connected_state && keynum != Home_Keynum){
+                    SysTick_DelayMs(100);
+                    set_key_press_state(true);
+                    ir_comm_send(ir_data[keynum]);
+                }
             }
         }
         
@@ -611,6 +763,7 @@ static void keyvalue_handle(key_report_t *key_report)
     }
     else if (key_pressed_num == 2)
 	{
+        set_key_press_state(false);
         if (key_report->keynum_report_buf[Right_Col] == Right_Keynum && key_report->keynum_report_buf[Back_Col] == Back_Keynum && le_connected_state)
 		{
             keynum = Right_Keynum;
@@ -618,6 +771,30 @@ static void keyvalue_handle(key_report_t *key_report)
             key_pressed_time = 0;
             swtimer_start(key_pressed_timernum, UNIT_TIME_1S, TIMER_START_ONCE);
             DEBUG_LOG_STRING("RESET TV START \r\n");
+        }
+        else if(key_report->keynum_report_buf[Input_Col] == Input_Keynum && key_report->keynum_report_buf[TV_Col] == TV_Keynum)
+        {
+            if(learn_state)
+            {
+                app_sleep_lock_set(APP_LOCK, false);
+                learn_state = false;
+                led_state = LED_STATE_NO_OFF;
+                send_state = NORMAL;
+                led_on(LED_1, 200, 600);                
+                swtimer_stop(ir_receive_timernum);
+                DEBUG_LOG_STRING("LEARN TV IR stop\r\n");                
+            }
+            else
+            {
+                app_sleep_lock_set(APP_LOCK, true);
+                led_off(LED_1);
+                keynum = Input_Keynum;
+                keynum_second = TV_Keynum;
+                key_pressed_time = 0;
+                swtimer_start(key_pressed_timernum, UNIT_TIME_1S, TIMER_START_ONCE);
+                DEBUG_LOG_STRING("LEARN TV IR start\r\n");                
+            }
+
         }
     }
     else if (key_pressed_num == 3)
@@ -636,7 +813,7 @@ static void keyvalue_handle(key_report_t *key_report)
 
 static void power_handle(uint8_t batlevel)
 {
-    DEBUG_LOG_STRING("BAT LEVEL: %d \r\n", batlevel);
+    // DEBUG_LOG_STRING("BAT LEVEL: %d \r\n", batlevel);
     
     if (batlevel <= 20 && tx_power_switch) {
         tx_power_switch = false;
@@ -667,9 +844,20 @@ void action_after_led_blk(void)
 {
     if (adv_flag) {
         adv_flag = false;
-
         stop_adv();
         enter_deep_sleep();
+    }
+    else if(led_state == LED_LEARN_LONG){
+        led_state = LED_STATE_NO_OFF;
+        led_on(LED_1,0,0);
+    }
+    else if(led_state == LED_LEARN_CONTINU) {
+        led_state = LED_STATE_NO_OFF;
+        continu_ir_receive =false;
+        led_on(LED_1, 0, 0);
+    }
+    else if(led_state == LED_STATE_NO_OFF) {
+        led_state = LED_STATE_NORMAL;
     }
 }
 
@@ -988,13 +1176,13 @@ void Dev_PowerOn(void)
         bt_renew_scan_rsp((void *)scan_rsp_data_buf, sizeof(scan_rsp_data_buf));
     }
 
-    // if (Bt_CheckIsPaired()) {
-    //     start_adv(ADV_TYPE_DIRECT, 0x08, false);
-    //     swtimer_start(adv_timernum, 3000, TIMER_START_ONCE);
-    // }
-    // else {
-    //     start_adv(ADV_TYPE_NOMAL, 0x10, true);
-    // }
+    if (Bt_CheckIsPaired()) {
+        start_adv(ADV_TYPE_DIRECT, 0x08, false);
+        swtimer_start(adv_timernum, 3000, TIMER_START_ONCE);
+    }
+    else {
+        start_adv(ADV_TYPE_NOMAL, 0x10, true);
+    }
 }
 
 void tx_power_switch_set(bool switch_enable)
@@ -1033,6 +1221,7 @@ void app_init(void)
         encrypt_report_timernum = swtimer_add(encrypt_handle);
         s_4a18_send_timernum = swtimer_add(s_4a18_send);
         key_pressed_timernum = swtimer_add(key_pressed_handle);
+        ir_receive_timernum = swtimer_add(ir_receive_handle);
         if (!SecretKey_Check())
         {
 #ifdef SecretKey_Check_enable

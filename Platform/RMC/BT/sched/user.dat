@@ -163,10 +163,10 @@ mem_param_a2dp_buffer_judge_add_buffer_limit:02
 mem_param_a2dp_dac_sbc_same_buffer_flag:01
 
 mem_rf_debug_enable: 00
-mem_rf_debug_rf_rx_debug_gpio: 0d
-mem_rf_debug_rf_tx_debug_gpio: 0e
-mem_rf_debug_rf_sync_detect_debug_gpio: 0f
-mem_rf_debug_rf_crc_error_debug_gpio: 13
+mem_rf_debug_rf_rx_debug_gpio: 09
+mem_rf_debug_rf_tx_debug_gpio: 05
+mem_rf_debug_rf_sync_detect_debug_gpio: 05
+mem_rf_debug_rf_crc_error_debug_gpio: 05
 
 #mem_app_debug_info_timer use to set first debug timeout
 #mem_param_app_debug_info_timeout use to set period

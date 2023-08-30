@@ -460,5 +460,5 @@ void ATT_Parse(uint8_t len,uint8_t *dataPtr)
 	default:
 		DEBUG_LOG_ATT("ATTOP NO CMD: 0x%x \r\n", dataPtr[0]);
 		break;
-	}
+	}	
 }

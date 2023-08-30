@@ -1766,7 +1766,8 @@
 #define	mem_le_ll_no_need_rx                    	0x4eac
 #define	mem_le_ce_num                           	0x4ead
 #define	mem_le_config                           	0x4eae
-#define	mem_headset_end                         	0x4eaf
+#define	mem_le_first_packet_count               	0x4eaf
+#define	mem_headset_end                         	0x4eb0
 #define	mem_mcmd                                	0xff0
 #define	mem_mouse_data                          	0xff1
 #define	L2CAP_ONE_RXBUFF_LENTH_NEW              	0x266
@@ -2018,6 +2019,7 @@
 #define	BT_CMD_HCI_RESET                        	0xc6
 #define	BT_CMD_UPDATE_RANDOM_DATA               	0xc7
 #define	BT_CMD_LE_LENGTH_REQ                    	0xc8
+#define	BT_CMD_UPDATE_LPOCLK                    	0xc9
 #define	BT_EVT_NULL                             	0x00
 #define	BT_EVT_BB_CONNECTED                     	0x01
 #define	BT_EVT_BB_DISCONNECTED                  	0x02

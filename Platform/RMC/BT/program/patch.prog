@@ -5,8 +5,8 @@
 define FUNCTION_WATCH_DOG
 //define FUNCTION_WATCH_DOG_INTR
 //define DEBUG_LOG_FUN
-define BT_RMC_CODE
-define BT_DEBUG
+//define BT_RMC_CODE
+//define BT_DEBUG
 //define FUNCTION_ADCKEY_ENABLE_QUEUE
 //define FUNCTION_ADCKEY_ENABLE
 
@@ -28,44 +28,17 @@ define BT_DEBUG
 call ice_break
 	jam 0x13,0x4ff1*/
 	bbit1 8,pf_patch_ext
-	// For fast speed.
-//	beq patch17_0,p_audio_dac_judge_reserve_buffer_enough
-//	beq patch1e_3,p_media_queue
-//	beq patch00_5,p_patch_for_ota_online_update_flash
+	beq patch00_4, p_patch_for_efuse
 	beq patch00_2, p_main_loop
-	beq patch00_7,p_idle_create_conn
-	//beq patch06_5,p_page_scan_start
-	//beq patch06_7,p_page_scan_wait_fhs_restart
-	//beq patch07_0,p_page_scan_reply_to_fhs
-	//beq patch07_2,p_sconn_successful
-	//beq patch07_4,p_slave_loop
-	beq patch08_0,p_slave_disconnect
-//	beq patch08_6,p_newconn_init
-//	beq patch0a_1,p_slave_conn_recv_packet
-//	beq patch0b_2,p_process_dmh_common
-//	beq patch0b_6,p_process_dmh_data_end
-//	beq patch0c_2,p_ack_payload_tws
 	beq patch0c_5,p_end_of_packet
-//	beq patch0e_0,p_check_attempt_sniff
-//	beq patch0e_4,p_slave_send_access
-//       beq patch0e_5,p_slave_conn_send_packet
-	beq patch10_7,p_set_sync_on
+         beq patch10_7,p_set_sync_on
 	beq patch11_1,p_rf_rx_enable
 	beq patch11_6,p_rf_tx_enable_pwr
 	beq patch11_7,p_initialize_radio
 	beq patch12_0,p_save_rssi
-//	beq patch15_4,p_lpm_set_mult
 	beq patch14_5,p_lpm_sleep
 	beq patch16_2,p_app_init
 	beq patch16_4,p_app_evt_timer_handle
-//	beq patch17_3,p_sbc_update_dac_wptr
-//	beq patch18_4,p_l2cap_call_proc_avdtp_media
-//	beq patch18_5,p_l2cap_call_proc_avdtp_media_allow
-//	beq patch18_7,p_audio_dac_set_farrow_filter
-//	beq patch19_1,p_a2dp_media_first_buffer_cache_work
-//	beq patch19_2,p_avd_signal_parse_cmd
-//	beq patch1c_0,p_HFP_is_result_clip
-//	beq patch1c_4,p_HFP_voice_start
 	beq patch1c_7,p_ipc_clear_mem_block
 	beq patch1d_3,p_ipc_rx_process
 	beq patch1d_5,p_ipc_tx_common
@@ -79,15 +52,14 @@ pf_patch_ext:
 	beq patch22_7,p_free_buffer
 	beq patch23_5,p_le_slave_dispatch
 	beq patch23_6,p_le_slave_match
-	beq patch24_0,p_le_slave_unsync
+//	beq patch24_0,p_le_slave_unsync
 /************************2M************************************/	
 	beq patch24_1,p_le_slave_more_data
 /************************2M************************************/	
 	beq patch24_2,p_le_disconnect
 	beq patch24_6,p_le_enable
 	beq patch24_7,p_le_disable
-	beq patch25_6,p_le_receive_on_attempt_cont
-	beq patch25_7,p_le_rx_dec
+	beq patch25_6, p_le_receive_on_attempt_cont
 	beq patch26_6,p_le_acknowledge
 /*************************2M***********************************/
 	beq patch27_5,p_le_parse
@@ -96,6 +68,7 @@ pf_patch_ext:
 //	beq patch28_7,p_le_lpm_set_mult
 	beq patch2a_4,p_le_start_adv_time_reach
 	beq patch2a_7,p_le_send_adv_ind
+	beq patch2b_0,p_le_send_adv_transmit
 	beq patch2b_5,p_le_pairing_sm
 	beq patch2b_3,p_le_connect_req_handle
 	beq patch2b_7,p_le_parse_enc_req_cont
@@ -103,30 +76,68 @@ pf_patch_ext:
 	beq patch3e_4,p_check_51cmd_once_continue
 	branch assert
 
-
-
-
-
-p_le_rx_dec:
-	call le_check_retransmit	
-//	bmark1 mark_old_packet,le_retransmit_end_of_packet
-	fetchr rega, 1,mem_le_rxbuf_data_length
-	increase -4,rega
-	nbranch p_le_mic_error,positive
-//	storer rega, 1,mem_le_rxbuf_data_length
-	call le_dec_start	
-	copy regb,contw
-	arg 0,temp
-	fetchr loopcnt, 1,mem_le_rxbuf_data_length
-	increase -4,loopcnt
-	branch le_rx_dec+11
-	
-p_le_mic_error:
-	call le_end_of_packet
-	fetch 1,mem_rx_ok_count
-	pincrease 1
-	store 1, mem_rx_ok_count
+p_soft_reset_protect:
+	jam 3, core_reset
 	rtn
+	
+p_patch_for_efuse:
+	fetch 2,mem_rf_init_ptr
+	bbit0 14,p_soft_reset_protect
+	rtn
+
+
+	
+p_le_got_first_packet:
+	rtnmark1 mark_ble_crc_fail
+	fetch 1,mem_le_conn_rcv
+	increase 1,pdata
+	store 1,mem_le_conn_rcv
+	fetch 1,mem_le_state
+	rtnbit1 lestate_got_first_packet
+	set1 lestate_got_first_packet,pdata
+	store 1,mem_le_state
+	fetch 2,mem_le_init_superto
+	store 2,mem_le_superto
+	setarg 0
+	store 4,mem_le_transmit_window
+	rtn
+	
+
+
+
+
+p_le_transmit_norx:
+	rtnmark1 mark_ble_crc_fail
+	call le_transmit
+	branch end_of_packet
+
+
+p_le_prepare_tx:
+	rtnmark1 mark_ble_crc_fail
+	branch le_prepare_tx+1
+
+
+
+
+
+p_le_send_adv_transmit:
+	fetch 1,mem_le_adv_transmit
+	increase 1,pdata
+	store 1,mem_le_adv_transmit
+	arg 1800,stop_watch
+	disable match
+	branch p_le_transmit_receive_sifs_without_change_mode
+
+
+p_le_transmit_receive_sifs_without_change_mode:
+	call le_transmit
+	fetcht 1,mem_last_freq
+	call set_freq_rx
+	nop 200
+	call rf_rx_enable
+	enable swfine
+	arg 5500,timeup
+	branch le_receive_rxon
 
 
 
@@ -519,27 +530,43 @@ p_le_parse_ll:
 	beq LL_TERMINATE_IND,p_le_parse_terminate_ind
 	beq LL_CHANNEL_MAP_IND,p_le_parse_channel_map_ind
 	beq LL_FEATURE_REQ,p_le_parse_feature_req
-	beq LL_FEATURE_RSP,le_parse_feature_rsp
+	beq LL_FEATURE_RSP,p_le_parse_feature_rsp
 	branch le_parse_ll+1
 
 
 
 //LL Opcode:0x09
 p_le_parse_feature_rsp:
-	fetch 1,mem_le_config
-	bbit1 2,le_send_att_exchange_mtu_requset
+	rtn
+
+p_check_dle_update:
 	fetch 1,mem_le_config
 	bbit1 0,le_send_data_length_req
+	rtn
+
+p_check_slave_feature_update:
+	fetch 1,mem_le_config
+	bbit1 1,p_le_send_slave_feature_req
+	rtn
+
+p_check_mtu_update:
+	fetch 1,mem_le_config
+	bbit1 2,le_send_att_exchange_mtu_requset
+	rtn
+
+p_check_smp_sec_update:
+	fetch 1,mem_le_config
+	bbit1 3,check_51cmd_le_smp_sec_req
 	rtn
 
 
 //LL Opcode:0x08
 p_le_parse_feature_req:
 	call le_send_feature_rsp
-	fetch 1,mem_le_config
-	bbit1 1,p_le_send_slave_feature_req
-	fetch 1,mem_le_config
-	bbit1 0,le_send_data_length_req
+	call p_check_slave_feature_update
+	call p_check_mtu_update
+	call p_check_smp_sec_update
+	call p_check_dle_update
 	rtn
 
 
@@ -726,13 +753,6 @@ p_tws_100ms_event_polling:
 	branch tws_100ms_event_polling+1
 
 p_le_slave_dispatch:
-ifdef BT_DEBUG
-	fetch 2,mem_rx_ok_count
-	pincrease 1
-	store 2,mem_rx_ok_count
-endif
-	//bpatchx patch23_5,mem_patch23
-	//call p_le_l2cap_tx_update_req_ota_test
 	jam 0,mem_le_md_count
 	set0 mark_ble_crc_fail,mark
 ifdef SECURE_CONNECTION
@@ -740,48 +760,23 @@ ifdef SECURE_CONNECTION
 	call le_secure_connect_sm
 endif
 	disable attempt
-	call p_le_supervision_update
-	branch le_slave_disconn,positive
-	branch le_slave_dispatch+8
+	call le_supervision_update
+	branch p_le_disconnect,positive
+	fetch 1,mem_le_rx_phy
+	call le_enable_phy_by_pdata
+	call le_setup
+	call le_receive_slave
+	nbranch le_slave_unsync,sync	// vol.6 part B 4.5.1 respond even crc error
+	call p_le_got_first_packet
+	bmark1 mark_ble_crc_fail,p_le_slave_match
+//	jam 0,mem_lpo_calc_flag
+	branch p_le_slave_match,match
+	branch le_slave_cont
+
+
 
 	
-p_le_supervision_update:
-	fetcht 4,mem_le_supervision_timer
-	call get_clkbt	
-	isub temp,timeup					/* and to 28 bits   pdata - temp = timeup */
-	ncall p_recal_clkbt,positive
-	deposit timeup
-	fetcht 2,mem_le_superto
-	lshift4 temp,temp
-	lshift temp,temp
-	isub temp,pdata
-	rtn
 
-	
-p_recal_clkbt:
-	arg 0xfffffff,pdata
-	iadd timeup,timeup
-	rtn
-
-ifdef le_updata
-p_le_slave_dispatch:
-	//bpatchx patch23_5,mem_patch23
-	call p_le_l2cap_tx_update_req_ota_test
-	branch le_slave_dispatch+1
-p_le_l2cap_tx_update_req_ota_test:
-	fetch 1,mem_ota_update_flag
-	rtn blank
-p_le_l2cap_tx_update_req:
-	jam 0,mem_ota_update_flag
-	arg 0x0c,rega
-	arg L2CAP_CONNECTION_PARAMETER_UPDATE_REQUEST,regc
-	call le_fifo_malloc_tx_l2cap_signaling
-	setarg 0x08
-	istore 2,contw
-	fetch 8,mem_le_interval_min
-	istore 8,contw
-	rtn
-endif
 
 p_check_51cmd_once:
 	call ui_ipc_get_lock
@@ -791,6 +786,7 @@ p_check_51cmd_once:
 	call ui_ipc_put_lock
 	copy temp,pdata
 	rtn blank
+//	beq BT_CMD_UPDATE_LPOCLK,p_lpo_calibration_start
 	beq BT_CMD_OTA_SWITCH,p_cmd_ota_start
 	beq BT_CMD_LE_UPDATE_CONN,le_l2cap_tx_update_req
 	beq BT_CMD_START_ADV,p_check_51cmd_adv
@@ -805,6 +801,7 @@ p_check_51cmd_once:
 	beq BT_CMD_STOP_DIRECT_ADV,p_check_51cmd_stop_direct_adv
 	beq BT_CMD_UPDATE_RANDOM_DATA,p_random_data_genrate
 	branch check_51cmd_once+8
+
 
 
 
@@ -886,6 +883,10 @@ p_set_mult:
 	quotient pdata
 	increase -1,pdata
 	store 1,mem_lpm_mult
+	copy pdata,temp
+	fetch 1,mem_lpm_current_mult
+	rtn blank
+	storet 1,mem_lpm_current_mult
 	rtn
 	
 p_check_51cmd_adv:
@@ -983,10 +984,6 @@ ipc_tx_bt_data_buf_media:
 endif
 
 
-p_slave_disconnect:
-	jam 0,mem_slave_connect_history_device_flag
-	call sp_reset
-	branch slave_disconnect+1
 
 p_ipc_rx_cmd:
 	// store contr
@@ -1814,21 +1811,17 @@ p_le_slave_match:
 	isub temp,null
 	branch le_slave_cont,positive
 	call p_le_acknowledge
-	call le_prepare_tx
+	call p_le_prepare_tx
 	fetch 1,mem_le_tx_phy
 	call le_enable_phy_by_pdata
-	call le_transmit_norx
+	call p_le_transmit_norx
 	branch le_slave_match+10
 
-
-p_le_slave_unsync:
-	call p_end_of_packet
-	branch le_slave_unsync+1
 
 
 
 p_rf_rx_enable:
-	call rf_debug_inactive_tx_line
+	call rf_debug_inactive_rx_line
 	branch rf_rx_enable+1
 	
 p_le_slave_more_data:
@@ -2110,12 +2103,7 @@ p_save_rssi:
 
 
 
-p_idle_create_conn:
-	call context_search_have_classic_link
-	nbranch idle_create_conn+1,user
-	call idle_exit
-	jam BT_EVT_RECONN_PAGE_CANCELED,mem_fifo_temp
-	branch ipc_tx_bt_event
+
 
 
 p_lpm_get_sleep_lpo:
@@ -2207,7 +2195,10 @@ p_check_connect_tx_complete:
 	rtn
 
 
+//p_set_lpo_suc:
 
+//	jam 1,mem_lpo_calc_flag
+//	rtn
 
 p_lpm_dispatch:
 	fetch 1,mem_lpm_mode
@@ -2224,11 +2215,19 @@ p_lpm_dispatch:
 
 	call malloc_check_have_buffer_malloc
 	rtn user
+
+//	fetch 3,mem_clks_per_lpo
+//	call p_set_lpo_suc, blank
 	
+//	jam 0x3f,0x8089
 	call lpo_calibration
+//	jam 0x3e,0x8089
 	fetch 3,mem_clks_per_lpo
 	rtn blank
 
+ //     	fetch 1,mem_lpo_calc_flag
+  //    	nrtn blank
+         
 	fetch 1,mem_ssp_enable
 	branch p_lpm_dispatch_next,blank
 	fetch 1,mem_sp_local_key_invalid	// simple pairing is not ready

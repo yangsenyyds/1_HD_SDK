@@ -404,9 +404,7 @@ static void keyvalue_handle(key_report_t *key_report)
     //DEBUG_LOG_STRING("SecretKe %d \r\n",HREAD(0x3BF00));
     if (key_pressed_num == 0)
     {
-#ifdef AUDIO_TEST_MODE
-        mic_close();
-#else
+
         if (!first_pair && !adv_flag && keynum == Home_Keynum) {
             led_off(LED_1);
         }
@@ -426,9 +424,7 @@ static void keyvalue_handle(key_report_t *key_report)
                 wake_up_state = 0;
             }
         }
-
         set_key_press_state(false);
-#endif
     }
     else if (key_pressed_num == 1)
     {

@@ -93,6 +93,7 @@ VPATH += $(APP_ROOT)/power
 VPATH += $(APP_ROOT)/key
 VPATH += $(APP_ROOT)/led
 VPATH += $(APP_ROOT)/flash/YC
+VPATH += $(APP_ROOT)/ir/ir_learn/ir_learn_from_remote
 VPATH += $(APP_ROOT)/ir/ir_send
 VPATH += $(APP_ROOT)/ir/ir_lib
 VPATH += $(APP_ROOT)/audio
@@ -115,6 +116,7 @@ SRCINCLUDE += -I$(APP_ROOT)/power
 SRCINCLUDE += -I$(APP_ROOT)/key
 SRCINCLUDE += -I$(APP_ROOT)/led
 SRCINCLUDE += -I$(APP_ROOT)/flash/YC
+SRCINCLUDE += -I$(APP_ROOT)/ir/ir_learn/ir_learn_from_remote
 SRCINCLUDE += -I$(APP_ROOT)/ir/ir_send
 SRCINCLUDE += -I$(APP_ROOT)/ir/ir_lib
 SRCINCLUDE += -I$(APP_ROOT)/audio
@@ -159,6 +161,7 @@ APP := \
 	vbat.c \
 	keyscan.c \
 	led.c \
+	ir_learn_from_remote.c \
 	ir_send.c \
 	ir_load.c \
 	ir_lib.c \

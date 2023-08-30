@@ -136,13 +136,13 @@ static const KeyBuf_TypeDef KeyBuf[] = {
     {0xE2, 0x00, 2, 64}, // POWER 1
     {0x53, 0x00, 2, 64}, // 1
     {0x55, 0x00, 2, 64}, // 2
-    {0x49, 0x02, 2, 64}, // 3
+    {0x49, 0x00, 2, 64}, // 3
 
     {0x42, 0x00, 2, 64}, // 4  6
     {0x44, 0x00, 2, 64}, // 5
     {0x41, 0x00, 2, 64}, // 6
     {0x45, 0x00, 2, 64}, // 7
-    {0x43, 0x02, 2, 64}, // 8
+    {0x43, 0x00, 2, 64}, // 8
 
     {0x24, 0x02, 2, 64}, // 9  11
     {0x50, 0x00, 2, 64}, // -
@@ -151,8 +151,8 @@ static const KeyBuf_TypeDef KeyBuf[] = {
     {0xEA, 0x00, 2, 64}, // Red
 
     {0xE9, 0x00, 2, 64}, // GREEN  16
-    {0x51, 0x00, 2, 64}, // YEELOW
-    {0x57, 0x00, 2, 64}, // BLUE
+    {0x57, 0x00, 2, 64}, // YEELOW
+    {0xb7, 0x00, 2, 64}, // BLUE
     {0x21, 0x02, 2, 64}, // HOME
 
 };
@@ -281,7 +281,7 @@ static void key_pressed_handle(void)
                 key_pressed_time = 0;
                 led_state = true;
                 led_on(LED_1,200,800);
-                ir_single_send(0X1B,2);
+                ir_single_send(0X52,2);
                 Bt_ClearRemoteDevInfo();
                 Bt_ClearDeviceNvdataInfo();
                 start_adv(ADV_TYPE_NOMAL, 0x10,true);

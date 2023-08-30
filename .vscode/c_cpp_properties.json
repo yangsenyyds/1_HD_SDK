@@ -8,7 +8,7 @@
                 "${workspaceFolder}/Vendor/Remote_Control",
                 "${workspaceFolder}/APP/**",
                 "${workspaceFolder}/Platform/**",
-                "${workspaceFolder}/Projects/HD00610_3527_factory_test",
+                "${workspaceFolder}/Projects/HD00618",
                 "${workspaceFolder}/Platform/sdk/bt"
             ],
             "defines": [
