@@ -30,6 +30,7 @@
 #include "yc11xx_bt_interface.h"
 #include "yc_debug.h"
 
+#include "app_config.h"
 
 #ifndef CONN_PARAM_UPDATE_TIME
 #define CONN_PARAM_UPDATE_TIME  (300)
@@ -59,6 +60,8 @@ typedef struct {
 static remote_control_status_t remote_control_status;
 static uint8_t sleep_timernum = 0xFF;
 
+WEAK void action_after_prepare_sleep(void){}
+WEAK void action_after_enter_deep_sleep(void){}
 
 static bool app_lock_check(void)
 {
@@ -141,6 +144,7 @@ void prepare_before_sleep(void)
         GPIO_Init(IIC_SCL_PIN, GPIO_Mode_Out_High);
         GPIO_Init(IIC_SDA_PIN, GPIO_Mode_Out_High);
 #endif
+        action_after_prepare_sleep();
 
         app_queue_reset();
         vbat_deinit();
@@ -177,6 +181,7 @@ void enter_deep_sleep(void)
     qma_int_mode();
     led_off(LED_1);
 #endif
+    action_after_enter_deep_sleep();
 
     if (bt_check_le_connected())
     {
@@ -191,7 +196,6 @@ void enter_deep_sleep(void)
 #ifdef SONY_200
         mic_close();
 #endif
-
         Bt_SndCmdPwroff();
     }
 }

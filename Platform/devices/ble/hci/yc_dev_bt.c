@@ -17,7 +17,9 @@ WEAK void Dev_WakeUp(void){Dev_PowerOn();}
 WEAK void LE_CONNECTED(void){}
 WEAK void LE_DISCONNECTED(uint8_t reason){}
 WEAK void PAIR_DONE(void){}
-WEAK void PAIR_FAIL(uint8_t reason){}
+WEAK void PAIR_FAIL(uint8_t reason){
+    DEBUG_LOG_STRING("PAIR FAIL! REASON : %x \r\n", reason);
+}
 WEAK void ENCRYPT_DONE(void){}
 WEAK void ENCRYPT_FAIL(uint8_t reason){}
 WEAK void CONN_PARAM_ACCEPTED(void){}

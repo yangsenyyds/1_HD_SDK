@@ -138,11 +138,11 @@ static const KeyBuf_TypeDef KeyBuf[] = {
 
     {0xFF, 0x00, 3, 94}, // 
     {0xFF, 0x00, 3, 94}, // 
-    {0xA1, 0X00, 4, 199},
-    {0xA2, 0X00, 4, 199},
-    {0xA3, 0X00, 4, 199},
+    {0xA1, 0X00, 4, 119},
+    {0xA2, 0X00, 4, 119},
+    {0xA3, 0X00, 4, 119},
     
-    {0xA4, 0X00, 4, 199},
+    {0xA4, 0X00, 4, 119},
 };
 
 static const uint8_t cmd80_buf[] = {0x30, 0xEB, 0x00, 0x00, 0x41, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x40, 0x00, 0x03, 0x00, 0x04, 0x00, 0x04, 0x00, 0x01, 0x64, 0x00, 0x00, 0x00, 0x01, 0x00, 0x1E, 0x00, 0x02, 0x2C, 0x01, 0x01, 0x00, 0x01, 0x00, 0x32, 0x00, 0x03, 0x00, 0x04, 0x00, 0x00, 0x00, 0x00, 0x02, 0x00};
@@ -262,25 +262,6 @@ static bool SecretKey_Check(void)
     return (memcmp((void *)secretkey_Ori, (void *)secretkey_Gen, 16) == 0) ? true : false;
 }
 
-static void low_power_handle(void)
-{
-    if(HREADW(mem_le_slave_latency) != CONN_PARAM && bt_check_le_connected()){
-        if(key_pressed_num == 0) {
-            sleep_time_state++;
-            if(sleep_time_state == 600){
-                bt_send_le_disconnect(0x13);
-                sleep_time_state = 0;
-            }
-        }else{
-            sleep_time_state = 0;
-        }
-        DEBUG_LOG_STRING("low_power_handle : %d \r\n", sleep_time_state);
-    }else{
-        sleep_time_state = 0;
-        swtimer_stop(low_power_timernum);
-    }
-}
-
 static void stop_adv(void)
 {
     if (bt_check_le_connected()) return;
@@ -327,6 +308,35 @@ static void start_adv(enum advType type, uint16_t adv_interval, bool timeout)
             app_sleep_lock_set(ADV_LOCK, true);
             app_sleep_timer_set(DIRECT_ADV_TIME);
         }
+    }
+}
+
+static void remote_control_reinit(void)
+{
+    keyscan_start();
+    software_timer_start(SYSTEM_CURRENT_CLOCK, TIMER_UNIT_MS);
+    vbat_reinit();
+    led_reinit();
+    ir_learn_reinit();
+    voice_report_reinit();
+}
+
+static void low_power_handle(void)
+{
+    if(HREADW(mem_le_slave_latency) != CONN_PARAM && bt_check_le_connected()){
+        if(key_pressed_num == 0) {
+            sleep_time_state++;
+            if(sleep_time_state == 600){
+                bt_send_le_disconnect(0x13);
+                sleep_time_state = 0;
+            }
+        }else{
+            sleep_time_state = 0;
+        }
+        DEBUG_LOG_STRING("low_power_handle : %d \r\n", sleep_time_state);
+    }else{
+        sleep_time_state = 0;
+        swtimer_stop(low_power_timernum);
     }
 }
 
@@ -577,7 +587,6 @@ static void key_pressed_handle(void)
     }
 }
 
-
 static void keyvalue_handle(key_report_t *key_report)
 {
     bool le_connected_state = bt_check_le_connected();
@@ -616,7 +625,6 @@ static void keyvalue_handle(key_report_t *key_report)
                     key_report->keynum_report_buf[2] + key_report->keynum_report_buf[3] +
                     key_report->keynum_report_buf[4] + key_report->keynum_report_buf[5];
         factory_KeyProcess(keynum==Voice_Keynum?0xff:keynum);
-
 
         if(keynum == Input_Keynum || keynum == TV_Keynum || keynum == IR_VOL_Keynum || keynum == IR_VOL__Keynum || keynum == IR_MUTE_Keynum
         || keynum == IR_LEFT_Keynum || keynum == IR_RIGHT_Keynum || keynum == IR_UP_Keynum || keynum == IR_DOWN_Keynum || keynum == IR_MENU_Keynum
@@ -828,16 +836,6 @@ static void power_handle(uint8_t batlevel)
     else {
         memcpy((void *)Att_List[BAT_ATTLIST_INDEX].dataPtr, (void *)&batlevel, 1);
     }
-}
-
-static void remote_control_reinit(void)
-{
-    keyscan_start();
-    software_timer_start(SYSTEM_CURRENT_CLOCK, TIMER_UNIT_MS);
-    vbat_reinit();
-    led_reinit();
-    ir_learn_reinit();
-    voice_report_reinit();
 }
 
 void action_after_led_blk(void)

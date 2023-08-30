@@ -536,7 +536,8 @@ void update_voice_packet(uint8_t *pkt)
             }
             else if (len == 123)
             {
-                pkt[0] = DVOICE_HANDLE; /// handle
+                // pkt[0] = DVOICE_HANDLE; /// handle
+                pkt[0] = AUDIO_SNED_HANDLE; /// handle
             }
             pkt[1] = len; /// len
         }
@@ -1157,7 +1158,7 @@ static void keyvalue_handle(key_report_t *key_report)
         keynum = key_report->keynum_report_buf[0] + key_report->keynum_report_buf[1] + 
             key_report->keynum_report_buf[2] + key_report->keynum_report_buf[3] + 
             key_report->keynum_report_buf[4] + key_report->keynum_report_buf[5];
-
+        factory_KeyProcess(keynum==APP_KEY_IDX_VOICE?0xff:keynum);
         DEBUG_LOG_STRING("keynum[%d]\r\n", keynum);
         /*pwr ir*/
         if (keynum == APP_KEY_IDX_PWR) /// pwr
@@ -1423,6 +1424,7 @@ static const uint8_t unknow_1byte_17_2_rsp[] = {
 void Write_DataParse(const ATT_TABLE_TYPE *table, uint8_t *data, uint8_t len)
 {
     DEBUG_LOG_STRING("WRITE HANDLE: %d  LEN: %d\r\n", table->handle, len);
+    factory_WriteDataParse(table->handle, data, len);
     // DEBUG_LOG_STRING("data %d \r\n", data[0]);
     if (table->handle == 44)
     {        

@@ -6,7 +6,7 @@
 #include "yc11xx_audio_adc.h"
 #include "yc_dev_bt.h"
 #include "att_list.h"
-
+#include "factory_test.h"
 #define LG22 (1)
 
 /* WATCH_DOG */
@@ -357,8 +357,9 @@ enum app_tv_kvcmd_t
 #define KVCMD_LG22GA (E_APP_TV_TPYE_13 | E_APP_TV_TPYE_17 | E_APP_TV_TPYE_19)
 
 #define DAXIS_KEY_HANDLE (34)
-#define DVOICE_HANDLE (39)
-
+// #define DVOICE_HANDLE (39)
+#define AUDIO_CMD_HANDLE        (37)
+#define AUDIO_SNED_HANDLE       (get_VoiceHandle())
 ////start axis timer
 #define DAXIS_START_TIMER_MAX (500)
 #define DAXIS_START_TIMER_MAX_1 (50)

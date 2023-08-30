@@ -891,6 +891,9 @@ static void keyvalue_handle(key_report_t* key_report)
         for(uint8_t i = 0; i < KEY_ROW_NUM; i++) {
             keynum += key_report->keynum_report_buf[i];
         }
+
+        factory_KeyProcess(keynum==Voice_Keynum?0xff:keynum);
+
         DEBUG_LOG_STRING("KEY [%d][%d][%d][%d][%d][%d][%d]\r\n", key_report->keynum_report_buf[0]
         ,key_report->keynum_report_buf[1],key_report->keynum_report_buf[2],key_report->keynum_report_buf[3],key_report->keynum_report_buf[4],key_report->keynum_report_buf[5],key_report->keynum_report_buf[6]);
         if (bt_check_le_connected() && keynum != Power_Keynum && encrypt_state)
@@ -1097,6 +1100,8 @@ void Read_Parse(const ATT_TABLE_TYPE *table)
 void Write_DataParse(const ATT_TABLE_TYPE *table, uint8_t *data, uint8_t len)
 {
     DEBUG_LOG_STRING("WRITE HANDLE: %d  LEN: %d\r\n", table->handle, len);
+    
+    factory_WriteDataParse(table->handle, data, len);
 
     if (table->handle == 261) /// 2141E102
     {
