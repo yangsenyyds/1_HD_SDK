@@ -10,7 +10,8 @@ output/obj/yc11xx_lpm.o: ../../../Platform/sdk/yc11xx_lpm.c \
  ../../../Projects/HD00618/att_list.h \
  ../../../Projects/HD00618/factory_test.h \
  ../../../Projects/HD00618/remote_control.h \
- ../../../Platform/devices/ble/att/att.h
+ ../../../Platform/devices/ble/att/att.h \
+ ../../../Platform/core/yc_debug.h ../../../Platform/core/yc11xx.h
 
 ../../../Platform/sdk/yc11xx_lpm.h:
 
@@ -39,3 +40,7 @@ output/obj/yc11xx_lpm.o: ../../../Platform/sdk/yc11xx_lpm.c \
 ../../../Projects/HD00618/remote_control.h:
 
 ../../../Platform/devices/ble/att/att.h:
+
+../../../Platform/core/yc_debug.h:
+
+../../../Platform/core/yc11xx.h:
