@@ -7,8 +7,7 @@ output/obj/yc_debug.o: ../../../Platform/core/yc_debug.c \
  ../../../Platform/sdk/yc11xx_audio_adc.h \
  ../../../Platform/devices/ble/hci/yc_dev_bt.h \
  ../../../Projects/HD00618/att_list.h \
- ../../../Projects/HD00618/factory_test.h \
- ../../../Projects/HD00618/remote_control.h \
+ ../../../APP/factory/factory_test_off_line.h \
  ../../../Platform/devices/ble/att/att.h \
  ../../../Platform/core/reg_addr.h ../../../Platform/core/btreg.h
 
@@ -32,9 +31,7 @@ output/obj/yc_debug.o: ../../../Platform/core/yc_debug.c \
 
 ../../../Projects/HD00618/att_list.h:
 
-../../../Projects/HD00618/factory_test.h:
-
-../../../Projects/HD00618/remote_control.h:
+../../../APP/factory/factory_test_off_line.h:
 
 ../../../Platform/devices/ble/att/att.h:
 

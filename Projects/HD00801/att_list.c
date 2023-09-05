@@ -37,7 +37,7 @@ static const uint8_t CHRCTR_APPEARANCE[] = {UUID2ARRAY(UUID_CHRCTR_APPEARANCE)};
 static const uint8_t appearance_value[] = {0xc1, 0x03};
 static const uint8_t CHRCTR_PPCP[] = {UUID2ARRAY(UUID_CHRCTR_PPCP)};
 static const uint8_t ppcp_value[] = {
-	0x0a, 0x00, 0x0a, 0x00, 0x63, 0x00, 0x98, 0x3a
+0x0a, 0x00, 0x0a, 0x00, 0x63, 0x00, 0x98, 0x3a
 // 0x0A ,0x00 ,0x0A ,0x00 ,0x63 ,0x00 ,0xdc,0X05
 //,0X98,0X3A //,0x97 ,0x03
 };
@@ -46,19 +46,25 @@ static const uint8_t CCAR_value[] = {0x00};
 
 static const uint8_t SERVICE_DEVICE_INFO[] = {UUID2ARRAY(UUID_SERVICE_DEVICE_INFO)};
 static const uint8_t CHRCTR_PNP_ID[] = {UUID2ARRAY(UUID_CHRCTR_PNP_ID)};
-static const uint8_t pnp_id_value[] = {0x01, 0x17, 0x27, 0xb9, 0x32, 0x05, 0x00};
+// static const uint8_t pnp_id_value[] = {0x01, 0x17, 0x27, 0xb9, 0x32, 0x05, 0x00};
+static const uint8_t pnp_id_value[] = {0x01, 0x17, 0x27, 0xb9, 0x32, 0x03, 0x00};
 static const uint8_t CHRCTR_MANUFACTURE_NAME[] = {UUID2ARRAY(UUID_CHRCTR_MANUFACTURE_NAME)};
-static const uint8_t manufacture_name_value[] = {0x52, 0x65, 0x61, 0x6C, 0x74, 0x65, 0x6B, 0x20, 0x42, 0x54, 0x00};
+// static const uint8_t manufacture_name_value[] = {0x52, 0x65, 0x61, 0x6C, 0x74, 0x65, 0x6B, 0x20, 0x42, 0x54, 0x00};
+static const uint8_t manufacture_name_value[] = {"Realtek BT"};
 static const uint8_t CHRCTR_SOFTWARE[] = {UUID2ARRAY(UUID_CHRCTR_SOFTWARE)};
-static const uint8_t software_value[] = {0x36, 0x2E, 0x30, 0x2E, 0x31, 0x2E, 0x35, 0x00};
+// static const uint8_t software_value[] = {0x36, 0x2E, 0x30, 0x2E, 0x31, 0x2E, 0x35, 0x00};
+static const uint8_t software_value[] = {"6.0.1.3"};
 static const uint8_t CHRCTR_HARDWARE[] = {UUID2ARRAY(UUID_CHRCTR_HARDWARE)};
-static const uint8_t hardware_value[] = {0x36, 0x2E, 0x30};
+// static const uint8_t hardware_value[] = {0x36, 0x2E, 0x30};
+static const uint8_t hardware_value[] = {"6.0"};
 static const uint8_t CHRCTR_FIRMWARE[] = {UUID2ARRAY(UUID_CHRCTR_FIRMWARE)};
-static const uint8_t firmware_value[] = {0x31, 0x2E, 0x30, 0x2E, 0x32, 0x36, 0x35, 0x2E, 0x32, 0x37}; // 版本号199
+// static const uint8_t firmware_value[] = {0x31, 0x2E, 0x30, 0x2E, 0x32, 0x36, 0x35, 0x2E, 0x32, 0x37}; // 版本号199
+static const uint8_t firmware_value[] = {"1.0.265.27"}; // 版本号199
 static const uint8_t CHRCTR_SERIAL_NUMBER[] = {UUID2ARRAY(UUID_CHRCTR_SERIAL_NUMBER)};
-static const uint8_t serial_number_value[] = {0x52, 0x54, 0x4B, 0x42, 0x65, 0x65, 0x53, 0x65, 0x72, 0x69, 0x61, 0x6C, 0x4E, 0x75, 0x6D, 0x00};
+// static const uint8_t serial_number_value[] = {0x52, 0x54, 0x4B, 0x42, 0x65, 0x65, 0x53, 0x65, 0x72, 0x69, 0x61, 0x6C, 0x4E, 0x75, 0x6D, 0x00};
+static const uint8_t serial_number_value[] = {"RTKBeeSerialNum"};
 static const uint8_t CHRCTR_MODEL_NUMBER[] = {UUID2ARRAY(UUID_CHRCTR_MODEL_NUMBER)};
-static const uint8_t model_number_value[] = {0x4D, 0x6F, 0x64, 0x65, 0x6C, 0x20, 0x58, 0x69, 0x61, 0x6F, 0x4D, 0x69, 0x00};
+static const uint8_t model_number_value[] = {"Model XiaoMi"};
 static const uint8_t CHRCTR_SYSTEM_ID[] = {UUID2ARRAY(UUID_CHRCTR_SYSTEM_ID)};
 static const uint8_t system_id_value[] = {0x00, 0x01, 0x02, 0x00, 0x00, 0x03, 0x04, 0x05};
 static const uint8_t CHRCTR_IEEE[] = {UUID2ARRAY(UUID_CHRCTR_IEEE)};
@@ -184,14 +190,15 @@ static const uint8_t CHRCTR_FFF1[] = {0xF1, 0xFF};
 static const uint8_t CHRCTR_FFF2[] = {0xF2, 0xFF};
 static const uint8_t CHRCTR_FFE0[] = {0xE0, 0xFF};
 uint8_t chrctr_ffd1_value[2];
-uint8_t chrctr_ffd2_value[] = {0xa4, 0xd1, 0x20, 0x1b, 0xa1, 0x5e};
+// uint8_t chrctr_ffd2_value[] = {0xa4, 0xd1, 0x20, 0x1b, 0xa1, 0x5e};
+uint8_t chrctr_ffd2_value[] = {0xa4, 0xd1, 0x20, 0x1b, 0xa9, 0x00};
 uint8_t chrctr_ffd3_value[] = {0x01, 0x90, 0x10, 0xd8};
 uint8_t chrctr_ffd4_value[] = {0x06, 0x10, 0x00, 0x28};
 uint8_t chrctr_ffd5_value[2];
 uint8_t chrctr_ffd8_value[2];
 uint8_t chrctr_fff1_value[] = {0x05, 0x01, 0x00, 0x07, 0x00, 0x08, 0x00, 0x00, 0xf0, 0x0f, 0x00, 0x00};
 uint8_t chrctr_fff2_value[2];
-uint8_t chrctr_ffe0_value[] = {0x00, 0x00, 0x00, 0x01, 0x11, 0x20, 0x00, 0x00, 0x01, 0x90, 0x10, 0xd8, 0x06, 0x10, 0x00, 0x28};
+uint8_t chrctr_ffe0_value[] = {0x00, 0x00, 0x00, 0x01, 0x11, 0x20, 0x00, 0x00, 0x01, 0x90, 0x10, 0xd8, 0x06, 0x10, 0x00, 0x18};
 
 static const uint8_t OTA_SERVICE[] = {0xf0, 0xff};
 static const uint8_t CHRCTR_OTA_NOTIFY[] = {0xf4, 0xff};
@@ -229,22 +236,22 @@ const ATT_TABLE_TYPE Att_List[] =
 		{18, 2, PRIMARY_SERVICE, 2, SERVICE_DEVICE_INFO},
 
 		{19, 2, GATT_CHARACTERISTIC, 1, READ_PREMITTED_ONLY},
-		{20, 2, CHRCTR_MANUFACTURE_NAME, 11, manufacture_name_value},
+		{20, 2, CHRCTR_MANUFACTURE_NAME, sizeof(manufacture_name_value) - 1, manufacture_name_value},
 
 		{21, 2, GATT_CHARACTERISTIC, 1, READ_PREMITTED_ONLY},
-		{22, 2, CHRCTR_MODEL_NUMBER, 13, model_number_value},
+		{22, 2, CHRCTR_MODEL_NUMBER, sizeof(model_number_value) - 1, model_number_value},
 
 		{23, 2, GATT_CHARACTERISTIC, 1, READ_PREMITTED_ONLY},
-		{24, 2, CHRCTR_SERIAL_NUMBER, 16, serial_number_value},
+		{24, 2, CHRCTR_SERIAL_NUMBER, sizeof(serial_number_value) - 1, serial_number_value},
 
 		{25, 2, GATT_CHARACTERISTIC, 1, READ_PREMITTED_ONLY},
-		{26, 2, CHRCTR_HARDWARE, 3, hardware_value},
+		{26, 2, CHRCTR_HARDWARE, sizeof(hardware_value) - 1, hardware_value},
 
 		{27, 2, GATT_CHARACTERISTIC, 1, READ_PREMITTED_ONLY},
-		{28, 2, CHRCTR_FIRMWARE, 10, firmware_value},
+		{28, 2, CHRCTR_FIRMWARE, sizeof(firmware_value) - 1, firmware_value},
 
 		{29, 2, GATT_CHARACTERISTIC, 1, READ_PREMITTED_ONLY},
-		{30, 2, CHRCTR_SOFTWARE, 8, software_value},
+		{30, 2, CHRCTR_SOFTWARE, sizeof(software_value) - 1, software_value},
 
 		{31, 2, GATT_CHARACTERISTIC, 1, READ_PREMITTED_ONLY},
 		{32, 2, CHRCTR_SYSTEM_ID, 8, system_id_value},

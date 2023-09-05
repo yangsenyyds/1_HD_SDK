@@ -12,7 +12,7 @@
 #define FUNCTION_WATCH_DOG
 
 /* LOG */
-// #define FUNCTION_CONTROL_DEBUG_ENABLE
+#define FUNCTION_CONTROL_DEBUG_ENABLE
 #define DEBUG_GPIO_DEFINE   (GPIO_9)
 
 /* SecretKey_Check_enable */

@@ -6,8 +6,8 @@
 #include "yc11xx_audio_adc.h"
 #include "yc_dev_bt.h"
 #include "att_list.h"
-#include "factory_test.h"
-#define Project_key  (252)
+#include "factory_test_off_line.h"
+#define Project_key  (200)
 /* WATCH_DOG */
 #define FUNCTION_WATCH_DOG
 

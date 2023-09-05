@@ -61,7 +61,7 @@ static const uint8_t ir_data[] = {
     0X4E,
     0X4A,
 
-    0X49,//6] ]
+    0X49,//6
     0X4D,
     0X0D,
     0X9F,
@@ -111,11 +111,11 @@ static const KeyBuf_TypeDef KeyBuf[] = {
 
     {0xEA, 0x00, 4, 98}, // VOL-
     {0x8D, 0x00, 4, 98}, // TV
-    {0x9D, 0x00, 4, 119}, //CH-
-    {0xE2, 0x00, 4, 119}, // MUTE
-    {0x33, 0x00, 4, 119}, //SET
+    {0x9D, 0x00, 4, 98}, //CH-
+    {0xE2, 0x00, 4, 98}, // MUTE
+    {0x33, 0x00, 4, 98}, //SET
 
-    {0x02, 0x00, 4, 119}, // CENGDIE
+    {0x02, 0x00, 4, 98}, // CENGDIE
     {0xA1, 0x00, 4, 119}, // PRIME VIDEO
     {0xA2, 0x00, 4, 119}, // NETFLIX
     {0xA3, 0x00, 4, 119}, // DISNEP
@@ -860,29 +860,29 @@ void LE_DISCONNECTED(uint8_t reason)
     System_ChangeXtal24M();
     Bt_HciFifo_Init();
     
-    // if (reason == 0x13 || reason == 0x16 || dis_encrypt_state) {
-    //     DEBUG_LOG_STRING("dis_encrypt_state %d \r\n",dis_encrypt_state);
+    if (reason == 0x13 || reason == 0x16 || dis_encrypt_state) {
+        DEBUG_LOG_STRING("dis_encrypt_state %d \r\n",dis_encrypt_state);
         enter_deep_sleep();
-    //     return;
-    // }
-    // else if(!dis_encrypt_state && Bt_CheckIsPaired()){
-    //     DEBUG_LOG_STRING("disconnect dis_encrypt_state %d \r\n",dis_encrypt_state);
-    //     dis_encrypt_state = true;
-    // }
-    // else if(reason == 0x16) {
-    //     Bt_SndCmdPwroff();
-    // }
+        return;
+    }
+    else if(!dis_encrypt_state && Bt_CheckIsPaired()){
+        DEBUG_LOG_STRING("disconnect dis_encrypt_state %d \r\n",dis_encrypt_state);
+        dis_encrypt_state = true;
+    }
+    else if(reason == 0x16) {
+        Bt_SndCmdPwroff();
+    }
     
-    // app_queue_reset();
-    // remote_control_reinit();
+    app_queue_reset();
+    remote_control_reinit();
     
-    // if(Bt_CheckIsPaired()) {
-    //     start_adv(ADV_TYPE_DIRECT, 0x10, false);
-    //     swtimer_start(adv_timernum, 3000, TIMER_START_ONCE);
-    // }
-    // else {
-    //     start_adv(ADV_TYPE_NOMAL, 0x30, true);
-    // }
+    if(Bt_CheckIsPaired()) {
+        start_adv(ADV_TYPE_DIRECT, 0x10, false);
+        swtimer_start(adv_timernum, 3000, TIMER_START_ONCE);
+    }
+    else {
+        start_adv(ADV_TYPE_NOMAL, 0x30, true);
+    }
 }
 
 void LE_CONNECTED(void)

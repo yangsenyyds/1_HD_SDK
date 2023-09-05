@@ -359,7 +359,8 @@ static bool SecretKey_Check(void)
 }
 
 static void low_power_handle(void){
-    if(HREADW(mem_le_slave_latency) != CONN_PARAM && bt_check_le_connected()){
+    if(HREADW(mem_le_slave_latency) != CONN_PARAM && bt_check_le_connected())
+    {
         if(key_pressed_num == 0) {
             sleep_time_state++;
             if(sleep_time_state == 600){
@@ -535,9 +536,9 @@ static void keyvalue_handle(key_report_t *key_report)
         {
             led_off(LED_1);
             set_key_press_state(false);
-                keynum = Voice_Keynum;
-                keynum_second = Mute_Keynum;
-                swtimer_start(key_pressed_timernum,1000,TIMER_START_ONCE);
+            keynum = Voice_Keynum;
+            keynum_second = Mute_Keynum;
+            swtimer_start(key_pressed_timernum,1000,TIMER_START_ONCE);
         }        
     }
     else if (key_pressed_num == 3)

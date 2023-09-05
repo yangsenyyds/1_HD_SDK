@@ -80,7 +80,10 @@
         "stdbool.h": "c",
         "qma6100.h": "c",
         "mir3da_267.h": "c",
-        "factory_test.h": "c"
+        "factory_test.h": "c",
+        "ctype.h": "c",
+        "stdlib.h": "c",
+        "factory_test_off_line.h": "c"
     },
     "C_Cpp.errorSquiggles": "enabled"
 }

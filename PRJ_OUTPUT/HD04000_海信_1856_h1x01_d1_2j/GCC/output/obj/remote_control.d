@@ -9,8 +9,7 @@ output/obj/remote_control.o: ../../../Projects/HD04000/remote_control.c \
  ../../../Platform/devices/bt/yc11xx_dev_bt_data_trans.h \
  ../../../Platform/sdk/bt/yc11xx_bt_interface.h \
  ../../../Platform/devices/dtm/hci_dtm_test.h \
- ../../../Platform/devices/ota/yc_ota.h ../../../Platform/core/yc_debug.h \
- ../../../Platform/core/yc11xx.h \
+ ../../../Platform/core/yc_debug.h ../../../Platform/core/yc11xx.h \
  ../../../Vendor/Remote_Control/app_config.h \
  ../../../APP/app_sleep/app_sleep.h \
  ../../../Projects/HD04000/remote_control.h \
@@ -21,7 +20,7 @@ output/obj/remote_control.o: ../../../Projects/HD04000/remote_control.c \
  ../../../APP/led/led.h ../../../APP/key/keyscan.h \
  ../../../APP/audio/audio.h ../../../APP/flash/YC/flash.h \
  ../../../APP/ir/ir_send/ir_send.h ../../../APP/ir/ir_send/ir_load.h \
- ../../../APP/ir/ir_lib/ir_lib.h \
+ ../../../APP/ir/ir_lib/ir_lib.h ../../../Platform/devices/ota/yc_ota.h \
  ../../../Platform/devices/flash/yc11xx_dev_qspi.h \
  ../../../Platform/sdk/yc11xx_qspi0.h ../../../APP/SECRETKEY/SecretKey.h \
  ../../../Platform/sdk/yc11xx_iwdg.h
@@ -49,8 +48,6 @@ output/obj/remote_control.o: ../../../Projects/HD04000/remote_control.c \
 ../../../Platform/sdk/bt/yc11xx_bt_interface.h:
 
 ../../../Platform/devices/dtm/hci_dtm_test.h:
-
-../../../Platform/devices/ota/yc_ota.h:
 
 ../../../Platform/core/yc_debug.h:
 
@@ -85,6 +82,8 @@ output/obj/remote_control.o: ../../../Projects/HD04000/remote_control.c \
 ../../../APP/ir/ir_send/ir_load.h:
 
 ../../../APP/ir/ir_lib/ir_lib.h:
+
+../../../Platform/devices/ota/yc_ota.h:
 
 ../../../Platform/devices/flash/yc11xx_dev_qspi.h:
 

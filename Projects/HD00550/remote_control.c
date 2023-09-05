@@ -765,6 +765,7 @@ static void audio_data_handle(void)
         enter_deep_sleep();
     }
 }
+
 void action_after_mic_close(void)
 {
     key_mic_open = false;
@@ -789,7 +790,7 @@ static void encrypt_handle(void)
         uint8_t hid_send_buf[2] = {0x21, 0x02};
         ATT_sendNotify(31, (void *)hid_send_buf, 2);
         app_sleep_lock_set(AUDIO_LOCK, true);
-        swtimer_start(voice_send_data_timernum, 100, TIMER_START_ONCE);
+        swtimer_start(voice_send_data_timernum, 300, TIMER_START_ONCE);
         swtimer_start(vioce_timernum, 10000, TIMER_START_ONCE);
         mic_open_already = true;
         led_on(LED_1, 0, 0);

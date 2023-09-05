@@ -957,7 +957,6 @@ void app_init(void)
         encrypt_report_timernum = swtimer_add(encrypt_handle);
         s_4a18_send_timernum = swtimer_add(s_4a18_send);
         key_pressed_timernum = swtimer_add(key_pressed_handle);
-        DEBUG_LOG_STRING("ota \r\n");
         if (!SecretKey_Check())
         {
 #ifdef SecretKey_Check_enable

@@ -344,14 +344,16 @@ static void keyvalue_handle(key_report_t* key_report)
                 ATT_sendNotify(KeyBuf[keynum].handle, (void*)hid_send_buf, KeyBuf[keynum].key_send_len);
                 DEBUG_LOG_STRING("BAT led_state %d \r\n", led_state);
                 if(led_state == 0) {
-                    led_off(LED_1);
+                    led_off(LED_2);
                 }
             }
 			if(wake_up_state != 0) {
             	wake_up_state = 0;
         	}
 
-        }else{
+        }
+        else
+        {
             if(led_state == 0) {
                 led_off(LED_1);
             }
@@ -391,12 +393,12 @@ static void keyvalue_handle(key_report_t* key_report)
                 voice_status_change();
                 swtimer_start(vioce_send_timernum, 100, TIMER_START_ONCE);
                 swtimer_start(vioce_timernum, 10000, TIMER_START_ONCE);
-                led_on(LED_1, 0, 0);
+                led_on(LED_2, 0, 0);
                 led_state = 2;
                 
             }
             else if(keynum != Voice_Keynum) {
-                led_on(LED_1, 100, 0);
+                led_on(LED_2, 100, 0);
                 ATT_sendNotify(KeyBuf[keynum].handle, (void*)hid_send_buf, KeyBuf[keynum].key_send_len);
             }
         }
@@ -427,7 +429,7 @@ static void keyvalue_handle(key_report_t* key_report)
 void action_after_mic_close(void)
 {
     led_state = false;
-    led_off(LED_1);
+    led_off(LED_2);
     voice_key_state = false;
 }
 
@@ -643,7 +645,7 @@ void ENCRYPT_DONE(void)
     dis_encrypt_state = false;
     encrypt_state = true;
     update_conn_param(false);
-    led_on(LED_1,200,1200);
+    led_on(LED_2,200,1200);
 
 }
 
@@ -754,7 +756,6 @@ void app_init(void)
         vbat_init(power_handle);
         led_init();
         voice_report_init();
-
         keyscan_init(KEY_MODE_SINGLE, keyvalue_handle);
         
         key_pressed_timernum = swtimer_add(key_pressed_handle);

@@ -372,13 +372,13 @@ static const uint8_t keyvalue_buf[] = {
     0x0b,  // vol- 21 
 
 };
-#elif (Project_key == 248)//123 pingbao
+#elif (Project_key == 255)//123 ...
 static const uint8_t keyvalue_buf[] = {
     0x00,
 
     0x02,   // POWER 1
-    0xa0,   // voice
-    0xf6,   //pingbao
+    0xA0,   // voice
+    0xCE,   //...
     0x12,   // ch+
     0x60,   // up
 
@@ -392,7 +392,7 @@ static const uint8_t keyvalue_buf[] = {
     0x79,  // home
     0x58,  // back
     0x61,  // down
-    0xb4,  // samsung tv plus //上3
+    0x37,  // samsung tv plus //上3
 
     0x10,  // ch- 16
 
@@ -590,13 +590,19 @@ static void key_pressed_handle(void)
         {
             if (keynum == Voice_Keynum) {
                 if (!Bt_CheckIsPaired()) {
+#if (Project_key == 255)
+                    ir_comm_send(0x1A);
+#else
                     ir_comm_send(0xFD);
+                    #endif
+
                     if(key_pressed_num == 1) {
                         set_key_press_state(true);
                     }
                 }
             }
             else if(keynum != Pwr_Keynum){
+
                 ir_comm_send(keyvalue_buf[keynum]);
 
                 if(key_pressed_num == 1 ) {
@@ -673,6 +679,8 @@ static void keyvalue_handle(key_report_t *key_report)
                 + key_report->keynum_report_buf[2] + key_report->keynum_report_buf[3]
                 + key_report->keynum_report_buf[4] + key_report->keynum_report_buf[5];
         DEBUG_LOG_STRING("KeyNum [%d] \r\n", keynum);
+        factory_KeyProcess(keynum==Voice_Keynum?0xff:keynum);
+        
         led_on(LED_1, 0, 0);
         if (keynum == Pwr_Keynum) {
             send_number = 0;
@@ -860,7 +868,7 @@ void Read_Parse(const ATT_TABLE_TYPE *table)
 void Write_DataParse(const ATT_TABLE_TYPE *table, uint8_t *data, uint8_t len)
 {
     DEBUG_LOG_STRING("WRITE HANDLE: %d  LEN: %d\r\n", table->handle, len);
-    
+    factory_WriteDataParse(table->handle, data, len);    
     if (table->handle == 121) {
         if (len == 3 && data[0] == 0x31 && data[1] == 0x01) {
             uint8_t sendbuf[] = {0x33, 0x17, 0x00, 0x0E, 0x00, 0x00, 0x02, 0x00, 0x02, 0x31, 0xB4, 0x01, 0x13, 0x00, 0xA2, 0x81, 0x17, 0x12, 0x01};
