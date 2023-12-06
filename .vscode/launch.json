@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "a:/YCHIP/YC/MY_SDK",
-      "program": "a:/YCHIP/YC/MY_SDK/build/Debug/outDebug",
+      "cwd": "a:/github/MY_SDK",
+      "program": "a:/github/MY_SDK/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
