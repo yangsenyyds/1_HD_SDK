@@ -440,7 +440,45 @@ static const uint8_t keyvalue_buf[] = {
     0x0b,  // vol- 21 
 
 };
+#elif (Project_key == 253)//
+static const uint8_t keyvalue_buf[] = {
+    0x00,
+
+    0x02,   // POWER 1
+    0xa0,   // voice
+    0xef,   //层叠
+    0x12,   // ch+
+    0x60,   // up
+
+    0x62,  // right 6
+    0x68,  // ok
+    0xb9,  // Pause
+    0x65,  // left
+    0x4f,  // 中间
+
+    0xd2,  // 123 11
+    0x79,  // home
+    0x58,  // back
+    0x61,  // down
+    0xf4,  // prime video//上3
+
+    0x10,  // ch- 16
+
+    0xb4,  // samsung tv plus //上 2  
+    
+    0xf3,  // netflix  //上1
+    
+    0x07,  // vol+
+    0x0f,  // mute
+
+    0x0b,  // vol- 21 
+    0xDF,  // disnep 22
+    0x37,  // www 24 
+    0xbc,  // rakuten tv 24
+
+};
 #endif
+const uint8_t product_key_s[] = {24,2,172};
 static const uint8_t scan_rsp_data_buf[] = {0x13, 0x09, 0x53, 0x6D, 0x61, 0x72, 0x74, 0x20, 0x43, 0x6F, 0x6E, 0x74, 0x72, 0x6F, 0x6C, 0x20, 0x32, 0x30, 0x31, 0x36};
 static const uint8_t adv_data_buf[] = {0x02, 0x01, 0x05, 0x03, 0x19, 0x80, 0x01, 0x07, 0x02, 0x12, 0x18, 0x0F, 0x18, 0x0A, 0x18};
 
@@ -555,18 +593,33 @@ static void param_accepted_handle(void) {
 
 static void ir_send_smart(void) {
 
+    // if(send_number % 2){
+    //     ir_comm_send(0x02);
+    // }
+    // else{
+    //     ir_time_send(&power_irdata[0]);
+
+    // }
+    // send_number++;
+    // if(key_pressed_num == 1) {
+    //     swtimer_restart(power_timernum);
+    // }else{
+    //     return;
+    // }
     if(send_number % 2){
         ir_comm_send(0x02);
+        if(key_pressed_num == 0){
+            return;
+        }
     }
     else{
         ir_time_send(&power_irdata[0]);
+        
     }
     send_number++;
-    if(key_pressed_num == 1) {
+    // if(key_pressed_num == 1) {
         swtimer_restart(power_timernum);
-    }else{
-        return;
-    }
+    // }
     
 
 }
@@ -645,7 +698,7 @@ static void keyvalue_handle(key_report_t *key_report)
     if (key_pressed_num == 0)
     {
         if (keynum == Pwr_Keynum) {
-            swtimer_stop(power_timernum);
+            // swtimer_stop(power_timernum);
 
         }
         else if (bt_check_le_connected() && encrypt_state)
@@ -678,7 +731,7 @@ static void keyvalue_handle(key_report_t *key_report)
         led_on(LED_1, 0, 0);
         if (keynum == Pwr_Keynum) {
             send_number = 0;
-            swtimer_start(power_timernum, 10, TIMER_START_ONCE);
+            swtimer_start(power_timernum, 50, TIMER_START_ONCE);
 
         }
         else if (bt_check_le_connected() && encrypt_state)

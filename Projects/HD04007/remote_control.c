@@ -654,9 +654,7 @@ void ENCRYPT_DONE(void)
     encrypt_state = true;
     update_conn_param(false);
     led_on(LED_2,200,1200);
-    if(bt_check_save_connect_info()) {
-        Bt_SaveBleDeviceInfoToFlash(BLE_CONNECT_ADDR);
-    } 
+
 }
 
 void PAIR_FAIL(uint8_t reason)
@@ -717,7 +715,9 @@ void LE_CONNECTED(void)
     bt_set_lpm_overhead_wake_time(0x0d);
     bt_set_le_state(BLE_CONNECTED);
     bt_disable_le_tx_md();
-
+    if(bt_check_save_connect_info()) {
+        Bt_SaveBleDeviceInfoToFlash(BLE_CONNECT_ADDR);
+    }
 }
 
 void Dev_PowerOn(void)

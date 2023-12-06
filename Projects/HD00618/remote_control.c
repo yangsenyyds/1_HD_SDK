@@ -74,6 +74,37 @@ typedef struct {
     uint16_t handle;
 }KeyBuf_TypeDef;
 
+typedef struct {
+    uint8_t IR_TYPE;
+    uint8_t IR_CUSTOMER;
+    uint16_t KEYNUM;
+}Ir_TypeDef;
+
+static const Ir_TypeDef Ir_KeyBuf[] = {
+    {UPD6121G_64,CUSTOM_23_45_A, 0x01},
+
+    {M50119P_23,CUSTOM_05_00_A, 0x02},// 1 //02 03
+    {UPD6121G_64,CUSTOM_A0_87_A, 0x02},
+    {SAA3010_36_46,CUSTOM_00_00_A, 0x26 << 10},
+    {UPD6121G_64,CUSTOM_20_DF_A, 0x07},
+    {XY_JAECS_95,CUSTOM_6A_00_A, 0x11},
+    {UPD6121G_64,CUSTOM_76_7B_A, 0x15},
+    {UPD6121G_64,CUSTOM_3F_3F_A, 0x00},
+    {TC901_54,CUSTOM_18_18_A, 0x0B},
+    {UPD6121G_64,CUSTOM_00_FD_A, 0x09},
+    {UPD6121G_64,CUSTOM_02_FF_A, 0x00},
+
+    {UPD6121G_64,CUSTOM_00_F6_A, 0x03},//11
+    {UPD6121G_64,CUSTOM_86_6B_A, 0x03},
+    {UPD6121G_64,CUSTOM_01_FE_A, 0x01},
+    {UPD6121F_LIAN_66,CUSTOM_00_2B_A, 0xC0},
+    {UPD6121G_64,CUSTOM_13_14_A, 0x0A},
+    {UPD6121G_64,CUSTOM_60_9D_A, 0x07},
+    {UPD6121G_64,CUSTOM_58_A7_A, 0x01},
+    {UPD6121G_64,CUSTOM_09_F6_A, 0x45},
+    {UPD6121G_64,CUSTOM_FE_01_A, 0x04},
+};
+
 static const uint8_t ir_data[] = {
     0x00,
 
@@ -491,6 +522,24 @@ static void key_pressed_handle(void)
                 swtimer_restart(key_pressed_timernum);
             }
         }
+        else if(keynum == TV_Keynum){
+            if(key_pressed_num == 1){
+                key_pressed_time++;
+                if(key_pressed_time >= 50){
+
+                }
+                swtimer_restart(key_pressed_timernum);
+            }
+            if(key_pressed_num == 0)
+            {
+                if(keynum == TV_Keynum && !flash_read(HD_TV_DATA,(uint8_t *)&irparams,sizeof(irparams))) {
+                    ir_remote_learn_send(irparams);
+                }
+                else {
+                    
+                }
+            }
+        }
         else if(send_state == IR_RECEIVE_STATE)
         {
             key_pressed_time = 0;
@@ -637,10 +686,13 @@ static void keyvalue_handle(key_report_t *key_report)
                 }
                 SysTick_DelayMs(100);
                 set_key_press_state(true);
-                if(keynum == Input_Keynum && !flash_read(HD_INPUT_DATA,(uint8_t *)&irparams,sizeof(irparams))) {
-                    ir_remote_learn_send(irparams);
+
+                if(keynum == TV_Keynum){
+                    key_pressed_time = 0;
+                    swtimer_start(key_pressed_timernum, UNIT_TIME_1S / 10, TIMER_START_ONCE);
                 }
-                else if(keynum == TV_Keynum && !flash_read(HD_TV_DATA,(uint8_t *)&irparams,sizeof(irparams))) {
+
+                if(keynum == Input_Keynum && !flash_read(HD_INPUT_DATA,(uint8_t *)&irparams,sizeof(irparams))) {
                     ir_remote_learn_send(irparams);
                 }
                 else if(keynum == IR_VOL_Keynum && !flash_read(HD_VOL_DATA,(uint8_t *)&irparams,sizeof(irparams))) {

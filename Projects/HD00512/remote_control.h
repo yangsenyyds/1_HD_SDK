@@ -8,7 +8,7 @@
 #include "att_list.h"
 #define Project_key  (510)
 /* WATCH_DOG */
-// #define FUNCTION_WATCH_DOG
+#define FUNCTION_WATCH_DOG
 
 /* LOG */
 #define FUNCTION_CONTROL_DEBUG_ENABLE

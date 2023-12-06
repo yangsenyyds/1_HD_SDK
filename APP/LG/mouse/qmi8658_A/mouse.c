@@ -13,6 +13,7 @@
 #include "yc11xx_systick.h"
 #include "yc_debug.h"
 #include "app_config.h"
+#include "led.h"
 
 #ifndef MOUSE_INIT_DELAY
 #define MOUSE_INIT_DELAY (20) ///(100)
@@ -770,6 +771,7 @@ static void Qmi8658_read_xyz(void)
     sensor_data_report.gx = (short)((unsigned short)(buf_reg[7] << 8) | (buf_reg[6]));
     sensor_data_report.gy = (short)((unsigned short)(buf_reg[9] << 8) | (buf_reg[8]));
     sensor_data_report.gz = (short)((unsigned short)(buf_reg[11] << 8) | (buf_reg[10]));
+    // DEBUG_LOG_STRING("gyro %d %d %d acc %d %d %d \r\n",sensor_data_report.ax,sensor_data_report.ay,sensor_data_report.az,sensor_data_report.gx,sensor_data_report.gy,sensor_data_report.gz);
 }
 #endif
 
@@ -847,7 +849,7 @@ void mouse_on(void) {
     mouse_on_off = true;
     app_sleep_timer_set(UNIT_TIME_1S);
     swtimer_start(mouse_report_timernum, MOUSE_REPORT_TIME_MAX, TIMER_START_ONCE);
-    bt_enable_le_tx_md(); /// ������ģʽ add 20230522
+    bt_enable_le_tx_md(); /// 锟斤拷锟斤拷锟斤拷模式 add 20230522
 }
 void mouse_turn_on(void)
 {
@@ -864,7 +866,7 @@ void mouse_turn_on(void)
         sensor_smooth_flag = 0;
         memset(&sensor_smooth_cache, 0, sizeof(sensor_smooth_cache));
 #endif
-        Qmi8658_power_on();
+         Qmi8658_power_on();
         app_sleep_timer_set(UNIT_TIME_1S);
         swtimer_start(mouse_report_timernum, MOUSE_REPORT_TIME_MAX, TIMER_START_ONCE);
         DEBUG_LOG_STRING("MOUSE TURN ON \r\n");
@@ -917,7 +919,18 @@ void mouse_init(mouse_report_cb_t cb)
     mouse_init_timernum = swtimer_add(mouse_init_handle);
     swtimer_start(mouse_init_timernum, MOUSE_INIT_DELAY, TIMER_START_ONCE);
 }
-
+void check_mouse_chip_id(void)
+{
+    uint8_t qmi8658_chip_id = 0x00;
+    Qmi8658_read_reg(Qmi8658Register_WhoAmI, &qmi8658_chip_id, 1);
+    if (qmi8658_chip_id != 0x05)
+    {
+        while (1)
+        {
+            led_on(LED_1, 0, 0);
+        }
+    }
+}
 #define MOVING_INT_CNT_MAX (300 - 1)
 static uint16_t int_cnt = 0;
 static uint8_t moving_state = 1; /// 1-static 0-moving

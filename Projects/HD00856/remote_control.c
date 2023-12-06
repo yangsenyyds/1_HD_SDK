@@ -36,7 +36,7 @@ enum{
     OK__Row = 2,
 #if (Project_key == 856)
     Menu_Keynum = 21,
-#elif (Project_key == 857)
+#elif (Project_key == 857 ||Project_key == 859)
     Menu_Keynum = 9,
 #endif
     Voice_Keynum = 10,
@@ -242,6 +242,107 @@ static const uint8_t scan_rsp_data_buf[] =
 ,0X52 ,0X46 ,0X33 ,0X53 ,0X36 ,0X39 ,0X56 ,0X31 
 ,0X2E ,0X30 ,0X31
 };
+#elif (Project_key == 859)//
+static const uint8_t ir_data[] = {
+    0x00,
+
+    0x0D,//1
+    0X2D,
+    0XAA,
+    0X60,
+    0XBB,
+
+    0XFF,//6
+    0X8A,
+    0X12,
+    0X14,
+    0XD5,
+
+    0XCC,//11
+    0XFF,
+    0X16,
+    0X19,
+    0X15,
+
+    0X18,//16
+    0X17,
+    0XFF,
+    0X48,
+    0X20,
+
+    0XCB,//21 ok
+    0X44,
+    0XBE,
+    0XFF,
+    0X4A,
+
+    0X43,//26
+    0X0E,
+    0X4B,
+    0X10,
+    0XFF,
+
+    0XCA,//31
+    0X11,
+};
+
+static const KeyBuf_TypeDef KeyBuf[] = {
+    {0x00, 0x00, 2, 0},
+
+    {0X30, 0X00, 2, 64}, // 1
+    {0XA9, 0X00, 2, 64}, //
+    {0XAB, 0X00, 2, 64}, //
+    {0XAA, 0X00, 2, 64}, //
+    {0XD6, 0X00, 2, 64}, //
+
+    {0X00, 0X00, 2, 64}, // 6
+    {0XDC, 0X00, 2, 64}, //
+    {0XFD, 0X01, 2, 64}, //
+    {0X40, 0X00, 2, 64}, //
+    {0X21, 0X02, 2, 64}, //
+
+    {0XD1, 0X00, 2, 64}, // 11
+    {0X00, 0X00, 2, 64}, //
+    {0X42, 0X00, 2, 64}, //
+    {0X44, 0X00, 2, 64}, //
+    {0X41, 0X00, 2, 64}, //
+
+    {0X45, 0X00, 2, 64}, // 16
+    {0X43, 0X00, 2, 64}, //
+    {0X00, 0X00, 2, 64}, //
+    {0X24, 0X02, 2, 64}, //
+    {0X23, 0X02, 2, 64}, //
+
+    {0XD0, 0X00, 2, 64}, // 21
+    {0XE9, 0X00, 2, 64}, //
+    {0XED, 0X00, 2, 64}, //
+    {0X00, 0X00, 2, 64}, //
+    {0X9C, 0X00, 2, 64}, //
+
+    {0XEA, 0X00, 2, 64}, // 26
+    {0XE2, 0X00, 2, 64}, //
+    {0X9D, 0X00, 2, 64}, //
+    {0X0A, 0X02, 2, 64}, //
+    {0X00, 0X00, 2, 64}, //
+
+    {0XCF, 0X00, 2, 64}, // 31
+    {0XEB, 0X00, 2, 64}, //
+};
+static const uint8_t adv_data_buf[] = 
+{
+0X02 ,0X01 ,0X05 ,0X03 ,0X03 ,0X12 ,0X18 ,0X0B 
+,0XFF ,0X0D ,0X00 ,0X38 ,0X38 ,0X02 ,0X00 ,0X00 
+,0X01 ,0XFF ,0X4E ,0X03 ,0X19 ,0X80 ,0X01
+};
+
+static const uint8_t scan_rsp_data_buf[] = 
+{
+0X08 ,0X09 ,0X48 ,0X69 ,0X73 ,0X65 ,0X6E ,0X73 
+,0X65 ,0X11 ,0XFF ,0X0D ,0X00 ,0XFF ,0XFF ,0X45 
+,0X52 ,0X46 ,0X33 ,0X53 ,0X36 ,0X39 ,0X56 ,0X31 
+,0X2E ,0X30 ,0X31
+};
+
 #endif
 static bool voice_key_state;
 static bool voice_send_state;
@@ -342,7 +443,7 @@ static void key_pressed_handle(void)
         {
 #if (Project_key == 856)//            
             if(keynum == Back_Keynum || keynum == Menu_Keynum)
-#elif (Project_key == 857)
+#else
             if(keynum == Menu_Keynum)
 #endif
             {
@@ -361,7 +462,7 @@ DEBUG_LOG_STRING("BAT key_pressed_time: %d \r\n", key_pressed_time);
                     }
                     else
                     {
-#if (Project_key == 857)//
+#if (Project_key == 857 || Project_key == 859)//
                         ir_single_send(0xD3,2);
 #endif
                         set_key_press_state(true);
@@ -463,7 +564,7 @@ static void keyvalue_handle(key_report_t* key_report)
           + key_report->keynum_report_buf[2] + key_report->keynum_report_buf[3]
           + key_report->keynum_report_buf[4] + key_report->keynum_report_buf[5];
         DEBUG_LOG_STRING("KEY [%d][%d][%d][%d][%d][%d][%d] \r\n", key_report->keynum_report_buf[0], key_report->keynum_report_buf[1], key_report->keynum_report_buf[2],key_report->keynum_report_buf[3]
-        ,key_report->keynum_report_buf[4],key_report->keynum_report_buf[5],key_report->keynum_report_buf[6]);
+        ,key_report->keynum_report_buf[4],key_report->keynum_report_buf[5]);
 
         if (bt_check_le_connected() && encrypt_state)
         {

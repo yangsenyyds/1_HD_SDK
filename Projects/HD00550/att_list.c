@@ -104,6 +104,10 @@ static const uint8_t CHRCTR_OTA_NOTIFY[] = {0xf4, 0xff};
 static const uint8_t CHRCTR_OTA_WRITE[] = {0xf5, 0xff};
 static uint8_t chrctr_ota_ccc[2];
 
+//factory test   d07c0000-9037-4f23-a1fb-220cbd11163a
+static const uint8_t factory_primary_uuid[] = {0x3A,0x16,0x11,0xBD,0x0C,0x22,0xFB,0xA1,0x23,0x4F,0x37,0x90,0x00,0x00,0x7C,0xD0};
+static const uint8_t factory_characteristic_uuid[] = {0x3A,0x16,0x11,0xBD,0x0C,0x22,0xFB,0xA1,0x23,0x4F,0x37,0x90,0x01,0x00,0x7C,0xD0};
+static const uint8_t product_id_s[] = "610";
 const ATT_TABLE_TYPE Att_List[] =
 {
     /* Generic Access 1- 7*/ 
@@ -192,7 +196,7 @@ const ATT_TABLE_TYPE Att_List[] =
 	{56,16,CHRCTR_REPORT,2,CHRCTR_CFBF_01},
 	{57,2,CHARACTERTIC_CONFIGURATION,2,CHRCTR_CFBF_01_value},
 
-			/* OTA Service */
+	/* OTA Service */
 	{65500,2,PRIMARY_SERVICE,2,OTA_SERVICE},
 
 	{65501,2,GATT_CHARACTERISTIC,1,READ_WRITE_WITHOUT_RESPONSE_NOTIFY_PREMITTED},
@@ -201,6 +205,11 @@ const ATT_TABLE_TYPE Att_List[] =
 
 	{65504,2,GATT_CHARACTERISTIC,1,WRITE_WITHOUT_RESPONSE_PREMITTED_ONLY},
 	{65505,2,CHRCTR_OTA_WRITE,0,NULL},
+	/*factory test*/
+	{65530,2,PRIMARY_SERVICE,16,factory_primary_uuid},
+
+	{65531, 2, GATT_CHARACTERISTIC, 1, NOTIFY_READ_WRITE_WITHOUT_RESPONSE_PREMITTED},
+	{65532, 16, factory_characteristic_uuid, sizeof(product_id_s) -1, product_id_s},
 };
 
 static uint16_t Get_AttListSize(void)

@@ -23,8 +23,8 @@
 /* SLEEP */
 #define ENCRYPT_DONE_DELAY  (3000)      // ms
 #define PAIR_DONE_DELAY     (10000)     // ms
-#define DIRECT_ADV_TIME     (60)         // s
-#define SHUTDOWN_TIME       (30)        // s
+#define DIRECT_ADV_TIME     (15)         // s
+#define SHUTDOWN_TIME       (60)        // s
 
 #define UNIT_TIME_1S        (1000)      // ms
 
@@ -62,7 +62,9 @@
 #define BAT_REPORT_HANDLE   (82)
 #define BAT_ATTLIST_INDEX   (34)
 /* 感光led*/
+#if (LIGHT_STATE == 1)//lg21 watcam   185
 #define LIGHT_LED_PIN   (GPIO_6)
+#endif
 /* 背光led*/
 #define AGAINST_LED_PIN   (GPIO_36)
 /* audio */
@@ -90,8 +92,8 @@
 #define IIC_SDA_PIN             (GPIO_32)
 // #define MOUSE_INT_PIN           (GPIO_8)
 
-#define MOUSE_INT_PIN           (GPIO_9)
-#define SOFTWARE_IIC            (1)
+// #define MOUSE_INT_PIN           (GPIO_9)
+// #define SOFTWARE_IIC            (1)
 #define QMA_6100    (1)
 /* FLASH */
 typedef enum {

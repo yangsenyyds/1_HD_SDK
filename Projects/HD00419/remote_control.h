@@ -6,7 +6,7 @@
 #include "yc11xx_audio_adc.h"
 #include "yc_dev_bt.h"
 #include "att_list.h"
-#include "factory_test.h"
+#include "factory_test_off_line.h"
 
 /* WATCH_DOG */
 #define FUNCTION_WATCH_DOG
@@ -53,8 +53,8 @@
 #define KEY_COL_NUM     (7)
 
 /* LED */
-#define LED_1_PIN   (GPIO_8)
-#define LED_2_PIN   (GPIO_7)
+#define LED_1_PIN   (GPIO_7)
+#define LED_2_PIN   (GPIO_8)
 
 #define LED_ON      (GPIO_Mode_Out_Low)
 #define LED_OFF     (GPIO_Mode_Out_High)

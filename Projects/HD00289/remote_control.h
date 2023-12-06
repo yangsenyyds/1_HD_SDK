@@ -7,7 +7,7 @@
 #include "yc_dev_bt.h"
 #include "att_list.h"
 #include "factory_test_off_line.h"
-#define Project_key  (255)
+#define Project_key  (256)
 /* WATCH_DOG */
 #define FUNCTION_WATCH_DOG
 
@@ -19,7 +19,7 @@
 #define SecretKey_Check_enable (1)
 
 /* sleep 1 hour*/
-#define SLEEP_ONE_HOUR      (1)
+// #define SLEEP_ONE_HOUR      (1)
 
 /* SLEEP */
 #define ENCRYPT_DONE_DELAY  (3000)      // ms

@@ -15,9 +15,14 @@
 #include "ir_factory.h"
 #include "led.h"
 #include "audio.h"
-
+#include "SecretKey.h"
 static const uint8_t scan_rsp_data_buf[] = {0x00};
-static const uint8_t adv_data_buf[] = {0x02, 0x01, 0x05, 0x03, 0x03, 0x12, 0x18, 0x03, 0x19, 0x80, 0x01, 0x0B, 0x09, 0x48, 0x44, 0x5f, 0x46, 0x41, 0x43, 0x5f, 0x52, 0x43, 0x55, 0x05, 0xFF, 0x71, 0x01, 0x04, 0x1E};
+static uint8_t adv_data_buf[] = {
+0X02 ,0X01 ,0X05 ,0X03 ,0X19 ,0X80 ,0X01 ,0X13 
+,0X09 ,0X52 ,0X43 ,0X55 ,0X20 ,0X46 ,0X61 ,0X63 
+,0X54 ,0X65 ,0X73 ,0X74 ,0X20 ,0X48 ,0X44 ,0X30 
+,0X35 ,0X35 ,0X37
+};
 
 MEMORY_NOT_PROTECT_UNDER_LPM_ATT static uint8_t key_pressed_time;
 MEMORY_NOT_PROTECT_UNDER_LPM_ATT static uint8_t key_pressed_num;
@@ -27,6 +32,49 @@ MEMORY_NOT_PROTECT_UNDER_LPM_ATT static uint8_t keynum;
 
 static bool tx_freq_flag;
 static uint8_t key_pressed_timernum = 0xFF;
+
+static bool SecretKey_Check(void)
+{
+    uint8_t adcbuf[12];
+
+    uint32_t secretkey_SN_Addr = 0 ;
+    uint8_t secretkey_SN[16];
+    PublicKey_TypeE secretkey_Type;
+    uint8_t secretkey_Gen[16];
+    uint8_t secretkey_Ori[16];
+    for (uint8_t i = 0; i < 12; i++) {
+        adcbuf[i] = HREAD(mem_0_3_6v_adc_io_data + i);
+    }
+    QSPI_ReadFlashData(SecretKey_Addr, 16, secretkey_Ori);
+
+    QSPI_ReadFlashData(0, 3, (uint8_t *)&secretkey_SN_Addr);
+
+    secretkey_SN_Addr = REVERSE_3BYTE_DEFINE((secretkey_SN_Addr & 0x00ffffff)) - 4;
+    DEBUG_LOG_STRING("secretkey_SN_Addr = %x \r\n",secretkey_SN_Addr);
+
+    QSPI_ReadFlashData(secretkey_SN_Addr-0xc, 16, secretkey_SN);
+        for(uint8_t i = 0; i < 16; i++){
+        DEBUG_LOG_STRING("secretkey_Ori = %x \r\n",secretkey_SN[i]);
+    }
+    switch ((secretkey_SN[12] << 8) + secretkey_SN[13])
+    {
+    case 0x1228:
+        secretkey_Type = Key_1228;
+        break;
+    case 0x3527:
+        secretkey_Type = Key_3527;
+        break;
+    case 0x5815:
+        secretkey_Type = Key_5815;
+        break;
+    
+    default:
+        return false;
+    }
+    SecretKey_Generate(secretkey_Type, adcbuf, 12, secretkey_Gen);
+
+    return (memcmp((void *)secretkey_Ori, (void *)secretkey_Gen, 16) == 0) ? true : false;
+}
 
 static void stop_adv(void)
 {
@@ -58,6 +106,7 @@ static void start_adv(enum advType type, uint16_t adv_interval)
     if (bt_adv_param.Type == ADV_TYPE_NOMAL)
     {
         bt_set_le_state(BLE_ADV);
+        // adv_data_buf[25] = 1;
         bt_start_le_adv(&bt_adv_param, adv_data_buf, sizeof(adv_data_buf));
     }
     else if (bt_adv_param.Type == ADV_TYPE_DIRECT)
@@ -386,7 +435,7 @@ void app_init(void)
         led_init();
         voice_report_init();
         keyscan_init(KEY_MODE_SINGLE, keyvalue_handle);
-
+SecretKey_Check();
         key_pressed_timernum = swtimer_add(key_pressed_handle);
         DEBUG_LOG_STRING("APP INIT DONE \r\n");
     }

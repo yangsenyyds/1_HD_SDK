@@ -157,10 +157,13 @@ enum
 #define GYRO_BUF_SIZE (20) /// 20->15
 #define app_abs(a) ((a) > 0 ? (a) : -(a))
 #define G_CONST_VALUE (9.80665f)
-#define AXRATIO (3.5f)
-#define AYRATIO (3.5f)
-#define AZRATIO (4.5f)
+// #define AXRATIO (3.5f)
+// #define AYRATIO (3.5f)
+// #define AZRATIO (4.5f)
 
+#define AXRATIO (3.0f)
+#define AYRATIO (3.0f)
+#define AZRATIO (4.0f)
 #define GYRO_CONST_VALUE (45.0f)
 #define GYXRATIO (0.3f)
 #define GYYRATIO (0.3f)

@@ -84,6 +84,9 @@ static const uint8_t ir_data[] = {
     0X5F,
     0XA2,
     0XA3,
+    
+    0XA2,
+    0XA3,//
 };
 static const KeyBuf_TypeDef KeyBuf[] = {
     {0x00, 0x00, 0, 0},
@@ -115,6 +118,9 @@ static const KeyBuf_TypeDef KeyBuf[] = {
     {0x02, 0x00, 4, 98}, // CENGDIE
     {0xA1, 0x00, 4, 119}, // PRIME VIDEO
     {0xA2, 0x00, 4, 119}, // NETFLIX
+    {0xA3, 0x00, 4, 119}, // DISNEP
+    {0xA4, 0x00, 4, 119}, // HULU
+
     {0xA3, 0x00, 4, 119}, // DISNEP
     {0xA4, 0x00, 4, 119}, // HULU
 }; 
@@ -939,7 +945,11 @@ void app_init(void)
         vbat_init(power_handle);
         led_init();
         ir_learn_init();
+#if (Project_key == 625)
+        ir_init(UPD6121G2_68, CUSTOM_08_F7_A);
+#else
         ir_init(UPD6121G2_68, CUSTOM_02_7D_A);
+#endif
         voice_report_init();
         keyscan_init(KEY_MODE_SINGLE, keyvalue_handle);
         if (!flash_record_exist(first_done)) {

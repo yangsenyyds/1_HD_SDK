@@ -6,7 +6,8 @@
 #include "yc11xx_audio_adc.h"
 #include "yc_dev_bt.h"
 #include "att_list.h"
-#define Project_key  (555)
+#include "factory_test_off_line.h"
+#define Project_key  (505)
 /* WATCH_DOG */
 #define FUNCTION_WATCH_DOG
 
@@ -66,7 +67,7 @@
 #define AUDIO_CMD_HANDLE        (514)
 #define audio_start_20          (1)
 #define ADPCM                   (1)
-#define AUDIO_SNED_HANDLE       (AUDIO_CMD_HANDLE+2)
+#define AUDIO_SNED_HANDLE       (get_VoiceHandle())
 #define AUDIO_CTRL_HANDLE       (AUDIO_SNED_HANDLE+3)
 
 #define AdcOutputMode   (ADC_SingleEndOutputWithCapacitor)

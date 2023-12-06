@@ -13,7 +13,7 @@
 #define FUNCTION_CONTROL_DEBUG_ENABLE
 #define DEBUG_GPIO_DEFINE   (GPIO_9)
 /* SecretKey_Check_enable */
-#define SecretKey_Check_enable (1)
+// #define SecretKey_Check_enable (1)
 
 /* sleep 1 hour*/
 #define SLEEP_ONE_HOUR      (1)
@@ -72,9 +72,9 @@
 #define AUDIO_UART_RX_GPIO      (GPIO_11)
 #define AUDIO_UART_TX_GPIO      (DEBUG_GPIO_DEFINE)
 #endif
-#define AdcOutputMode   (ADC_SingleEndOutputWithCapacitor)
+#define AdcOutputMode   (ADC_DifferentialOutput)
 #define AdcAnaSEWithCapacitor_VOLTAGE_GAIN  (20)
-#define AdcAnaDiffConfig_VOLTAGE_GAIN       (15)
+#define AdcAnaDiffConfig_VOLTAGE_GAIN       (26)
 
 #define OPUS                    (1)
 

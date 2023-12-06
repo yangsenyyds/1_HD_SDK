@@ -17,8 +17,8 @@ typedef enum {
 }DEV_LOCK_TypeDef;
 
 /*
-WEAK void action_after_prepare_sleep(void){} //在每次进入lpm之前
-WEAK void action_after_enter_deep_sleep(void){}//每次进入深度休眠之前
+WEAK void Action_After_Prepare_Sleep(void){} //在每次进入lpm之前
+WEAK void Action_After_Enter_Deep_Sleep(void){}//每次进入深度休眠之前
 */
 extern void prepare_before_sleep(void);
 extern void enter_deep_sleep(void);

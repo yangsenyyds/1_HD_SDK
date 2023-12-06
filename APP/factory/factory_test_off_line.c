@@ -28,7 +28,9 @@ void factory_WriteDataParse(unsigned short handle, unsigned char *data, unsigned
         if (0 == memcmp(cmd_test, data, sizeof(cmd_test) - 1))
         {
             // enter factory mode
+            DEBUG_LOG_STRING("memcmp\r\n");
             g_factorymode = true;
+            ATT_sendNotify(65532, (void *)&product_key_s, 3);
             app_sleep_timer_set(PAIR_DONE_DELAY);
         }
         else if (0 == memcmp(cmd_mic_close, data, sizeof(cmd_mic_close) - 1))

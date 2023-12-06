@@ -39,7 +39,7 @@ enum{
     Voice_Keynum = 31,
     CONN_PARAM = 99,
 };
-
+#if (Project_key == 4006)
 static const uint8_t ir_data[] = {
     0x00,
 
@@ -166,6 +166,134 @@ static const KeyBuf_TypeDef KeyBuf[] = {
     {0xAA, 0x00, 2, 64}, //DE
     {0xFE, 0x00, 2, 64}, //HU
 };
+#elif (Project_key == 950)
+static const uint8_t ir_data[] = {
+    0x00,
+
+    0x08,//1
+    0X0B,
+    0X11,
+    0X12,
+    0X13,
+
+    0X14,//6
+    0X15,
+    0X16,
+    0X17,
+    0X18,
+
+    0X19,//11
+    0X0A,
+    0X10,
+    0X50,
+    0X52,
+
+    0X53,//16
+    0X54,
+    0X55,
+    0X43,
+    0X1D,
+
+    0X5A,//21 ok
+    0X56,
+    0X58,
+    0X59,
+    0X57,
+
+    0X04,//26
+    0X0F,
+    0X4A,
+    0X02,
+    0X00,
+
+    0X1E,//31
+    0X09,
+    0X03,
+    0X01,
+    0X4F,
+
+    0XBF,//36
+    0X5B,
+    0X5E,
+    0X4E,
+    0X1C,
+
+    0X4C,//41
+    0X49,
+    0XFF,
+    0XFF,
+    0XFF,
+
+    0XFF,
+    0XFF,
+    0X6F,  
+    0X6C,    
+};
+static const KeyBuf_TypeDef KeyBuf[] = {
+    {0x00, 0x00, 0, 0},
+
+    {0x30, 0x00, 2, 64}, // POWER 1
+    {0xFD, 0x01, 2, 64}, // INPUT  1
+    {0x1E, 0x00, 8, 57}, // 1
+    {0x1F, 0x00, 8, 57}, // 2
+    {0x20, 0x00, 8, 57}, // 3
+
+    {0x21, 0x00, 8, 57}, // 4  6
+    {0x22, 0x00, 8, 57}, // 5
+    {0x23, 0x00, 8, 57}, // 6
+    {0x24, 0x00, 8, 57}, // 7
+    {0x25, 0x00, 8, 57}, // 8
+
+    {0x26, 0x00, 8, 57}, // 9  11
+    {0x29, 0x00, 2, 64}, // -
+    {0x27, 0x00, 8, 57}, // 0
+    {0x6E, 0x00, 2, 64}, //CC
+    {0xF7, 0x01, 2, 64}, // Red
+
+    {0xF6, 0x01, 2, 64}, // GREEN  16
+    {0xF5, 0x01, 2, 64}, // YEELOW
+    {0xF4, 0x01, 2, 64}, // BLUE
+    {0x40, 0x00, 2, 64}, //MUNE
+    {0x89, 0x00, 2, 64}, // INFO
+
+    {0x41, 0x00, 2, 64}, // OK   21
+    {0x42, 0x00, 2, 64}, // UP
+    {0x44, 0x00, 2, 64}, // LEFT
+    {0x45, 0x00, 2, 64}, // RIGHT
+    {0x43, 0x00, 2, 64}, // DOWN
+
+    {0x24, 0x02, 2, 64}, //BACK  26
+    {0x6B, 0x00, 2, 64}, // APS
+    {0x23, 0x02, 2, 64}, //HOME
+    {0xE9, 0x00, 2, 64}, // VOL+ 31
+    {0x9C, 0x00, 2, 64}, //CH+
+
+
+    {0x21, 0x02, 2, 64}, //VOICE
+    {0xE2, 0x00, 2, 64}, // MUTE
+    {0xEA, 0x00, 2, 64}, //VOL-
+    {0x9D, 0x00, 2, 64}, //CH-
+    {0xB4, 0x00, 2, 64}, //LLEFT
+
+    {0xCD, 0x00, 2, 64}, // LRIGHT 36
+    {0xB3, 0x00, 2, 64}, // MTS
+    {0xD5, 0x00, 2, 64}, // ZANTING
+    {0xB7, 0x00, 2, 64}, // APPS
+    {0x6D, 0x00, 2, 64}, // NETF
+    
+    {0xA9, 0x00, 2, 64}, // PRI
+    {0xAB, 0x00, 2, 64}, // YOU
+    {0xFD, 0x00, 2, 64}, //DE
+    {0xFE, 0x00, 2, 64}, //HU
+    {0xFF, 0x00, 2, 64}, //PE
+
+    {0xFD, 0x00, 2, 64}, //DE
+    {0xFE, 0x00, 2, 64}, //HU
+    {0xAA, 0x00, 2, 64}, //PE
+    {0xD4, 0x00, 2, 64}, //DE
+    {0xFE, 0x00, 2, 64}, //HU
+};
+#endif
 static bool voice_key_state;
 static bool voice_send_state;
 static const uint8_t MIC_CLOSE[] = {0x0D};
@@ -239,7 +367,8 @@ static bool SecretKey_Check(void)
     return (memcmp((void *)secretkey_Ori, (void *)secretkey_Gen, 16) == 0) ? true : false;
 }
 
-static void low_power_handle(void){
+static void low_power_handle(void)
+{
     if(HREADW(mem_le_slave_latency) != CONN_PARAM && bt_check_le_connected()){
         if(key_pressed_num == 0) {
             sleep_time_state++;
@@ -291,7 +420,9 @@ static void key_pressed_handle(void)
                     {
                         led_state = 1;
                         led_on(LED_1,200,60000);
-
+#if (Project_key == 950)
+                        ir_comm_send(0x44);
+#endif
                         Bt_ClearRemoteDevInfo();
                         Bt_ClearDeviceNvdataInfo();
                         start_adv(ADV_TYPE_NOMAL, 0x10,true);

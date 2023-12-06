@@ -12,11 +12,11 @@
 #define FUNCTION_WATCH_DOG
 
 /* LOG */
-#define FUNCTION_CONTROL_DEBUG_ENABLE
+// #define FUNCTION_CONTROL_DEBUG_ENABLE
 #define DEBUG_GPIO_DEFINE   (GPIO_9)
 
 /* SecretKey_Check_enable */
-#define SecretKey_Check_enable (1)
+// #define SecretKey_Check_enable (1)
 
 /* sleep 1 hour*/
 #define SLEEP_ONE_HOUR      (1)

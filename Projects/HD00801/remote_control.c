@@ -42,6 +42,7 @@ typedef struct
 
 static const uint8_t MIC_CLOSE_BUF[20] = {0x00, 0x00, 0x00, 0x80, 0x00};
 static const uint8_t MIC_OPEN_BUF[20] = {0x00, 0x00, 0x00, 0x80, 0x01};
+#if (Project_key == 801)
 static const KeyBuf_TypeDef KeyBuf[] = {
     {0x00, 0x00, 0x00, 0, 0},
 
@@ -74,7 +75,73 @@ static const KeyBuf_TypeDef KeyBuf[] = {
 
 
 };
+#elif (Project_key == 803)
+static const KeyBuf_TypeDef KeyBuf[] = {
+    {0x00, 0x00, 0x00, 0, 0},
 
+    {0x20, 0x00, 0x00, 3, 134}, // 1
+    {0x40, 0x00, 0x00, 3, 134},  //
+    {0x02, 0x00, 0x00, 3, 134},  //
+    {0x01, 0x00, 0x00, 3, 134},  //
+    {0x00, 0x00, 0x00, 0, 0}, // 
+
+    {0x00, 0x00, 0x00, 0, 0}, // 6
+    {0x08, 0x00, 0x00, 3, 134}, //
+    {0x10, 0x00, 0x00, 3, 134},  //
+    {0x04, 0x00, 0x00, 3, 134}, //
+    {0x00, 0x02, 0x00, 3, 134}, //
+
+    {0x00, 0x00, 0x00, 0, 0},  //11
+    {0x00, 0x00, 0x00, 0, 0},  //12
+    {0x00, 0x00, 0x08, 3, 134},  //13
+    {0x00, 0x00, 0x04, 3, 134},  //
+    {0x00, 0x04, 0x00, 3, 134}, //
+
+    {0x00, 0x20, 0x00, 3, 134},
+    {0x00, 0x00, 0x00, 0, 0},
+    {0x00, 0x00, 0x00, 0, 0},  
+    {0x00, 0x00, 0x00, 0, 0},  
+    {0x00, 0x00, 0x00, 0, 0},  
+
+    {0x80, 0x00, 0x00, 3, 134},  
+    {0x00, 0x01, 0x00, 3, 134},  
+
+
+};
+#elif (Project_key == 804)
+static const KeyBuf_TypeDef KeyBuf[] = {
+    {0x00, 0x00, 0x00, 0, 0},
+
+    {0x20, 0x00, 0x00, 3, 134}, // 1
+    {0x40, 0x00, 0x00, 3, 134},  //
+    {0x02, 0x00, 0x00, 3, 134},  //
+    {0x01, 0x00, 0x00, 3, 134},  //
+    {0x00, 0x00, 0x00, 0, 0}, // 
+
+    {0x00, 0x00, 0x00, 0, 0}, // 6
+    {0x08, 0x00, 0x00, 3, 134}, //
+    {0x10, 0x00, 0x00, 3, 134},  //
+    {0x04, 0x00, 0x00, 3, 134}, //
+    {0x00, 0x02, 0x00, 3, 134}, //
+
+    {0x00, 0x00, 0x00, 0, 0},  //11
+    {0x00, 0x00, 0x00, 0, 0},  //12
+    {0x00, 0x00, 0x08, 3, 134},  //13
+    {0x00, 0x00, 0x04, 3, 134},  //
+    {0x00, 0x04, 0x00, 3, 134}, //
+
+    {0x00, 0x20, 0x00, 3, 134},
+    {0x00, 0x00, 0x00, 0, 0},
+    {0x00, 0x00, 0x00, 0, 0},  
+    {0x00, 0x00, 0x00, 0, 0},  
+    {0x00, 0x00, 0x00, 0, 0},  
+
+    {0x80, 0x00, 0x00, 3, 134},  
+    {0x00, 0x01, 0x00, 3, 134},  
+
+
+};
+#endif
 static const uint8_t scan_rsp_data_buf[] = 
 {0x0A, 0x09, 0x58, 0x69, 0x61, 0x6F, 0x6D, 0x69, 0x20, 0x52, 0x43};
 static const uint8_t adv_data_buf[] = 
@@ -135,7 +202,7 @@ static bool SecretKey_Check(void)
         adcbuf[i] = HREAD(mem_0_3_6v_adc_io_data + i);
     }
 
-    DEBUG_LOG_STRING("secretkey_Ori:\r\n");
+    // DEBUG_LOG_STRING("secretkey_Ori:\r\n");
     QSPI_ReadFlashData(SecretKey_Addr, 16, secretkey_Ori);
     QSPI_ReadFlashData(0, 3, (uint8_t *)&secretkey_SN_Addr);
     secretkey_SN_Addr = REVERSE_3BYTE_DEFINE(secretkey_SN_Addr) - 4;
@@ -246,6 +313,7 @@ static void start_adv(enum advType type, uint16_t adv_interval, bool timeout)
 static void adv_stop_handle(void){
     start_adv(ADV_TYPE_NOMAL, 0x10, true);
 }
+
 static void key_pressed_handle(void)
 {
     bool le_connected_state = bt_check_le_connected();
@@ -598,14 +666,14 @@ void LE_DISCONNECTED(uint8_t reason)
     app_queue_reset();
     remote_control_reinit();
 
-    if (Bt_CheckIsPaired())
-    {
-        start_adv(ADV_TYPE_DIRECT, 0x10, true);
-    }
-    else
-    {
+    // if (Bt_CheckIsPaired())
+    // {
+    //     start_adv(ADV_TYPE_DIRECT, 0x10, true);
+    // }
+    // else
+    // {
         start_adv(ADV_TYPE_NOMAL, 0x30, true);
-    }
+    // }
 }
 
 void LE_CONNECTED(void)
@@ -634,16 +702,16 @@ void Dev_PowerOn(void)
         bt_renew_scan_rsp((void *)scan_rsp_data_buf, sizeof(scan_rsp_data_buf));
     }
 
-    if (Bt_CheckIsPaired())
-    {
-        start_adv(ADV_TYPE_DIRECT, 0x08, true);
-    }
-    else
-    {
+    // if (Bt_CheckIsPaired())
+    // {
+    //     start_adv(ADV_TYPE_DIRECT, 0x08, true);
+    // }
+    // else
+    // {
         start_adv(ADV_TYPE_NOMAL, 0x10, true);
         app_sleep_lock_set(ADV_LOCK, true);
         app_sleep_timer_set(DIRECT_ADV_TIME);
-    }
+    // }
 }
 
 void tx_power_switch_set(bool switch_enable)

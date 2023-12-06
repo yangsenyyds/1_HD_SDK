@@ -181,6 +181,7 @@ typedef enum
 	BLE_MASTER_INDENTITYCATION_ENC_INFO,
 }BLE_DEVICE_INFO_TYPE;
 
+extern volatile BT_REC_INFO gRecinfo;
 /*********************************************************** Function declaration relative************************************************************/
 bool bt_check_save_connect_info(void);
 void bt_state_init(void);

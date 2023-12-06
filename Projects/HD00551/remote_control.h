@@ -6,10 +6,10 @@
 #include "yc11xx_audio_adc.h"
 #include "yc_dev_bt.h"
 #include "att_list.h"
-
+#include "factory_test_off_line.h"
 /* WATCH_DOG */
 #define FUNCTION_WATCH_DOG
-#define Project_key  (553)
+#define Project_key  (551)
 /* LOG */
 #define FUNCTION_CONTROL_DEBUG_ENABLE
 #define DEBUG_GPIO_DEFINE   (GPIO_9)
@@ -29,7 +29,7 @@
 #define UNIT_TIME_1S (1000) // ms
 
 /* SOFTWARE TIMER */
-#define TIMER_NUM (10) // KEY 1, LED 1, VBAT 1, VOICE 2, SLEEP 1, REMOTE_CONTROL 3, +1
+#define TIMER_NUM (13) // KEY 1, LED 1, VBAT 1, VOICE 2, SLEEP 1, REMOTE_CONTROL 3, +1
 #define TIMER_UNIT_MS (10)
 
 /* KEY */
@@ -64,15 +64,16 @@
 #define BAT_REPORT_HANDLE (23)
 #define BAT_ATTLIST_INDEX (22)
 /* audio */
-#define AUDIO_CMD_HANDLE (46)
+#define VOICE_AUDIO_CMD_HANDLE (46)
+#define AUDIO_CMD_HANDLE (37)
 #define NO_AUDIO_LPM (1)
 #define ADPCM (1)
-#define AUDIO_SNED_HANDLE (39)
+// #define AUDIO_SNED_HANDLE (39)
+#define AUDIO_SNED_HANDLE       (get_VoiceHandle())
 #define AUDIO_CTRL_HANDLE (AUDIO_SNED_HANDLE + 3)
-#define AdcOutputMode (ADC_SingleEndOutputWithCapacitor)
-
-#define AdcAnaSEWithCapacitor_VOLTAGE_GAIN (20)
-#define AdcAnaDiffConfig_VOLTAGE_GAIN (15)
+#define AdcOutputMode   (ADC_SingleEndOutputWithCapacitor)
+#define AdcAnaSEWithCapacitor_VOLTAGE_GAIN  (20)
+#define AdcAnaDiffConfig_VOLTAGE_GAIN       (20)
 
 #define MICRECORD_CACHE_NUM (2)
 #define ENCODE_CACHE_NUM (50)

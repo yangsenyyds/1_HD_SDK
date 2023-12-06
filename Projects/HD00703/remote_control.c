@@ -795,7 +795,7 @@ void app_init(void)
         if(Bt_CheckIsPaired()) {
             bt_update_mtu();
          }
-        bt_set_auth_for_security_req(AUTH_BOND); /// BONING
+        // bt_update_mtu();
         software_timer_start(SYSTEM_CURRENT_CLOCK, TIMER_UNIT_MS);
         app_sleep_init();
         vbat_init(power_handle);

@@ -46,6 +46,9 @@ FALSH_ERROR_TypeDef flash_record_exist(FlashRecordAddr_TypeDef record_addr)
 
 void flash_Erase(FlashRecordAddr_TypeDef record_addr,uint16_t len)
 {
+    if(len < 8){
+        len = 8;
+    }
     uint8_t data[len];
     memset(data, 0xFFFF, sizeof(data));
     write(record_addr, sizeof(data), data);

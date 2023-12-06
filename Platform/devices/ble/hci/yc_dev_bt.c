@@ -24,7 +24,10 @@ WEAK void ENCRYPT_DONE(void){}
 WEAK void ENCRYPT_FAIL(uint8_t reason){}
 WEAK void CONN_PARAM_ACCEPTED(void){}
 WEAK void LE_LTK_LOST(void){}
-
+//time log
+void LOG_COMPILE_INFO(){
+    DEBUG_LOG_STRING("COMPILE TIME : %s %s \r\n",__DATE__,__TIME__);
+}
 
 /* uninitialized variables need power - off protection*/
 volatile BT_REC_INFO gRecinfo;
@@ -606,6 +609,7 @@ void Bt_EvtCallBack(uint8_t len, uint8_t *dataPtr)
         Dev_WakeUp();
         break;
     case BT_EVT_RESET:
+        LOG_COMPILE_INFO();
         Dev_PowerOn();
         break;
     

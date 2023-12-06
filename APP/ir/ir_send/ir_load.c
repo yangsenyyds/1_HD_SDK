@@ -762,7 +762,7 @@ static uint8_t ir_data_ready(uint16_t irnum)
             src[3] = costom_a ^ costom_b ^ irnum;
         } 
             break;
-        case NOPWM_IRT1250C:
+        case COSTOM1_0_CODE1:
             src[0] = cust_code[0];
             src[1] = 0;
             src[2] = irnum;
@@ -994,6 +994,7 @@ void ir_type_init(ir_type_t type, customer_code_t customer)
         case COSTOM2_CODE2_Panasonic:
         case COSTOM1_CODE1_COSTOM1_CODE1:
         case CODE1_COSTOM1_CODE1:
+        case COSTOM1_0_CODE1:
             ir_ready = ir_data_ready;
             pwm_time_pulse = upt_pwm_time_pulse;
             break;

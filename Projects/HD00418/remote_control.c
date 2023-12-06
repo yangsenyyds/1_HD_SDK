@@ -30,7 +30,7 @@ typedef struct {
 } KeyBuf_TypeDef;
 
 enum{
-    Power__Keynum = 2,
+    Power__Keynum = 1,
 
     Left__Keynum = 7,
     Left__Row = 0,
@@ -73,8 +73,8 @@ static const uint8_t ir_data[] = {
 static const KeyBuf_TypeDef KeyBuf[] = {
     {0x00, 0x00, 0, 0},
 
-    {0x2A, 0x02, 4, 57}, // INPUT  1
-    {0x2A, 0x02, 4, 57}, // POWER 1
+    {0x00, 0x00, 4, 57}, // 1
+    {0x2A, 0x02, 4, 57}, // 2
     {0x21, 0x02, 4, 57}, // 1
     {0x8B, 0x01, 4, 57}, // 2
     {0x42, 0x00, 4, 57}, // 3
@@ -231,7 +231,7 @@ static void key_pressed_handle(void)
                 keynum_second = 0;
                 key_pressed_time = 0;
                 led_state = true;
-                led_on(LED_1,200,800);
+                led_on(LED_2,200,30000);
                 Bt_ClearRemoteDevInfo();
                 Bt_ClearDeviceNvdataInfo();
                 start_adv(ADV_TYPE_NOMAL, 0x10,true);
@@ -337,7 +337,8 @@ static void keyvalue_handle(key_report_t* key_report)
     {
         key_pressed_time = 0;
         if (key_report->keynum_report_buf[Left__Row] == Left__Keynum && key_report->keynum_report_buf[HOME__Row] == HOME__Keynum) {
-
+            led_off(LED_NUM);
+            set_key_press_state(false);
             if(!bt_check_le_connected()){
                 keynum = Left__Keynum;
                 keynum_second = HOME__Keynum;

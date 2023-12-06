@@ -84,6 +84,7 @@ static void chip_init(void)
     }
 }
 
+
 void main(void)
 {
     chip_init();

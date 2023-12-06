@@ -19,7 +19,6 @@
 #include "ir_send.h"
 #include "ir_load.h"
 #include "ir_lib.h"
-#include "qma6100.h"
 #include "yc11xx_dev_qspi.h"
 #include "SecretKey.h"
 #include "yc11xx_iwdg.h"
@@ -212,6 +211,9 @@ static bool SecretKey_Check(void)
 }
 
 static void led_handle(void){
+    // if(bt_check_le_connected()) {
+        app_sleep_lock_set(APP_LOCK, false);
+    // }
     GPIO_Init(AGAINST_LED_PIN, GPIO_Mode_Out_Low);
     DEBUG_LOG_STRING("led_handle\r\n");
 }
@@ -325,7 +327,7 @@ static void keyvalue_handle(key_report_t* key_report)
 {
     key_pressed_num = key_report->key_press_cnt;
     // DEBUG_LOG_STRING("init 1 %d\r\n",GPIO_ReadDataBit(gpio));
-    if (key_pressed_num == 0)
+    if (key_pressed_num == 0) 
     {
         if (bt_check_le_connected() && encrypt_state && keynum != Power_Keynum)
         {
@@ -354,11 +356,22 @@ static void keyvalue_handle(key_report_t* key_report)
     else if (key_pressed_num == 1)
     {
         keynum = 0;
-        for(uint8_t i = 0; i < KEY_ROW_NUM; i++) {
+        for(uint8_t i = 0; i < KEY_COL_NUM; i++) {
             keynum += key_report->keynum_report_buf[i];
         }
         DEBUG_LOG_STRING("KEY [%d][%d][%d][%d][%d][%d][%d]\r\n", key_report->keynum_report_buf[0]
         ,key_report->keynum_report_buf[1],key_report->keynum_report_buf[2],key_report->keynum_report_buf[3],key_report->keynum_report_buf[4],key_report->keynum_report_buf[5],key_report->keynum_report_buf[6]);
+#ifdef  LIGHT_LED_PIN
+        if(GPIO_ReadDataBit(LIGHT_LED_PIN))
+#endif
+        {
+            // if(bt_check_le_connected()){
+                app_sleep_lock_set(APP_LOCK, true);   
+            // }
+            GPIO_Init(AGAINST_LED_PIN,GPIO_Mode_Out_High);
+            swtimer_start(led_timernum, 5000, TIMER_START_ONCE);
+        }
+        
         if (bt_check_le_connected() && keynum != Power_Keynum && encrypt_state)
         {
             uint8_t hid_send_buf[KeyBuf[keynum].key_send_len];
@@ -367,7 +380,7 @@ static void keyvalue_handle(key_report_t* key_report)
 
 #if (Project_key == 502)
 #elif (Project_key == 503 || Project_key == 552)
-#endif            
+#endif      
             DEBUG_LOG_STRING("att send  [%x] [%x] [%d] \r\n",KeyBuf[keynum].keyvalue[0],KeyBuf[keynum].keyvalue[1],KeyBuf[keynum].key_send_len);
 
             if (keynum == Voice_Keynum && !voice_key_state) {
@@ -447,14 +460,17 @@ static void remote_control_reinit(void)
 
 void update_conn_param(bool is_sleep)
 {
-    if (is_sleep) {
-        if(!conn_param_state) {
+    if (is_sleep)
+    {
+        if(!conn_param_state)
+        {
             conn_param_state = true;
             swtimer_start(low_power_timernum, 100, TIMER_START_REPEAT);
         }
         bt_le_conn_updata_param_req(0x08, 0x08, CONN_PARAM, 400);
     }
-    else {
+    else
+    {
         bt_le_conn_updata_param_req(0x08, 0x08, 0, 400);
     }
 }
@@ -653,6 +669,7 @@ void PAIR_DONE(void)
 {
     DEBUG_LOG_STRING("PAIR_DONE \r\n");
     app_sleep_timer_set(PAIR_DONE_DELAY);
+
 }
 
 void LE_DISCONNECTED(uint8_t reason)
@@ -665,7 +682,7 @@ void LE_DISCONNECTED(uint8_t reason)
     Bt_HciFifo_Init();
     app_sleep_lock_set(LATENCY_LOCK, false);
     bt_set_le_state(BLE_IDLE);
-    
+    GPIO_Init(AGAINST_LED_PIN, GPIO_Mode_Out_Low);
     if(voice_key_state){
         led_off(LED_NUM);
         voice_key_state = false;
@@ -779,13 +796,13 @@ void app_init(void)
             }
 #endif
         }
-        DEBUG_LOG_STRING("LIGHT_LED_PIN %d\r\n",GPIO_ReadDataBit(LIGHT_LED_PIN));
-        if(GPIO_ReadDataBit(LIGHT_LED_PIN)){
-            GPIO_Init(AGAINST_LED_PIN,GPIO_Mode_Out_High);
-            swtimer_start(led_timernum, 5000, TIMER_START_ONCE);
-        }
-
-        qma6100_init();
+        GPIO_Init(GPIO_34,GPIO_Mode_Out_High);
+            // while(1)
+            // {
+            //     DEBUG_LOG_STRING("read %d\r\n",GPIO_ReadDataBit(GPIO_23));
+            // }
+        // DEBUG_LOG_STRING("LIGHT_LED_PIN %d\r\n",GPIO_ReadDataBit(LIGHT_LED_PIN));
+        // qma6100_init();
         DEBUG_LOG_STRING("APP INIT DONE \r\n");
     }
     else

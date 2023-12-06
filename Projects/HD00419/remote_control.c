@@ -291,6 +291,7 @@ static void key_pressed_handle(void)
             {
                 keynum_second = 0;
                 key_pressed_time = 0;
+                led_off(LED_NUM);
                 led_state = true;
                 led_on(LED_2,200,60000);
                 Bt_ClearRemoteDevInfo();
@@ -342,7 +343,7 @@ static void keyvalue_handle(key_report_t* key_report)
     else if (key_pressed_num == 1)
     {
         keynum = 0;
-        for(uint8_t i = 0; i < KEY_COL_NUM; i++){
+        for(uint8_t i = 0; i < KEY_COL_NUM; i++) {
             keynum +=key_report->keynum_report_buf[i];
         }
         DEBUG_LOG_STRING("KEY [%d][%d][%d][%d][%d] [%d][%d] \r\n", key_report->keynum_report_buf[0], key_report->keynum_report_buf[1], key_report->keynum_report_buf[2],key_report->keynum_report_buf[3]
@@ -398,8 +399,8 @@ static void keyvalue_handle(key_report_t* key_report)
     {
         key_pressed_time = 0;
         if (key_report->keynum_report_buf[Left__Row] == Left__Keynum && key_report->keynum_report_buf[HOME__Row] == HOME__Keynum) {
-
-            if(!bt_check_le_connected()){
+            led_off(LED_NUM);
+            if(!bt_check_le_connected()) {
                 keynum = Left__Keynum;
                 keynum_second = HOME__Keynum;
                 swtimer_start(key_pressed_timernum,1000,TIMER_START_ONCE);

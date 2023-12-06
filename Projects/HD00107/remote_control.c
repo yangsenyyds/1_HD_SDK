@@ -32,6 +32,7 @@
 
 enum
 {
+	APP_KEY_IDX_VOICE = 19,
     APP_KEY_IDX_PWR = 1,
     APP_KEY_IDX_BACK = 26,
     APP_KEY_IDX_HOME = 21,
@@ -49,6 +50,8 @@ typedef struct
 {
     uint8_t MouseNTFBuf[MOUSE_SEND_LEN];
 } MouseNTFQue_TypeDef;
+
+const uint8_t product_key_s[] = {15,2,125};
 #if (LG_Project == 107)//lg20 5501
 static const KeyBuf_TypeDef KeyBuf[] = {
     {0x00, 0x00, 0, 0}, // 0
@@ -563,6 +566,108 @@ static const uint8_t IRKeyBuf[][1] = {
     {0xDE}, // 38 LE ZOON
     {0x44}, // 39 OK -->PAIR 83
 };
+#elif (LG_Project == 165)//18ba 乐城自定义版
+static const KeyBuf_TypeDef KeyBuf[] = {
+    {0x00, 0x00, 0, 0}, // 0
+
+    {0x00, 0x00, 1, DAXIS_KEY_HANDLE}, // 1 POWER
+    {0x99, 0x00, 1, DAXIS_KEY_HANDLE}, // 2 STB
+    {0x11, 0x00, 1, DAXIS_KEY_HANDLE}, // 3 '1'
+    {0x12, 0x00, 1, DAXIS_KEY_HANDLE}, // 4 '2'
+    {0x13, 0x00, 1, DAXIS_KEY_HANDLE}, // 5 '3'
+
+    {0x14, 0x00, 1, DAXIS_KEY_HANDLE}, // 6 '4'
+    {0x15, 0x00, 1, DAXIS_KEY_HANDLE}, // 7 '5'
+    {0x16, 0x00, 1, DAXIS_KEY_HANDLE}, // 8 '6'
+    {0x17, 0x00, 1, DAXIS_KEY_HANDLE}, // 9 '7'
+    {0x18, 0x00, 1, DAXIS_KEY_HANDLE}, // 10 '8'
+
+    {0x19, 0x00, 1, DAXIS_KEY_HANDLE}, // 11 '9'
+    {0x4C, 0x00, 1, DAXIS_KEY_HANDLE}, // 12 -LIST
+    {0x10, 0x00, 1, DAXIS_KEY_HANDLE}, // 13 '0'
+    {0x45, 0x00, 1, DAXIS_KEY_HANDLE}, // 14 '...'
+    {0x02, 0x00, 1, DAXIS_KEY_HANDLE}, // 15 VOL+
+
+    {0x09, 0x00, 1, DAXIS_KEY_HANDLE}, // 16 MUTE
+    {0x00, 0x00, 1, DAXIS_KEY_HANDLE}, // 17 CH+
+    {0x03, 0x00, 1, DAXIS_KEY_HANDLE}, // 18 VOL-
+    {0x8B, 0x00, 1, DAXIS_KEY_HANDLE}, // 19 VOICE
+    {0x01, 0x00, 1, DAXIS_KEY_HANDLE}, // 20 CH-
+
+    {0x7C, 0x00, 1, DAXIS_KEY_HANDLE}, // 21 HOME
+    {0x40, 0x00, 1, DAXIS_KEY_HANDLE}, // 22 UP
+    {0x43, 0x00, 1, DAXIS_KEY_HANDLE}, // 23 SETTING
+    {0x07, 0x00, 1, DAXIS_KEY_HANDLE}, // 24 LEFT
+    {0x06, 0x00, 1, DAXIS_KEY_HANDLE}, // 25 RIGHT
+
+    {0x28, 0x00, 1, DAXIS_KEY_HANDLE}, // 26 BACK
+    {0x41, 0x00, 1, DAXIS_KEY_HANDLE}, // 27 DOWN
+    {0xAB, 0x00, 1, DAXIS_KEY_HANDLE}, // 28 GUIDE
+    {0x56, 0x00, 1, DAXIS_KEY_HANDLE}, // 29 netflix
+    {0x0B, 0x00, 1, DAXIS_KEY_HANDLE}, // 30 INPUT
+
+    {0x5C, 0x00, 1, DAXIS_KEY_HANDLE}, // 31 amazon 
+    {0x72, 0x00, 1, DAXIS_KEY_HANDLE}, // 32 RED
+    {0x71, 0x00, 1, DAXIS_KEY_HANDLE}, // 33 GREEN
+    {0x63, 0x00, 1, DAXIS_KEY_HANDLE}, // 34 YELLOW
+    {0x61, 0x00, 1, DAXIS_KEY_HANDLE}, // 35 BLUE
+    {0xB0, 0x00, 1, DAXIS_KEY_HANDLE}, // 36PAUSE
+    {0xBA, 0x00, 1, DAXIS_KEY_HANDLE}, // 37ZANTING
+    {0xAF, 0x00, 1, DAXIS_KEY_HANDLE}, // 38 LME ZOOM
+    {0x44, 0x00, 1, DAXIS_KEY_HANDLE}, // 39 OK -->PAIR 83
+
+
+};
+
+static const uint8_t IRKeyBuf[][1] = {
+    {0x00}, // 0
+
+    {0x08}, // 1 POWER
+    {0xDE}, // 2 STB
+    {0x11}, // 3 '1'
+    {0x12}, // 4 '2'
+    {0x13}, // 5 '3'
+
+    {0x14}, // 6 '4'
+    {0x15}, // 7 '5'
+    {0x16}, // 8 '6'
+    {0x17}, // 9 '7'
+    {0x18}, // 10 '8'
+
+    {0x19}, // 11 '9'
+    {0x4C}, // 12 LIST
+    {0x10}, // 13 '0'
+    {0xDE}, // 14 '...'
+    {0x02}, // 15 VOL+
+
+    {0x09}, // 16 MUTE
+    {0x00}, // 17 CH+
+    {0x03}, // 18 VOL-
+    {0xDE}, // 19 VOICE
+    {0x01}, // 20 CH-
+
+    {0x7C}, // 21 HOME
+    {0x40}, // 22 UP
+    {0x43}, // 23 SETTING
+    {0x07}, // 24 LEFT
+    {0x06}, // 25 RIGHT
+
+    {0x28}, // 26 BACK
+    {0x41}, // 27 DOWN
+    {0xAB}, // 28 GUIDE
+    {0x56}, // 29 NETLIX
+    {0x0B}, // 30 INPUT
+
+    {0x5C}, // 31 AMAZON
+    {0x72}, // 32 RED
+    {0x71}, // 33 GREEN
+    {0x63}, // 34 YELLOW
+    {0x61}, // 35 BLUE
+    {0xB0}, // 36 PAUSE
+    {0xBA}, // 37 ZANTING
+    {0xDE}, // 38 LE ZOON
+    {0x44}, // 39 OK -->PAIR 83
+};
 #endif
 /// 总计：301条（1 + 1 + 7 + 7 + 8 + 10 + 13 + 12 + 22 + 42 + 39 + 30 + 43 + 35 + 14 + 9 + 5 + 3）
 const static uint8_t head_freq_buf[] =
@@ -1058,7 +1163,8 @@ void update_voice_packet(uint8_t *pkt)
             }
             else if (len == 123)
             {
-                pkt[0] = DVOICE_HANDLE; /// handle
+                // pkt[0] = DVOICE_HANDLE; /// handle
+                pkt[0] = AUDIO_SNED_HANDLE; /// handle
             }
             pkt[1] = len; /// len
         }
@@ -1161,7 +1267,10 @@ static void update_axis_2_usr_data(int16_t *acc_in, int16_t *gyro_in)
 {
     int16_t gyro_out[3];
     float gyro[3], acc[3];
+    //DEBUG_LOG_STRING("acc_in [%d] [%d] [%d] gyro_in[%d][%d] [%d]\r\n",acc_in[0],acc_in[1],acc_in[2],gyro_in[0],gyro_in[1], gyro_in[2]);
     auto_calibration_axis(acc_in, gyro_in, gyro_out);
+    //DEBUG_LOG_STRING("1acc_in [%d] [%d] [%d] gyro_in[%d][%d] [%d] acclsb %d\r\n",acc_in[0],acc_in[1],acc_in[2],gyro_in[0],gyro_in[1], gyro_in[2],get_acc_lsb_div());
+    //DEBUG_LOG_STRING("get_acc_lsb_div = %d get_gyro_lsb_div = %d\r\n",get_acc_lsb_div(),get_gyro_lsb_div());
     acc[0] = acc_in[0] * (1.0f / get_acc_lsb_div()) * AXRATIO * G_CONST_VALUE;
     acc[1] = acc_in[1] * (1.0f / get_acc_lsb_div()) * AYRATIO * G_CONST_VALUE;
     acc[2] = acc_in[2] * (1.0f / get_acc_lsb_div()) * AZRATIO * G_CONST_VALUE;
@@ -1169,7 +1278,7 @@ static void update_axis_2_usr_data(int16_t *acc_in, int16_t *gyro_in)
     gyro[0] = gyro_out[0] * (1.0f / get_gyro_lsb_div()) * GYXRATIO * GYRO_CONST_VALUE;
     gyro[1] = gyro_out[1] * (1.0f / get_gyro_lsb_div()) * GYYRATIO * GYRO_CONST_VALUE;
     gyro[2] = gyro_out[2] * (1.0f / get_gyro_lsb_div()) * GYZRATIO * GYRO_CONST_VALUE;
-
+   // DEBUG_LOG_STRING("222 acc [%d] [%d] [%d] gyro_in[%d][%d] [%d]\r\n",acc[0],acc[1],acc[2],gyro[0],gyro[1], gyro[2]);
     /// ax
     usr_axis_key_buf[ACC_GYRO_FRM_AX_H] = (((int16_t)gyro[0]) >> 8) & 0xff;
     usr_axis_key_buf[ACC_GYRO_FRM_AX_L] = (((int16_t)gyro[0]) >> 0) & 0xff;
@@ -1679,6 +1788,7 @@ static void keyvalue_handle(key_report_t *key_report)
     {
         keynum = key_report->keynum_report_buf[0] + key_report->keynum_report_buf[1] + key_report->keynum_report_buf[2] + key_report->keynum_report_buf[3] + key_report->keynum_report_buf[4] + key_report->keynum_report_buf[5];
 
+        factory_KeyProcess(keynum==APP_KEY_IDX_VOICE?0xff:keynum);
         DEBUG_LOG_STRING("keynum[%d]\r\n", keynum);
         /*pwr ir*/
         if (keynum == APP_KEY_IDX_PWR) /// pwr
@@ -1942,6 +2052,7 @@ static const uint8_t unknow_1byte_17_2_rsp[] = {
 void Write_DataParse(const ATT_TABLE_TYPE *table, uint8_t *data, uint8_t len)
 {
     DEBUG_LOG_STRING("WRITE HANDLE: %d  LEN: %d\r\n", table->handle, len);
+    factory_WriteDataParse(table->handle, data, len);
     // DEBUG_LOG_STRING("data %d \r\n", data[0]);
     if (table->handle == 44)
     {        
@@ -2241,6 +2352,8 @@ void app_init(void)
 
         keyscan_init(KEY_MODE_SINGLE, keyvalue_handle);
 
+        check_mouse_chip_id();
+        
         encode_timer_init();
         app_rpt_timeout_timernum = swtimer_add(app_rpt_timeout_handle);
         brand_pressed_timernum = swtimer_add(key_pressed_handle);

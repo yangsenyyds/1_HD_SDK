@@ -127,12 +127,15 @@ void encode_timer_init(void)
 {
     GPIO_Init(ENCODE_SA_PIN, GPIO_Mode_Deinit);
     GPIO_Init(ENCODE_SB_PIN, GPIO_Mode_Deinit);
+#ifdef ENCODE_PWR_PIN
     GPIO_Init(ENCODE_PWR_PIN, GPIO_Mode_Out_High);
-
+#endif
     app_queue_insert(encode_timer_cb);
 }
 void encode_timer_deinit(void) {
+#ifdef ENCODE_PWR_PIN
     GPIO_Init(ENCODE_PWR_PIN, GPIO_Mode_Out_Low);
+#endif
     GPIO_Init(ENCODE_SA_PIN, GPIO_Mode_Out_Low);
     GPIO_Init(ENCODE_SB_PIN, GPIO_Mode_Out_Low);
 }

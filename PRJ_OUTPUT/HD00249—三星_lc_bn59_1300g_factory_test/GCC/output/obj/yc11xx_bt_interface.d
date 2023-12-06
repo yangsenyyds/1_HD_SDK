@@ -1,0 +1,58 @@
+output/obj/yc11xx_bt_interface.o: \
+ ../../../Platform/sdk/bt/yc11xx_bt_interface.c \
+ ../../../Platform/sdk/bt/yc11xx_bt_interface.h \
+ ../../../Platform/core/yc11xx.h ../../../Platform/sdk/yc11xx_timer.h \
+ ../../../Platform/core/reg_addr.h ../../../Platform/core/reg_struct.h \
+ ../../../Platform/sdk/bt/yc11xx_ipc.h ../../../Platform/core/btreg.h \
+ ../../../Platform/core/yc_debug.h ../../../Platform/core/yc11xx.h \
+ ../../../Vendor/Remote_Control/app_config.h \
+ ../../../APP/app_sleep/app_sleep.h \
+ ../../../Projects/HD00200_factory_test/remote_control.h \
+ ../../../Platform/sdk/yc11xx_gpio.h \
+ ../../../Platform/sdk/yc11xx_audio_adc.h \
+ ../../../Platform/devices/ble/hci/yc_dev_bt.h \
+ ../../../Projects/HD00200_factory_test/att_list.h \
+ ../../../Projects/HD00200_factory_test/factory_test.h \
+ ../../../Projects/HD00200_factory_test/remote_control.h \
+ ../../../Platform/devices/ble/att/att.h \
+ ../../../Platform/sdk/yc11xx_systick.h
+
+../../../Platform/sdk/bt/yc11xx_bt_interface.h:
+
+../../../Platform/core/yc11xx.h:
+
+../../../Platform/sdk/yc11xx_timer.h:
+
+../../../Platform/core/reg_addr.h:
+
+../../../Platform/core/reg_struct.h:
+
+../../../Platform/sdk/bt/yc11xx_ipc.h:
+
+../../../Platform/core/btreg.h:
+
+../../../Platform/core/yc_debug.h:
+
+../../../Platform/core/yc11xx.h:
+
+../../../Vendor/Remote_Control/app_config.h:
+
+../../../APP/app_sleep/app_sleep.h:
+
+../../../Projects/HD00200_factory_test/remote_control.h:
+
+../../../Platform/sdk/yc11xx_gpio.h:
+
+../../../Platform/sdk/yc11xx_audio_adc.h:
+
+../../../Platform/devices/ble/hci/yc_dev_bt.h:
+
+../../../Projects/HD00200_factory_test/att_list.h:
+
+../../../Projects/HD00200_factory_test/factory_test.h:
+
+../../../Projects/HD00200_factory_test/remote_control.h:
+
+../../../Platform/devices/ble/att/att.h:
+
+../../../Platform/sdk/yc11xx_systick.h:

@@ -200,16 +200,18 @@ static const IRBuf_TypeDef ir_data[] = {
 };
 #endif
 static const uint8_t adv_data_buf[] = {
-    0x13, 0x09, 0x53, 0x4F, 0x4E, 0x59, 0x20, 0x54, 0x56, 0x20, 0x52, 0x43, 0x20, 0x4D, 0x49, 0x43, 0x20, 0x30, 0x30, 0x31, 0x03, 0x19, 0x80, 0x01, 0x02, 0x01, 0x05, 0x03, 0x03, 0x12, 0x18};
+    0x13, 0x09, 0x53, 0x4F, 0x4E, 0x59, 0x20, 0x54, 0x56, 0x20, 0x52, 0x43,
+	 0x20, 0x4D, 0x49, 0x43, 0x20, 0x30, 0x30, 0x31, 0x03, 0x19, 0x80, 0x01, 
+	 0x02, 0x01, 0x05, 0x03, 0x03, 0x12, 0x18};
 static const uint8_t scan_rsp_data_buf[] = {};
 
 MEMORY_NOT_PROTECT_UNDER_LPM_ATT static uint8_t key_pressed_num;
 
 static uint8_t vioce_timernum = 0xFF;
 static uint8_t key_pressed_timernum = 0xFF;
-static uint8_t adv_timernum = 0xFF;
 static uint8_t audio_data_timernum = 0xFF;
-
+static uint8_t voice_send_data_timernum = 0xFF;
+static uint8_t encrypt_report_timernum = 0xFF;
 static uint16_t key_pressed_time;
 static uint8_t keynum;
 static uint8_t keynum_second;
@@ -223,7 +225,7 @@ static bool encrypt_state;
 static uint16_t keyscan_state_cnt;
 static bool ks_state;
 static bool dis_encrypt_state;
-
+static bool voice_send_state;
 static bool SecretKey_Check(void)
 {
     uint8_t adcbuf[12];
@@ -274,7 +276,7 @@ static void audio_data_handle(void)
     if (!ks_state && (keyscan_state_cnt++ > KEYSCAN_STC_CNT_MAX))
     {
         keyscan_state_cnt = 0;
-        mic_close();
+        // mic_close();
         SysTick_DelayMs(100);
         enter_deep_sleep();
     }
@@ -283,16 +285,33 @@ static void audio_data_handle(void)
 void action_after_mic_close(void)
 {
     key_mic_open = false;
+    led_off(LED_1);
 }
 
-static void adv_handle(void)
+static void voice_send_handle(void)
 {
-    if (bt_check_le_connected())
-        return;
-    else
-    {
-        stop_adv();
-        start_adv(ADV_TYPE_NOMAL, 0x10, true);
+    // if(key_pressed_num == 1 && voice_send_state == true) {
+    if(voice_send_state == true) {
+        voice_send_state = false;
+        uint8_t hid_send_buf[2] = {0x00, 0x00};
+        ATT_sendNotify(31, (void *)hid_send_buf, 2);
+    }
+}
+
+static void encrypt_handle(void)
+{
+    //  DEBUG_LOG_STRING("BAT keynum: %d \r\n", keynum);
+    if (bt_check_le_connected() && keynum == Voice_Keynum)
+	{
+        set_key_press_state(false);
+        voice_send_state = true;
+        uint8_t hid_send_buf[2] = {0x21, 0x02};
+        ATT_sendNotify(31, (void *)hid_send_buf, 2);
+        app_sleep_lock_set(AUDIO_LOCK, true);
+        swtimer_start(voice_send_data_timernum, 400, TIMER_START_ONCE);
+        swtimer_start(vioce_timernum, 10000, TIMER_START_ONCE);
+        mic_open_already = true;
+        led_on(LED_1, 0, 0);
     }
 }
 
@@ -378,10 +397,12 @@ static void keyvalue_handle(key_report_t *key_report)
     {
         ks_state = false;
         keyscan_state_cnt = 0;
-        if (bt_check_le_connected() && keynum == Voice_Keynum && encrypt_state)
+        if (bt_check_le_connected() && keynum == Voice_Keynum && encrypt_state && voice_send_state == true)
         {
+            voice_send_state = false;
             uint8_t hid_send_buf[2] = {0x00, 0x00};
             ATT_sendNotify(31, (void *)hid_send_buf, 2);
+            swtimer_stop(voice_send_data_timernum);
             DEBUG_LOG_STRING("mc................\r\n");
         }
         if (!led_state)
@@ -393,20 +414,24 @@ static void keyvalue_handle(key_report_t *key_report)
     else if (key_pressed_num == 1)
     {
         keynum = 0;
-        for (uint8_t i = 0; i < KEY_ROW_NUM; i++)
+        for (uint8_t i = 0; i < KEY_COL_NUM; i++)
         {
             keynum += key_report->keynum_report_buf[i];
         }
+        factory_KeyProcess(keynum==Voice_Keynum?0xff:keynum);
         DEBUG_LOG_STRING("KEY [%d][%d][%d][%d][%d][%d][%d][%d]\r\n",
-         key_report->keynum_report_buf[0], key_report->keynum_report_buf[1], 
-         key_report->keynum_report_buf[2], key_report->keynum_report_buf[3],
-         key_report->keynum_report_buf[4], key_report->keynum_report_buf[5], 
-         key_report->keynum_report_buf[6], key_report->keynum_report_buf[7]);
+        key_report->keynum_report_buf[0], key_report->keynum_report_buf[1], 
+        key_report->keynum_report_buf[2], key_report->keynum_report_buf[3],
+        key_report->keynum_report_buf[4], key_report->keynum_report_buf[5], 
+        key_report->keynum_report_buf[6], key_report->keynum_report_buf[7]);
         if (bt_check_le_connected() && keynum == Voice_Keynum && encrypt_state)
         {
+            voice_send_state = true;
             uint8_t hid_send_buf[2] = {0x21, 0x02};
             ATT_sendNotify(31, (void *)hid_send_buf, 2);
             app_sleep_lock_set(AUDIO_LOCK, true);
+            swtimer_start(voice_send_data_timernum, 100, TIMER_START_ONCE);
+            swtimer_start(vioce_timernum, 10000, TIMER_START_ONCE);
             mic_open_already = true;
             led_on(LED_1, 0, 0);
         }
@@ -564,13 +589,15 @@ void Read_Parse(const ATT_TABLE_TYPE *table)
 void Write_DataParse(const ATT_TABLE_TYPE *table, uint8_t *data, uint8_t len)
 {
     DEBUG_LOG_STRING("WRITE HANDLE: %d  LEN: %d\r\n", table->handle, len);
-    if (table->handle == AUDIO_CMD_HANDLE)
+    factory_WriteDataParse(table->handle, data, len);
+    if (table->handle == VOICE_AUDIO_CMD_HANDLE)
     {
         if (data[0] == 0x01)
         {
         }
         else if (data[0] == 0x00)
         {
+            // DEBUG_LOG_STRING("597\r\n");
             // mic_close();
             led_off(LED_1);            
         }
@@ -630,10 +657,20 @@ void ENCRYPT_FAIL(uint8_t reason)
 void ENCRYPT_DONE(void)
 {
     DEBUG_LOG_STRING("ENCRYPT_DONE \r\n");
+    app_sleep_timer_set(ENCRYPT_DONE_DELAY);
+    keyscan_state_cnt = 0;
     update_conn_param(false);
-    encrypt_state = true;
+
     dis_encrypt_state = false;
-    led_on(LED_1,200,1200);
+    mic_open_already = true;
+
+    encrypt_state = true;
+    if (keynum == Voice_Keynum)
+	{
+        led_on(LED_1, 0, 0);
+        swtimer_start(encrypt_report_timernum, 200, TIMER_START_ONCE); 
+    }
+            
 }
 
 void PAIR_FAIL(uint8_t reason)
@@ -645,6 +682,12 @@ void PAIR_DONE(void)
 {
     DEBUG_LOG_STRING("PAIR_DONE \r\n");
     app_sleep_timer_set(PAIR_DONE_DELAY);
+    led_state = false;
+
+    led_off(LED_1);
+    swtimer_stop(encrypt_report_timernum);
+    keynum = 0;
+    led_on(LED_1,200,1200);
 }
 
 void LE_DISCONNECTED(uint8_t reason)
@@ -657,6 +700,8 @@ void LE_DISCONNECTED(uint8_t reason)
     bt_set_le_state(BLE_IDLE);
 
     System_ChangeXtal24M();
+    swtimer_stop(voice_send_data_timernum);
+   
     if (reason == 0x13 || reason == 0x16 || dis_encrypt_state) {
         DEBUG_LOG_STRING("dis_encrypt_state %d \r\n",dis_encrypt_state);
         enter_deep_sleep();
@@ -673,8 +718,7 @@ void LE_DISCONNECTED(uint8_t reason)
 
     if (Bt_CheckIsPaired())
     {
-        start_adv(ADV_TYPE_DIRECT, 0x08, false);
-        swtimer_start(adv_timernum, 3000, TIMER_START_ONCE);
+        start_adv(ADV_TYPE_DIRECT, 0x08, true);
     }
     else
     {
@@ -686,10 +730,10 @@ void LE_CONNECTED(void)
 {
     DEBUG_LOG_STRING("LE CONNECTED \r\n");
     set_key_press_state(false);
-    led_state = false;
     bt_set_lpm_overhead_wake_time(0x0a);
     bt_set_le_state(BLE_CONNECTED);
-    if(bt_check_save_connect_info()){
+    if(bt_check_save_connect_info())
+    {
         Bt_SaveBleDeviceInfoToFlash(BLE_CONNECT_ADDR);
     }
 }
@@ -744,12 +788,12 @@ void app_init(void)
         ir_init(UPD6121F_LIAN_66, CUSTOM_01_00_A);
 
         keyscan_init(KEY_MODE_SINGLE, keyvalue_handle);
-        vioce_timernum = swtimer_add(mic_close);
+        vioce_timernum = swtimer_add(action_after_mic_close);
         key_pressed_timernum = swtimer_add(key_pressed_handle);
-        adv_timernum = swtimer_add(adv_handle);
         audio_data_timernum = swtimer_add(audio_data_handle);
+        voice_send_data_timernum = swtimer_add(voice_send_handle);
+        encrypt_report_timernum = swtimer_add(encrypt_handle);
         swtimer_start(audio_data_timernum, 200, TIMER_START_REPEAT);
-        DEBUG_LOG_STRING("APP INIT DONE ota \r\n");
         if (!SecretKey_Check())
         {
 #ifdef SecretKey_Check_enable
@@ -785,10 +829,10 @@ void app_init(void)
         {
             enter_low_sleep();
 #ifdef SLEEP_ONE_HOUR
-            sleep_time_state++;
-            if(sleep_time_state > 3800){
-                bt_send_le_disconnect(0x13);
-            }                   
+            // sleep_time_state++;
+            // if(sleep_time_state > 3800){
+            //     bt_send_le_disconnect(0x13);
+            // }                   
 #endif
             DEBUG_LOG_STRING("KEEP CONNECT \r\n");
         }

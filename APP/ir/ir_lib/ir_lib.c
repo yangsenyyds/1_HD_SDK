@@ -46,6 +46,7 @@ static const uint16_t CUSTOM_00_BF_BUF[] = {0X00, 0xBF};
 static const uint16_t CUSTOM_00_DF_BUF[] = {0X00, 0xDF};
 static const uint16_t CUSTOM_00_D9_BUF[] = {0X00, 0xD9};
 static const uint16_t CUSTOM_00_EF_BUF[] = {0X00, 0xEF};
+static const uint16_t CUSTOM_00_F6_BUF[] = {0X00, 0xF6};
 static const uint16_t CUSTOM_00_F7_BUF[] = {0X00, 0xF7};
 static const uint16_t CUSTOM_00_FB_BUF[] = {0X00, 0xFB};
 static const uint16_t CUSTOM_00_FD_BUF[] = {0X00, 0xFD};
@@ -54,10 +55,12 @@ static const uint16_t CUSTOM_01_00_BUF[] = {0X01, 0x00};
 static const uint16_t CUSTOM_01_01_BUF[] = {0X01, 0x01};
 static const uint16_t CUSTOM_01_FE_BUF[] = {0X01, 0xFE};
 static const uint16_t CUSTOM_02_00_BUF[] = {0X02, 0x00};
+static const uint16_t CUSTOM_02_1D_BUF[] = {0X02, 0x1D};
 static const uint16_t CUSTOM_02_BD_BUF[] = {0X02, 0xBD};
 static const uint16_t CUSTOM_02_FD_BUF[] = {0X02, 0xFD};
 static const uint16_t CUSTOM_02_7D_BUF[] = {0X02, 0x7D};
 static const uint16_t CUSTOM_02_7F_BUF[] = {0X02, 0x7F};
+static const uint16_t CUSTOM_02_FF_BUF[] = {0X02, 0xFF};
 static const uint16_t CUSTOM_02_F5_BUF[] = {0X02, 0xF5};
 static const uint16_t CUSTOM_03_00_BUF[] = {0X03, 0x00};
 static const uint16_t CUSTOM_03_AC_BUF[] = {0X03, 0xAC};
@@ -77,6 +80,7 @@ static const uint16_t CUSTOM_08_08_BUF[] = {0X08, 0x08};
 static const uint16_t CUSTOM_08_0B_BUF[] = {0X08, 0x0B};
 static const uint16_t CUSTOM_08_13_BUF[] = {0X08, 0x13};
 static const uint16_t CUSTOM_08_F7_BUF[] = {0X08, 0xF7};
+static const uint16_t CUSTOM_09_F6_BUF[] = {0X09, 0xF6};
 static const uint16_t CUSTOM_0A_35_BUF[] = {0X0A, 0x35};
 static const uint16_t CUSTOM_0A_00_BUF[] = {0X0A, 0x00};
 static const uint16_t CUSTOM_0A_0A_BUF[] = {0X0A, 0x0A};
@@ -116,6 +120,7 @@ static const uint16_t CUSTOM_33_CC_BUF[] = {0X33, 0xCC};
 static const uint16_t CUSTOM_35_50_BUF[] = {0X35, 0x50};
 static const uint16_t CUSTOM_38_C7_BUF[] = {0X38, 0xC7};
 static const uint16_t CUSTOM_3F_C0_BUF[] = {0X3F, 0xC0};
+static const uint16_t CUSTOM_3F_3F_BUF[] = {0X3F, 0x3F};
 static const uint16_t CUSTOM_40_02_BUF[] = {0X40, 0x02};
 static const uint16_t CUSTOM_40_20_BUF[] = {0X40, 0x20};
 static const uint16_t CUSTOM_40_40_BUF[] = {0X40, 0x40};
@@ -124,6 +129,7 @@ static const uint16_t CUSTOM_42_BD_BUF[] = {0X42, 0xBD};
 static const uint16_t CUSTOM_42_FD_BUF[] = {0X42, 0xFD};
 static const uint16_t CUSTOM_43_00_BUF[] = {0X43, 0x00};
 static const uint16_t CUSTOM_45_16_BUF[] = {0X45, 0x16};
+static const uint16_t CUSTOM_23_45_BUF[] = {0X23, 0x45};
 static const uint16_t CUSTOM_45_BC_BUF[] = {0X45, 0xBC};
 static const uint16_t CUSTOM_46_00_BUF[] = {0X46, 0x00};
 static const uint16_t CUSTOM_47_00_BUF[] = {0X47, 0x00};
@@ -132,12 +138,16 @@ static const uint16_t CUSTOM_4F_50_BUF[] = {0X4F, 0x50};
 static const uint16_t CUSTOM_50_AD_BUF[] = {0X50, 0xAD};
 static const uint16_t CUSTOM_50_AF_BUF[] = {0X50, 0xAF};
 static const uint16_t CUSTOM_54_00_BUF[] = {0X54, 0x00};
+static const uint16_t CUSTOM_58_A7_BUF[] = {0X58, 0xA7};
 static const uint16_t CUSTOM_5A_49_BUF[] = {0X5A, 0x49};
 static const uint16_t CUSTOM_60_9F_BUF[] = {0X60, 0x9F};
+static const uint16_t CUSTOM_60_9D_BUF[] = {0X60, 0x9D};
 static const uint16_t CUSTOM_61_63_BUF[] = {0X61, 0x63};
+static const uint16_t CUSTOM_6A_00_BUF[] = {0X6A, 0x00};
 static const uint16_t CUSTOM_69_F1_BUF[] = {0X69, 0xF1};
 static const uint16_t CUSTOM_71_8E_BUF[] = {0X71, 0x8E};
 static const uint16_t CUSTOM_73_00_BUF[] = {0X73, 0x00};
+static const uint16_t CUSTOM_76_7B_BUF[] = {0X76, 0x7B};
 static const uint16_t CUSTOM_77_00_BUF[] = {0X77, 0x00};
 static const uint16_t CUSTOM_77_88_BUF[] = {0X77, 0x88};
 static const uint16_t CUSTOM_7D_00_BUF[] = {0X7D, 0x00};
@@ -166,6 +176,7 @@ static const uint16_t CUSTOM_95_6A_BUF[] = {0X95, 0x6A};
 static const uint16_t CUSTOM_96_69_BUF[] = {0X96, 0x69};
 static const uint16_t CUSTOM_97_00_BUF[] = {0X97, 0x00};
 static const uint16_t CUSTOM_A0_5F_BUF[] = {0XA0, 0x5F};
+static const uint16_t CUSTOM_A0_87_BUF[] = {0XA0, 0x87};
 static const uint16_t CUSTOM_A4_00_BUF[] = {0XA4, 0x00};
 static const uint16_t CUSTOM_AA_03_BUF[] = {0XAA, 0x03};
 static const uint16_t CUSTOM_AA_55_BUF[] = {0XAA, 0x55};
@@ -179,6 +190,7 @@ static const uint16_t CUSTOM_EE_00_BUF[] = {0XEE, 0x00};
 static const uint16_t CUSTOM_DC_00_BUF[] = {0XDC, 0x00};
 static const uint16_t CUSTOM_DE_D6_BUF[] = {0XDE, 0xD6};
 static const uint16_t CUSTOM_F4_00_BUF[] = {0XF4, 0x00};
+static const uint16_t CUSTOM_FE_01_BUF[] = {0XFE, 0x01};
 
 static const uint16_t CUSTOM_0000_B000_BUF[] = {0X0000, 0xB000};
 static const uint16_t CUSTOM_0000_FFFF_BUF[] = {0X0000, 0xFFFF};
@@ -765,7 +777,14 @@ static const uint16_t GD_2000_94_BUF[] = {
     560, 0, 30000,
     1, rpt_UPD612G2_9000, 38000, 1,
 };
-
+static const uint16_t XY_JAECS_95_BUF[] = {
+    COSTOM1_0_CODE1, 0x8080,
+    2700, 2560,
+    1200, 1200,
+    1200, 2900,
+    1200, 0, 57760,
+    0, 0, 38000, 0,
+};
 static const uint16_t DVB_40BIT_100_BUF[] = {
     COSTOM2_CODE1_0, 0xf8f0,
     3600, 1800,
@@ -865,6 +884,9 @@ uint16_t * get_ir_customer(customer_code_t customer)
     case CUSTOM_00_EF_A:
         ir_customer = (uint16_t *)CUSTOM_00_EF_BUF;
         break;
+    case CUSTOM_00_F6_A:
+        ir_customer = (uint16_t *)CUSTOM_00_F6_BUF;
+        break;         
     case CUSTOM_00_F7_A:
         ir_customer = (uint16_t *)CUSTOM_00_F7_BUF;
         break;
@@ -889,6 +911,9 @@ uint16_t * get_ir_customer(customer_code_t customer)
     case CUSTOM_02_00_A:
         ir_customer = (uint16_t *)CUSTOM_02_00_BUF;
         break;
+    case CUSTOM_02_1D_A:
+        ir_customer = (uint16_t *)CUSTOM_02_1D_BUF;
+        break;        
     case CUSTOM_02_BD_A:
         ir_customer = (uint16_t *)CUSTOM_02_BD_BUF;
         break;
@@ -903,7 +928,10 @@ uint16_t * get_ir_customer(customer_code_t customer)
         break;        
     case CUSTOM_02_7F_A:
         ir_customer = (uint16_t *)CUSTOM_02_7F_BUF;
-        break;        
+        break;
+    case CUSTOM_02_FF_A:
+        ir_customer = (uint16_t *)CUSTOM_02_FF_BUF;
+        break;              
     case CUSTOM_03_00_A:
         ir_customer = (uint16_t *)CUSTOM_03_00_BUF;
         break;
@@ -958,6 +986,9 @@ uint16_t * get_ir_customer(customer_code_t customer)
     case CUSTOM_08_F7_A:
         ir_customer = (uint16_t *)CUSTOM_08_F7_BUF;
         break;
+    case CUSTOM_09_F6_A:
+        ir_customer = (uint16_t *)CUSTOM_09_F6_BUF;
+        break;        
     case CUSTOM_0A_35_A:
         ir_customer = (uint16_t *)CUSTOM_0A_35_BUF;
         break;
@@ -1051,6 +1082,9 @@ uint16_t * get_ir_customer(customer_code_t customer)
     case CUSTOM_22_11_A:
         ir_customer = (uint16_t *)CUSTOM_22_11_BUF;
         break;
+    case CUSTOM_23_45_A:
+        ir_customer = (uint16_t *)CUSTOM_23_45_BUF;
+        break;          
     case CUSTOM_24_DB_A:
         ir_customer = (uint16_t *)CUSTOM_24_DB_BUF;
         break;
@@ -1075,6 +1109,9 @@ uint16_t * get_ir_customer(customer_code_t customer)
     case CUSTOM_3F_C0_A:
         ir_customer = (uint16_t *)CUSTOM_3F_C0_BUF;
         break;
+    case CUSTOM_3F_3F_A:
+        ir_customer = (uint16_t *)CUSTOM_3F_3F_BUF;
+        break;        
     case CUSTOM_40_02_A:
         ir_customer = (uint16_t *)CUSTOM_40_02_BUF;
         break;
@@ -1099,6 +1136,7 @@ uint16_t * get_ir_customer(customer_code_t customer)
     case CUSTOM_45_16_A:
         ir_customer = (uint16_t *)CUSTOM_45_16_BUF;
         break;
+      
     case CUSTOM_45_BC_A:
         ir_customer = (uint16_t *)CUSTOM_45_BC_BUF;
         break;
@@ -1123,15 +1161,24 @@ uint16_t * get_ir_customer(customer_code_t customer)
     case CUSTOM_54_00_A:
         ir_customer = (uint16_t *)CUSTOM_54_00_BUF;
         break;
+    case CUSTOM_58_A7_A:
+        ir_customer = (uint16_t *)CUSTOM_58_A7_BUF;
+        break;        
     case CUSTOM_5A_49_A:
         ir_customer = (uint16_t *)CUSTOM_5A_49_BUF;
         break;
     case CUSTOM_60_9F_A:
         ir_customer = (uint16_t *)CUSTOM_60_9F_BUF;
         break;
+    case CUSTOM_60_9D_A:
+        ir_customer = (uint16_t *)CUSTOM_60_9D_BUF;
+        break;        
     case CUSTOM_61_63_A:
         ir_customer = (uint16_t *)CUSTOM_61_63_BUF;
         break;
+    case CUSTOM_6A_00_A:
+        ir_customer = (uint16_t *)CUSTOM_6A_00_BUF;
+        break;        
     case CUSTOM_69_F1_A:
         ir_customer = (uint16_t *)CUSTOM_69_F1_BUF;
         break;
@@ -1141,6 +1188,9 @@ uint16_t * get_ir_customer(customer_code_t customer)
     case CUSTOM_73_00_A:
         ir_customer = (uint16_t *)CUSTOM_73_00_BUF;
         break;
+    case CUSTOM_76_7B_A:
+        ir_customer = (uint16_t *)CUSTOM_76_7B_BUF;
+        break;        
     case CUSTOM_77_00_A:
         ir_customer = (uint16_t *)CUSTOM_77_00_BUF;
         break;
@@ -1225,6 +1275,9 @@ uint16_t * get_ir_customer(customer_code_t customer)
     case CUSTOM_A0_5F_A:
         ir_customer = (uint16_t *)CUSTOM_A0_5F_BUF;
         break;
+    case CUSTOM_A0_87_A:
+        ir_customer = (uint16_t *)CUSTOM_A0_87_BUF;
+        break;        
     case CUSTOM_A4_00_A:
         ir_customer = (uint16_t *)CUSTOM_A4_00_BUF;
         break;
@@ -1264,6 +1317,9 @@ uint16_t * get_ir_customer(customer_code_t customer)
     case CUSTOM_F4_00_A:
         ir_customer = (uint16_t *)CUSTOM_F4_00_BUF;
         break;
+    case CUSTOM_FE_01_A:
+        ir_customer = (uint16_t *)CUSTOM_FE_01_BUF;
+        break;        
 
     case CUSTOM_0000_B000_A:
         ir_customer = (uint16_t *)CUSTOM_0000_B000_BUF;
@@ -1622,6 +1678,9 @@ uint16_t *get_ir_brand(ir_type_t type)
     case GD_2000_94:
         ir_brand = (uint16_t *)GD_2000_94_BUF;
         break;
+    case XY_JAECS_95:
+        ir_brand = (uint16_t *)XY_JAECS_95_BUF;
+        break;        
     case DVB_40BIT_100:
         ir_brand = (uint16_t *)DVB_40BIT_100_BUF;
         break;

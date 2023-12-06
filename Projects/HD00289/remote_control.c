@@ -406,6 +406,40 @@ static const uint8_t keyvalue_buf[] = {
     0x0b,  // vol- 21 
 
 };
+#elif (Project_key == 256)//sanxing tv plus netflix prime video
+static const uint8_t keyvalue_buf[] = {
+    0x00,
+
+    0x02,   // POWER 1
+    0xA0,   // voice
+    0xCE,   //...
+    0x12,   // ch+
+    0x60,   // up
+
+    0x62,  // right 6
+    0x68,  // ok
+    0xb9,  // Pause
+    0x65,  // left
+    0x4f,  // 中间
+
+    0xd2,  // 123 11
+    0x79,  // home
+    0x58,  // back
+    0x61,  // down
+    0xB4,  // samsung tv plus //上3
+
+    0x10,  // ch- 16
+
+    0xf4,  // prime vedeo //上 2  
+    
+    0xf3,  // netflix  //上1
+    
+    0x07,  // vol+
+    0x0f,  // mute
+
+    0x0b,  // vol- 21 
+
+};
 #elif (Project_key == 289)
 static const uint8_t keyvalue_buf[] = {
     0x00,

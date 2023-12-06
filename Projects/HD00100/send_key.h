@@ -2,7 +2,7 @@
 #define SEND_KEY_H
 #include <string.h>
 #include "remote_control.h"
-#define LG_Project  (100)
+#define LG_Project  (113)
 typedef struct
 {
     uint8_t keyvalue[2];

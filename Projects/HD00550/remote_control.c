@@ -774,7 +774,8 @@ void action_after_mic_close(void)
 
 static void voice_send_handle(void)
 {
-    if(key_pressed_num == 1 && voice_send_state == true) {
+    if(voice_send_state == true) {
+        DEBUG_LOG_STRING("voice send 00\r\n");
         voice_send_state = false;
         uint8_t hid_send_buf[2] = {0x00, 0x00};
         ATT_sendNotify(31, (void *)hid_send_buf, 2);
@@ -790,7 +791,7 @@ static void encrypt_handle(void)
         uint8_t hid_send_buf[2] = {0x21, 0x02};
         ATT_sendNotify(31, (void *)hid_send_buf, 2);
         app_sleep_lock_set(AUDIO_LOCK, true);
-        swtimer_start(voice_send_data_timernum, 300, TIMER_START_ONCE);
+        swtimer_start(voice_send_data_timernum, 400, TIMER_START_ONCE);
         swtimer_start(vioce_timernum, 10000, TIMER_START_ONCE);
         mic_open_already = true;
         led_on(LED_1, 0, 0);
@@ -807,6 +808,8 @@ static void key_pressed_handle(void)
 
             if (key_pressed_time == 3)
             {
+                keynum = 0;
+                keynum_second = 0;
                 key_pressed_time = 0;
                 led_state = true;
                 led_on(LED_1, 200, 60000);
@@ -887,11 +890,15 @@ static void keyvalue_handle(key_report_t *key_report)
     else if (key_pressed_num == 1)
     {
         keynum = 0;
-        for (uint8_t i = 0; i < KEY_ROW_NUM; i++)
+        for (uint8_t i = 0; i < KEY_COL_NUM; i++)
         {
             keynum += key_report->keynum_report_buf[i];
         }
-        DEBUG_LOG_STRING("KEY [%d][%d][%d][%d][%d][%d][%d][%d]\r\n", key_report->keynum_report_buf[0], key_report->keynum_report_buf[1], key_report->keynum_report_buf[2], key_report->keynum_report_buf[3], key_report->keynum_report_buf[4], key_report->keynum_report_buf[5]
+		factory_KeyProcess(keynum==Voice_Keynum?0xff:keynum);
+        DEBUG_LOG_STRING("KEY [%d][%d][%d][%d][%d][%d][%d][%d]\r\n", 
+		key_report->keynum_report_buf[0], key_report->keynum_report_buf[1], 
+		key_report->keynum_report_buf[2], key_report->keynum_report_buf[3], 
+		key_report->keynum_report_buf[4], key_report->keynum_report_buf[5]
         , key_report->keynum_report_buf[6],key_report->keynum_report_buf[7]);
         if (bt_check_le_connected() && keynum == Voice_Keynum && encrypt_state)
         {
@@ -1058,6 +1065,7 @@ void Read_Parse(const ATT_TABLE_TYPE *table)
 void Write_DataParse(const ATT_TABLE_TYPE *table, uint8_t *data, uint8_t len)
 {
     DEBUG_LOG_STRING("WRITE HANDLE: %d  LEN: %d\r\n", table->handle, len);
+	factory_WriteDataParse(table->handle, data, len);
     if (table->handle == AUDIO_CMD_HANDLE)
     {
         if (data[0] == 0x01)
@@ -1135,7 +1143,7 @@ void ENCRYPT_DONE(void)
     if (bt_check_le_connected() && keynum == Voice_Keynum)
 	{
         led_on(LED_1, 0, 0);
-        swtimer_start(encrypt_report_timernum, 100, TIMER_START_ONCE); 
+        swtimer_start(encrypt_report_timernum, 200, TIMER_START_ONCE); 
     }
             
 }

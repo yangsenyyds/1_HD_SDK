@@ -6,7 +6,19 @@
 #include "yc11xx_audio_adc.h"
 #include "yc_dev_bt.h"
 #include "att_list.h"
-#include "factory_test.h"
+#include "factory_test_off_line.h"
+
+#define LED_11            (1)
+#if (LED_11 == 1)
+#define LED_1_PIN   (GPIO_11)
+#else
+#define LED_1_PIN   (GPIO_8)
+#endif
+#define LED_2_PIN   (GPIO_6)
+#define LED_3_PIN   (GPIO_7)
+
+#define LED_ON      (GPIO_Mode_Out_Low)
+#define LED_OFF     (GPIO_Mode_Out_High)
 
 /* WATCH_DOG */
 #define FUNCTION_WATCH_DOG
@@ -54,12 +66,6 @@
 
 /* LED */
 
-#define LED_1_PIN   (GPIO_8)
-#define LED_2_PIN   (GPIO_6)
-#define LED_3_PIN   (GPIO_7)
-
-#define LED_ON      (GPIO_Mode_Out_Low)
-#define LED_OFF     (GPIO_Mode_Out_High)
 
 /* VOICE */
 // #define AUDIO_TEST_MODE  
@@ -69,10 +75,16 @@
 #define AUDIO_UART_RX_GPIO      (GPIO_11)
 #define AUDIO_UART_TX_GPIO      (DEBUG_GPIO_DEFINE)
 #endif
+#if 0
 #define AdcOutputMode   (ADC_SingleEndOutputWithCapacitor)
 #define AdcAnaSEWithCapacitor_VOLTAGE_GAIN  (20)
 #define AdcAnaDiffConfig_VOLTAGE_GAIN       (15)
+#else
+#define AdcOutputMode (ADC_DifferentialOutput)
 
+#define AdcAnaSEWithCapacitor_VOLTAGE_GAIN (26)
+#define AdcAnaDiffConfig_VOLTAGE_GAIN (20)
+#endif
 #define OPUS                    (1)
 
 #define MICRECORD_CACHE_NUM     (4)
@@ -91,7 +103,11 @@
 #define IR_IO           (GPIO_4)
 
 #define PWR_KEYNUM      (1)
+#if (Project_key == 620)
+#define VOL_UP_KEYNUM   (16)
+#else
 #define VOL_UP_KEYNUM   (15)
+#endif
 #define VOL_DOWN_KEYNUM (17)
 #define MUTE_KEYNUM     (14)
 
@@ -109,7 +125,7 @@ typedef enum {
     first_done = ir_mute + 0x8,
 } FlashRecordAddr_TypeDef; //存储数据需要 8字节
 
-
+extern const uint8_t product_key_s[];
 extern void action_after_led_blk(void);
 extern void update_conn_param(bool is_sleep);
 extern void Read_Blob_Parse(const ATT_TABLE_TYPE *table, uint16_t offset);

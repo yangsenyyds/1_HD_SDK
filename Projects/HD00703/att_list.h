@@ -99,8 +99,9 @@ typedef struct {
 #define UUID2ARRAY(uuid) uuid&0xff,uuid>>8
 
 #define FIRST_HANDLE	(1)
+#define LAST_HANDLE		(65532)
 // #define LAST_HANDLE		(65505)
-#define LAST_HANDLE		(91)
+// #define LAST_HANDLE		(91)
 
 
 #define OTA_NOTIFY_HANDLE   (65502)

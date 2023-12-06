@@ -6,10 +6,10 @@
 #include "yc11xx_audio_adc.h"
 #include "yc_dev_bt.h"
 #include "att_list.h"
-
-#define LG_Project  (112)
+#include "factory_test_off_line.h"
+#define LG_Project  (107)
 #define LG (2)
-#define LG21 (2)
+#define LG22 (2)
 /* WATCH_DOG */
 #define FUNCTION_WATCH_DOG
 
@@ -357,8 +357,9 @@ enum app_tv_kvcmd_t
 #define KVCMD_LG22GA (E_APP_TV_TPYE_13 | E_APP_TV_TPYE_17 | E_APP_TV_TPYE_19)
 
 #define DAXIS_KEY_HANDLE (34)
-#define DVOICE_HANDLE (39)
-
+// #define DVOICE_HANDLE (39)
+#define AUDIO_CMD_HANDLE        (37)
+#define AUDIO_SNED_HANDLE       (get_VoiceHandle())
 ////start axis timer
 #define DAXIS_START_TIMER_MAX (500)
 #define DAXIS_START_TIMER_MAX_1 (50)
@@ -370,6 +371,7 @@ typedef enum
     addr_base = 0x3C000,
 
 } FlashRecordAddr_TypeDef; // 存储数据需要 8字节
+extern const uint8_t product_key_s[];
 extern void LE_LTK_LOST(void);
 extern void action_after_mic_close(void);
 extern void action_after_led_blk(void);

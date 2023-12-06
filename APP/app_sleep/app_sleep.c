@@ -17,7 +17,7 @@
 #include "encode.h"
 #endif
 #ifdef QMA_6100
-#include "qma6100.h"
+// #include "qma6100.h"
 #endif
 #ifdef MIR3DA_267
 #include "mir3da_267.h"
@@ -60,8 +60,8 @@ typedef struct {
 static remote_control_status_t remote_control_status;
 static uint8_t sleep_timernum = 0xFF;
 
-WEAK void action_after_prepare_sleep(void){}
-WEAK void action_after_enter_deep_sleep(void){}
+WEAK void Action_After_Prepare_Sleep(void){}
+WEAK void Action_After_Enter_Deep_Sleep(void){}
 
 static bool app_lock_check(void)
 {
@@ -144,7 +144,7 @@ void prepare_before_sleep(void)
         GPIO_Init(IIC_SCL_PIN, GPIO_Mode_Out_High);
         GPIO_Init(IIC_SDA_PIN, GPIO_Mode_Out_High);
 #endif
-        action_after_prepare_sleep();
+        Action_After_Prepare_Sleep();
 
         app_queue_reset();
         vbat_deinit();
@@ -178,10 +178,14 @@ void enter_deep_sleep(void)
 #endif
 
 #ifdef QMA_6100
-    qma_int_mode();
-    led_off(LED_1);
+    // qma_int_mode();
+    // led_off(LED_1);
 #endif
-    action_after_enter_deep_sleep();
+#if defined (QMA_6100)
+        GPIO_Init(IIC_SCL_PIN, GPIO_Mode_Out_High);
+        GPIO_Init(IIC_SDA_PIN, GPIO_Mode_Out_High);
+#endif
+    Action_After_Enter_Deep_Sleep();
 
     if (bt_check_le_connected())
     {

@@ -115,7 +115,9 @@ static const uint8_t *s_4a18_buf_arry[] = {
 };
 
 static const uint8_t scan_rsp_data_buf[] = {0x00};
-static const uint8_t adv_data_buf[] = {0x02, 0x01, 0x05, 0x03, 0x03, 0x12, 0x18, 0x03, 0x19, 0x80, 0x01, 0x03, 0x09, 0x41, 0x52, 0x05, 0xFF, 0x71, 0x01, 0x04, 0x1E};
+static const uint8_t adv_data_buf[] = {
+    0x02, 0x01, 0x05, 0x03, 0x03, 0x12, 0x18, 0x03,
+     0x19, 0x80, 0x01, 0x03, 0x09, 0x41, 0x52, 0x05, 0xFF, 0x71, 0x01, 0x04, 0x1E};
 
 MEMORY_NOT_PROTECT_UNDER_LPM_ATT static uint16_t ir_learn_buf_cur_offset;
 MEMORY_NOT_PROTECT_UNDER_LPM_ATT static uint16_t ir_learn_buf_len;
@@ -436,18 +438,19 @@ static void keyvalue_handle(key_report_t *key_report)
                     key_report->keynum_report_buf[4] + key_report->keynum_report_buf[5];
 
 #ifdef AUDIO_TEST_MODE
-        if (keynum == 3) {
-            voice_status.mode = STANDARD_DATA;
+        // if (keynum == 3) {
+        //     voice_status.mode = STANDARD_DATA;
+        //     mic_open();
+        // }
+        // else if (keynum == 2) {
+
+        // }
+        // else if(keynum == 7) {
+        //     voice_status.mode = ENCODE_DATA;
+        //     mic_open();
+        // }
+                    voice_status.mode = PCM_DATA;
             mic_open();
-        }
-        else if (keynum == 2) {
-            voice_status.mode = PCM_DATA;
-            mic_open();
-        }
-        else if(keynum == 7) {
-            voice_status.mode = ENCODE_DATA;
-            mic_open();
-        }
 #else
         if (!first_pair && !adv_flag && keynum == Home_Keynum) {
             led_on(LED_2, 200, 0);
