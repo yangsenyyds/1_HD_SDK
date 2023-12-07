@@ -1,0 +1,25 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "D:/Environment/RISC-V/msys64/mingw32/i686-w64-mingw32/include",
+                "D:/Environment/RISC-V/msys64/mingw32/lib/gcc/i686-w64-mingw32/7.4.0/include",
+                "${workspaceFolder}/Vendor/Remote_Control",
+                "${workspaceFolder}/APP/**",
+                "${workspaceFolder}/Platform/**",
+                "${workspaceFolder}/Projects/HD00901",
+                "${workspaceFolder}/Platform/sdk/bt"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "intelliSenseMode": "windows-gcc-x64",
+            "compilerPath": "D:/Environment/RISC-V/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/riscv32-unknown-elf-gcc.exe",
+            "configurationProvider": "ms-vscode.makefile-tools"
+        }
+    ],
+    "version": 4
+}
