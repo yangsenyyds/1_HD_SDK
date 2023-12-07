@@ -125,6 +125,7 @@ WEAK void action_after_mic_close(void){}
 WEAK void tx_power_switch_set(bool switch_enable){}
 WEAK void app_sleep_lock_set(DEV_LOCK_TypeDef dev_lock, bool state){}
 
+
 static uint16_t Get_MicReocrd_Len(void)
 {
     uint32_t AdcWptr = HREADW(CORE_ADCD_ADDR);
