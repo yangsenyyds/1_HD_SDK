@@ -101,9 +101,6 @@ static const uint8_t audio_start[] = {0x04};
 static const uint8_t get_caps_respone_buf[] = {0x0B,0x00,0x04,0x00,0x03,0x00,0x86,0x00,0x14};
 #endif
 
-
-
-
 static  uint8_t send_num_buf[3] = {0x0A,0X00,0X00};
 static  uint16_t send_num_cnt;
 
