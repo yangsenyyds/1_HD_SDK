@@ -29,7 +29,7 @@
 #define KEY_ROW5_PIN    (GPIO_19)
 #define KEY_ROW6_PIN    (GPIO_23)
 #define KEY_ROW7_PIN    (GPIO_32)
-#define KEY_ROW_NUM     (6)
+#define KEY_ROW_NUM     (7)
 
 #define KEY_COL1_PIN    (GPIO_24)
 #define KEY_COL2_PIN    (GPIO_27)
@@ -38,7 +38,7 @@
 #define KEY_COL5_PIN    (GPIO_30)
 #define KEY_COL6_PIN    (GPIO_31)
 #define KEY_COL7_PIN    (GPIO_33)
-#define KEY_COL_NUM     (6)
+#define KEY_COL_NUM     (7)
 
 /* LED */
 #define LED_1_PIN   (GPIO_7)
