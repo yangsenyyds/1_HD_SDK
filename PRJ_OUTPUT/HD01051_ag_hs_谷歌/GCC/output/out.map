@@ -426,7 +426,7 @@ Discarded input sections
                 0x0000000000000000       0x50 output/obj/yc11xx_qspi.o
  .debug_ranges  0x0000000000000000       0x40 output/obj/yc11xx_qspi.o
  .debug_line    0x0000000000000000      0x605 output/obj/yc11xx_qspi.o
- .debug_str     0x0000000000000000      0x981 output/obj/yc11xx_qspi.o
+ .debug_str     0x0000000000000000      0x982 output/obj/yc11xx_qspi.o
  .comment       0x0000000000000000       0x12 output/obj/yc11xx_qspi.o
  .debug_frame   0x0000000000000000       0xb8 output/obj/yc11xx_qspi.o
  .text          0x0000000000000000        0x0 output/obj/yc11xx_qspi0.o
@@ -534,7 +534,7 @@ Discarded input sections
                 0x0000000000000000       0xc0 output/obj/yc11xx_spi.o
  .debug_ranges  0x0000000000000000       0xc8 output/obj/yc11xx_spi.o
  .debug_line    0x0000000000000000     0x13ea output/obj/yc11xx_spi.o
- .debug_str     0x0000000000000000     0x10e2 output/obj/yc11xx_spi.o
+ .debug_str     0x0000000000000000     0x10e3 output/obj/yc11xx_spi.o
  .comment       0x0000000000000000       0x12 output/obj/yc11xx_spi.o
  .debug_frame   0x0000000000000000      0x240 output/obj/yc11xx_spi.o
  .text          0x0000000000000000        0x0 output/obj/yc11xx_systick.o
@@ -603,7 +603,7 @@ Discarded input sections
                 0x0000000000000000       0x70 output/obj/yc11xx_uart.o
  .debug_ranges  0x0000000000000000       0x88 output/obj/yc11xx_uart.o
  .debug_line    0x0000000000000000      0xe2c output/obj/yc11xx_uart.o
- .debug_str     0x0000000000000000      0xad1 output/obj/yc11xx_uart.o
+ .debug_str     0x0000000000000000      0xad2 output/obj/yc11xx_uart.o
  .comment       0x0000000000000000       0x12 output/obj/yc11xx_uart.o
  .debug_frame   0x0000000000000000      0x198 output/obj/yc11xx_uart.o
  .text          0x0000000000000000        0x0 output/obj/yc11xx_lpm.o
@@ -735,7 +735,7 @@ Discarded input sections
                 0x0000000000000000       0x30 output/obj/hci_dtm_test.o
  .debug_ranges  0x0000000000000000       0x20 output/obj/hci_dtm_test.o
  .debug_line    0x0000000000000000      0x24a output/obj/hci_dtm_test.o
- .debug_str     0x0000000000000000      0x615 output/obj/hci_dtm_test.o
+ .debug_str     0x0000000000000000      0x616 output/obj/hci_dtm_test.o
  .comment       0x0000000000000000       0x12 output/obj/hci_dtm_test.o
  .debug_frame   0x0000000000000000       0x40 output/obj/hci_dtm_test.o
  .text          0x0000000000000000        0x0 output/obj/att.o
@@ -1399,7 +1399,7 @@ Discarded input sections
                 0x0000000000000000       0x70 output/obj/ir_select.o
  .debug_ranges  0x0000000000000000       0xb0 output/obj/ir_select.o
  .debug_line    0x0000000000000000     0x48f4 output/obj/ir_select.o
- .debug_str     0x0000000000000000     0x2a03 output/obj/ir_select.o
+ .debug_str     0x0000000000000000     0x2a04 output/obj/ir_select.o
  .comment       0x0000000000000000       0x12 output/obj/ir_select.o
  .debug_frame   0x0000000000000000      0x160 output/obj/ir_select.o
  .text          0x0000000000000000        0x0 output/obj/ir_learn_from_remote.o
@@ -1585,7 +1585,7 @@ END GROUP
 LOAD d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a
                 0x0000000001000000                . = 0x1000000
 
-.text           0x0000000001000000      0x670
+.text           0x0000000001000000      0x678
  *startup_rv32.o()
  .text          0x0000000001000000        0x0 output/obj/startup_rv32.o
  .data          0x0000000001000000        0x0 output/obj/startup_rv32.o
@@ -1638,11 +1638,12 @@ LOAD d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib
  *fill*         0x00000000010005bb        0x5 
  .debug_aranges
                 0x00000000010005c0       0x28 output/obj/startup_rv32.o
- .debug_str     0x00000000010005e8       0x68 output/obj/startup_rv32.o
- .debug_ranges  0x0000000001000650       0x20 output/obj/startup_rv32.o
+ .debug_str     0x00000000010005e8       0x69 output/obj/startup_rv32.o
+ *fill*         0x0000000001000651        0x7 
+ .debug_ranges  0x0000000001000658       0x20 output/obj/startup_rv32.o
                 0x0000000001001000                . = 0x1001000
 
-.text1          0x0000000001001000     0xcf58
+.text1          0x0000000001001000     0xcf60
  *(.text*)
  .text.bt_init  0x0000000001001000       0x52 output/obj/main.o
  .text.chip_task_run
@@ -2410,1443 +2411,1444 @@ LOAD d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib
  .text.Get_MicReocrd_Len
                 0x000000000100913a       0x2e output/obj/audio.o
  .text.Audio_AdcConfig
-                0x0000000001009168       0x4e output/obj/audio.o
+                0x0000000001009168       0x50 output/obj/audio.o
  .text.Voice_Send
-                0x00000000010091b6       0xca output/obj/audio.o
+                0x00000000010091b8       0xca output/obj/audio.o
  .text.Voice_Encode
-                0x0000000001009280       0xe8 output/obj/audio.o
+                0x0000000001009282       0xe8 output/obj/audio.o
  .text.audio_task
-                0x0000000001009368       0x30 output/obj/audio.o
+                0x000000000100936a       0x30 output/obj/audio.o
  .text.timeout_timer_cb
-                0x0000000001009398       0x3a output/obj/audio.o
+                0x000000000100939a       0x3a output/obj/audio.o
  .text.start_ntf_timer_cb
-                0x00000000010093d2       0x2a output/obj/audio.o
+                0x00000000010093d4       0x2a output/obj/audio.o
  .text.voice_timer_init
-                0x00000000010093fc       0x62 output/obj/audio.o
+                0x00000000010093fe       0x62 output/obj/audio.o
  .text.voice_status_change
-                0x000000000100945e       0x9a output/obj/audio.o
-                0x000000000100945e                voice_status_change
+                0x0000000001009460       0x9a output/obj/audio.o
+                0x0000000001009460                voice_status_change
  .text.mic_close
-                0x00000000010094f8       0x64 output/obj/audio.o
-                0x00000000010094f8                mic_close
+                0x00000000010094fa       0x64 output/obj/audio.o
+                0x00000000010094fa                mic_close
  .text.mic_open
-                0x000000000100955c       0xcc output/obj/audio.o
-                0x000000000100955c                mic_open
+                0x000000000100955e       0xcc output/obj/audio.o
+                0x000000000100955e                mic_open
  .text.voice_report_reinit
-                0x0000000001009628       0x1a output/obj/audio.o
-                0x0000000001009628                voice_report_reinit
+                0x000000000100962a       0x1a output/obj/audio.o
+                0x000000000100962a                voice_report_reinit
  .text.voice_report_init
-                0x0000000001009642        0xc output/obj/audio.o
-                0x0000000001009642                voice_report_init
+                0x0000000001009644        0xc output/obj/audio.o
+                0x0000000001009644                voice_report_init
  .text.get_VoiceHandle
-                0x000000000100964e       0x18 output/obj/factory_test_off_line.o
-                0x000000000100964e                get_VoiceHandle
+                0x0000000001009650       0x18 output/obj/factory_test_off_line.o
+                0x0000000001009650                get_VoiceHandle
  .text.factory_WriteDataParse
-                0x0000000001009666       0x72 output/obj/factory_test_off_line.o
-                0x0000000001009666                factory_WriteDataParse
+                0x0000000001009668       0x72 output/obj/factory_test_off_line.o
+                0x0000000001009668                factory_WriteDataParse
  .text.factory_KeyProcess
-                0x00000000010096d8       0x4a output/obj/factory_test_off_line.o
-                0x00000000010096d8                factory_KeyProcess
+                0x00000000010096da       0x4a output/obj/factory_test_off_line.o
+                0x00000000010096da                factory_KeyProcess
  .text.ADPCM_Encode_Google_TV_Audio
-                0x0000000001009722       0xc0 output/obj/adpcm.o
-                0x0000000001009722                ADPCM_Encode_Google_TV_Audio
+                0x0000000001009724       0xc0 output/obj/adpcm.o
+                0x0000000001009724                ADPCM_Encode_Google_TV_Audio
  .text.Adpcm_FrameEncode_Google_TV_Audio
-                0x00000000010097e2       0x70 output/obj/adpcm.o
-                0x00000000010097e2                Adpcm_FrameEncode_Google_TV_Audio
+                0x00000000010097e4       0x70 output/obj/adpcm.o
+                0x00000000010097e4                Adpcm_FrameEncode_Google_TV_Audio
  .text.Adpcm_FrameEncode_Restart
-                0x0000000001009852       0x20 output/obj/adpcm.o
-                0x0000000001009852                Adpcm_FrameEncode_Restart
+                0x0000000001009854       0x20 output/obj/adpcm.o
+                0x0000000001009854                Adpcm_FrameEncode_Restart
  .text.SecretKey_Check
-                0x0000000001009872       0xc6 output/obj/remote_control.o
+                0x0000000001009874       0xc6 output/obj/remote_control.o
  .text.low_power_handle
-                0x0000000001009938       0x76 output/obj/remote_control.o
+                0x000000000100993a       0x76 output/obj/remote_control.o
  .text.voice_send_handle
-                0x00000000010099ae       0x3c output/obj/remote_control.o
+                0x00000000010099b0       0x3c output/obj/remote_control.o
  .text.key_pressed_handle
-                0x00000000010099ea       0xb8 output/obj/remote_control.o
+                0x00000000010099ec       0xb8 output/obj/remote_control.o
  .text.keyvalue_handle
-                0x0000000001009aa2      0x360 output/obj/remote_control.o
+                0x0000000001009aa4      0x360 output/obj/remote_control.o
  .text.action_after_mic_close
-                0x0000000001009e02       0x1e output/obj/remote_control.o
-                0x0000000001009e02                action_after_mic_close
+                0x0000000001009e04       0x1e output/obj/remote_control.o
+                0x0000000001009e04                action_after_mic_close
  .text.action_after_led_blk
-                0x0000000001009e20       0x36 output/obj/remote_control.o
-                0x0000000001009e20                action_after_led_blk
+                0x0000000001009e22       0x36 output/obj/remote_control.o
+                0x0000000001009e22                action_after_led_blk
  .text.power_handle
-                0x0000000001009e56       0x6a output/obj/remote_control.o
+                0x0000000001009e58       0x6a output/obj/remote_control.o
  .text.remote_control_reinit
-                0x0000000001009ec0       0x20 output/obj/remote_control.o
+                0x0000000001009ec2       0x20 output/obj/remote_control.o
  .text.update_conn_param
-                0x0000000001009ee0       0x48 output/obj/remote_control.o
-                0x0000000001009ee0                update_conn_param
+                0x0000000001009ee2       0x48 output/obj/remote_control.o
+                0x0000000001009ee2                update_conn_param
  .text.CONN_PARAM_ACCEPTED
-                0x0000000001009f28       0x6e output/obj/remote_control.o
-                0x0000000001009f28                CONN_PARAM_ACCEPTED
+                0x0000000001009f2a       0x6e output/obj/remote_control.o
+                0x0000000001009f2a                CONN_PARAM_ACCEPTED
  .text.stop_adv
-                0x0000000001009f96       0x32 output/obj/remote_control.o
-                0x0000000001009f96                stop_adv
+                0x0000000001009f98       0x32 output/obj/remote_control.o
+                0x0000000001009f98                stop_adv
  .text.start_adv
-                0x0000000001009fc8       0x74 output/obj/remote_control.o
-                0x0000000001009fc8                start_adv
+                0x0000000001009fca       0x74 output/obj/remote_control.o
+                0x0000000001009fca                start_adv
  .text.Read_Blob_Parse
-                0x000000000100a03c       0x80 output/obj/remote_control.o
-                0x000000000100a03c                Read_Blob_Parse
+                0x000000000100a03e       0x80 output/obj/remote_control.o
+                0x000000000100a03e                Read_Blob_Parse
  .text.Read_Parse
-                0x000000000100a0bc       0x76 output/obj/remote_control.o
-                0x000000000100a0bc                Read_Parse
+                0x000000000100a0be       0x76 output/obj/remote_control.o
+                0x000000000100a0be                Read_Parse
  .text.Write_DataParse
-                0x000000000100a132      0x22e output/obj/remote_control.o
-                0x000000000100a132                Write_DataParse
+                0x000000000100a134      0x22e output/obj/remote_control.o
+                0x000000000100a134                Write_DataParse
  .text.LE_LTK_LOST
-                0x000000000100a360       0x3e output/obj/remote_control.o
-                0x000000000100a360                LE_LTK_LOST
+                0x000000000100a362       0x3e output/obj/remote_control.o
+                0x000000000100a362                LE_LTK_LOST
  .text.ENCRYPT_DONE
-                0x000000000100a39e       0x50 output/obj/remote_control.o
-                0x000000000100a39e                ENCRYPT_DONE
+                0x000000000100a3a0       0x50 output/obj/remote_control.o
+                0x000000000100a3a0                ENCRYPT_DONE
  .text.PAIR_FAIL
-                0x000000000100a3ee       0x16 output/obj/remote_control.o
-                0x000000000100a3ee                PAIR_FAIL
+                0x000000000100a3f0       0x16 output/obj/remote_control.o
+                0x000000000100a3f0                PAIR_FAIL
  .text.PAIR_DONE
-                0x000000000100a404       0x1e output/obj/remote_control.o
-                0x000000000100a404                PAIR_DONE
+                0x000000000100a406       0x1e output/obj/remote_control.o
+                0x000000000100a406                PAIR_DONE
  .text.LE_DISCONNECTED
-                0x000000000100a422       0xd6 output/obj/remote_control.o
-                0x000000000100a422                LE_DISCONNECTED
+                0x000000000100a424       0xd6 output/obj/remote_control.o
+                0x000000000100a424                LE_DISCONNECTED
  .text.LE_CONNECTED
-                0x000000000100a4f8       0x40 output/obj/remote_control.o
-                0x000000000100a4f8                LE_CONNECTED
+                0x000000000100a4fa       0x40 output/obj/remote_control.o
+                0x000000000100a4fa                LE_CONNECTED
  .text.Dev_PowerOn
-                0x000000000100a538       0x4e output/obj/remote_control.o
-                0x000000000100a538                Dev_PowerOn
+                0x000000000100a53a       0x4e output/obj/remote_control.o
+                0x000000000100a53a                Dev_PowerOn
  .text.tx_power_switch_set
-                0x000000000100a586        0xa output/obj/remote_control.o
-                0x000000000100a586                tx_power_switch_set
+                0x000000000100a588        0xa output/obj/remote_control.o
+                0x000000000100a588                tx_power_switch_set
  .text.app_task_run
-                0x000000000100a590       0x1c output/obj/remote_control.o
-                0x000000000100a590                app_task_run
+                0x000000000100a592       0x1c output/obj/remote_control.o
+                0x000000000100a592                app_task_run
  .text.app_init
-                0x000000000100a5ac      0x14a output/obj/remote_control.o
-                0x000000000100a5ac                app_init
+                0x000000000100a5ae      0x14a output/obj/remote_control.o
+                0x000000000100a5ae                app_init
  .text.Find_AttTable_ByHandle
-                0x000000000100a6f6       0x2e output/obj/att_list.o
-                0x000000000100a6f6                Find_AttTable_ByHandle
+                0x000000000100a6f8       0x2e output/obj/att_list.o
+                0x000000000100a6f8                Find_AttTable_ByHandle
  .text.Find_AttTable_ByHandleRange_Type
-                0x000000000100a724       0x72 output/obj/att_list.o
-                0x000000000100a724                Find_AttTable_ByHandleRange_Type
+                0x000000000100a726       0x72 output/obj/att_list.o
+                0x000000000100a726                Find_AttTable_ByHandleRange_Type
  .text.Find_AttTable_ByHandleRange_Type_Data
-                0x000000000100a796       0x92 output/obj/att_list.o
-                0x000000000100a796                Find_AttTable_ByHandleRange_Type_Data
+                0x000000000100a798       0x92 output/obj/att_list.o
+                0x000000000100a798                Find_AttTable_ByHandleRange_Type_Data
  .text.BitsReverse
-                0x000000000100a828       0x26 ./../../../APP/SECRETKEY\libSecretKey.a(SecretKey.o)
- .text.GetCRC   0x000000000100a84e       0x8a ./../../../APP/SECRETKEY\libSecretKey.a(SecretKey.o)
+                0x000000000100a82a       0x26 ./../../../APP/SECRETKEY\libSecretKey.a(SecretKey.o)
+ .text.GetCRC   0x000000000100a850       0x8a ./../../../APP/SECRETKEY\libSecretKey.a(SecretKey.o)
  .text.SecretKey_Generate
-                0x000000000100a8d8       0x4a ./../../../APP/SECRETKEY\libSecretKey.a(SecretKey.o)
-                0x000000000100a8d8                SecretKey_Generate
- .text          0x000000000100a922      0x5b6 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(muldf3.o)
-                0x000000000100a922                __muldf3
- .text          0x000000000100aed8       0x9c d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(fixunsdfsi.o)
-                0x000000000100aed8                __fixunsdfsi
- .text          0x000000000100af74       0x6c d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(floatsidf.o)
-                0x000000000100af74                __floatsidf
- .text          0x000000000100afe0       0x60 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(save-restore.o)
-                0x000000000100afe0                __riscv_save_12
-                0x000000000100afe8                __riscv_save_9
-                0x000000000100afe8                __riscv_save_11
-                0x000000000100afe8                __riscv_save_10
-                0x000000000100afe8                __riscv_save_8
-                0x000000000100aff6                __riscv_save_4
-                0x000000000100aff6                __riscv_save_6
-                0x000000000100aff6                __riscv_save_5
-                0x000000000100aff6                __riscv_save_7
-                0x000000000100b010                __riscv_save_3
-                0x000000000100b010                __riscv_save_2
-                0x000000000100b010                __riscv_save_1
-                0x000000000100b010                __riscv_save_0
-                0x000000000100b01c                __riscv_restore_12
-                0x000000000100b020                __riscv_restore_11
-                0x000000000100b020                __riscv_restore_9
-                0x000000000100b020                __riscv_restore_10
-                0x000000000100b020                __riscv_restore_8
-                0x000000000100b02a                __riscv_restore_5
-                0x000000000100b02a                __riscv_restore_7
-                0x000000000100b02a                __riscv_restore_6
-                0x000000000100b02a                __riscv_restore_4
-                0x000000000100b034                __riscv_restore_3
-                0x000000000100b034                __riscv_restore_0
-                0x000000000100b034                __riscv_restore_2
-                0x000000000100b034                __riscv_restore_1
- .text          0x000000000100b040       0x3c d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(_clzsi2.o)
-                0x000000000100b040                __clzsi2
- .text          0x000000000100b07c       0x26 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0/../../../../riscv32-unknown-elf/lib\libc.a(lib_a-memcmp.o)
-                0x000000000100b07c                memcmp
- .text          0x000000000100b0a2       0xba d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0/../../../../riscv32-unknown-elf/lib\libc.a(lib_a-memcpy.o)
-                0x000000000100b0a2                memcpy
- .text          0x000000000100b15c       0xa8 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0/../../../../riscv32-unknown-elf/lib\libc.a(lib_a-memset.o)
-                0x000000000100b15c                memset
+                0x000000000100a8da       0x4a ./../../../APP/SECRETKEY\libSecretKey.a(SecretKey.o)
+                0x000000000100a8da                SecretKey_Generate
+ .text          0x000000000100a924      0x5b6 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(muldf3.o)
+                0x000000000100a924                __muldf3
+ .text          0x000000000100aeda       0x9c d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(fixunsdfsi.o)
+                0x000000000100aeda                __fixunsdfsi
+ .text          0x000000000100af76       0x6c d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(floatsidf.o)
+                0x000000000100af76                __floatsidf
+ .text          0x000000000100afe2       0x60 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(save-restore.o)
+                0x000000000100afe2                __riscv_save_12
+                0x000000000100afea                __riscv_save_9
+                0x000000000100afea                __riscv_save_11
+                0x000000000100afea                __riscv_save_10
+                0x000000000100afea                __riscv_save_8
+                0x000000000100aff8                __riscv_save_4
+                0x000000000100aff8                __riscv_save_6
+                0x000000000100aff8                __riscv_save_5
+                0x000000000100aff8                __riscv_save_7
+                0x000000000100b012                __riscv_save_3
+                0x000000000100b012                __riscv_save_2
+                0x000000000100b012                __riscv_save_1
+                0x000000000100b012                __riscv_save_0
+                0x000000000100b01e                __riscv_restore_12
+                0x000000000100b022                __riscv_restore_11
+                0x000000000100b022                __riscv_restore_9
+                0x000000000100b022                __riscv_restore_10
+                0x000000000100b022                __riscv_restore_8
+                0x000000000100b02c                __riscv_restore_5
+                0x000000000100b02c                __riscv_restore_7
+                0x000000000100b02c                __riscv_restore_6
+                0x000000000100b02c                __riscv_restore_4
+                0x000000000100b036                __riscv_restore_3
+                0x000000000100b036                __riscv_restore_0
+                0x000000000100b036                __riscv_restore_2
+                0x000000000100b036                __riscv_restore_1
+ .text          0x000000000100b042       0x3c d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(_clzsi2.o)
+                0x000000000100b042                __clzsi2
+ .text          0x000000000100b07e       0x26 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0/../../../../riscv32-unknown-elf/lib\libc.a(lib_a-memcmp.o)
+                0x000000000100b07e                memcmp
+ .text          0x000000000100b0a4       0xba d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0/../../../../riscv32-unknown-elf/lib\libc.a(lib_a-memcpy.o)
+                0x000000000100b0a4                memcpy
+ .text          0x000000000100b15e       0xa8 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0/../../../../riscv32-unknown-elf/lib\libc.a(lib_a-memset.o)
+                0x000000000100b15e                memset
  *(.rdata*)
  *(.rodata*)
+ *fill*         0x000000000100b206        0x2 
  .rodata.print_string_log_raw.str1.4
-                0x000000000100b204       0x32 output/obj/yc_debug.o
- *fill*         0x000000000100b236        0x2 
+                0x000000000100b208       0x32 output/obj/yc_debug.o
+ *fill*         0x000000000100b23a        0x2 
  .rodata.Memory_Malloc.str1.4
-                0x000000000100b238       0x1f output/obj/malloc.o
- *fill*         0x000000000100b257        0x1 
+                0x000000000100b23c       0x1f output/obj/malloc.o
+ *fill*         0x000000000100b25b        0x1 
  .rodata.__FUNCTION__.3613
-                0x000000000100b258        0xe output/obj/malloc.o
- *fill*         0x000000000100b266        0x2 
+                0x000000000100b25c        0xe output/obj/malloc.o
+ *fill*         0x000000000100b26a        0x2 
  .rodata.IPC_TxPacket.str1.4
-                0x000000000100b268       0x28 output/obj/yc11xx_ipc.o
+                0x000000000100b26c       0x28 output/obj/yc11xx_ipc.o
  .rodata.IpcDefaultCallBack.str1.4
-                0x000000000100b290       0x16 output/obj/yc11xx_ipc.o
- *fill*         0x000000000100b2a6        0x2 
+                0x000000000100b294       0x16 output/obj/yc11xx_ipc.o
+ *fill*         0x000000000100b2aa        0x2 
  .rodata.__FUNCTION__.3679
-                0x000000000100b2a8        0xd output/obj/yc11xx_ipc.o
- *fill*         0x000000000100b2b5        0x3 
+                0x000000000100b2ac        0xd output/obj/yc11xx_ipc.o
+ *fill*         0x000000000100b2b9        0x3 
  .rodata.__FUNCTION__.3684
-                0x000000000100b2b8       0x11 output/obj/yc11xx_ipc.o
- *fill*         0x000000000100b2c9        0x3 
+                0x000000000100b2bc       0x11 output/obj/yc11xx_ipc.o
+ *fill*         0x000000000100b2cd        0x3 
  .rodata.__FUNCTION__.3689
-                0x000000000100b2cc        0xd output/obj/yc11xx_ipc.o
- *fill*         0x000000000100b2d9        0x3 
+                0x000000000100b2d0        0xd output/obj/yc11xx_ipc.o
+ *fill*         0x000000000100b2dd        0x3 
  .rodata.__FUNCTION__.3694
-                0x000000000100b2dc       0x13 output/obj/yc11xx_ipc.o
- *fill*         0x000000000100b2ef        0x1 
+                0x000000000100b2e0       0x13 output/obj/yc11xx_ipc.o
+ *fill*         0x000000000100b2f3        0x5 
  .rodata.g_adc_cicfircoeffTtablel
-                0x000000000100b2f0      0x1f8 output/obj/yc11xx_audio_adc.o
-                0x000000000100b2f0                g_adc_cicfircoeffTtablel
+                0x000000000100b2f8      0x1f8 output/obj/yc11xx_audio_adc.o
+                0x000000000100b2f8                g_adc_cicfircoeffTtablel
  .rodata.g_adc_halfbandcoeftablel
-                0x000000000100b4e8      0x1b8 output/obj/yc11xx_audio_adc.o
-                0x000000000100b4e8                g_adc_halfbandcoeftablel
+                0x000000000100b4f0      0x1b8 output/obj/yc11xx_audio_adc.o
+                0x000000000100b4f0                g_adc_halfbandcoeftablel
  .rodata.GPIO_Init.str1.4
-                0x000000000100b6a0       0x26 output/obj/yc11xx_gpio.o
- *fill*         0x000000000100b6c6        0x2 
+                0x000000000100b6a8       0x26 output/obj/yc11xx_gpio.o
+ *fill*         0x000000000100b6ce        0x2 
  .rodata.__FUNCTION__.2294
-                0x000000000100b6c8        0xa output/obj/yc11xx_gpio.o
- *fill*         0x000000000100b6d2        0x2 
+                0x000000000100b6d0        0xa output/obj/yc11xx_gpio.o
+ *fill*         0x000000000100b6da        0x2 
  .rodata.__FUNCTION__.2298
-                0x000000000100b6d4       0x11 output/obj/yc11xx_gpio.o
- *fill*         0x000000000100b6e5        0x3 
+                0x000000000100b6dc       0x11 output/obj/yc11xx_gpio.o
+ *fill*         0x000000000100b6ed        0x3 
  .rodata.IWDG_Init.str1.4
-                0x000000000100b6e8       0x26 output/obj/yc11xx_iwdg.o
- *fill*         0x000000000100b70e        0x2 
+                0x000000000100b6f0       0x26 output/obj/yc11xx_iwdg.o
+ *fill*         0x000000000100b716        0x2 
  .rodata.__FUNCTION__.2182
-                0x000000000100b710        0xd output/obj/yc11xx_iwdg.o
- *fill*         0x000000000100b71d        0x3 
+                0x000000000100b718        0xd output/obj/yc11xx_iwdg.o
+ *fill*         0x000000000100b725        0x3 
  .rodata.CSWTCH.10
-                0x000000000100b720        0x4 output/obj/yc11xx_systick.o
+                0x000000000100b728        0x4 output/obj/yc11xx_systick.o
  .rodata.TIM_Init.str1.4
-                0x000000000100b724       0x27 output/obj/yc11xx_timer.o
- *fill*         0x000000000100b74b        0x1 
+                0x000000000100b72c       0x27 output/obj/yc11xx_timer.o
+ *fill*         0x000000000100b753        0x1 
  .rodata.__FUNCTION__.3483
-                0x000000000100b74c        0x9 output/obj/yc11xx_timer.o
- *fill*         0x000000000100b755        0x3 
+                0x000000000100b754        0x9 output/obj/yc11xx_timer.o
+ *fill*         0x000000000100b75d        0x3 
  .rodata.__FUNCTION__.3490
-                0x000000000100b758        0x8 output/obj/yc11xx_timer.o
+                0x000000000100b760        0x8 output/obj/yc11xx_timer.o
  .rodata.aap_rsp
-                0x000000000100b760       0x12 output/obj/yc11xx_dev_bt_aap.o
- *fill*         0x000000000100b772        0x2 
+                0x000000000100b768       0x12 output/obj/yc11xx_dev_bt_aap.o
+ *fill*         0x000000000100b77a        0x2 
  .rodata.AAP_manufac1
-                0x000000000100b774       0x96 output/obj/yc11xx_dev_bt_aap.o
- *fill*         0x000000000100b80a        0x2 
+                0x000000000100b77c       0x96 output/obj/yc11xx_dev_bt_aap.o
+ *fill*         0x000000000100b812        0x2 
  .rodata.AAP_manufac2
-                0x000000000100b80c        0x8 output/obj/yc11xx_dev_bt_aap.o
+                0x000000000100b814        0x8 output/obj/yc11xx_dev_bt_aap.o
  .rodata.AAP_manufac3
-                0x000000000100b814       0x2f output/obj/yc11xx_dev_bt_aap.o
- *fill*         0x000000000100b843        0x1 
+                0x000000000100b81c       0x2f output/obj/yc11xx_dev_bt_aap.o
+ *fill*         0x000000000100b84b        0x1 
  .rodata.AAP_manufac4
-                0x000000000100b844       0x16 output/obj/yc11xx_dev_bt_aap.o
- *fill*         0x000000000100b85a        0x2 
+                0x000000000100b84c       0x16 output/obj/yc11xx_dev_bt_aap.o
+ *fill*         0x000000000100b862        0x2 
  .rodata.AAP_AcpAnc1
-                0x000000000100b85c        0xc output/obj/yc11xx_dev_bt_aap.o
+                0x000000000100b864        0xc output/obj/yc11xx_dev_bt_aap.o
  .rodata.AAP_StartAnc2
-                0x000000000100b868        0xd output/obj/yc11xx_dev_bt_aap.o
-                0x000000000100b868                AAP_StartAnc2
- *fill*         0x000000000100b875        0x3 
+                0x000000000100b870        0xd output/obj/yc11xx_dev_bt_aap.o
+                0x000000000100b870                AAP_StartAnc2
+ *fill*         0x000000000100b87d        0x3 
  .rodata.AAP_AncRst3
-                0x000000000100b878       0xbc output/obj/yc11xx_dev_bt_aap.o
+                0x000000000100b880       0xbc output/obj/yc11xx_dev_bt_aap.o
  .rodata.AAP_StopAnc4
-                0x000000000100b934        0xd output/obj/yc11xx_dev_bt_aap.o
- *fill*         0x000000000100b941        0x3 
+                0x000000000100b93c        0xd output/obj/yc11xx_dev_bt_aap.o
+ *fill*         0x000000000100b949        0x3 
  .rodata.Bt_HciCheckBufferFull.str1.4
-                0x000000000100b944       0x15 output/obj/yc11xx_dev_bt_data_trans.o
- *fill*         0x000000000100b959        0x3 
+                0x000000000100b94c       0x15 output/obj/yc11xx_dev_bt_data_trans.o
+ *fill*         0x000000000100b961        0x3 
  .rodata.Bt_SndToBtData
-                0x000000000100b95c       0x18 output/obj/yc11xx_dev_bt_data_trans.o
+                0x000000000100b964       0x18 output/obj/yc11xx_dev_bt_data_trans.o
  .rodata.Bt_BleSendData.str1.4
-                0x000000000100b974       0x18 output/obj/yc11xx_dev_bt_data_trans.o
+                0x000000000100b97c       0x18 output/obj/yc11xx_dev_bt_data_trans.o
  .rodata.Bt_DataBufferCallBack
-                0x000000000100b98c       0x18 output/obj/yc11xx_dev_bt_data_trans.o
+                0x000000000100b994       0x18 output/obj/yc11xx_dev_bt_data_trans.o
  .rodata.LOG_COMPILE_INFO.str1.4
-                0x000000000100b9a4       0x30 output/obj/yc_dev_bt.o
+                0x000000000100b9ac       0x30 output/obj/yc_dev_bt.o
  .rodata.bt_check_save_connect_info.str1.4
-                0x000000000100b9d4       0x5b output/obj/yc_dev_bt.o
- *fill*         0x000000000100ba2f        0x1 
+                0x000000000100b9dc       0x5b output/obj/yc_dev_bt.o
+ *fill*         0x000000000100ba37        0x1 
  .rodata.bt_state_init.str1.4
-                0x000000000100ba30       0x17 output/obj/yc_dev_bt.o
- *fill*         0x000000000100ba47        0x1 
+                0x000000000100ba38       0x17 output/obj/yc_dev_bt.o
+ *fill*         0x000000000100ba4f        0x1 
  .rodata.bt_start_le_adv.str1.4
-                0x000000000100ba48       0x9b output/obj/yc_dev_bt.o
- *fill*         0x000000000100bae3        0x1 
+                0x000000000100ba50       0x9b output/obj/yc_dev_bt.o
+ *fill*         0x000000000100baeb        0x1 
  .rodata.Bt_SaveBleDeviceInfoToFlash
-                0x000000000100bae4       0x14 output/obj/yc_dev_bt.o
+                0x000000000100baec       0x14 output/obj/yc_dev_bt.o
  .rodata.Bt_EvtCallBack.str1.4
-                0x000000000100baf8       0x80 output/obj/yc_dev_bt.o
+                0x000000000100bb00       0x80 output/obj/yc_dev_bt.o
  .rodata.Bt_ClearRemoteDevInfo.str1.4
-                0x000000000100bb78       0x18 output/obj/yc_dev_bt.o
+                0x000000000100bb80       0x18 output/obj/yc_dev_bt.o
  .rodata.Bt_UpdateDeviceNvdataInfo.str1.4
-                0x000000000100bb90       0x1b output/obj/yc_dev_bt.o
- *fill*         0x000000000100bbab        0x1 
+                0x000000000100bb98       0x1b output/obj/yc_dev_bt.o
+ *fill*         0x000000000100bbb3        0x1 
  .rodata.OTA_EVT_HANDLE.str1.4
-                0x000000000100bbac       0x39 output/obj/yc_ota.o
- *fill*         0x000000000100bbe5        0x3 
+                0x000000000100bbb4       0x39 output/obj/yc_ota.o
+ *fill*         0x000000000100bbed        0x3 
  .rodata.ATT_UpdateMtu.str1.4
-                0x000000000100bbe8       0x3d output/obj/att.o
- *fill*         0x000000000100bc25        0x3 
+                0x000000000100bbf0       0x3d output/obj/att.o
+ *fill*         0x000000000100bc2d        0x3 
  .rodata.ATT_Parse.str1.4
-                0x000000000100bc28       0x1a output/obj/att.o
- *fill*         0x000000000100bc42        0x2 
+                0x000000000100bc30       0x1a output/obj/att.o
+ *fill*         0x000000000100bc4a        0x2 
  .rodata.app_queue_insert.str1.4
-                0x000000000100bc44       0x15 output/obj/app_queue.o
- *fill*         0x000000000100bc59        0x3 
+                0x000000000100bc4c       0x15 output/obj/app_queue.o
+ *fill*         0x000000000100bc61        0x3 
  .rodata.prepare_before_sleep.str1.4
-                0x000000000100bc5c       0x18 output/obj/app_sleep.o
+                0x000000000100bc64       0x18 output/obj/app_sleep.o
  .rodata.enter_deep_sleep.str1.4
-                0x000000000100bc74       0x14 output/obj/app_sleep.o
+                0x000000000100bc7c       0x14 output/obj/app_sleep.o
  .rodata.app_sleep_lock_set
-                0x000000000100bc88       0x20 output/obj/app_sleep.o
- .rodata.cst4   0x000000000100bca8        0x8 output/obj/vbat.o
- .rodata.cst8   0x000000000100bcb0       0x10 output/obj/ir_send.o
+                0x000000000100bc90       0x20 output/obj/app_sleep.o
+ .rodata.cst4   0x000000000100bcb0        0x8 output/obj/vbat.o
+ .rodata.cst8   0x000000000100bcb8       0x10 output/obj/ir_send.o
  .rodata.high_ir_data_ready
-                0x000000000100bcc0       0x18 output/obj/ir_load.o
+                0x000000000100bcc8       0x18 output/obj/ir_load.o
  .rodata.ir_data_ready
-                0x000000000100bcd8       0x28 output/obj/ir_load.o
+                0x000000000100bce0       0x28 output/obj/ir_load.o
  .rodata.ir_type_init
-                0x000000000100bd00       0x58 output/obj/ir_load.o
+                0x000000000100bd08       0x58 output/obj/ir_load.o
  .rodata.rpt_TC9012LIAN_9700_BUF
-                0x000000000100bd58        0xa output/obj/ir_lib.o
- *fill*         0x000000000100bd62        0x2 
+                0x000000000100bd60        0xa output/obj/ir_lib.o
+ *fill*         0x000000000100bd6a        0x2 
  .rodata.rpt_lc7461_9000_4500_BUF
-                0x000000000100bd64        0xa output/obj/ir_lib.o
- *fill*         0x000000000100bd6e        0x2 
+                0x000000000100bd6c        0xa output/obj/ir_lib.o
+ *fill*         0x000000000100bd76        0x2 
  .rodata.rpt_udp6121_9000_BUF
-                0x000000000100bd70        0xa output/obj/ir_lib.o
- *fill*         0x000000000100bd7a        0x2 
+                0x000000000100bd78        0xa output/obj/ir_lib.o
+ *fill*         0x000000000100bd82        0x2 
  .rodata.rpt_udp6121_8550_BUF
-                0x000000000100bd7c        0xa output/obj/ir_lib.o
- *fill*         0x000000000100bd86        0x2 
+                0x000000000100bd84        0xa output/obj/ir_lib.o
+ *fill*         0x000000000100bd8e        0x2 
  .rodata.rpt_GEMINI_8500_BUF
-                0x000000000100bd88        0xa output/obj/ir_lib.o
- *fill*         0x000000000100bd92        0x2 
+                0x000000000100bd90        0xa output/obj/ir_lib.o
+ *fill*         0x000000000100bd9a        0x2 
  .rodata.rpt_SINGH2150_8170_BUF
-                0x000000000100bd94        0xa output/obj/ir_lib.o
- *fill*         0x000000000100bd9e        0x2 
+                0x000000000100bd9c        0xa output/obj/ir_lib.o
+ *fill*         0x000000000100bda6        0x2 
  .rodata.rpt_DVB_40BIT_BUF
-                0x000000000100bda0        0xa output/obj/ir_lib.o
- *fill*         0x000000000100bdaa        0x2 
+                0x000000000100bda8        0xa output/obj/ir_lib.o
+ *fill*         0x000000000100bdb2        0x2 
  .rodata.CUSTOM_00_00_BUF
-                0x000000000100bdac        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_00_1F_BUF
-                0x000000000100bdb0        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_00_02_BUF
                 0x000000000100bdb4        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_00_2B_BUF
+ .rodata.CUSTOM_00_1F_BUF
                 0x000000000100bdb8        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_00_30_BUF
+ .rodata.CUSTOM_00_02_BUF
                 0x000000000100bdbc        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_00_57_BUF
+ .rodata.CUSTOM_00_2B_BUF
                 0x000000000100bdc0        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_00_7F_BUF
+ .rodata.CUSTOM_00_30_BUF
                 0x000000000100bdc4        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_00_80_BUF
+ .rodata.CUSTOM_00_57_BUF
                 0x000000000100bdc8        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_00_99_BUF
+ .rodata.CUSTOM_00_7F_BUF
                 0x000000000100bdcc        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_00_AF_BUF
+ .rodata.CUSTOM_00_80_BUF
                 0x000000000100bdd0        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_00_BA_BUF
+ .rodata.CUSTOM_00_99_BUF
                 0x000000000100bdd4        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_00_BD_BUF
+ .rodata.CUSTOM_00_AF_BUF
                 0x000000000100bdd8        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_00_BE_BUF
+ .rodata.CUSTOM_00_BA_BUF
                 0x000000000100bddc        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_00_BF_BUF
+ .rodata.CUSTOM_00_BD_BUF
                 0x000000000100bde0        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_00_DF_BUF
+ .rodata.CUSTOM_00_BE_BUF
                 0x000000000100bde4        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_00_D9_BUF
+ .rodata.CUSTOM_00_BF_BUF
                 0x000000000100bde8        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_00_EF_BUF
+ .rodata.CUSTOM_00_DF_BUF
                 0x000000000100bdec        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_00_F6_BUF
+ .rodata.CUSTOM_00_D9_BUF
                 0x000000000100bdf0        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_00_F7_BUF
+ .rodata.CUSTOM_00_EF_BUF
                 0x000000000100bdf4        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_00_FB_BUF
+ .rodata.CUSTOM_00_F6_BUF
                 0x000000000100bdf8        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_00_FD_BUF
+ .rodata.CUSTOM_00_F7_BUF
                 0x000000000100bdfc        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_00_FF_BUF
+ .rodata.CUSTOM_00_FB_BUF
                 0x000000000100be00        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_01_00_BUF
+ .rodata.CUSTOM_00_FD_BUF
                 0x000000000100be04        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_01_01_BUF
+ .rodata.CUSTOM_00_FF_BUF
                 0x000000000100be08        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_01_FE_BUF
+ .rodata.CUSTOM_01_00_BUF
                 0x000000000100be0c        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_02_00_BUF
+ .rodata.CUSTOM_01_01_BUF
                 0x000000000100be10        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_02_1D_BUF
+ .rodata.CUSTOM_01_FE_BUF
                 0x000000000100be14        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_02_BD_BUF
+ .rodata.CUSTOM_02_00_BUF
                 0x000000000100be18        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_02_FD_BUF
+ .rodata.CUSTOM_02_1D_BUF
                 0x000000000100be1c        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_02_7D_BUF
+ .rodata.CUSTOM_02_BD_BUF
                 0x000000000100be20        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_02_7F_BUF
+ .rodata.CUSTOM_02_FD_BUF
                 0x000000000100be24        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_02_FF_BUF
+ .rodata.CUSTOM_02_7D_BUF
                 0x000000000100be28        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_02_F5_BUF
+ .rodata.CUSTOM_02_7F_BUF
                 0x000000000100be2c        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_03_00_BUF
+ .rodata.CUSTOM_02_FF_BUF
                 0x000000000100be30        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_03_AC_BUF
+ .rodata.CUSTOM_02_F5_BUF
                 0x000000000100be34        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_03_FC_BUF
+ .rodata.CUSTOM_03_00_BUF
                 0x000000000100be38        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_04_00_BUF
+ .rodata.CUSTOM_03_AC_BUF
                 0x000000000100be3c        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_04_10_BUF
+ .rodata.CUSTOM_03_FC_BUF
                 0x000000000100be40        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_04_B9_BUF
+ .rodata.CUSTOM_04_00_BUF
                 0x000000000100be44        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_04_FB_BUF
+ .rodata.CUSTOM_04_10_BUF
                 0x000000000100be48        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_05_00_BUF
+ .rodata.CUSTOM_04_B9_BUF
                 0x000000000100be4c        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_05_05_BUF
+ .rodata.CUSTOM_04_FB_BUF
                 0x000000000100be50        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_06_06_BUF
+ .rodata.CUSTOM_05_00_BUF
                 0x000000000100be54        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_06_FB_BUF
+ .rodata.CUSTOM_05_05_BUF
                 0x000000000100be58        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_06_FE_BUF
+ .rodata.CUSTOM_06_06_BUF
                 0x000000000100be5c        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_07_07_BUF
+ .rodata.CUSTOM_06_FB_BUF
                 0x000000000100be60        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_08_00_BUF
+ .rodata.CUSTOM_06_FE_BUF
                 0x000000000100be64        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_08_08_BUF
+ .rodata.CUSTOM_07_07_BUF
                 0x000000000100be68        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_08_0B_BUF
+ .rodata.CUSTOM_08_00_BUF
                 0x000000000100be6c        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_08_13_BUF
+ .rodata.CUSTOM_08_08_BUF
                 0x000000000100be70        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_08_F7_BUF
+ .rodata.CUSTOM_08_0B_BUF
                 0x000000000100be74        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_09_F6_BUF
+ .rodata.CUSTOM_08_13_BUF
                 0x000000000100be78        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_0A_35_BUF
+ .rodata.CUSTOM_08_F7_BUF
                 0x000000000100be7c        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_0A_00_BUF
+ .rodata.CUSTOM_09_F6_BUF
                 0x000000000100be80        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_0A_0A_BUF
+ .rodata.CUSTOM_0A_35_BUF
                 0x000000000100be84        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_0B_0B_BUF
+ .rodata.CUSTOM_0A_00_BUF
                 0x000000000100be88        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_0D_0D_BUF
+ .rodata.CUSTOM_0A_0A_BUF
                 0x000000000100be8c        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_0E_09_BUF
+ .rodata.CUSTOM_0B_0B_BUF
                 0x000000000100be90        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_0E_0E_BUF
+ .rodata.CUSTOM_0D_0D_BUF
                 0x000000000100be94        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_0F_00_BUF
+ .rodata.CUSTOM_0E_09_BUF
                 0x000000000100be98        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_10_ED_BUF
+ .rodata.CUSTOM_0E_0E_BUF
                 0x000000000100be9c        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_10_EF_BUF
+ .rodata.CUSTOM_0F_00_BUF
                 0x000000000100bea0        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_10_2D_BUF
+ .rodata.CUSTOM_10_ED_BUF
                 0x000000000100bea4        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_12_12_BUF
+ .rodata.CUSTOM_10_EF_BUF
                 0x000000000100bea8        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_12_ED_BUF
+ .rodata.CUSTOM_10_2D_BUF
                 0x000000000100beac        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_13_14_BUF
+ .rodata.CUSTOM_12_12_BUF
                 0x000000000100beb0        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_14_00_BUF
+ .rodata.CUSTOM_12_ED_BUF
                 0x000000000100beb4        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_16_29_BUF
+ .rodata.CUSTOM_13_14_BUF
                 0x000000000100beb8        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_16_E9_BUF
+ .rodata.CUSTOM_14_00_BUF
                 0x000000000100bebc        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_18_18_BUF
+ .rodata.CUSTOM_16_29_BUF
                 0x000000000100bec0        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_18_E7_BUF
+ .rodata.CUSTOM_16_E9_BUF
                 0x000000000100bec4        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_18_E9_BUF
+ .rodata.CUSTOM_18_18_BUF
                 0x000000000100bec8        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_1A_00_BUF
+ .rodata.CUSTOM_18_E7_BUF
                 0x000000000100becc        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_1B_00_BUF
+ .rodata.CUSTOM_18_E9_BUF
                 0x000000000100bed0        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_1C_E3_BUF
+ .rodata.CUSTOM_1A_00_BUF
                 0x000000000100bed4        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_1E_1E_BUF
+ .rodata.CUSTOM_1B_00_BUF
                 0x000000000100bed8        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_1E_E1_BUF
+ .rodata.CUSTOM_1C_E3_BUF
                 0x000000000100bedc        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_1F_00_BUF
+ .rodata.CUSTOM_1E_1E_BUF
                 0x000000000100bee0        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_20_40_BUF
+ .rodata.CUSTOM_1E_E1_BUF
                 0x000000000100bee4        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_20_DF_BUF
+ .rodata.CUSTOM_1F_00_BUF
                 0x000000000100bee8        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_20_FD_BUF
+ .rodata.CUSTOM_20_40_BUF
                 0x000000000100beec        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_21_DE_BUF
+ .rodata.CUSTOM_20_DF_BUF
                 0x000000000100bef0        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_22_11_BUF
+ .rodata.CUSTOM_20_FD_BUF
                 0x000000000100bef4        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_24_DB_BUF
+ .rodata.CUSTOM_21_DE_BUF
                 0x000000000100bef8        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_29_D6_BUF
+ .rodata.CUSTOM_22_11_BUF
                 0x000000000100befc        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_2B_D4_BUF
+ .rodata.CUSTOM_24_DB_BUF
                 0x000000000100bf00        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_33_00_BUF
+ .rodata.CUSTOM_29_D6_BUF
                 0x000000000100bf04        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_33_CC_BUF
+ .rodata.CUSTOM_2B_D4_BUF
                 0x000000000100bf08        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_35_50_BUF
+ .rodata.CUSTOM_33_00_BUF
                 0x000000000100bf0c        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_38_C7_BUF
+ .rodata.CUSTOM_33_CC_BUF
                 0x000000000100bf10        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_3F_C0_BUF
+ .rodata.CUSTOM_35_50_BUF
                 0x000000000100bf14        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_3F_3F_BUF
+ .rodata.CUSTOM_38_C7_BUF
                 0x000000000100bf18        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_40_02_BUF
+ .rodata.CUSTOM_3F_C0_BUF
                 0x000000000100bf1c        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_40_20_BUF
+ .rodata.CUSTOM_3F_3F_BUF
                 0x000000000100bf20        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_40_40_BUF
+ .rodata.CUSTOM_40_02_BUF
                 0x000000000100bf24        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_40_BF_BUF
+ .rodata.CUSTOM_40_20_BUF
                 0x000000000100bf28        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_42_BD_BUF
+ .rodata.CUSTOM_40_40_BUF
                 0x000000000100bf2c        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_42_FD_BUF
+ .rodata.CUSTOM_40_BF_BUF
                 0x000000000100bf30        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_43_00_BUF
+ .rodata.CUSTOM_42_BD_BUF
                 0x000000000100bf34        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_45_16_BUF
+ .rodata.CUSTOM_42_FD_BUF
                 0x000000000100bf38        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_23_45_BUF
+ .rodata.CUSTOM_43_00_BUF
                 0x000000000100bf3c        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_45_BC_BUF
+ .rodata.CUSTOM_45_16_BUF
                 0x000000000100bf40        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_46_00_BUF
+ .rodata.CUSTOM_23_45_BUF
                 0x000000000100bf44        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_47_00_BUF
+ .rodata.CUSTOM_45_BC_BUF
                 0x000000000100bf48        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_4B_B4_BUF
+ .rodata.CUSTOM_46_00_BUF
                 0x000000000100bf4c        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_4F_50_BUF
+ .rodata.CUSTOM_47_00_BUF
                 0x000000000100bf50        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_50_AD_BUF
+ .rodata.CUSTOM_4B_B4_BUF
                 0x000000000100bf54        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_50_AF_BUF
+ .rodata.CUSTOM_4F_50_BUF
                 0x000000000100bf58        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_54_00_BUF
+ .rodata.CUSTOM_50_AD_BUF
                 0x000000000100bf5c        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_58_A7_BUF
+ .rodata.CUSTOM_50_AF_BUF
                 0x000000000100bf60        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_5A_49_BUF
+ .rodata.CUSTOM_54_00_BUF
                 0x000000000100bf64        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_60_9F_BUF
+ .rodata.CUSTOM_58_A7_BUF
                 0x000000000100bf68        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_60_9D_BUF
+ .rodata.CUSTOM_5A_49_BUF
                 0x000000000100bf6c        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_61_63_BUF
+ .rodata.CUSTOM_60_9F_BUF
                 0x000000000100bf70        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_6A_00_BUF
+ .rodata.CUSTOM_60_9D_BUF
                 0x000000000100bf74        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_69_F1_BUF
+ .rodata.CUSTOM_61_63_BUF
                 0x000000000100bf78        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_71_8E_BUF
+ .rodata.CUSTOM_6A_00_BUF
                 0x000000000100bf7c        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_73_00_BUF
+ .rodata.CUSTOM_69_F1_BUF
                 0x000000000100bf80        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_76_7B_BUF
+ .rodata.CUSTOM_71_8E_BUF
                 0x000000000100bf84        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_77_00_BUF
+ .rodata.CUSTOM_73_00_BUF
                 0x000000000100bf88        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_77_88_BUF
+ .rodata.CUSTOM_76_7B_BUF
                 0x000000000100bf8c        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_7D_00_BUF
+ .rodata.CUSTOM_77_00_BUF
                 0x000000000100bf90        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_7F_00_BUF
+ .rodata.CUSTOM_77_88_BUF
                 0x000000000100bf94        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_80_23_BUF
+ .rodata.CUSTOM_7D_00_BUF
                 0x000000000100bf98        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_80_80_BUF
+ .rodata.CUSTOM_7F_00_BUF
                 0x000000000100bf9c        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_80_57_BUF
+ .rodata.CUSTOM_80_23_BUF
                 0x000000000100bfa0        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_80_63_BUF
+ .rodata.CUSTOM_80_80_BUF
                 0x000000000100bfa4        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_80_64_BUF
+ .rodata.CUSTOM_80_57_BUF
                 0x000000000100bfa8        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_80_6F_BUF
+ .rodata.CUSTOM_80_63_BUF
                 0x000000000100bfac        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_80_7F_BUF
+ .rodata.CUSTOM_80_64_BUF
                 0x000000000100bfb0        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_80_8F_BUF
+ .rodata.CUSTOM_80_6F_BUF
                 0x000000000100bfb4        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_82_F3_BUF
+ .rodata.CUSTOM_80_7F_BUF
                 0x000000000100bfb8        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_83_55_BUF
+ .rodata.CUSTOM_80_8F_BUF
                 0x000000000100bfbc        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_83_F1_BUF
+ .rodata.CUSTOM_82_F3_BUF
                 0x000000000100bfc0        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_83_F7_BUF
+ .rodata.CUSTOM_83_55_BUF
                 0x000000000100bfc4        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_84_E0_BUF
+ .rodata.CUSTOM_83_F1_BUF
                 0x000000000100bfc8        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_85_46_BUF
+ .rodata.CUSTOM_83_F7_BUF
                 0x000000000100bfcc        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_86_02_BUF
+ .rodata.CUSTOM_84_E0_BUF
                 0x000000000100bfd0        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_86_05_BUF
+ .rodata.CUSTOM_85_46_BUF
                 0x000000000100bfd4        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_86_6B_BUF
+ .rodata.CUSTOM_86_02_BUF
                 0x000000000100bfd8        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_87_22_BUF
+ .rodata.CUSTOM_86_05_BUF
                 0x000000000100bfdc        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_87_4E_BUF
+ .rodata.CUSTOM_86_6B_BUF
                 0x000000000100bfe0        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_88_45_BUF
+ .rodata.CUSTOM_87_22_BUF
                 0x000000000100bfe4        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_95_6A_BUF
+ .rodata.CUSTOM_87_4E_BUF
                 0x000000000100bfe8        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_96_69_BUF
+ .rodata.CUSTOM_88_45_BUF
                 0x000000000100bfec        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_97_00_BUF
+ .rodata.CUSTOM_95_6A_BUF
                 0x000000000100bff0        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_A0_5F_BUF
+ .rodata.CUSTOM_96_69_BUF
                 0x000000000100bff4        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_A0_87_BUF
+ .rodata.CUSTOM_97_00_BUF
                 0x000000000100bff8        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_A4_00_BUF
+ .rodata.CUSTOM_A0_5F_BUF
                 0x000000000100bffc        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_AA_03_BUF
+ .rodata.CUSTOM_A0_87_BUF
                 0x000000000100c000        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_AA_55_BUF
+ .rodata.CUSTOM_A4_00_BUF
                 0x000000000100c004        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_C4_00_BUF
+ .rodata.CUSTOM_AA_03_BUF
                 0x000000000100c008        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_E5_70_BUF
+ .rodata.CUSTOM_AA_55_BUF
                 0x000000000100c00c        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_E6_00_BUF
+ .rodata.CUSTOM_C4_00_BUF
                 0x000000000100c010        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_E7_0A_BUF
+ .rodata.CUSTOM_E5_70_BUF
                 0x000000000100c014        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_EA_C7_BUF
+ .rodata.CUSTOM_E6_00_BUF
                 0x000000000100c018        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_EA_C8_BUF
+ .rodata.CUSTOM_E7_0A_BUF
                 0x000000000100c01c        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_EE_00_BUF
+ .rodata.CUSTOM_EA_C7_BUF
                 0x000000000100c020        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_DC_00_BUF
+ .rodata.CUSTOM_EA_C8_BUF
                 0x000000000100c024        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_DE_D6_BUF
+ .rodata.CUSTOM_EE_00_BUF
                 0x000000000100c028        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_F4_00_BUF
+ .rodata.CUSTOM_DC_00_BUF
                 0x000000000100c02c        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_FE_01_BUF
+ .rodata.CUSTOM_DE_D6_BUF
                 0x000000000100c030        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_0000_B000_BUF
+ .rodata.CUSTOM_F4_00_BUF
                 0x000000000100c034        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_0000_FFFF_BUF
+ .rodata.CUSTOM_FE_01_BUF
                 0x000000000100c038        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_055A_0000_BUF
+ .rodata.CUSTOM_0000_B000_BUF
                 0x000000000100c03c        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_0057_0000_BUF
+ .rodata.CUSTOM_0000_FFFF_BUF
                 0x000000000100c040        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_007B_1F84_BUF
+ .rodata.CUSTOM_055A_0000_BUF
                 0x000000000100c044        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_081F_0000_BUF
+ .rodata.CUSTOM_0057_0000_BUF
                 0x000000000100c048        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_0119_1EE6_BUF
+ .rodata.CUSTOM_007B_1F84_BUF
                 0x000000000100c04c        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_011A_FEE5_BUF
+ .rodata.CUSTOM_081F_0000_BUF
                 0x000000000100c050        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_011C_1EE3_BUF
+ .rodata.CUSTOM_0119_1EE6_BUF
                 0x000000000100c054        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_013C_1EC3_BUF
+ .rodata.CUSTOM_011A_FEE5_BUF
                 0x000000000100c058        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_0114_FEEB_BUF
+ .rodata.CUSTOM_011C_1EE3_BUF
                 0x000000000100c05c        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_0200_0000_BUF
+ .rodata.CUSTOM_013C_1EC3_BUF
                 0x000000000100c060        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_1463_0084_BUF
+ .rodata.CUSTOM_0114_FEEB_BUF
                 0x000000000100c064        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_2002_4880_BUF
+ .rodata.CUSTOM_0200_0000_BUF
                 0x000000000100c068        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_29C0_2600_BUF
+ .rodata.CUSTOM_1463_0084_BUF
                 0x000000000100c06c        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_5AAA_162F_BUF
+ .rodata.CUSTOM_2002_4880_BUF
                 0x000000000100c070        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_8000_FFFF_BUF
+ .rodata.CUSTOM_29C0_2600_BUF
                 0x000000000100c074        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_87E1_F000_BUF
+ .rodata.CUSTOM_5AAA_162F_BUF
                 0x000000000100c078        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_2002_0090_BUF
+ .rodata.CUSTOM_8000_FFFF_BUF
                 0x000000000100c07c        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_434F_004E_BUF
+ .rodata.CUSTOM_87E1_F000_BUF
                 0x000000000100c080        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_BFFF_FFFF_BUF
+ .rodata.CUSTOM_2002_0090_BUF
                 0x000000000100c084        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_FFFD_0000_BUF
+ .rodata.CUSTOM_434F_004E_BUF
                 0x000000000100c088        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_FFFE_00A4_BUF
+ .rodata.CUSTOM_BFFF_FFFF_BUF
                 0x000000000100c08c        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_FFFE_00A5_BUF
+ .rodata.CUSTOM_FFFD_0000_BUF
                 0x000000000100c090        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_FFFE_006A_BUF
+ .rodata.CUSTOM_FFFE_00A4_BUF
                 0x000000000100c094        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_FFFD_0001_BUF
+ .rodata.CUSTOM_FFFE_00A5_BUF
                 0x000000000100c098        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_FFFD_FFFF_BUF
+ .rodata.CUSTOM_FFFE_006A_BUF
                 0x000000000100c09c        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_FFFF_FFFF_BUF
+ .rodata.CUSTOM_FFFD_0001_BUF
                 0x000000000100c0a0        0x4 output/obj/ir_lib.o
- .rodata.HIGH_CUSTOM_2002_0080_BUF
+ .rodata.CUSTOM_FFFD_FFFF_BUF
                 0x000000000100c0a4        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_2002_0280_BUF
+ .rodata.CUSTOM_FFFF_FFFF_BUF
                 0x000000000100c0a8        0x4 output/obj/ir_lib.o
- .rodata.CUSTOM_2002_0480_BUF
+ .rodata.HIGH_CUSTOM_2002_0080_BUF
                 0x000000000100c0ac        0x4 output/obj/ir_lib.o
- .rodata.HIGH_CUSTOM_0000_1800_BUF
+ .rodata.CUSTOM_2002_0280_BUF
                 0x000000000100c0b0        0x4 output/obj/ir_lib.o
- .rodata.HIGH_CUSTOM_3000_0000_BUF
+ .rodata.CUSTOM_2002_0480_BUF
                 0x000000000100c0b4        0x4 output/obj/ir_lib.o
- .rodata.HIGH_CUSTOM_4000_0000_BUF
+ .rodata.HIGH_CUSTOM_0000_1800_BUF
                 0x000000000100c0b8        0x4 output/obj/ir_lib.o
- .rodata.HIGH_CUSTOM_8000_0000_BUF
+ .rodata.HIGH_CUSTOM_3000_0000_BUF
                 0x000000000100c0bc        0x4 output/obj/ir_lib.o
- .rodata.HIGH_CUSTOM_8000_2800_BUF
+ .rodata.HIGH_CUSTOM_4000_0000_BUF
                 0x000000000100c0c0        0x4 output/obj/ir_lib.o
- .rodata.HIGH_CUSTOM_8100_7E00_BUF
+ .rodata.HIGH_CUSTOM_8000_0000_BUF
                 0x000000000100c0c4        0x4 output/obj/ir_lib.o
- .rodata.HIGH_CUSTOM_A000_0000_BUF
+ .rodata.HIGH_CUSTOM_8000_2800_BUF
                 0x000000000100c0c8        0x4 output/obj/ir_lib.o
- .rodata.HIGH_CUSTOM_B000_6000_BUF
+ .rodata.HIGH_CUSTOM_8100_7E00_BUF
                 0x000000000100c0cc        0x4 output/obj/ir_lib.o
- .rodata.HIGH_CUSTOM_B000_A000_BUF
+ .rodata.HIGH_CUSTOM_A000_0000_BUF
                 0x000000000100c0d0        0x4 output/obj/ir_lib.o
- .rodata.HIGH_CUSTOM_B000_F000_BUF
+ .rodata.HIGH_CUSTOM_B000_6000_BUF
                 0x000000000100c0d4        0x4 output/obj/ir_lib.o
- .rodata.HIGH_CUSTOM_C000_0000_BUF
+ .rodata.HIGH_CUSTOM_B000_A000_BUF
                 0x000000000100c0d8        0x4 output/obj/ir_lib.o
- .rodata.HIGH_CUSTOM_C000_0800_BUF
+ .rodata.HIGH_CUSTOM_B000_F000_BUF
                 0x000000000100c0dc        0x4 output/obj/ir_lib.o
- .rodata.HIGH_CUSTOM_C000_6000_BUF
+ .rodata.HIGH_CUSTOM_C000_0000_BUF
                 0x000000000100c0e0        0x4 output/obj/ir_lib.o
- .rodata.HIGH_CUSTOM_FFFD_6000_BUF
+ .rodata.HIGH_CUSTOM_C000_0800_BUF
                 0x000000000100c0e4        0x4 output/obj/ir_lib.o
- .rodata.HIGH_CUSTOM_FFFD_E000_BUF
+ .rodata.HIGH_CUSTOM_C000_6000_BUF
                 0x000000000100c0e8        0x4 output/obj/ir_lib.o
- .rodata.HIGH_CUSTOM_FFFD_8800_BUF
+ .rodata.HIGH_CUSTOM_FFFD_6000_BUF
                 0x000000000100c0ec        0x4 output/obj/ir_lib.o
+ .rodata.HIGH_CUSTOM_FFFD_E000_BUF
+                0x000000000100c0f0        0x4 output/obj/ir_lib.o
+ .rodata.HIGH_CUSTOM_FFFD_8800_BUF
+                0x000000000100c0f4        0x4 output/obj/ir_lib.o
  .rodata.CUSTOM_6BIT_02_BUF
-                0x000000000100c0f0       0x1e output/obj/ir_lib.o
- *fill*         0x000000000100c10e        0x2 
+                0x000000000100c0f8       0x1e output/obj/ir_lib.o
+ *fill*         0x000000000100c116        0x2 
  .rodata.CUSTOM_C1D6_03_BUF
-                0x000000000100c110       0x1e output/obj/ir_lib.o
- *fill*         0x000000000100c12e        0x2 
+                0x000000000100c118       0x1e output/obj/ir_lib.o
+ *fill*         0x000000000100c136        0x2 
  .rodata.DVB_PAN_7051_SAMSUN_05_BUF
-                0x000000000100c130       0x1e output/obj/ir_lib.o
- *fill*         0x000000000100c14e        0x2 
+                0x000000000100c138       0x1e output/obj/ir_lib.o
+ *fill*         0x000000000100c156        0x2 
  .rodata.FB739A_06_BUF
-                0x000000000100c150       0x1e output/obj/ir_lib.o
- *fill*         0x000000000100c16e        0x2 
+                0x000000000100c158       0x1e output/obj/ir_lib.o
+ *fill*         0x000000000100c176        0x2 
  .rodata.GEMINI_C16_38_08_BUF
-                0x000000000100c170       0x1e output/obj/ir_lib.o
- *fill*         0x000000000100c18e        0x2 
+                0x000000000100c178       0x1e output/obj/ir_lib.o
+ *fill*         0x000000000100c196        0x2 
  .rodata.GEMINI_C10_32_08_BUF
-                0x000000000100c190       0x1e output/obj/ir_lib.o
- *fill*         0x000000000100c1ae        0x2 
+                0x000000000100c198       0x1e output/obj/ir_lib.o
+ *fill*         0x000000000100c1b6        0x2 
  .rodata.GEMINI_C10_38_09_BUF
-                0x000000000100c1b0       0x1e output/obj/ir_lib.o
- *fill*         0x000000000100c1ce        0x2 
+                0x000000000100c1b8       0x1e output/obj/ir_lib.o
+ *fill*         0x000000000100c1d6        0x2 
  .rodata.GEMINI_C10_32_10_BUF
-                0x000000000100c1d0       0x1e output/obj/ir_lib.o
- *fill*         0x000000000100c1ee        0x2 
+                0x000000000100c1d8       0x1e output/obj/ir_lib.o
+ *fill*         0x000000000100c1f6        0x2 
  .rodata.IRT1250C5D6_12_BUF
-                0x000000000100c1f0       0x1e output/obj/ir_lib.o
- *fill*         0x000000000100c20e        0x2 
+                0x000000000100c1f8       0x1e output/obj/ir_lib.o
+ *fill*         0x000000000100c216        0x2 
  .rodata.IRT1250C5D7_13_BUF
-                0x000000000100c210       0x1e output/obj/ir_lib.o
- *fill*         0x000000000100c22e        0x2 
+                0x000000000100c218       0x1e output/obj/ir_lib.o
+ *fill*         0x000000000100c236        0x2 
  .rodata.KK_Y261_14_BUF
-                0x000000000100c230       0x1e output/obj/ir_lib.o
- *fill*         0x000000000100c24e        0x2 
+                0x000000000100c238       0x1e output/obj/ir_lib.o
+ *fill*         0x000000000100c256        0x2 
  .rodata.LBNSAMSUNG_15_BUF
-                0x000000000100c250       0x1e output/obj/ir_lib.o
- *fill*         0x000000000100c26e        0x2 
+                0x000000000100c258       0x1e output/obj/ir_lib.o
+ *fill*         0x000000000100c276        0x2 
  .rodata.LC7461M_C13S_16_BUF
-                0x000000000100c270       0x1e output/obj/ir_lib.o
- *fill*         0x000000000100c28e        0x2 
+                0x000000000100c278       0x1e output/obj/ir_lib.o
+ *fill*         0x000000000100c296        0x2 
  .rodata.LC7461M_C13S_17_BUF
-                0x000000000100c290       0x1e output/obj/ir_lib.o
- *fill*         0x000000000100c2ae        0x2 
+                0x000000000100c298       0x1e output/obj/ir_lib.o
+ *fill*         0x000000000100c2b6        0x2 
  .rodata.LC7464M_PANASONIC_18_BUF
-                0x000000000100c2b0       0x1e output/obj/ir_lib.o
- *fill*         0x000000000100c2ce        0x2 
+                0x000000000100c2b8       0x1e output/obj/ir_lib.o
+ *fill*         0x000000000100c2d6        0x2 
  .rodata.LG3004_33K_19_TOGGLE_ONE_BUF
-                0x000000000100c2d0       0x1e output/obj/ir_lib.o
- *fill*         0x000000000100c2ee        0x2 
+                0x000000000100c2d8       0x1e output/obj/ir_lib.o
+ *fill*         0x000000000100c2f6        0x2 
  .rodata.LG3004_33K_19_TOGGLE_TWO_BUF
-                0x000000000100c2f0       0x1e output/obj/ir_lib.o
- *fill*         0x000000000100c30e        0x2 
+                0x000000000100c2f8       0x1e output/obj/ir_lib.o
+ *fill*         0x000000000100c316        0x2 
  .rodata.LG3004_33K_19_TOGGLE_TWO_Freq_0_BUF
-                0x000000000100c310       0x1e output/obj/ir_lib.o
- *fill*         0x000000000100c32e        0x2 
+                0x000000000100c318       0x1e output/obj/ir_lib.o
+ *fill*         0x000000000100c336        0x2 
  .rodata.LG3004_33K_19_TOGGLE_ZERO_BUF
-                0x000000000100c330       0x1e output/obj/ir_lib.o
- *fill*         0x000000000100c34e        0x2 
+                0x000000000100c338       0x1e output/obj/ir_lib.o
+ *fill*         0x000000000100c356        0x2 
  .rodata.M3004_38K_20_BUF
-                0x000000000100c350       0x1e output/obj/ir_lib.o
- *fill*         0x000000000100c36e        0x2 
+                0x000000000100c358       0x1e output/obj/ir_lib.o
+ *fill*         0x000000000100c376        0x2 
  .rodata.M3004_38K_20_toggle_zero_BUF
-                0x000000000100c370       0x1e output/obj/ir_lib.o
- *fill*         0x000000000100c38e        0x2 
+                0x000000000100c378       0x1e output/obj/ir_lib.o
+ *fill*         0x000000000100c396        0x2 
  .rodata.M3004_38K_21_400_BUF
-                0x000000000100c390       0x1e output/obj/ir_lib.o
- *fill*         0x000000000100c3ae        0x2 
+                0x000000000100c398       0x1e output/obj/ir_lib.o
+ *fill*         0x000000000100c3b6        0x2 
  .rodata.M50119P_23_BUF
-                0x000000000100c3b0       0x1e output/obj/ir_lib.o
- *fill*         0x000000000100c3ce        0x2 
+                0x000000000100c3b8       0x1e output/obj/ir_lib.o
+ *fill*         0x000000000100c3d6        0x2 
  .rodata.M50462_24_BUF
-                0x000000000100c3d0       0x1e output/obj/ir_lib.o
- *fill*         0x000000000100c3ee        0x2 
+                0x000000000100c3d8       0x1e output/obj/ir_lib.o
+ *fill*         0x000000000100c3f6        0x2 
  .rodata.M50560_25_BUF
-                0x000000000100c3f0       0x1e output/obj/ir_lib.o
- *fill*         0x000000000100c40e        0x2 
+                0x000000000100c3f8       0x1e output/obj/ir_lib.o
+ *fill*         0x000000000100c416        0x2 
  .rodata.MITC8D8_28_BUF
-                0x000000000100c410       0x1e output/obj/ir_lib.o
- *fill*         0x000000000100c42e        0x2 
+                0x000000000100c418       0x1e output/obj/ir_lib.o
+ *fill*         0x000000000100c436        0x2 
  .rodata.MN6014C6D6_29_BUF
-                0x000000000100c430       0x1e output/obj/ir_lib.o
- *fill*         0x000000000100c44e        0x2 
+                0x000000000100c438       0x1e output/obj/ir_lib.o
+ *fill*         0x000000000100c456        0x2 
  .rodata.MN6014C5D638_30_BUF
-                0x000000000100c450       0x1e output/obj/ir_lib.o
- *fill*         0x000000000100c46e        0x2 
+                0x000000000100c458       0x1e output/obj/ir_lib.o
+ *fill*         0x000000000100c476        0x2 
  .rodata.MN6014C5D656_31_BUF
-                0x000000000100c470       0x1e output/obj/ir_lib.o
- *fill*         0x000000000100c48e        0x2 
+                0x000000000100c478       0x1e output/obj/ir_lib.o
+ *fill*         0x000000000100c496        0x2 
  .rodata.N3201_32_BUF
-                0x000000000100c490       0x1e output/obj/ir_lib.o
- *fill*         0x000000000100c4ae        0x2 
+                0x000000000100c498       0x1e output/obj/ir_lib.o
+ *fill*         0x000000000100c4b6        0x2 
  .rodata.PANPROJECTOR_37_BUF
-                0x000000000100c4b0       0x1e output/obj/ir_lib.o
- *fill*         0x000000000100c4ce        0x2 
+                0x000000000100c4b8       0x1e output/obj/ir_lib.o
+ *fill*         0x000000000100c4d6        0x2 
  .rodata.PHILIPS_20_38_BUF
-                0x000000000100c4d0       0x1e output/obj/ir_lib.o
- *fill*         0x000000000100c4ee        0x2 
+                0x000000000100c4d8       0x1e output/obj/ir_lib.o
+ *fill*         0x000000000100c4f6        0x2 
  .rodata.PHILIPS_RC_MM_39_BUF
-                0x000000000100c4f0       0x1e output/obj/ir_lib.o
- *fill*         0x000000000100c50e        0x2 
+                0x000000000100c4f8       0x1e output/obj/ir_lib.o
+ *fill*         0x000000000100c516        0x2 
  .rodata.PILOT370_40_BUF
-                0x000000000100c510       0x1e output/obj/ir_lib.o
- *fill*         0x000000000100c52e        0x2 
+                0x000000000100c518       0x1e output/obj/ir_lib.o
+ *fill*         0x000000000100c536        0x2 
  .rodata.PIONEER_41_BUF
-                0x000000000100c530       0x1e output/obj/ir_lib.o
- *fill*         0x000000000100c54e        0x2 
+                0x000000000100c538       0x1e output/obj/ir_lib.o
+ *fill*         0x000000000100c556        0x2 
  .rodata.RCA_56_42_BUF
-                0x000000000100c550       0x1e output/obj/ir_lib.o
- *fill*         0x000000000100c56e        0x2 
+                0x000000000100c558       0x1e output/obj/ir_lib.o
+ *fill*         0x000000000100c576        0x2 
  .rodata.RCA_38_43_BUF
-                0x000000000100c570       0x1e output/obj/ir_lib.o
- *fill*         0x000000000100c58e        0x2 
+                0x000000000100c578       0x1e output/obj/ir_lib.o
+ *fill*         0x000000000100c596        0x2 
  .rodata.RCA_56_44_BUF
-                0x000000000100c590       0x1e output/obj/ir_lib.o
- *fill*         0x000000000100c5ae        0x2 
+                0x000000000100c598       0x1e output/obj/ir_lib.o
+ *fill*         0x000000000100c5b6        0x2 
  .rodata.SAA3010_38_45_BUF
-                0x000000000100c5b0       0x1e output/obj/ir_lib.o
- *fill*         0x000000000100c5ce        0x2 
+                0x000000000100c5b8       0x1e output/obj/ir_lib.o
+ *fill*         0x000000000100c5d6        0x2 
  .rodata.SAA3010_36_46_BUF
-                0x000000000100c5d0       0x1e output/obj/ir_lib.o
- *fill*         0x000000000100c5ee        0x2 
+                0x000000000100c5d8       0x1e output/obj/ir_lib.o
+ *fill*         0x000000000100c5f6        0x2 
  .rodata.SAMSUNG_38_49_BUF
-                0x000000000100c5f0       0x1e output/obj/ir_lib.o
- *fill*         0x000000000100c60e        0x2 
+                0x000000000100c5f8       0x1e output/obj/ir_lib.o
+ *fill*         0x000000000100c616        0x2 
  .rodata.LX0773CE_50_BUF
-                0x000000000100c610       0x1e output/obj/ir_lib.o
- *fill*         0x000000000100c62e        0x2 
+                0x000000000100c618       0x1e output/obj/ir_lib.o
+ *fill*         0x000000000100c636        0x2 
  .rodata.SINGH2150_51_BUF
-                0x000000000100c630       0x1e output/obj/ir_lib.o
- *fill*         0x000000000100c64e        0x2 
+                0x000000000100c638       0x1e output/obj/ir_lib.o
+ *fill*         0x000000000100c656        0x2 
  .rodata.TC901_54_BUF
-                0x000000000100c650       0x1e output/obj/ir_lib.o
- *fill*         0x000000000100c66e        0x2 
+                0x000000000100c658       0x1e output/obj/ir_lib.o
+ *fill*         0x000000000100c676        0x2 
  .rodata.TC901_55_BUF
-                0x000000000100c670       0x1e output/obj/ir_lib.o
- *fill*         0x000000000100c68e        0x2 
+                0x000000000100c678       0x1e output/obj/ir_lib.o
+ *fill*         0x000000000100c696        0x2 
  .rodata.RCT311_56_BUF
-                0x000000000100c690       0x1e output/obj/ir_lib.o
- *fill*         0x000000000100c6ae        0x2 
+                0x000000000100c698       0x1e output/obj/ir_lib.o
+ *fill*         0x000000000100c6b6        0x2 
  .rodata.UPD6121G2_64_BUF
-                0x000000000100c6b0       0x1e output/obj/ir_lib.o
- *fill*         0x000000000100c6ce        0x2 
+                0x000000000100c6b8       0x1e output/obj/ir_lib.o
+ *fill*         0x000000000100c6d6        0x2 
  .rodata.UPD6121G2_40K_65_BUF
-                0x000000000100c6d0       0x1e output/obj/ir_lib.o
- *fill*         0x000000000100c6ee        0x2 
+                0x000000000100c6d8       0x1e output/obj/ir_lib.o
+ *fill*         0x000000000100c6f6        0x2 
  .rodata.UPD6121G_LIAN_66_BUF
-                0x000000000100c6f0       0x1e output/obj/ir_lib.o
- *fill*         0x000000000100c70e        0x2 
+                0x000000000100c6f8       0x1e output/obj/ir_lib.o
+ *fill*         0x000000000100c716        0x2 
  .rodata.UPD6121G_001_67_BUF
-                0x000000000100c710       0x1e output/obj/ir_lib.o
- *fill*         0x000000000100c72e        0x2 
+                0x000000000100c718       0x1e output/obj/ir_lib.o
+ *fill*         0x000000000100c736        0x2 
  .rodata.UPD6121G2_D8_68_BUF
-                0x000000000100c730       0x1e output/obj/ir_lib.o
- *fill*         0x000000000100c74e        0x2 
+                0x000000000100c738       0x1e output/obj/ir_lib.o
+ *fill*         0x000000000100c756        0x2 
  .rodata.UPD6124_D7C5_69_BUF
-                0x000000000100c750       0x1e output/obj/ir_lib.o
- *fill*         0x000000000100c76e        0x2 
+                0x000000000100c758       0x1e output/obj/ir_lib.o
+ *fill*         0x000000000100c776        0x2 
  .rodata.UPD6124_D7C8_70_BUF
-                0x000000000100c770       0x1e output/obj/ir_lib.o
- *fill*         0x000000000100c78e        0x2 
+                0x000000000100c778       0x1e output/obj/ir_lib.o
+ *fill*         0x000000000100c796        0x2 
  .rodata.UPD6124_D7C13_71_BUF
-                0x000000000100c790       0x1e output/obj/ir_lib.o
- *fill*         0x000000000100c7ae        0x2 
+                0x000000000100c798       0x1e output/obj/ir_lib.o
+ *fill*         0x000000000100c7b6        0x2 
  .rodata.VICTOR_C8D8_72_BUF
-                0x000000000100c7b0       0x1e output/obj/ir_lib.o
- *fill*         0x000000000100c7ce        0x2 
+                0x000000000100c7b8       0x1e output/obj/ir_lib.o
+ *fill*         0x000000000100c7d6        0x2 
  .rodata.XY_2106_75_BUF
-                0x000000000100c7d0       0x1e output/obj/ir_lib.o
- *fill*         0x000000000100c7ee        0x2 
+                0x000000000100c7d8       0x1e output/obj/ir_lib.o
+ *fill*         0x000000000100c7f6        0x2 
  .rodata.ZENITH_S10_77_BUF
-                0x000000000100c7f0       0x1e output/obj/ir_lib.o
- *fill*         0x000000000100c80e        0x2 
+                0x000000000100c7f8       0x1e output/obj/ir_lib.o
+ *fill*         0x000000000100c816        0x2 
  .rodata.ZENITH_S10_77_Zero_BUF
-                0x000000000100c810       0x1e output/obj/ir_lib.o
- *fill*         0x000000000100c82e        0x2 
+                0x000000000100c818       0x1e output/obj/ir_lib.o
+ *fill*         0x000000000100c836        0x2 
  .rodata.ZENITH_D5_78_BUF
-                0x000000000100c830       0x1e output/obj/ir_lib.o
- *fill*         0x000000000100c84e        0x2 
+                0x000000000100c838       0x1e output/obj/ir_lib.o
+ *fill*         0x000000000100c856        0x2 
  .rodata.ZENITH_D7_79_BUF
-                0x000000000100c850       0x1e output/obj/ir_lib.o
- *fill*         0x000000000100c86e        0x2 
+                0x000000000100c858       0x1e output/obj/ir_lib.o
+ *fill*         0x000000000100c876        0x2 
  .rodata.ZENITHSIM_C2D8_82_BUF
-                0x000000000100c870       0x1e output/obj/ir_lib.o
- *fill*         0x000000000100c88e        0x2 
+                0x000000000100c878       0x1e output/obj/ir_lib.o
+ *fill*         0x000000000100c896        0x2 
  .rodata.Unknow_C8D5_83_BUF
-                0x000000000100c890       0x1e output/obj/ir_lib.o
- *fill*         0x000000000100c8ae        0x2 
+                0x000000000100c898       0x1e output/obj/ir_lib.o
+ *fill*         0x000000000100c8b6        0x2 
  .rodata.UPD6121G_001_APPLE_90_BUF
-                0x000000000100c8b0       0x1e output/obj/ir_lib.o
- *fill*         0x000000000100c8ce        0x2 
+                0x000000000100c8b8       0x1e output/obj/ir_lib.o
+ *fill*         0x000000000100c8d6        0x2 
  .rodata.Pioneer_91_BUF
-                0x000000000100c8d0       0x1e output/obj/ir_lib.o
- *fill*         0x000000000100c8ee        0x2 
+                0x000000000100c8d8       0x1e output/obj/ir_lib.o
+ *fill*         0x000000000100c8f6        0x2 
  .rodata.STM708LB1_92_BUF
-                0x000000000100c8f0       0x1e output/obj/ir_lib.o
- *fill*         0x000000000100c90e        0x2 
+                0x000000000100c8f8       0x1e output/obj/ir_lib.o
+ *fill*         0x000000000100c916        0x2 
  .rodata.JX_9070_93_BUF
-                0x000000000100c910       0x1e output/obj/ir_lib.o
- *fill*         0x000000000100c92e        0x2 
+                0x000000000100c918       0x1e output/obj/ir_lib.o
+ *fill*         0x000000000100c936        0x2 
  .rodata.GD_2000_94_BUF
-                0x000000000100c930       0x1e output/obj/ir_lib.o
- *fill*         0x000000000100c94e        0x2 
+                0x000000000100c938       0x1e output/obj/ir_lib.o
+ *fill*         0x000000000100c956        0x2 
  .rodata.XY_JAECS_95_BUF
-                0x000000000100c950       0x1e output/obj/ir_lib.o
- *fill*         0x000000000100c96e        0x2 
+                0x000000000100c958       0x1e output/obj/ir_lib.o
+ *fill*         0x000000000100c976        0x2 
  .rodata.DVB_40BIT_100_BUF
-                0x000000000100c970       0x1e output/obj/ir_lib.o
- *fill*         0x000000000100c98e        0x2 
+                0x000000000100c978       0x1e output/obj/ir_lib.o
+ *fill*         0x000000000100c996        0x2 
  .rodata.CSWTCH.0
-                0x000000000100c990       0x1c output/obj/ir_lib.o
+                0x000000000100c998       0x1c output/obj/ir_lib.o
  .rodata.CSWTCH.1
-                0x000000000100c9ac      0x344 output/obj/ir_lib.o
+                0x000000000100c9b4      0x344 output/obj/ir_lib.o
  .rodata.CSWTCH.2
-                0x000000000100ccf0      0x114 output/obj/ir_lib.o
+                0x000000000100ccf8      0x114 output/obj/ir_lib.o
  .rodata.ir_tv_learn_send
-                0x000000000100ce04       0x38 output/obj/ir_learn_from_tv_google.o
+                0x000000000100ce0c       0x38 output/obj/ir_learn_from_tv_google.o
  .rodata.ir_learn_data_fill.str1.4
-                0x000000000100ce3c       0x7d output/obj/ir_learn_from_tv_google.o
- *fill*         0x000000000100ceb9        0x3 
- .rodata.audio_end
-                0x000000000100cebc        0x1 output/obj/audio.o
- *fill*         0x000000000100cebd        0x3 
- .rodata.search_buf
-                0x000000000100cec0        0x1 output/obj/audio.o
+                0x000000000100ce44       0x7d output/obj/ir_learn_from_tv_google.o
  *fill*         0x000000000100cec1        0x3 
- .rodata.audio_start
+ .rodata.audio_end
                 0x000000000100cec4        0x1 output/obj/audio.o
  *fill*         0x000000000100cec5        0x3 
+ .rodata.search_buf
+                0x000000000100cec8        0x1 output/obj/audio.o
+ *fill*         0x000000000100cec9        0x3 
+ .rodata.audio_start
+                0x000000000100cecc        0x1 output/obj/audio.o
+ *fill*         0x000000000100cecd        0x3 
  .rodata.get_caps_respone_buf
-                0x000000000100cec8        0x9 output/obj/audio.o
- *fill*         0x000000000100ced1        0x3 
+                0x000000000100ced0        0x9 output/obj/audio.o
+ *fill*         0x000000000100ced9        0x3 
  .rodata.timeout_timer_cb.str1.4
-                0x000000000100ced4        0xb output/obj/audio.o
- *fill*         0x000000000100cedf        0x1 
+                0x000000000100cedc        0xb output/obj/audio.o
+ *fill*         0x000000000100cee7        0x1 
  .rodata.voice_timer_init.str1.4
-                0x000000000100cee0       0x44 output/obj/audio.o
+                0x000000000100cee8       0x44 output/obj/audio.o
  .rodata.mic_close.str1.4
-                0x000000000100cf24       0x21 output/obj/audio.o
- *fill*         0x000000000100cf45        0x3 
+                0x000000000100cf2c       0x21 output/obj/audio.o
+ *fill*         0x000000000100cf4d        0x3 
  .rodata.mic_open.str1.4
-                0x000000000100cf48        0xc output/obj/audio.o
+                0x000000000100cf50        0xc output/obj/audio.o
  .rodata.cmd_test
-                0x000000000100cf54       0x13 output/obj/factory_test_off_line.o
-                0x000000000100cf54                cmd_test
- *fill*         0x000000000100cf67        0x1 
+                0x000000000100cf5c       0x13 output/obj/factory_test_off_line.o
+                0x000000000100cf5c                cmd_test
+ *fill*         0x000000000100cf6f        0x1 
  .rodata.cmd_mic_close
-                0x000000000100cf68        0xa output/obj/factory_test_off_line.o
-                0x000000000100cf68                cmd_mic_close
- *fill*         0x000000000100cf72        0x2 
+                0x000000000100cf70        0xa output/obj/factory_test_off_line.o
+                0x000000000100cf70                cmd_mic_close
+ *fill*         0x000000000100cf7a        0x2 
  .rodata.factory_WriteDataParse.str1.4
-                0x000000000100cf74        0x9 output/obj/factory_test_off_line.o
- *fill*         0x000000000100cf7d        0x3 
+                0x000000000100cf7c        0x9 output/obj/factory_test_off_line.o
+ *fill*         0x000000000100cf85        0x3 
  .rodata.factory_KeyProcess.str1.4
-                0x000000000100cf80       0x1b output/obj/factory_test_off_line.o
- *fill*         0x000000000100cf9b        0x1 
+                0x000000000100cf88       0x1b output/obj/factory_test_off_line.o
+ *fill*         0x000000000100cfa3        0x1 
  .rodata.StepSizeTable
-                0x000000000100cf9c       0xb2 output/obj/adpcm.o
- *fill*         0x000000000100d04e        0x2 
+                0x000000000100cfa4       0xb2 output/obj/adpcm.o
+ *fill*         0x000000000100d056        0x2 
  .rodata.IndexTable
-                0x000000000100d050       0x10 output/obj/adpcm.o
+                0x000000000100d058       0x10 output/obj/adpcm.o
  .rodata.KeyBuf
-                0x000000000100d060       0x78 output/obj/remote_control.o
+                0x000000000100d068       0x78 output/obj/remote_control.o
  .rodata.product_key_s
-                0x000000000100d0d8        0x3 output/obj/remote_control.o
-                0x000000000100d0d8                product_key_s
- *fill*         0x000000000100d0db        0x1 
+                0x000000000100d0e0        0x3 output/obj/remote_control.o
+                0x000000000100d0e0                product_key_s
+ *fill*         0x000000000100d0e3        0x1 
  .rodata.low_power_handle.str1.4
-                0x000000000100d0dc       0x19 output/obj/remote_control.o
- *fill*         0x000000000100d0f5        0x3 
+                0x000000000100d0e4       0x19 output/obj/remote_control.o
+ *fill*         0x000000000100d0fd        0x3 
  .rodata.keyvalue_handle.str1.4
-                0x000000000100d0f8       0x3c output/obj/remote_control.o
+                0x000000000100d100       0x3c output/obj/remote_control.o
  .rodata.keyvalue_handle
-                0x000000000100d134       0x38 output/obj/remote_control.o
+                0x000000000100d13c       0x38 output/obj/remote_control.o
  .rodata.power_handle.str1.4
-                0x000000000100d16c       0x11 output/obj/remote_control.o
- *fill*         0x000000000100d17d        0x3 
+                0x000000000100d174       0x11 output/obj/remote_control.o
+ *fill*         0x000000000100d185        0x3 
  .rodata.CONN_PARAM_ACCEPTED.str1.4
-                0x000000000100d180       0x16 output/obj/remote_control.o
- *fill*         0x000000000100d196        0x2 
+                0x000000000100d188       0x16 output/obj/remote_control.o
+ *fill*         0x000000000100d19e        0x2 
  .rodata.Read_Blob_Parse.str1.4
-                0x000000000100d198       0x25 output/obj/remote_control.o
- *fill*         0x000000000100d1bd        0x3 
+                0x000000000100d1a0       0x25 output/obj/remote_control.o
+ *fill*         0x000000000100d1c5        0x3 
  .rodata.Read_Parse.str1.4
-                0x000000000100d1c0       0x13 output/obj/remote_control.o
- *fill*         0x000000000100d1d3        0x1 
+                0x000000000100d1c8       0x13 output/obj/remote_control.o
+ *fill*         0x000000000100d1db        0x1 
  .rodata.Write_DataParse.str1.4
-                0x000000000100d1d4       0x63 output/obj/remote_control.o
- *fill*         0x000000000100d237        0x1 
- .rodata        0x000000000100d238        0x3 output/obj/remote_control.o
- *fill*         0x000000000100d23b        0x1 
+                0x000000000100d1dc       0x63 output/obj/remote_control.o
+ *fill*         0x000000000100d23f        0x1 
+ .rodata        0x000000000100d240        0x3 output/obj/remote_control.o
+ *fill*         0x000000000100d243        0x1 
  .rodata.LE_LTK_LOST.str1.4
-                0x000000000100d23c       0x1a output/obj/remote_control.o
+                0x000000000100d244       0x1a output/obj/remote_control.o
                                          0x22 (size before relaxing)
- *fill*         0x000000000100d256        0x2 
+ *fill*         0x000000000100d25e        0x2 
  .rodata.ENCRYPT_DONE.str1.4
-                0x000000000100d258       0x10 output/obj/remote_control.o
+                0x000000000100d260       0x10 output/obj/remote_control.o
  .rodata.PAIR_FAIL.str1.4
-                0x000000000100d268       0x1a output/obj/remote_control.o
- *fill*         0x000000000100d282        0x2 
+                0x000000000100d270       0x1a output/obj/remote_control.o
+ *fill*         0x000000000100d28a        0x2 
  .rodata.PAIR_DONE.str1.4
-                0x000000000100d284        0xd output/obj/remote_control.o
- *fill*         0x000000000100d291        0x3 
+                0x000000000100d28c        0xd output/obj/remote_control.o
+ *fill*         0x000000000100d299        0x3 
  .rodata.LE_DISCONNECTED.str1.4
-                0x000000000100d294       0x5b output/obj/remote_control.o
- *fill*         0x000000000100d2ef        0x1 
+                0x000000000100d29c       0x5b output/obj/remote_control.o
+ *fill*         0x000000000100d2f7        0x1 
  .rodata.LE_CONNECTED.str1.4
-                0x000000000100d2f0       0x10 output/obj/remote_control.o
+                0x000000000100d2f8       0x10 output/obj/remote_control.o
  .rodata.Dev_PowerOn.str1.4
-                0x000000000100d300       0x13 output/obj/remote_control.o
- *fill*         0x000000000100d313        0x1 
+                0x000000000100d308       0x13 output/obj/remote_control.o
+ *fill*         0x000000000100d31b        0x1 
  .rodata.app_init.str1.4
-                0x000000000100d314       0x34 output/obj/remote_control.o
+                0x000000000100d31c       0x34 output/obj/remote_control.o
                                          0x33 (size before relaxing)
  .rodata.PRIMARY_SERVICE
-                0x000000000100d348        0x2 output/obj/att_list.o
-                0x000000000100d348                PRIMARY_SERVICE
- *fill*         0x000000000100d34a        0x2 
- .rodata.GATT_INCLUDE
-                0x000000000100d34c        0x2 output/obj/att_list.o
-                0x000000000100d34c                GATT_INCLUDE
- *fill*         0x000000000100d34e        0x2 
- .rodata.GATT_CHARACTERISTIC
                 0x000000000100d350        0x2 output/obj/att_list.o
-                0x000000000100d350                GATT_CHARACTERISTIC
+                0x000000000100d350                PRIMARY_SERVICE
  *fill*         0x000000000100d352        0x2 
+ .rodata.GATT_INCLUDE
+                0x000000000100d354        0x2 output/obj/att_list.o
+                0x000000000100d354                GATT_INCLUDE
+ *fill*         0x000000000100d356        0x2 
+ .rodata.GATT_CHARACTERISTIC
+                0x000000000100d358        0x2 output/obj/att_list.o
+                0x000000000100d358                GATT_CHARACTERISTIC
+ *fill*         0x000000000100d35a        0x2 
  .rodata.NOTIFY_WRITE_PREMITTED_ONLY
-                0x000000000100d354        0x1 output/obj/att_list.o
- *fill*         0x000000000100d355        0x3 
- .rodata.READ_PREMITTED_ONLY
-                0x000000000100d358        0x1 output/obj/att_list.o
- *fill*         0x000000000100d359        0x3 
- .rodata.WRITE_PREMITTED_ONLY
                 0x000000000100d35c        0x1 output/obj/att_list.o
  *fill*         0x000000000100d35d        0x3 
- .rodata.WRITE_WITHOUT_RESPONSE_PREMITTED_ONLY
+ .rodata.READ_PREMITTED_ONLY
                 0x000000000100d360        0x1 output/obj/att_list.o
  *fill*         0x000000000100d361        0x3 
- .rodata.READ_NOTIFY_PREMITTED
+ .rodata.WRITE_PREMITTED_ONLY
                 0x000000000100d364        0x1 output/obj/att_list.o
  *fill*         0x000000000100d365        0x3 
- .rodata.READ_WRITE_WITHOUT_RESPONSE_PREMITTED
+ .rodata.WRITE_WITHOUT_RESPONSE_PREMITTED_ONLY
                 0x000000000100d368        0x1 output/obj/att_list.o
  *fill*         0x000000000100d369        0x3 
- .rodata.READ_WRITE_WRITE_WITHOUT_RESPONSE_PREMITTED
+ .rodata.READ_NOTIFY_PREMITTED
                 0x000000000100d36c        0x1 output/obj/att_list.o
  *fill*         0x000000000100d36d        0x3 
- .rodata.NOTIFY_READ_WRITE_PREMITTED
+ .rodata.READ_WRITE_WITHOUT_RESPONSE_PREMITTED
                 0x000000000100d370        0x1 output/obj/att_list.o
  *fill*         0x000000000100d371        0x3 
- .rodata.NOTIFY_READ_WRITE_WITHOUT_RESPONSE_PREMITTED
+ .rodata.READ_WRITE_WRITE_WITHOUT_RESPONSE_PREMITTED
                 0x000000000100d374        0x1 output/obj/att_list.o
  *fill*         0x000000000100d375        0x3 
+ .rodata.NOTIFY_READ_WRITE_PREMITTED
+                0x000000000100d378        0x1 output/obj/att_list.o
+ *fill*         0x000000000100d379        0x3 
+ .rodata.NOTIFY_READ_WRITE_WITHOUT_RESPONSE_PREMITTED
+                0x000000000100d37c        0x1 output/obj/att_list.o
+ *fill*         0x000000000100d37d        0x3 
  .rodata.CHARACTERTIC_CONFIGURATION
-                0x000000000100d378        0x2 output/obj/att_list.o
- *fill*         0x000000000100d37a        0x2 
- .rodata.REPORT_REFERENCE
-                0x000000000100d37c        0x2 output/obj/att_list.o
- *fill*         0x000000000100d37e        0x2 
- .rodata.CHRCTR_SYSTEM_ID
                 0x000000000100d380        0x2 output/obj/att_list.o
  *fill*         0x000000000100d382        0x2 
+ .rodata.REPORT_REFERENCE
+                0x000000000100d384        0x2 output/obj/att_list.o
+ *fill*         0x000000000100d386        0x2 
+ .rodata.CHRCTR_SYSTEM_ID
+                0x000000000100d388        0x2 output/obj/att_list.o
+ *fill*         0x000000000100d38a        0x2 
  .rodata.system_id_value
-                0x000000000100d384        0x8 output/obj/att_list.o
+                0x000000000100d38c        0x8 output/obj/att_list.o
  .rodata.SERVICE_GENERIC_ACC
-                0x000000000100d38c        0x2 output/obj/att_list.o
- *fill*         0x000000000100d38e        0x2 
+                0x000000000100d394        0x2 output/obj/att_list.o
+ *fill*         0x000000000100d396        0x2 
  .rodata.CHRCTR_DEVICE_NAME
-                0x000000000100d390        0x2 output/obj/att_list.o
- *fill*         0x000000000100d392        0x2 
+                0x000000000100d398        0x2 output/obj/att_list.o
+ *fill*         0x000000000100d39a        0x2 
  .rodata.device_name
-                0x000000000100d394       0x12 output/obj/att_list.o
- *fill*         0x000000000100d3a6        0x2 
- .rodata.CHRCTR_APPEARANCE
-                0x000000000100d3a8        0x2 output/obj/att_list.o
- *fill*         0x000000000100d3aa        0x2 
- .rodata.appearance_value
-                0x000000000100d3ac        0x2 output/obj/att_list.o
+                0x000000000100d39c       0x12 output/obj/att_list.o
  *fill*         0x000000000100d3ae        0x2 
- .rodata.CHRCTR_MODEL_NUMBER
+ .rodata.CHRCTR_APPEARANCE
                 0x000000000100d3b0        0x2 output/obj/att_list.o
  *fill*         0x000000000100d3b2        0x2 
- .rodata.model_number_value
-                0x000000000100d3b4        0x6 output/obj/att_list.o
+ .rodata.appearance_value
+                0x000000000100d3b4        0x2 output/obj/att_list.o
+ *fill*         0x000000000100d3b6        0x2 
+ .rodata.CHRCTR_MODEL_NUMBER
+                0x000000000100d3b8        0x2 output/obj/att_list.o
  *fill*         0x000000000100d3ba        0x2 
+ .rodata.model_number_value
+                0x000000000100d3bc        0x6 output/obj/att_list.o
+ *fill*         0x000000000100d3c2        0x2 
  .rodata.CHRCTR_CHRCTR_PPCP
-                0x000000000100d3bc        0x2 output/obj/att_list.o
- *fill*         0x000000000100d3be        0x2 
+                0x000000000100d3c4        0x2 output/obj/att_list.o
+ *fill*         0x000000000100d3c6        0x2 
  .rodata.CHRCTR_PPCP_value
-                0x000000000100d3c0        0x8 output/obj/att_list.o
+                0x000000000100d3c8        0x8 output/obj/att_list.o
  .rodata.SERVICE_DEVICE_INFO
-                0x000000000100d3c8        0x2 output/obj/att_list.o
- *fill*         0x000000000100d3ca        0x2 
+                0x000000000100d3d0        0x2 output/obj/att_list.o
+ *fill*         0x000000000100d3d2        0x2 
  .rodata.CHRCTR_PNP_ID
-                0x000000000100d3cc        0x2 output/obj/att_list.o
- *fill*         0x000000000100d3ce        0x2 
+                0x000000000100d3d4        0x2 output/obj/att_list.o
+ *fill*         0x000000000100d3d6        0x2 
  .rodata.pnp_id_value
-                0x000000000100d3d0        0x7 output/obj/att_list.o
- *fill*         0x000000000100d3d7        0x1 
+                0x000000000100d3d8        0x7 output/obj/att_list.o
+ *fill*         0x000000000100d3df        0x1 
  .rodata.CHRCTR_Serial_number_String
-                0x000000000100d3d8        0x2 output/obj/att_list.o
- *fill*         0x000000000100d3da        0x2 
+                0x000000000100d3e0        0x2 output/obj/att_list.o
+ *fill*         0x000000000100d3e2        0x2 
  .rodata.Serial_number_string_value
-                0x000000000100d3dc        0xf output/obj/att_list.o
- *fill*         0x000000000100d3eb        0x1 
+                0x000000000100d3e4        0xf output/obj/att_list.o
+ *fill*         0x000000000100d3f3        0x1 
  .rodata.CHRCTR_Firmware_Revision_String
-                0x000000000100d3ec        0x2 output/obj/att_list.o
- *fill*         0x000000000100d3ee        0x2 
+                0x000000000100d3f4        0x2 output/obj/att_list.o
+ *fill*         0x000000000100d3f6        0x2 
  .rodata.Firmware_Revision_String_value
-                0x000000000100d3f0        0x5 output/obj/att_list.o
- *fill*         0x000000000100d3f5        0x3 
+                0x000000000100d3f8        0x5 output/obj/att_list.o
+ *fill*         0x000000000100d3fd        0x3 
  .rodata.CHRCTR_Hardwar_Revision_String
-                0x000000000100d3f8        0x2 output/obj/att_list.o
- *fill*         0x000000000100d3fa        0x2 
+                0x000000000100d400        0x2 output/obj/att_list.o
+ *fill*         0x000000000100d402        0x2 
  .rodata.Hardwar_Revision_String_value
-                0x000000000100d3fc        0x7 output/obj/att_list.o
- *fill*         0x000000000100d403        0x1 
+                0x000000000100d404        0x7 output/obj/att_list.o
+ *fill*         0x000000000100d40b        0x1 
  .rodata.CHRCTR_Software_Revision_String
-                0x000000000100d404        0x2 output/obj/att_list.o
- *fill*         0x000000000100d406        0x2 
+                0x000000000100d40c        0x2 output/obj/att_list.o
+ *fill*         0x000000000100d40e        0x2 
  .rodata.Software_Revision_String_value
-                0x000000000100d408        0x5 output/obj/att_list.o
- *fill*         0x000000000100d40d        0x3 
+                0x000000000100d410        0x5 output/obj/att_list.o
+ *fill*         0x000000000100d415        0x3 
  .rodata.CHRCTR_Manufacturer_Name_String
-                0x000000000100d410        0x2 output/obj/att_list.o
- *fill*         0x000000000100d412        0x2 
+                0x000000000100d418        0x2 output/obj/att_list.o
+ *fill*         0x000000000100d41a        0x2 
  .rodata.Manufacturer_Name_String_value
-                0x000000000100d414        0xc output/obj/att_list.o
+                0x000000000100d41c        0xc output/obj/att_list.o
  .rodata.CHRCTR_IEEE
-                0x000000000100d420        0x2 output/obj/att_list.o
- *fill*         0x000000000100d422        0x2 
+                0x000000000100d428        0x2 output/obj/att_list.o
+ *fill*         0x000000000100d42a        0x2 
  .rodata.IEEE_value
-                0x000000000100d424        0xe output/obj/att_list.o
- *fill*         0x000000000100d432        0x2 
+                0x000000000100d42c        0xe output/obj/att_list.o
+ *fill*         0x000000000100d43a        0x2 
  .rodata.CHRCTR_ATV_Voice_Service_uuid_128
-                0x000000000100d434       0x10 output/obj/att_list.o
+                0x000000000100d43c       0x10 output/obj/att_list.o
  .rodata.CHRCTR_Write_uuid_128
-                0x000000000100d444       0x10 output/obj/att_list.o
+                0x000000000100d44c       0x10 output/obj/att_list.o
  .rodata.CHRCTR_Read_uuid_128
-                0x000000000100d454       0x10 output/obj/att_list.o
+                0x000000000100d45c       0x10 output/obj/att_list.o
  .rodata.CHRCTR_Control_uuid_128
-                0x000000000100d464       0x10 output/obj/att_list.o
+                0x000000000100d46c       0x10 output/obj/att_list.o
  .rodata.SERVICE_BATTERY
-                0x000000000100d474        0x2 output/obj/att_list.o
- *fill*         0x000000000100d476        0x2 
- .rodata.CHRCTR_BATTERY_LEVEL
-                0x000000000100d478        0x2 output/obj/att_list.o
- *fill*         0x000000000100d47a        0x2 
- .rodata.SERVICE_HIDS
                 0x000000000100d47c        0x2 output/obj/att_list.o
  *fill*         0x000000000100d47e        0x2 
- .rodata.CHRCTR_REPORT_MAP
+ .rodata.CHRCTR_BATTERY_LEVEL
                 0x000000000100d480        0x2 output/obj/att_list.o
  *fill*         0x000000000100d482        0x2 
+ .rodata.SERVICE_HIDS
+                0x000000000100d484        0x2 output/obj/att_list.o
+ *fill*         0x000000000100d486        0x2 
+ .rodata.CHRCTR_REPORT_MAP
+                0x000000000100d488        0x2 output/obj/att_list.o
+ *fill*         0x000000000100d48a        0x2 
  .rodata.report_map_value
-                0x000000000100d484       0xe1 output/obj/att_list.o
- *fill*         0x000000000100d565        0x3 
+                0x000000000100d48c       0xe1 output/obj/att_list.o
+ *fill*         0x000000000100d56d        0x3 
  .rodata.CHRCTR_HID_INFO
-                0x000000000100d568        0x2 output/obj/att_list.o
- *fill*         0x000000000100d56a        0x2 
- .rodata.hid_info_value
-                0x000000000100d56c        0x4 output/obj/att_list.o
- .rodata.CHRCTR_HID_CTRL_POINT
                 0x000000000100d570        0x2 output/obj/att_list.o
  *fill*         0x000000000100d572        0x2 
- .rodata.CHRCTR_PROTOCOL_MODE
-                0x000000000100d574        0x2 output/obj/att_list.o
- *fill*         0x000000000100d576        0x2 
- .rodata.CHRCTR_BOOT_KEYBOARD_INPUT_REPORT
+ .rodata.hid_info_value
+                0x000000000100d574        0x4 output/obj/att_list.o
+ .rodata.CHRCTR_HID_CTRL_POINT
                 0x000000000100d578        0x2 output/obj/att_list.o
  *fill*         0x000000000100d57a        0x2 
- .rodata.keyboard_input_report_value
-                0x000000000100d57c        0x1 output/obj/att_list.o
- *fill*         0x000000000100d57d        0x3 
- .rodata.CHRCTR_BOOT_KEYBOARD_OUTPUT_REPORT
+ .rodata.CHRCTR_PROTOCOL_MODE
+                0x000000000100d57c        0x2 output/obj/att_list.o
+ *fill*         0x000000000100d57e        0x2 
+ .rodata.CHRCTR_BOOT_KEYBOARD_INPUT_REPORT
                 0x000000000100d580        0x2 output/obj/att_list.o
  *fill*         0x000000000100d582        0x2 
- .rodata.CHRCTR_REPORT
-                0x000000000100d584        0x2 output/obj/att_list.o
- *fill*         0x000000000100d586        0x2 
- .rodata.report1_rr
+ .rodata.keyboard_input_report_value
+                0x000000000100d584        0x1 output/obj/att_list.o
+ *fill*         0x000000000100d585        0x3 
+ .rodata.CHRCTR_BOOT_KEYBOARD_OUTPUT_REPORT
                 0x000000000100d588        0x2 output/obj/att_list.o
  *fill*         0x000000000100d58a        0x2 
- .rodata.report2_rr
+ .rodata.CHRCTR_REPORT
                 0x000000000100d58c        0x2 output/obj/att_list.o
  *fill*         0x000000000100d58e        0x2 
- .rodata.report3_rr
+ .rodata.report1_rr
                 0x000000000100d590        0x2 output/obj/att_list.o
  *fill*         0x000000000100d592        0x2 
- .rodata.report4_rr
+ .rodata.report2_rr
                 0x000000000100d594        0x2 output/obj/att_list.o
  *fill*         0x000000000100d596        0x2 
- .rodata.report5_rr
+ .rodata.report3_rr
                 0x000000000100d598        0x2 output/obj/att_list.o
  *fill*         0x000000000100d59a        0x2 
- .rodata.report6_rr
+ .rodata.report4_rr
                 0x000000000100d59c        0x2 output/obj/att_list.o
  *fill*         0x000000000100d59e        0x2 
- .rodata.report7_rr
+ .rodata.report5_rr
                 0x000000000100d5a0        0x2 output/obj/att_list.o
  *fill*         0x000000000100d5a2        0x2 
- .rodata.report8_rr
+ .rodata.report6_rr
                 0x000000000100d5a4        0x2 output/obj/att_list.o
  *fill*         0x000000000100d5a6        0x2 
+ .rodata.report7_rr
+                0x000000000100d5a8        0x2 output/obj/att_list.o
+ *fill*         0x000000000100d5aa        0x2 
+ .rodata.report8_rr
+                0x000000000100d5ac        0x2 output/obj/att_list.o
+ *fill*         0x000000000100d5ae        0x2 
  .rodata.Unknow_d343bfc0
-                0x000000000100d5a8       0x10 output/obj/att_list.o
+                0x000000000100d5b0       0x10 output/obj/att_list.o
  .rodata.Unknow_d343bfc1
-                0x000000000100d5b8       0x10 output/obj/att_list.o
+                0x000000000100d5c0       0x10 output/obj/att_list.o
  .rodata.Unknow_d343bfc2
-                0x000000000100d5c8       0x10 output/obj/att_list.o
+                0x000000000100d5d0       0x10 output/obj/att_list.o
  .rodata.Unknow_d343bfc3
-                0x000000000100d5d8       0x10 output/obj/att_list.o
+                0x000000000100d5e0       0x10 output/obj/att_list.o
  .rodata.Unknow_d343bfc4
-                0x000000000100d5e8       0x10 output/obj/att_list.o
+                0x000000000100d5f0       0x10 output/obj/att_list.o
  .rodata.Unknow_d343bfc5
-                0x000000000100d5f8       0x10 output/obj/att_list.o
+                0x000000000100d600       0x10 output/obj/att_list.o
  .rodata.Unknow_d343bfc1_value
-                0x000000000100d608        0x2 output/obj/att_list.o
- *fill*         0x000000000100d60a        0x2 
- .rodata.Unknow_d343bfc2_value
-                0x000000000100d60c        0x2 output/obj/att_list.o
- *fill*         0x000000000100d60e        0x2 
- .rodata.Unknow_d343bfc3_value
                 0x000000000100d610        0x2 output/obj/att_list.o
  *fill*         0x000000000100d612        0x2 
- .rodata.Unknow_d343bfc4_value
+ .rodata.Unknow_d343bfc2_value
                 0x000000000100d614        0x2 output/obj/att_list.o
  *fill*         0x000000000100d616        0x2 
- .rodata.Unknow_d343bfc5_value
+ .rodata.Unknow_d343bfc3_value
                 0x000000000100d618        0x2 output/obj/att_list.o
  *fill*         0x000000000100d61a        0x2 
- .rodata.CHRCTR_FE59
+ .rodata.Unknow_d343bfc4_value
                 0x000000000100d61c        0x2 output/obj/att_list.o
  *fill*         0x000000000100d61e        0x2 
+ .rodata.Unknow_d343bfc5_value
+                0x000000000100d620        0x2 output/obj/att_list.o
+ *fill*         0x000000000100d622        0x2 
+ .rodata.CHRCTR_FE59
+                0x000000000100d624        0x2 output/obj/att_list.o
+ *fill*         0x000000000100d626        0x2 
  .rodata.Unknow_90001
-                0x000000000100d620       0x10 output/obj/att_list.o
+                0x000000000100d628       0x10 output/obj/att_list.o
  .rodata.Unknow_90001_value
-                0x000000000100d630        0x2 output/obj/att_list.o
- *fill*         0x000000000100d632        0x2 
+                0x000000000100d638        0x2 output/obj/att_list.o
+ *fill*         0x000000000100d63a        0x2 
  .rodata.Unknow_90002
-                0x000000000100d634       0x10 output/obj/att_list.o
+                0x000000000100d63c       0x10 output/obj/att_list.o
  .rodata.Unknow_90002_value
-                0x000000000100d644        0x2 output/obj/att_list.o
- *fill*         0x000000000100d646        0x2 
+                0x000000000100d64c        0x2 output/obj/att_list.o
+ *fill*         0x000000000100d64e        0x2 
  .rodata.Unknow_00003
-                0x000000000100d648       0x10 output/obj/att_list.o
+                0x000000000100d650       0x10 output/obj/att_list.o
  .rodata.Unknow_00003_value
-                0x000000000100d658        0x2 output/obj/att_list.o
- *fill*         0x000000000100d65a        0x2 
- .rodata.READ_WRITE_WITHOUT_RESPONSE_NOTIFY_PREMITTED
-                0x000000000100d65c        0x1 output/obj/att_list.o
- *fill*         0x000000000100d65d        0x3 
- .rodata.OTA_SERVICE
                 0x000000000100d660        0x2 output/obj/att_list.o
  *fill*         0x000000000100d662        0x2 
- .rodata.CHRCTR_OTA_NOTIFY
-                0x000000000100d664        0x2 output/obj/att_list.o
- *fill*         0x000000000100d666        0x2 
- .rodata.CHRCTR_OTA_WRITE
+ .rodata.READ_WRITE_WITHOUT_RESPONSE_NOTIFY_PREMITTED
+                0x000000000100d664        0x1 output/obj/att_list.o
+ *fill*         0x000000000100d665        0x3 
+ .rodata.OTA_SERVICE
                 0x000000000100d668        0x2 output/obj/att_list.o
  *fill*         0x000000000100d66a        0x2 
+ .rodata.CHRCTR_OTA_NOTIFY
+                0x000000000100d66c        0x2 output/obj/att_list.o
+ *fill*         0x000000000100d66e        0x2 
+ .rodata.CHRCTR_OTA_WRITE
+                0x000000000100d670        0x2 output/obj/att_list.o
+ *fill*         0x000000000100d672        0x2 
  .rodata.factory_primary_uuid
-                0x000000000100d66c       0x10 output/obj/att_list.o
+                0x000000000100d674       0x10 output/obj/att_list.o
  .rodata.factory_characteristic_uuid
-                0x000000000100d67c       0x10 output/obj/att_list.o
+                0x000000000100d684       0x10 output/obj/att_list.o
  .rodata.product_id_s
-                0x000000000100d68c        0x5 output/obj/att_list.o
- *fill*         0x000000000100d691        0x3 
+                0x000000000100d694        0x5 output/obj/att_list.o
+ *fill*         0x000000000100d699        0x3 
  .rodata.Att_List
-                0x000000000100d694      0x740 output/obj/att_list.o
-                0x000000000100d694                Att_List
+                0x000000000100d69c      0x740 output/obj/att_list.o
+                0x000000000100d69c                Att_List
  .rodata.s_crcInfoTab
-                0x000000000100ddd4       0x18 ./../../../APP/SECRETKEY\libSecretKey.a(SecretKey.o)
+                0x000000000100dddc       0x18 ./../../../APP/SECRETKEY\libSecretKey.a(SecretKey.o)
  .rodata.PublicKey_1228
-                0x000000000100ddec       0x10 ./../../../APP/SECRETKEY\libSecretKey.a(SecretKey.o)
+                0x000000000100ddf4       0x10 ./../../../APP/SECRETKEY\libSecretKey.a(SecretKey.o)
  .rodata.PublicKey_3527
-                0x000000000100ddfc       0x10 ./../../../APP/SECRETKEY\libSecretKey.a(SecretKey.o)
+                0x000000000100de04       0x10 ./../../../APP/SECRETKEY\libSecretKey.a(SecretKey.o)
  .rodata.PublicKey_5815
-                0x000000000100de0c       0x10 ./../../../APP/SECRETKEY\libSecretKey.a(SecretKey.o)
- .rodata        0x000000000100de1c       0x3c d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(muldf3.o)
- .rodata        0x000000000100de58      0x100 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(_clz.o)
-                0x000000000100de58                __clz_tab
+                0x000000000100de14       0x10 ./../../../APP/SECRETKEY\libSecretKey.a(SecretKey.o)
+ .rodata        0x000000000100de24       0x3c d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(muldf3.o)
+ .rodata        0x000000000100de60      0x100 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(_clz.o)
+                0x000000000100de60                __clz_tab
  *(.srodata*)
  *(.eh_frame*)
  *(.srodata.cst*)
-                0x000000000100df58                _sidata = ALIGN (0x4)
+                0x000000000100df60                _sidata = ALIGN (0x4)
 
-.rela.dyn       0x000000000100df58        0x0
+.rela.dyn       0x000000000100df60        0x0
  .rela.text.chip_init
-                0x000000000100df58        0x0 output/obj/main.o
+                0x000000000100df60        0x0 output/obj/main.o
  .rela.text.uart_txChar
-                0x000000000100df58        0x0 output/obj/main.o
+                0x000000000100df60        0x0 output/obj/main.o
  .rela.text.init_debugUart
-                0x000000000100df58        0x0 output/obj/main.o
+                0x000000000100df60        0x0 output/obj/main.o
  .rela.text.print_log_to_uart
-                0x000000000100df58        0x0 output/obj/main.o
+                0x000000000100df60        0x0 output/obj/main.o
  .rela.text.CoreReg_LpmWriteCommon
-                0x000000000100df58        0x0 output/obj/main.o
+                0x000000000100df60        0x0 output/obj/main.o
  .rela.text.Memory_Malloc
-                0x000000000100df58        0x0 output/obj/main.o
+                0x000000000100df60        0x0 output/obj/main.o
  .rela.text.swtimer_task
-                0x000000000100df58        0x0 output/obj/main.o
+                0x000000000100df60        0x0 output/obj/main.o
  .rela.text.swtimer_start
-                0x000000000100df58        0x0 output/obj/main.o
+                0x000000000100df60        0x0 output/obj/main.o
  .rela.text.ipcRx
-                0x000000000100df58        0x0 output/obj/main.o
+                0x000000000100df60        0x0 output/obj/main.o
  .rela.text.ipcTx
-                0x000000000100df58        0x0 output/obj/main.o
+                0x000000000100df60        0x0 output/obj/main.o
  .rela.text.IPC_TxCommon
-                0x000000000100df58        0x0 output/obj/main.o
+                0x000000000100df60        0x0 output/obj/main.o
  .rela.text.IPC_TxControlCmd
-                0x000000000100df58        0x0 output/obj/main.o
+                0x000000000100df60        0x0 output/obj/main.o
  .rela.text.IPC_TxAclCmd
-                0x000000000100df58        0x0 output/obj/main.o
+                0x000000000100df60        0x0 output/obj/main.o
  .rela.text.IPC_HandleRxPacket
-                0x000000000100df58        0x0 output/obj/main.o
+                0x000000000100df60        0x0 output/obj/main.o
  .rela.text.Lpm_PollingWork
-                0x000000000100df58        0x0 output/obj/main.o
+                0x000000000100df60        0x0 output/obj/main.o
  .rela.text.Bt_HciFifo_Init
-                0x000000000100df58        0x0 output/obj/main.o
+                0x000000000100df60        0x0 output/obj/main.o
  .rela.text.Bt_SndToBtData
-                0x000000000100df58        0x0 output/obj/main.o
+                0x000000000100df60        0x0 output/obj/main.o
  .rela.text.Bt_DataBufferCallBack
-                0x000000000100df58        0x0 output/obj/main.o
+                0x000000000100df60        0x0 output/obj/main.o
  .rela.text.QSPI_ReadFlashData
-                0x000000000100df58        0x0 output/obj/main.o
+                0x000000000100df60        0x0 output/obj/main.o
  .rela.text.QSPI_WriteFlashData
-                0x000000000100df58        0x0 output/obj/main.o
+                0x000000000100df60        0x0 output/obj/main.o
  .rela.text.QSPI_SectorEraseFlash
-                0x000000000100df58        0x0 output/obj/main.o
+                0x000000000100df60        0x0 output/obj/main.o
  .rela.text.QSPI_EraseFlashPage
-                0x000000000100df58        0x0 output/obj/main.o
+                0x000000000100df60        0x0 output/obj/main.o
  .rela.text.QSPI_FlashWriteLock
-                0x000000000100df58        0x0 output/obj/main.o
+                0x000000000100df60        0x0 output/obj/main.o
  .rela.data.gpRecinfo
-                0x000000000100df58        0x0 output/obj/main.o
+                0x000000000100df60        0x0 output/obj/main.o
  .rela.text.Flash_LoadFlashRecord
-                0x000000000100df58        0x0 output/obj/main.o
+                0x000000000100df60        0x0 output/obj/main.o
  .rela.text.Flash_UpdateFlashRecordInfo
-                0x000000000100df58        0x0 output/obj/main.o
+                0x000000000100df60        0x0 output/obj/main.o
  .rela.text.Bt_EvtCallBack
-                0x000000000100df58        0x0 output/obj/main.o
+                0x000000000100df60        0x0 output/obj/main.o
  .rela.text.Bt_ClearRemoteDevInfo
-                0x000000000100df58        0x0 output/obj/main.o
+                0x000000000100df60        0x0 output/obj/main.o
  .rela.text.ATT_ExecuteWriteReq
-                0x000000000100df58        0x0 output/obj/main.o
+                0x000000000100df60        0x0 output/obj/main.o
  .rela.text.ATT_PrepareWriteReq
-                0x000000000100df58        0x0 output/obj/main.o
+                0x000000000100df60        0x0 output/obj/main.o
  .rela.text.app_queue_insert
-                0x000000000100df58        0x0 output/obj/main.o
+                0x000000000100df60        0x0 output/obj/main.o
  .rela.text.app_queue_task
-                0x000000000100df58        0x0 output/obj/main.o
+                0x000000000100df60        0x0 output/obj/main.o
  .rela.text.prepare_before_sleep
-                0x000000000100df58        0x0 output/obj/main.o
+                0x000000000100df60        0x0 output/obj/main.o
  .rela.text.enter_deep_sleep
-                0x000000000100df58        0x0 output/obj/main.o
+                0x000000000100df60        0x0 output/obj/main.o
  .rela.text.Voice_Send
-                0x000000000100df58        0x0 output/obj/main.o
+                0x000000000100df60        0x0 output/obj/main.o
  .rela.text.Voice_Encode
-                0x000000000100df58        0x0 output/obj/main.o
+                0x000000000100df60        0x0 output/obj/main.o
  .rela.text.audio_task
-                0x000000000100df58        0x0 output/obj/main.o
+                0x000000000100df60        0x0 output/obj/main.o
  .rela.text.timeout_timer_cb
-                0x000000000100df58        0x0 output/obj/main.o
+                0x000000000100df60        0x0 output/obj/main.o
  .rela.text.start_ntf_timer_cb
-                0x000000000100df58        0x0 output/obj/main.o
+                0x000000000100df60        0x0 output/obj/main.o
  .rela.text.voice_status_change
-                0x000000000100df58        0x0 output/obj/main.o
+                0x000000000100df60        0x0 output/obj/main.o
  .rela.text.mic_close
-                0x000000000100df58        0x0 output/obj/main.o
+                0x000000000100df60        0x0 output/obj/main.o
  .rela.text.mic_open
-                0x000000000100df58        0x0 output/obj/main.o
+                0x000000000100df60        0x0 output/obj/main.o
  .rela.text.voice_report_reinit
-                0x000000000100df58        0x0 output/obj/main.o
+                0x000000000100df60        0x0 output/obj/main.o
  .rela.text.ADPCM_Encode_Google_TV_Audio
-                0x000000000100df58        0x0 output/obj/main.o
+                0x000000000100df60        0x0 output/obj/main.o
  .rela.text.Adpcm_FrameEncode_Google_TV_Audio
-                0x000000000100df58        0x0 output/obj/main.o
+                0x000000000100df60        0x0 output/obj/main.o
  .rela.text.Adpcm_FrameEncode_Restart
-                0x000000000100df58        0x0 output/obj/main.o
+                0x000000000100df60        0x0 output/obj/main.o
  .rela.text.keyvalue_handle
-                0x000000000100df58        0x0 output/obj/main.o
+                0x000000000100df60        0x0 output/obj/main.o
  .rela.text.Write_DataParse
-                0x000000000100df58        0x0 output/obj/main.o
+                0x000000000100df60        0x0 output/obj/main.o
  .rela.text.startup
-                0x000000000100df58        0x0 output/obj/main.o
+                0x000000000100df60        0x0 output/obj/main.o
  .rela.text.trap
-                0x000000000100df58        0x0 output/obj/main.o
+                0x000000000100df60        0x0 output/obj/main.o
 
 .local
  *(.local*)
@@ -3900,7 +3902,7 @@ LOAD d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib
  .debug_info    0x0000000010041dd8      0xbd7 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(_clzsi2.o)
  .debug_info    0x00000000100429af      0xb6a d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(_clz.o)
 
-.data           0x0000000010010000       0x98 load address 0x000000000100df58
+.data           0x0000000010010000       0x98 load address 0x000000000100df60
                 0x0000000010010000                _sdata = .
  *(.data*)
  .data.gWdtInit
@@ -3956,7 +3958,7 @@ LOAD d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib
  *(.sdata)
                 0x0000000010010098                _edata = .
 
-.bss            0x0000000010010098      0x268 load address 0x000000000100dff0
+.bss            0x0000000010010098      0x268 load address 0x000000000100dff8
                 0x0000000010010098                _sbss = .
  *(EXCLUDE_FILE(*audio.o) *.bss*)
  .bss.g_yc_debug_manager
@@ -4157,7 +4159,7 @@ LOAD d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib
                 0x0000000010011000                . = 0x10011000
                 0x0000000000000001                ASSERT ((_retention_end < .), retention data size overflow)
 
-.noretention0   0x0000000010011000     0x7b21 load address 0x000000000100ef58
+.noretention0   0x0000000010011000     0x7b21 load address 0x000000000100ef60
  *(*.memory_protect_under_lpm*)
  .memory_protect_under_lpm
                 0x0000000010011000     0x2000 output/obj/main.o
@@ -4190,7 +4192,7 @@ LOAD d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib
  .memory_protect_under_lpm
                 0x000000001001861c      0x505 output/obj/remote_control.o
 
-.noretention    0x0000000010018b24        0xc load address 0x0000000001016a7c
+.noretention    0x0000000010018b24        0xc load address 0x0000000001016a84
  *(*.bss*)
  .bss.send_num_cnt
                 0x0000000010018b24        0x2 output/obj/audio.o
@@ -4388,7 +4390,7 @@ OUTPUT(./output/out.elf elf32-littleriscv)
  .debug_ranges  0x00000000000021a0       0x50 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(floatsidf.o)
  .debug_ranges  0x00000000000021f0       0x20 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(_clzsi2.o)
 
-.debug_line     0x0000000000000000    0x21531
+.debug_line     0x0000000000000000    0x2152f
  .debug_line    0x0000000000000000      0x50d output/obj/main.o
  .debug_line    0x000000000000050d     0x1f93 output/obj/yc_debug.o
  .debug_line    0x00000000000024a0      0x303 output/obj/yc_nvic.o
@@ -4422,109 +4424,109 @@ OUTPUT(./output/out.elf elf32-littleriscv)
  .debug_line    0x0000000000019bd9      0x238 output/obj/ir_lib.o
  .debug_line    0x0000000000019e11     0x1114 output/obj/ir_learn_from_remote.o
  .debug_line    0x000000000001af25      0xa27 output/obj/ir_learn_from_tv_google.o
- .debug_line    0x000000000001b94c      0xf18 output/obj/audio.o
- .debug_line    0x000000000001c864      0x492 output/obj/factory_test_off_line.o
- .debug_line    0x000000000001ccf6      0x585 output/obj/adpcm.o
- .debug_line    0x000000000001d27b     0x1fb3 output/obj/remote_control.o
- .debug_line    0x000000000001f22e      0x5c8 output/obj/att_list.o
- .debug_line    0x000000000001f7f6      0x35c ./../../../APP/SECRETKEY\libSecretKey.a(SecretKey.o)
- .debug_line    0x000000000001fb52      0xea5 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(muldf3.o)
- .debug_line    0x00000000000209f7      0x26e d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(fixunsdfsi.o)
- .debug_line    0x0000000000020c65      0x23f d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(floatsidf.o)
- .debug_line    0x0000000000020ea4      0x191 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(save-restore.o)
- .debug_line    0x0000000000021035      0x2bf d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(_clzsi2.o)
- .debug_line    0x00000000000212f4      0x23d d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(_clz.o)
+ .debug_line    0x000000000001b94c      0xf16 output/obj/audio.o
+ .debug_line    0x000000000001c862      0x492 output/obj/factory_test_off_line.o
+ .debug_line    0x000000000001ccf4      0x585 output/obj/adpcm.o
+ .debug_line    0x000000000001d279     0x1fb3 output/obj/remote_control.o
+ .debug_line    0x000000000001f22c      0x5c8 output/obj/att_list.o
+ .debug_line    0x000000000001f7f4      0x35c ./../../../APP/SECRETKEY\libSecretKey.a(SecretKey.o)
+ .debug_line    0x000000000001fb50      0xea5 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(muldf3.o)
+ .debug_line    0x00000000000209f5      0x26e d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(fixunsdfsi.o)
+ .debug_line    0x0000000000020c63      0x23f d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(floatsidf.o)
+ .debug_line    0x0000000000020ea2      0x191 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(save-restore.o)
+ .debug_line    0x0000000000021033      0x2bf d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(_clzsi2.o)
+ .debug_line    0x00000000000212f2      0x23d d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(_clz.o)
 
-.debug_str      0x0000000000000000     0xaaba
- .debug_str     0x0000000000000000      0x82f output/obj/main.o
-                                        0x8dc (size before relaxing)
- .debug_str     0x000000000000082f      0xa64 output/obj/yc_debug.o
-                                       0x11ef (size before relaxing)
- .debug_str     0x0000000000001293      0x236 output/obj/yc_nvic.o
-                                        0x7f5 (size before relaxing)
- .debug_str     0x00000000000014c9      0x62f output/obj/yc11xx.o
-                                        0xc0e (size before relaxing)
- .debug_str     0x0000000000001af8      0x23f output/obj/malloc.o
-                                        0x95c (size before relaxing)
- .debug_str     0x0000000000001d37      0x2c2 output/obj/software_timer.o
-                                        0xb69 (size before relaxing)
- .debug_str     0x0000000000001ff9      0x9f1 output/obj/yc11xx_bt_interface.o
-                                       0x10f8 (size before relaxing)
- .debug_str     0x00000000000029ea      0x192 output/obj/yc11xx_ipc.o
-                                        0x91d (size before relaxing)
- .debug_str     0x0000000000002b7c      0xf6f output/obj/yc11xx_audio_adc.o
-                                       0x181c (size before relaxing)
- .debug_str     0x0000000000003aeb      0x324 output/obj/yc11xx_gpio.o
-                                        0xfa4 (size before relaxing)
- .debug_str     0x0000000000003e0f       0xa0 output/obj/yc11xx_iwdg.o
-                                        0x726 (size before relaxing)
- .debug_str     0x0000000000003eaf      0x289 output/obj/yc11xx_qspi0.o
-                                        0x920 (size before relaxing)
- .debug_str     0x0000000000004138      0x218 output/obj/yc11xx_systick.o
-                                        0xbb6 (size before relaxing)
- .debug_str     0x0000000000004350      0x17f output/obj/yc11xx_timer.o
-                                        0x778 (size before relaxing)
- .debug_str     0x00000000000044cf       0x9a output/obj/yc11xx_lpm.o
-                                        0x7ce (size before relaxing)
- .debug_str     0x0000000000004569       0x5e output/obj/yc11xx_pwm.o
-                                        0xdc0 (size before relaxing)
- .debug_str     0x00000000000045c7      0x143 output/obj/yc11xx_dev_bt_aap.o
-                                        0x711 (size before relaxing)
- .debug_str     0x000000000000470a      0x32b output/obj/yc11xx_dev_bt_data_trans.o
-                                        0xb32 (size before relaxing)
- .debug_str     0x0000000000004a35      0x105 output/obj/yc11xx_dev_qspi.o
-                                        0x77b (size before relaxing)
- .debug_str     0x0000000000004b3a      0x88c output/obj/yc_dev_bt.o
-                                       0x110a (size before relaxing)
- .debug_str     0x00000000000053c6      0x1a9 output/obj/yc_ota.o
-                                        0x9b6 (size before relaxing)
- .debug_str     0x000000000000556f      0x2ca output/obj/att.o
-                                        0xa55 (size before relaxing)
- .debug_str     0x0000000000005839      0x16e output/obj/flash.o
-                                        0x8e9 (size before relaxing)
- .debug_str     0x00000000000059a7       0xc5 output/obj/app_queue.o
-                                        0x7fe (size before relaxing)
- .debug_str     0x0000000000005a6c      0x26e output/obj/app_sleep.o
-                                       0x10e0 (size before relaxing)
- .debug_str     0x0000000000005cda       0xf8 output/obj/vbat.o
-                                        0x85d (size before relaxing)
- .debug_str     0x0000000000005dd2      0x1db output/obj/keyscan.o
-                                       0x109a (size before relaxing)
- .debug_str     0x0000000000005fad       0xd0 output/obj/led.o
-                                        0xf39 (size before relaxing)
- .debug_str     0x000000000000607d       0xcb output/obj/ir_send.o
-                                        0xe62 (size before relaxing)
- .debug_str     0x0000000000006148     0x1818 output/obj/ir_load.o
-                                       0x2718 (size before relaxing)
- .debug_str     0x0000000000007960     0x14ca output/obj/ir_lib.o
-                                       0x2e57 (size before relaxing)
- .debug_str     0x0000000000008e2a      0x17f output/obj/ir_learn_from_remote.o
-                                        0xa7a (size before relaxing)
- .debug_str     0x0000000000008fa9      0x143 output/obj/ir_learn_from_tv_google.o
-                                        0x9a3 (size before relaxing)
- .debug_str     0x00000000000090ec      0x2fe output/obj/audio.o
-                                       0x1077 (size before relaxing)
- .debug_str     0x00000000000093ea       0x70 output/obj/factory_test_off_line.o
-                                        0x80d (size before relaxing)
- .debug_str     0x000000000000945a       0xd4 output/obj/adpcm.o
-                                        0x774 (size before relaxing)
- .debug_str     0x000000000000952e      0x36d output/obj/remote_control.o
-                                       0x26f9 (size before relaxing)
- .debug_str     0x000000000000989b      0x943 output/obj/att_list.o
-                                       0x1119 (size before relaxing)
- .debug_str     0x000000000000a1de      0x142 ./../../../APP/SECRETKEY\libSecretKey.a(SecretKey.o)
+.debug_str      0x0000000000000000     0xaabb
+ .debug_str     0x0000000000000000      0x830 output/obj/main.o
+                                        0x8dd (size before relaxing)
+ .debug_str     0x0000000000000830      0xa64 output/obj/yc_debug.o
+                                       0x11f0 (size before relaxing)
+ .debug_str     0x0000000000001294      0x236 output/obj/yc_nvic.o
+                                        0x7f6 (size before relaxing)
+ .debug_str     0x00000000000014ca      0x62f output/obj/yc11xx.o
+                                        0xc0f (size before relaxing)
+ .debug_str     0x0000000000001af9      0x23f output/obj/malloc.o
+                                        0x95d (size before relaxing)
+ .debug_str     0x0000000000001d38      0x2c2 output/obj/software_timer.o
+                                        0xb6a (size before relaxing)
+ .debug_str     0x0000000000001ffa      0x9f1 output/obj/yc11xx_bt_interface.o
+                                       0x10f9 (size before relaxing)
+ .debug_str     0x00000000000029eb      0x192 output/obj/yc11xx_ipc.o
+                                        0x91e (size before relaxing)
+ .debug_str     0x0000000000002b7d      0xf6f output/obj/yc11xx_audio_adc.o
+                                       0x181d (size before relaxing)
+ .debug_str     0x0000000000003aec      0x324 output/obj/yc11xx_gpio.o
+                                        0xfa5 (size before relaxing)
+ .debug_str     0x0000000000003e10       0xa0 output/obj/yc11xx_iwdg.o
+                                        0x727 (size before relaxing)
+ .debug_str     0x0000000000003eb0      0x289 output/obj/yc11xx_qspi0.o
+                                        0x921 (size before relaxing)
+ .debug_str     0x0000000000004139      0x218 output/obj/yc11xx_systick.o
+                                        0xbb7 (size before relaxing)
+ .debug_str     0x0000000000004351      0x17f output/obj/yc11xx_timer.o
+                                        0x779 (size before relaxing)
+ .debug_str     0x00000000000044d0       0x9a output/obj/yc11xx_lpm.o
+                                        0x7cf (size before relaxing)
+ .debug_str     0x000000000000456a       0x5e output/obj/yc11xx_pwm.o
+                                        0xdc1 (size before relaxing)
+ .debug_str     0x00000000000045c8      0x143 output/obj/yc11xx_dev_bt_aap.o
+                                        0x712 (size before relaxing)
+ .debug_str     0x000000000000470b      0x32b output/obj/yc11xx_dev_bt_data_trans.o
+                                        0xb33 (size before relaxing)
+ .debug_str     0x0000000000004a36      0x105 output/obj/yc11xx_dev_qspi.o
+                                        0x77c (size before relaxing)
+ .debug_str     0x0000000000004b3b      0x88c output/obj/yc_dev_bt.o
+                                       0x110b (size before relaxing)
+ .debug_str     0x00000000000053c7      0x1a9 output/obj/yc_ota.o
+                                        0x9b7 (size before relaxing)
+ .debug_str     0x0000000000005570      0x2ca output/obj/att.o
+                                        0xa56 (size before relaxing)
+ .debug_str     0x000000000000583a      0x16e output/obj/flash.o
+                                        0x8ea (size before relaxing)
+ .debug_str     0x00000000000059a8       0xc5 output/obj/app_queue.o
+                                        0x7ff (size before relaxing)
+ .debug_str     0x0000000000005a6d      0x26e output/obj/app_sleep.o
+                                       0x10e1 (size before relaxing)
+ .debug_str     0x0000000000005cdb       0xf8 output/obj/vbat.o
+                                        0x85e (size before relaxing)
+ .debug_str     0x0000000000005dd3      0x1db output/obj/keyscan.o
+                                       0x109b (size before relaxing)
+ .debug_str     0x0000000000005fae       0xd0 output/obj/led.o
+                                        0xf3a (size before relaxing)
+ .debug_str     0x000000000000607e       0xcb output/obj/ir_send.o
+                                        0xe63 (size before relaxing)
+ .debug_str     0x0000000000006149     0x1818 output/obj/ir_load.o
+                                       0x2719 (size before relaxing)
+ .debug_str     0x0000000000007961     0x14ca output/obj/ir_lib.o
+                                       0x2e58 (size before relaxing)
+ .debug_str     0x0000000000008e2b      0x17f output/obj/ir_learn_from_remote.o
+                                        0xa7b (size before relaxing)
+ .debug_str     0x0000000000008faa      0x143 output/obj/ir_learn_from_tv_google.o
+                                        0x9a4 (size before relaxing)
+ .debug_str     0x00000000000090ed      0x2fe output/obj/audio.o
+                                       0x1078 (size before relaxing)
+ .debug_str     0x00000000000093eb       0x70 output/obj/factory_test_off_line.o
+                                        0x80e (size before relaxing)
+ .debug_str     0x000000000000945b       0xd4 output/obj/adpcm.o
+                                        0x775 (size before relaxing)
+ .debug_str     0x000000000000952f      0x36d output/obj/remote_control.o
+                                       0x26fa (size before relaxing)
+ .debug_str     0x000000000000989c      0x943 output/obj/att_list.o
+                                       0x111a (size before relaxing)
+ .debug_str     0x000000000000a1df      0x142 ./../../../APP/SECRETKEY\libSecretKey.a(SecretKey.o)
                                         0x28f (size before relaxing)
- .debug_str     0x000000000000a320      0x3b4 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(muldf3.o)
+ .debug_str     0x000000000000a321      0x3b4 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(muldf3.o)
                                         0x43f (size before relaxing)
- .debug_str     0x000000000000a6d4       0x6d d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(fixunsdfsi.o)
+ .debug_str     0x000000000000a6d5       0x6d d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(fixunsdfsi.o)
                                         0x23b (size before relaxing)
- .debug_str     0x000000000000a741      0x101 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(floatsidf.o)
+ .debug_str     0x000000000000a742      0x101 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(floatsidf.o)
                                         0x2d2 (size before relaxing)
- .debug_str     0x000000000000a842       0x5a d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(save-restore.o)
+ .debug_str     0x000000000000a843       0x5a d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(save-restore.o)
                                          0xad (size before relaxing)
- .debug_str     0x000000000000a89c      0x21e d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(_clzsi2.o)
+ .debug_str     0x000000000000a89d      0x21e d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(_clzsi2.o)
                                         0x7c3 (size before relaxing)
- .debug_str     0x000000000000aaba      0x7a6 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(_clz.o)
+ .debug_str     0x000000000000aabb      0x7a6 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(_clz.o)
 
 .comment        0x0000000000000000       0x11
  .comment       0x0000000000000000       0x11 output/obj/main.o

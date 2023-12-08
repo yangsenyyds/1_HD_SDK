@@ -7,7 +7,15 @@
 #include "yc_dev_bt.h"
 #include "att_list.h"
 #include "factory_test_off_line.h"
-
+#if 0
+#define AdcOutputMode   (ADC_SingleEndOutputWithCapacitor)
+#define AdcAnaSEWithCapacitor_VOLTAGE_GAIN  (20)
+#define AdcAnaDiffConfig_VOLTAGE_GAIN       (15)
+#else
+#define AdcOutputMode (ADC_DifferentialOutput)
+#define AdcAnaSEWithCapacitor_VOLTAGE_GAIN (26)
+#define AdcAnaDiffConfig_VOLTAGE_GAIN (20)
+#endif
 /* WATCH_DOG */
 #define FUNCTION_WATCH_DOG
 
@@ -69,9 +77,9 @@
 #define AUDIO_SNED_HANDLE       (get_VoiceHandle())
 #define AUDIO_CTRL_HANDLE       (AUDIO_SNED_HANDLE+3)
 
-#define AdcOutputMode   (ADC_SingleEndOutputWithCapacitor)
-#define AdcAnaSEWithCapacitor_VOLTAGE_GAIN  (20)
-#define AdcAnaDiffConfig_VOLTAGE_GAIN       (20)
+// #define AdcOutputMode   (ADC_SingleEndOutputWithCapacitor)
+// #define AdcAnaSEWithCapacitor_VOLTAGE_GAIN  (20)
+// #define AdcAnaDiffConfig_VOLTAGE_GAIN       (20)
 
 #define MICRECORD_CACHE_NUM     (2)
 #define ENCODE_CACHE_NUM        (134)
