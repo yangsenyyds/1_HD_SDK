@@ -8,7 +8,7 @@
 #include "att_list.h"
 #include "factory_test_off_line.h"
 
-#define LED_11            (1)
+#define LED_11            (0)
 #if (LED_11 == 1)
 #define LED_1_PIN   (GPIO_11)
 #else
@@ -28,7 +28,7 @@
 #define DEBUG_GPIO_DEFINE   (GPIO_9)
 
 /* SecretKey_Check_enable */
-#define SecretKey_Check_enable (1)
+// #define SecretKey_Check_enable (1)
 
 /* sleep 1 hour*/
 #define SLEEP_ONE_HOUR      (1)

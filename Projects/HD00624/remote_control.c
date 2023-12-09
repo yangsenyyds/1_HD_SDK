@@ -488,6 +488,7 @@ static void keyvalue_handle(key_report_t *key_report)
 
         if (!first_pair && !adv_flag && keynum == Home_Keynum) {
             led_on(LED_2, 200, 0);
+            // led_on(LED_2, 200, 1200);
         }
 		else if (!first_pair && !adv_flag) {
             led_on(LED_2, 200, 1200);

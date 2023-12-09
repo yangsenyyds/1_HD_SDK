@@ -2,7 +2,7 @@
 #define _ATT_LIST_H_
 #include <string.h>
 #include "yc11xx.h"
-#define Project_key  (610)
+#define Project_key  (620)
 typedef struct {
 	uint8_t Len;
 	uint8_t Att[16];
