@@ -53,3 +53,7 @@ void factory_KeyProcess(unsigned char keynum)
         DEBUG_LOG_STRING("factory att send  [%d]  \r\n", keynum);
     }
 }
+bool get_factory_state(void)
+{
+    return g_factorymode;
+}

@@ -461,6 +461,12 @@ pkt_type
 void update_voice_packet(uint8_t *pkt)
 {
     uint8_t len = 0;
+    if(get_factory_state())
+    {
+        pkt[0] = AUDIO_SNED_HANDLE; /// handle
+        pkt[1] = 123; /// len 
+    }
+
     if (pkt)
     {
         if (app_pkt_type == E_APP_PKT_TYPE_START_ADUIO) /// kv 03
@@ -618,6 +624,11 @@ static void auto_calibration_axis(int16_t *acc_in, int16_t *gyro_in, int16_t *gy
                 gyro_offset[2] = (int16_t)(sum_gyro[2] / GYRO_BUF_SIZE);
                 DEBUG_LOG_STRING("axis calibration:%d	%d	%d\n", gyro_offset[0], gyro_offset[1], gyro_offset[2]);
                 cnt = 0;
+                if(get_factory_state())
+                {
+                    uint8_t factory_mouse_move_state[3] ={0x0,0x0,0x0};
+                    ATT_sendNotify(65532, (void *)&factory_mouse_move_state, sizeof(factory_mouse_move_state));
+                }
             }
             else
             {
@@ -626,6 +637,11 @@ static void auto_calibration_axis(int16_t *acc_in, int16_t *gyro_in, int16_t *gy
         }
         else
         {
+            if(get_factory_state())
+            {
+                uint8_t factory_mouse_move_state[3] ={0x0,0x0,0x1};
+                ATT_sendNotify(65532, (void *)&factory_mouse_move_state, sizeof(factory_mouse_move_state));
+            }
             auto_cnt = 0; 
             cnt = 0;
         }
@@ -1725,12 +1741,10 @@ void app_init(void)
         led_init();
         voice_report_init();
         ir_init(UPD6121G2_68, CUSTOM_04_FB_A);
-
         keyscan_init(KEY_MODE_SINGLE, keyvalue_handle);
-
         check_mouse_chip_id();
-        
         encode_timer_init();
+
         app_rpt_timeout_timernum = swtimer_add(app_rpt_timeout_handle);
         brand_pressed_timernum = swtimer_add(key_pressed_handle);
         encode_timernum = swtimer_add(encode_handle);
