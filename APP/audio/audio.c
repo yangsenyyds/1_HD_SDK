@@ -463,7 +463,7 @@ void mic_open(void)
     Audio_AdcConfig();
 #ifdef AUDIO_TEST_MODE
     AUDIO_AdcDmaSet(true);
-    app_queue_insert(audio_task);
+    audio_task();
 #else
     swtimer_start(start_ntf_timernum, START_NTF_TIME, TIMER_START_ONCE);
 #ifndef FACTORY_MODE
