@@ -591,7 +591,8 @@ static void param_accepted_handle(void) {
     }
 }
 
-static void ir_send_smart(void) {
+static void ir_send_smart(void)
+{
 
     // if(send_number % 2){
     //     ir_comm_send(0x02);
