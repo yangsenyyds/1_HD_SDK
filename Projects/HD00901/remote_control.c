@@ -424,6 +424,7 @@ static void keyvalue_handle(key_report_t* key_report)
         else
         {
             if(led_state == 0) {
+                led_state = 1;
                 led_on(LED_1,120,480);
             }
             if(keynum == Power_Keynum && Bt_CheckIsPaired())
@@ -709,7 +710,7 @@ void ENCRYPT_DONE(void)
     update_conn_param(false);
     encrypt_state = true;
     dis_encrypt_state = false;
-    led_on(LED_1,200,1200);
+    // led_on(LED_1,200,1200);
 
 }
 
@@ -729,6 +730,8 @@ void PAIR_DONE(void)
     ,gRecinfo.sPeerBDaddr[4],gRecinfo.sPeerBDaddr[5]);
     flash_write(power_key_mac, (uint8_t *)&power_adv_data_buf, sizeof(power_adv_data_buf),CHUNK_INF);
     flash_write(netflix_key_mac, (uint8_t *)&Netflix_adv_data_buf, sizeof(Netflix_adv_data_buf),CHUNK_INF);
+    led_state = 1;
+    led_on(LED_1,0,3000);
 }
 
 void LE_DISCONNECTED(uint8_t reason)

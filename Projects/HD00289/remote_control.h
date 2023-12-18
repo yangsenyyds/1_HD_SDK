@@ -7,7 +7,8 @@
 #include "yc_dev_bt.h"
 #include "att_list.h"
 #include "factory_test_off_line.h"
-#define Project_key  (256)
+extern const uint8_t product_key_s[];
+#define Project_key  (255)
 /* WATCH_DOG */
 #define FUNCTION_WATCH_DOG
 

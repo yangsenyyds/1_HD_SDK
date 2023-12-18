@@ -249,6 +249,7 @@ typedef enum
 }qma6100_step_start_cnt;
 
 extern void qma_int_mode(void);
+extern void qma6100_power_down(void);
 extern qs32 qma6100_writereg(qu8 reg_add,qu8 reg_dat);
 extern qs32 qma6100_readreg(qu8 reg_add,qu8 *buf,qu16 num);
 extern qu8 qma6100_chip_id(void);

@@ -799,6 +799,7 @@ static void keyvalue_handle(key_report_t *key_report)
                 + key_report->keynum_report_buf[4] + key_report->keynum_report_buf[5];
         DEBUG_LOG_STRING("KeyNum [%d] \r\n", keynum);
         led_on(LED_1, 0, 0);
+        // led_on(LED_1, 200, 0);
         if (keynum == Pwr_Keynum) {
             send_number = 0;
             swtimer_start(power_timernum, 10, TIMER_START_ONCE);
@@ -843,7 +844,9 @@ static void keyvalue_handle(key_report_t *key_report)
 static void power_handle(uint8_t batlevel)
 {
     DEBUG_LOG_STRING("BAT LEVEL: %d \r\n", batlevel);
-    
+
+    // start_adv(ADV_TYPE_NOMAL, 0x10, true);
+
     if (batlevel <= 20 && tx_power_switch) {
         tx_power_switch = false;
         bt_set_tx_power(TX_POWER_5DB);
@@ -1148,6 +1151,7 @@ void app_init(void)
         param_accepted_timernum = swtimer_add(param_accepted_handle);
         low_power_timernum = swtimer_add(low_power_handle);
         power_timernum = swtimer_add(ir_send_smart);
+
         if (!SecretKey_Check())
         {
 #ifdef SecretKey_Check_enable

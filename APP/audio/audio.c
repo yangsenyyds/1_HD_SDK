@@ -191,10 +191,12 @@ static void Voice_Send(void)
         {
             ntf_buf_offset = AUDIO_FRAME_HEADER_LEN;
             update_voice_packet(VoiceNTFBuf);
+
 #if SAMSUNG
             VoiceNTFBuf[0] = voice_status.packet_cnt++;
             ATT_sendNotify(AUDIO_SNED_HANDLE, VoiceNTFBuf, AUDIO_SEND_NTF_SIZE);
 #elif LG
+
             ATT_sendNotify(VoiceNTFBuf[0], (void *)&VoiceNTFBuf[2], VoiceNTFBuf[1]);
 #elif VIZIO
             ATT_sendNotify(AUDIO_SNED_HANDLE, VoiceNTFBuf, AUDIO_SEND_NTF_SIZE);

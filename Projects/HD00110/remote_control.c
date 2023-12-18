@@ -461,11 +461,7 @@ pkt_type
 void update_voice_packet(uint8_t *pkt)
 {
     uint8_t len = 0;
-    if(get_factory_state())
-    {
-        pkt[0] = AUDIO_SNED_HANDLE; /// handle
-        pkt[1] = 123; /// len 
-    }
+
 
     if (pkt)
     {
@@ -549,6 +545,13 @@ void update_voice_packet(uint8_t *pkt)
             }
             pkt[1] = len; /// len
         }
+    }
+    if(get_factory_state())
+    {
+
+        pkt[0] = 250; /// handle
+        pkt[1] = 123; /// len 
+        // DEBUG_LOG_STRING("pkt[0] = %d \r\n",pkt[0]);
     }
 }
 
