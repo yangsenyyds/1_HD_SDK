@@ -32,6 +32,7 @@ enum {
     CONN_PARAM = 128,
 
 };
+const uint8_t product_key_s[] = {24,2,172};
 #if (Project_key == 200)//
 static const uint8_t keyvalue_buf[] = {
     0x00,

@@ -22,6 +22,10 @@
 // #else
 // #include "yc11xx_iic.h"
 // #endif
+#include "remote_control.h"
+
+#include "yc11xx_iwdg.h"
+#include "led.h"
 typedef struct
 {
     qs16 sign[3];
@@ -712,7 +716,6 @@ void qma6100_anymotion_config(qs32 int_map, qs32 enable)
 	qu8 reg_0x1b = 0;
 #endif
 
-	DEBUG_LOG_STRING("qma6100_anymotion_config %d\n", enable);
 	qma6100_readreg(0x18, &reg_0x18, 1);
 	qma6100_readreg(0x1a, &reg_0x1a, 1);
 	qma6100_readreg(0x1c, &reg_0x1c, 1);
@@ -1392,7 +1395,7 @@ qs32 qma6100_soft_reset(void)
 	qu32 retry = 0;
 	qu8 cnt=0;
 
-	DEBUG_LOG_STRING("qma6100_soft_reset\r\n");
+	// DEBUG_LOG_STRING("qma6100_soft_reset\r\n");
 	qma6100_writereg(0x36, 0xb6);
 	qma6100_delay_ms(1);
 	qma6100_writereg(0x36, 0x00);
@@ -1400,7 +1403,7 @@ qs32 qma6100_soft_reset(void)
 
 
 	qma6100_readreg(0x33,&reg_0x33,1);
-	DEBUG_LOG_STRING("tim 0x33 = 0x%x\r\n",reg_0x33);
+	// DEBUG_LOG_STRING("tim 0x33 = 0x%x\r\n",reg_0x33);
 	while((reg_0x33&0x05)!=0x05)
 	{
 		qma6100_readreg(0x33,&reg_0x33,1);
@@ -1446,7 +1449,7 @@ qs32 qma6100_initialize(void)
 		}
 		else
 		{
-			DEBUG_LOG_STRING("QMA6100P SWRst end\r\n");
+			// DEBUG_LOG_STRING("QMA6100P SWRst end\r\n");
 			break;
 		}
 		
@@ -1456,7 +1459,7 @@ qs32 qma6100_initialize(void)
 	qma6100_readreg(0x47, &DieId_L, 1);
 	qma6100_readreg(0x48, &DieId_H, 1);
 	qma6100_readreg(0x5a, &WaferID, 1);
-	DEBUG_LOG_STRING("DieId_L:%d	DieId_H:%d	WaferID:%d \n", DieId_L, DieId_H, WaferID&0x1f);
+	// DEBUG_LOG_STRING("DieId_L:%d	DieId_H:%d	WaferID:%d \n", DieId_L, DieId_H, WaferID&0x1f);
 
 	qma6100_writereg(0x4a, 0x20);
 	qma6100_writereg(0x50, 0x51);   //0x49  0x51
@@ -1586,6 +1589,16 @@ qs32 qma6100_init(void)
 		{
 			DEBUG_LOG_STRING("qma6100 find \n");
 			break;
+		}
+		else{
+#ifdef FUNCTION_WATCH_DOG
+            IWDG_Disable(WDT);   //bt watch dog     
+            IWDG_Disable(WDT2);  //riscv watch dog
+#endif
+            while(1)
+            {
+                led_on(LED_1, 0, 0);
+            }
 		}
 	}
 #if defined(QMA6100_FIX_IIC)

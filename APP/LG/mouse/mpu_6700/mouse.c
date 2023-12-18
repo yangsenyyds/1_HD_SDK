@@ -14,21 +14,21 @@
 #include "yc_debug.h"
 #include "app_config.h"
 
-unsigned char TX_DATA[4];  	 //鏄剧ず鎹紦瀛樺尯
-unsigned char BUF[10];       //鎺ユ敹鏁版嵁缂撳瓨鍖�
-char  test=0; 				 //IIC鐢ㄥ埌
-short T_X,T_Y,T_Z,T_T;		 //X,Y,Z杞达紝娓╁害
+unsigned char TX_DATA[4];  	 //閺勫墽銇氶幑顔剧处鐎涙ê灏�
+unsigned char BUF[10];       //閹恒儲鏁归弫鐗堝祦缂傛挸鐡ㄩ崠锟�
+char  test=0; 				 //IIC閻€劌鍩�
+short T_X,T_Y,T_Z,T_T;		 //X,Y,Z鏉炶揪绱濆〒鈺佸
 
 bool Single_Write(uint8_t SlaveAddress,uint8_t REG_Address,uint8_t REG_data)		     //void
 {
     IIC_Start();
-    IIC_SendByte(SlaveAddress);   //鍙戦€佽澶囧湴鍧€+鍐欎俊鍙�//IIC_SendByte(((REG_Address & 0x0700) >>7) | SlaveAddress & 0xFFFE);//璁剧疆楂樿捣濮嬪湴鍧€+鍣ㄤ欢鍦板潃 
+    IIC_SendByte(SlaveAddress);   //閸欐垿鈧浇顔曟径鍥ф勾閸р偓+閸愭瑤淇婇崣锟�//IIC_SendByte(((REG_Address & 0x0700) >>7) | SlaveAddress & 0xFFFE);//鐠佸墽鐤嗘妯挎崳婵婀撮崸鈧�+閸ｃ劋娆㈤崷鏉挎絻 
     if(IIC_WaitAck())
     {
         IIC_Stop(); 
         return 1;
     }
-    IIC_SendByte(REG_Address);   //璁剧疆浣庤捣濮嬪湴鍧€      
+    IIC_SendByte(REG_Address);   //鐠佸墽鐤嗘担搴ゆ崳婵婀撮崸鈧�      
     IIC_WaitAck();	
     IIC_SendByte(REG_data);
     IIC_WaitAck();   
@@ -37,19 +37,19 @@ bool Single_Write(uint8_t SlaveAddress,uint8_t REG_Address,uint8_t REG_data)		  
     return true;
 }
 
-//鍗曞瓧鑺傝鍙�*****************************************
+//閸楁洖鐡ч懞鍌濐嚢閸欙拷*****************************************
 uint8_t Single_Read(uint8_t SlaveAddress,uint8_t REG_Address)
 {   
     uint8_t REG_data;     	
     IIC_Start();
-    IIC_SendByte(SlaveAddress); //IIC_SendByte(((REG_Address & 0x0700) >>7) | REG_Address & 0xFFFE);//璁剧疆楂樿捣濮嬪湴鍧€+鍣ㄤ欢鍦板潃 
+    IIC_SendByte(SlaveAddress); //IIC_SendByte(((REG_Address & 0x0700) >>7) | REG_Address & 0xFFFE);//鐠佸墽鐤嗘妯挎崳婵婀撮崸鈧�+閸ｃ劋娆㈤崷鏉挎絻 
     if(IIC_WaitAck())
     {
         IIC_Stop();
         test=1; 
         return 1;
     }
-    IIC_SendByte(REG_Address);   //璁剧疆浣庤捣濮嬪湴鍧€      
+    IIC_SendByte(REG_Address);   //鐠佸墽鐤嗘担搴ゆ崳婵婀撮崸鈧�      
     IIC_WaitAck();
     IIC_Start();
     IIC_SendByte(SlaveAddress | 0x01);
@@ -65,17 +65,17 @@ uint8_t Single_Read(uint8_t SlaveAddress,uint8_t REG_Address)
 static int Init_MPU9250(void)
 {
 	
-	// GPIO_Configuration();		 //gyro閰嶇疆GPIO
-	// I2C_GPIO_Config();		 //gyro閰嶇疆IIC浣跨敤绔彛
+	// GPIO_Configuration();		 //gyro闁板秶鐤咷PIO
+	// I2C_GPIO_Config();		 //gyro闁板秶鐤咺IC娴ｈ法鏁ょ粩顖氬經
 	
 /*
    Single_Write(GYRO_ADDRESS,PWR_M, 0x80);   //
    Single_Write(GYRO_ADDRESS,SMPL, 0x07);    //
-   Single_Write(GYRO_ADDRESS,DLPF, 0x1E);    //卤2000掳
+   Single_Write(GYRO_ADDRESS,DLPF, 0x1E);    //鍗�2000鎺�
    Single_Write(GYRO_ADDRESS,INT_C, 0x00 );  //
    Single_Write(GYRO_ADDRESS,PWR_M, 0x00);   //
 */
-    Single_Write(GYRO_ADDRESS,PWR_MGMT_1, 0x00);	//瑙ｉ櫎浼戠湢鐘舵€�
+    Single_Write(GYRO_ADDRESS,PWR_MGMT_1, 0x00);	//鐟欙綁娅庢导鎴犳耿閻樿埖鈧拷
 	Single_Write(GYRO_ADDRESS,SMPLRT_DIV, 0x07);
 	Single_Write(GYRO_ADDRESS,CONFIG, 0x06);
 	Single_Write(GYRO_ADDRESS,GYRO_CONFIG, 0x18);
@@ -93,23 +93,23 @@ static int Init_MPU9250(void)
 }
 INIT_BOARD_EXPORT(Init_MPU9250);
 	
-//******璇诲彇MPU9250鏁版嵁****************************************
+//******鐠囪褰嘙PU9250閺佺増宓�****************************************
 void READ_MPU9250_ACCEL(void)
 { 
 
    BUF[0]=Single_Read(ACCEL_ADDRESS,ACCEL_XOUT_L); 
    BUF[1]=Single_Read(ACCEL_ADDRESS,ACCEL_XOUT_H);
    T_X=	(BUF[1]<<8)|BUF[0];
-   T_X/=164; 						   //璇诲彇璁＄畻X杞存暟鎹�
+   T_X/=164; 						   //鐠囪褰囩拋锛勭暬X鏉炲瓨鏆熼幑锟�
 
    BUF[2]=Single_Read(ACCEL_ADDRESS,ACCEL_YOUT_L);
    BUF[3]=Single_Read(ACCEL_ADDRESS,ACCEL_YOUT_H);
    T_Y=	(BUF[3]<<8)|BUF[2];
-   T_Y/=164; 						   //璇诲彇璁＄畻Y杞存暟鎹�
+   T_Y/=164; 						   //鐠囪褰囩拋锛勭暬Y鏉炲瓨鏆熼幑锟�
    BUF[4]=Single_Read(ACCEL_ADDRESS,ACCEL_ZOUT_L);
    BUF[5]=Single_Read(ACCEL_ADDRESS,ACCEL_ZOUT_H);
    T_Z=	(BUF[5]<<8)|BUF[4];
-   T_Z/=164; 					       //璇诲彇璁＄畻Z杞存暟鎹�
+   T_Z/=164; 					       //鐠囪褰囩拋锛勭暬Z鏉炲瓨鏆熼幑锟�
  
 }
 
@@ -119,22 +119,22 @@ void READ_MPU9250_GYRO(void)
    BUF[0]=Single_Read(GYRO_ADDRESS,GYRO_XOUT_L); 
    BUF[1]=Single_Read(GYRO_ADDRESS,GYRO_XOUT_H);
    T_X=	(BUF[1]<<8)|BUF[0];
-   T_X/=16.4; 						   //璇诲彇璁＄畻X杞存暟鎹�
+   T_X/=16.4; 						   //鐠囪褰囩拋锛勭暬X鏉炲瓨鏆熼幑锟�
 
    BUF[2]=Single_Read(GYRO_ADDRESS,GYRO_YOUT_L);
    BUF[3]=Single_Read(GYRO_ADDRESS,GYRO_YOUT_H);
    T_Y=	(BUF[3]<<8)|BUF[2];
-   T_Y/=16.4; 						   //璇诲彇璁＄畻Y杞存暟鎹�
+   T_Y/=16.4; 						   //鐠囪褰囩拋锛勭暬Y鏉炲瓨鏆熼幑锟�
    BUF[4]=Single_Read(GYRO_ADDRESS,GYRO_ZOUT_L);
    BUF[5]=Single_Read(GYRO_ADDRESS,GYRO_ZOUT_H);
    T_Z=	(BUF[5]<<8)|BUF[4];
-   T_Z/=16.4; 					       //璇诲彇璁＄畻Z杞存暟鎹�
+   T_Z/=16.4; 					       //鐠囪褰囩拋锛勭暬Z鏉炲瓨鏆熼幑锟�
  
  
   // BUF[6]=Single_Read(GYRO_ADDRESS,TEMP_OUT_L); 
   // BUF[7]=Single_Read(GYRO_ADDRESS,TEMP_OUT_H); 
   // T_T=(BUF[7]<<8)|BUF[6];
-  // T_T = 35+ ((double) (T_T + 13200)) / 280;// 璇诲彇璁＄畻鍑烘俯搴�
+  // T_T = 35+ ((double) (T_T + 13200)) / 280;// 鐠囪褰囩拋锛勭暬閸戠儤淇惔锟�
 }
 /*
 void mouse_turn_off(void)
@@ -152,7 +152,7 @@ void mouse_on(void) {
     mouse_on_off = true;
     app_sleep_timer_set(UNIT_TIME_1S);
     swtimer_start(mouse_report_timernum, MOUSE_REPORT_TIME_MAX, TIMER_START_ONCE);
-    bt_enable_le_tx_md(); /// 锟斤拷锟斤拷锟斤拷模式 add 20230522
+    bt_enable_le_tx_md(); /// 閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷锋ā寮� add 20230522
 }
 void mouse_turn_on(void)
 {
