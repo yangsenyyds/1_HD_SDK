@@ -28,6 +28,7 @@
 #define PAIR_DONE_DELAY (10000)   // ms
 #define DIRECT_ADV_TIME (10)       // s
 #define SHUTDOWN_TIME (60)        // s
+
 #define UNIT_TIME_1S (1000) // ms
 
 /* SOFTWARE TIMER */
