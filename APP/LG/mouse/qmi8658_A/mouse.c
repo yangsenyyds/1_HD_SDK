@@ -771,7 +771,7 @@ static void Qmi8658_read_xyz(void)
     sensor_data_report.gx = (short)((unsigned short)(buf_reg[7] << 8) | (buf_reg[6]));
     sensor_data_report.gy = (short)((unsigned short)(buf_reg[9] << 8) | (buf_reg[8]));
     sensor_data_report.gz = (short)((unsigned short)(buf_reg[11] << 8) | (buf_reg[10]));
-    // DEBUG_LOG_STRING("gyro %d %d %d acc %d %d %d \r\n",sensor_data_report.ax,sensor_data_report.ay,sensor_data_report.az,sensor_data_report.gx,sensor_data_report.gy,sensor_data_report.gz);
+    DEBUG_LOG_STRING("gyro %d %d %d acc %d %d %d \r\n",sensor_data_report.ax,sensor_data_report.ay,sensor_data_report.az,sensor_data_report.gx,sensor_data_report.gy,sensor_data_report.gz);
 }
 #endif
 

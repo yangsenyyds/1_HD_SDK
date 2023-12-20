@@ -55,7 +55,6 @@ static const uint16_t CUSTOM_01_00_BUF[] = {0X01, 0x00};
 static const uint16_t CUSTOM_01_01_BUF[] = {0X01, 0x01};
 static const uint16_t CUSTOM_01_FE_BUF[] = {0X01, 0xFE};
 static const uint16_t CUSTOM_02_00_BUF[] = {0X02, 0x00};
-static const uint16_t CUSTOM_02_1D_BUF[] = {0X02, 0x1D};
 static const uint16_t CUSTOM_02_BD_BUF[] = {0X02, 0xBD};
 static const uint16_t CUSTOM_02_FD_BUF[] = {0X02, 0xFD};
 static const uint16_t CUSTOM_02_7D_BUF[] = {0X02, 0x7D};
@@ -239,9 +238,8 @@ static const uint16_t HIGH_CUSTOM_C000_0800_BUF[] = {0XC000, 0X0800};
 static const uint16_t HIGH_CUSTOM_C000_6000_BUF[] = {0XC000, 0X6000};
 static const uint16_t HIGH_CUSTOM_FFFD_6000_BUF[] = {0xFFFD, 0X6000};
 static const uint16_t HIGH_CUSTOM_FFFD_E000_BUF[] = {0xFFFD, 0XE000};
-static const uint16_t HIGH_CUSTOM_FFFD_D000_3010_1_1A_A_BUF[] = {0xFFFD, 0XD000};
 static const uint16_t HIGH_CUSTOM_FFFD_8800_BUF[] = {0xFFFD, 0X8800};
-
+static const uint16_t HIGH_CUSTOM_FFFD_D000_3010_1_1A_A_BUF[] = {0xFFFD, 0XD000};
 static const uint16_t CUSTOM_6BIT_02_BUF[] = {
     CODE1, 0x6000, // REPEAT_DISABLE src   keynum
     0, 0, //LEAD TIME
@@ -912,9 +910,6 @@ uint16_t * get_ir_customer(customer_code_t customer)
     case CUSTOM_02_00_A:
         ir_customer = (uint16_t *)CUSTOM_02_00_BUF;
         break;
-    case CUSTOM_02_1D_A:
-        ir_customer = (uint16_t *)CUSTOM_02_1D_BUF;
-        break;        
     case CUSTOM_02_BD_A:
         ir_customer = (uint16_t *)CUSTOM_02_BD_BUF;
         break;
@@ -1464,7 +1459,7 @@ uint16_t * get_ir_customer(customer_code_t customer)
         break;
     case HIGH_CUSTOM_FFFD_D000_3010_1_1A_A:
         ir_customer = (uint16_t *)HIGH_CUSTOM_FFFD_D000_3010_1_1A_A_BUF;
-        break;        
+        break;
     case HIGH_CUSTOM_FFFD_8800_A:
         ir_customer = (uint16_t *)HIGH_CUSTOM_FFFD_8800_BUF;
         break;

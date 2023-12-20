@@ -48,7 +48,6 @@ enum{
     ir_state_A4 = 113,
 	CONN_PARAM = 99,
 };
-const uint8_t product_key_s[] = {48,1,134};
 #if (Project_key == 500)
 static const IRBuf_TypeDef ir_data[] = {
     {0x00, 0x00},
@@ -889,7 +888,7 @@ static void keyvalue_handle(key_report_t* key_report)
     else if (key_pressed_num == 1)
     {
         keynum = 0;
-        for(uint8_t i = 0; i < KEY_COL_NUM; i++) {
+        for(uint8_t i = 0; i < KEY_ROW_NUM; i++) {
             keynum += key_report->keynum_report_buf[i];
         }
 

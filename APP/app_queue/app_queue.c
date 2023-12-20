@@ -20,7 +20,7 @@ uint8_t app_queue_insert(polling_func_t func)
         DEBUG_LOG_STRING("APP QUEUE IS FULL \r\n");
         return 1;
     }
-    
+
     OS_ENTER_CRITICAL();
     AppEventQue[AppQueMgr.write_index++].AppEvent = func;
     AppQueMgr.current_queue_len++;

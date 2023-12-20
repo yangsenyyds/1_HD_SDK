@@ -9,7 +9,8 @@ output/obj/resampler_private_AR2.o: \
  ../../../Platform/sdk/yc11xx_audio_adc.h \
  ../../../Platform/devices/ble/hci/yc_dev_bt.h \
  ../../../Projects/HD00610_3527_factory_test/att_list.h \
- ../../../APP/factory/factory_test_off_line.h \
+ ../../../Projects/HD00610_3527_factory_test/factory_test.h \
+ ../../../Projects/HD00610_3527_factory_test/remote_control.h \
  ../../../Platform/devices/ble/att/att.h \
  ../../../APP/audio/encode/opus/SigProc_FIX.h \
  ../../../APP/audio/encode/opus/typedef.h \
@@ -49,7 +50,9 @@ output/obj/resampler_private_AR2.o: \
 
 ../../../Projects/HD00610_3527_factory_test/att_list.h:
 
-../../../APP/factory/factory_test_off_line.h:
+../../../Projects/HD00610_3527_factory_test/factory_test.h:
+
+../../../Projects/HD00610_3527_factory_test/remote_control.h:
 
 ../../../Platform/devices/ble/att/att.h:
 

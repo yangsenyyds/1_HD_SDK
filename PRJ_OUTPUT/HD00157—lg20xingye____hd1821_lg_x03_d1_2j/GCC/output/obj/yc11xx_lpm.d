@@ -8,7 +8,8 @@ output/obj/yc11xx_lpm.o: ../../../Platform/sdk/yc11xx_lpm.c \
  ../../../Platform/sdk/yc11xx_audio_adc.h \
  ../../../Platform/devices/ble/hci/yc_dev_bt.h \
  ../../../Projects/HD00157/att_list.h \
- ../../../APP/software_i2c/software_i2c.h
+ ../../../APP/software_i2c/software_i2c.h \
+ ../../../Platform/core/yc_debug.h ../../../Platform/core/yc11xx.h
 
 ../../../Platform/sdk/yc11xx_lpm.h:
 
@@ -33,3 +34,7 @@ output/obj/yc11xx_lpm.o: ../../../Platform/sdk/yc11xx_lpm.c \
 ../../../Projects/HD00157/att_list.h:
 
 ../../../APP/software_i2c/software_i2c.h:
+
+../../../Platform/core/yc_debug.h:
+
+../../../Platform/core/yc11xx.h:

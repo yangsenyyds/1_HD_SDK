@@ -14,7 +14,6 @@
 
 extern bool g_factorymode;
 unsigned short get_VoiceHandle(void);
-bool get_factory_state(void);
 void factory_WriteDataParse(unsigned short handle, unsigned char *data, unsigned char len);
 void factory_KeyProcess(unsigned char keynum);
 #endif

@@ -52,6 +52,8 @@ typedef struct {
 }KeyBuf_TypeDef;
 
 static const uint8_t MIC_CLOSE[] = {0x00};
+#if (Project_key == 603)
+// sn 30363033000030303138303012280000
 static const uint8_t ir_data[] = {
     0x00,
 
@@ -95,7 +97,7 @@ static const KeyBuf_TypeDef KeyBuf[] = {
     {0x21, 0x02, 4, 98}, // voice 1
     {0x52, 0x00, 3, 94}, // up    1
     {0x50, 0x00, 3, 94}, // left  1
-    {0x58, 0x00, 3, 94}, // ok    1
+    {0x58, 0x00, 3, 94}, // ok    1 5
 
     {0x4F, 0x00, 3, 94}, // right 1 6
     {0x51, 0x00, 3, 94}, // down   1
@@ -109,21 +111,125 @@ static const KeyBuf_TypeDef KeyBuf[] = {
     {0xE9, 0x00, 4, 98}, // VOL+
     {0x9C, 0x00, 4, 98}, // ch+
 
-    {0xEA, 0x00, 4, 98}, // VOL-
+    {0xEA, 0x00, 4, 98}, // VOL- 16
     {0x8D, 0x00, 4, 98}, // TV
     {0x9D, 0x00, 4, 98}, //CH-
     {0xE2, 0x00, 4, 98}, // MUTE
     {0x33, 0x00, 4, 98}, //SET
 
-    {0x02, 0x00, 4, 98}, // CENGDIE
+    {0x02, 0x00, 4, 98}, // CENGDIE  21
     {0xA1, 0x00, 4, 119}, // PRIME VIDEO
     {0xA2, 0x00, 4, 119}, // NETFLIX
     {0xA3, 0x00, 4, 119}, // DISNEP
     {0xA4, 0x00, 4, 119}, // HULU
 
-    {0xA3, 0x00, 4, 119}, // DISNEP
+    {0xA3, 0x00, 4, 119}, // DISNEP 26
     {0xA4, 0x00, 4, 119}, // HULU
+
+
 }; 
+#elif (Project_key == 954)
+static const uint8_t ir_data[] = {
+    0x00,
+
+    0x0C,//1
+    0X3F,
+    0X0A,//3
+    0X2A,
+    0X2B,
+
+    0X1A,//6
+    0X32,
+    0X14,//8
+    0X29,
+    0X36,//10
+
+    0X23,//11
+    0X0E,
+    0X35,//13
+    0X02,
+    0X3D,//15
+
+    0X01,//16
+    0X2C,
+    0X20,//18
+    0X30,
+    0X08,
+
+    0X18,//21
+    0X10,
+    0X05,//23
+    0X39,
+    0X25,
+    
+    0X15,//26
+    0X22,//
+    0X21,//28
+    0X28,
+    0X38,
+
+    0X04,//31
+    0X24,
+    0X1F,//33
+    0X00,
+    0X0F,
+
+    0X3B,//36
+    0X1B,
+    0X13,//38
+    0X0B,
+};
+static const KeyBuf_TypeDef KeyBuf[] = {
+    {0x00, 0x00, 0, 0},
+
+    {0x66, 0x00, 3, 94}, // power 1
+    {0x21, 0x02, 4, 98}, // voice 1
+    {0x52, 0x00, 3, 94}, // up    1
+    {0x50, 0x00, 3, 94}, // left  1
+    {0x58, 0x00, 3, 94}, // ok    1 5
+
+    {0x4F, 0x00, 3, 94}, // right 1 6
+    {0x51, 0x00, 3, 94}, // down   1
+    {0xF1, 0x00, 3, 94}, // back   1
+    {0x23, 0x02, 4, 98}, // home   1
+    {0xB4, 0x00, 4, 98}, // 快退   1
+
+    {0xCD, 0x00, 4, 98}, // 暂停  11 1
+    {0xB3, 0x00, 4, 98}, // 快进  1
+    {0x40, 0x00, 4, 98}, // menu  13
+    {0xE9, 0x00, 4, 98}, // VOL+
+    {0x8D, 0x00, 4, 98}, // ch+ 15
+
+    {0x9C, 0x00, 4, 98}, // VOL- 16
+    {0xE2, 0x00, 4, 98}, // TV
+    {0x1E, 0x00, 3, 94}, //CH- 18
+    {0x20, 0x00, 3, 94}, // MUTE
+    {0x21, 0x00, 3, 94}, //SET 20
+
+    {0x23, 0x00, 3, 94}, // CENGDIE  21
+    {0x1F, 0x00, 3, 94}, // PRIME VIDEO
+    {0xA1, 0x00, 4, 98}, // NETFLIX  23
+    {0xA2, 0x00, 4, 98}, // DISNEP
+    {0xA3, 0x00, 4, 98}, // HULU 25
+
+    {0xA4, 0x00, 4, 98}, // DISNEP 26
+    {0xEA, 0x00, 4, 98}, //27
+    {0x9D, 0x00, 4, 98},//28
+    {0x22, 0x00, 3, 94},//29
+    {0x24, 0x00, 3, 94},//30
+
+    {0x25, 0x00, 3, 94}, // DISNEP 31
+    {0x26, 0x00, 3, 94}, // HULU 
+    {0x61, 0x00, 4, 98},//33
+    {0x27, 0x00, 3, 94},
+    {0xBD, 0x01, 4, 98},//35
+
+    {0x69, 0x00, 4, 119}, // 36
+    {0x6A, 0x00, 4, 119}, // NETFLIX 37
+    {0x6C, 0x00, 4, 119}, // DISNEP
+    {0x6B, 0x00, 4, 119}, // HULU 39
+};
+#endif
 
 static const uint8_t cmd80_buf[] = {0x30, 0xEB, 0x00, 0x00, 0x41, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x40, 0x00, 0x03, 0x00, 0x04, 0x00, 0x04, 0x00, 0x01, 0x64, 0x00, 0x00, 0x00, 0x01, 0x00, 0x1E, 0x00, 0x02, 0x2C, 0x01, 0x01, 0x00, 0x01, 0x00, 0x32, 0x00, 0x03, 0x00, 0x04, 0x00, 0x00, 0x00, 0x00, 0x02, 0x00};
 
@@ -341,7 +447,7 @@ static void key_pressed_handle(void)
                     led_off(LED_2);
                 }
                 if(flash_record_exist(ir_learn_tag)){
-                    ir_single_send(ir_data[keynum], 1);
+                    ir_single_send(ir_data[keynum] << 2, 1);
                 }
             }else {
                 key_pressed_time++;
@@ -453,7 +559,7 @@ static void keyvalue_handle(key_report_t *key_report)
     key_pressed_num = key_report->key_press_cnt;
     DEBUG_LOG_STRING("KEYNUM [%d][%d][%d][%d][%d][%d] \r\n", key_report->keynum_report_buf[0], key_report->keynum_report_buf[1], key_report->keynum_report_buf[2],
     key_report->keynum_report_buf[3], key_report->keynum_report_buf[4], key_report->keynum_report_buf[5]);
-    if (key_pressed_num == 0)
+    if (key_pressed_num == 0)//松手键
     {
         if (!first_pair && !adv_flag && keynum == Home_Keynum) {
             led_off(LED_2);
@@ -477,7 +583,7 @@ static void keyvalue_handle(key_report_t *key_report)
 
         set_key_press_state(false);
     }
-    else if (key_pressed_num == 1)
+    else if (key_pressed_num == 1)//单键
     {
         keynum = key_report->keynum_report_buf[0] + key_report->keynum_report_buf[1] +
                     key_report->keynum_report_buf[2] + key_report->keynum_report_buf[3] +
@@ -521,18 +627,18 @@ static void keyvalue_handle(key_report_t *key_report)
         else{
             if(keynum == Power_Keynum){
                 set_key_press_state(true);
-                ir_comm_send(ir_data[keynum]);  
+                ir_comm_send(ir_data[keynum] << 2);  
             }
             else if(!le_connected_state && keynum != Home_Keynum){
                 SysTick_DelayMs(100);
                 set_key_press_state(true);
-                ir_comm_send(ir_data[keynum]);
+                ir_comm_send(ir_data[keynum] << 2);
             }
         }
-        
+
 
     }
-    else if (key_pressed_num == 2)
+    else if (key_pressed_num == 2)//组合键 2
 	{
         if (key_report->keynum_report_buf[Right_Col] == Right_Keynum && key_report->keynum_report_buf[Back_Col] == Back_Keynum && le_connected_state)
 		{
@@ -543,7 +649,7 @@ static void keyvalue_handle(key_report_t *key_report)
             DEBUG_LOG_STRING("RESET TV START \r\n");
         }
     }
-    else if (key_pressed_num == 3)
+    else if (key_pressed_num == 3)//组合键 3
     {
         if (key_report->keynum_report_buf[Menu_Col] == Menu_Keynum && key_report->keynum_report_buf[Left_Col] == Left_Keynum && key_report->keynum_report_buf[Back_Col] == Back_Keynum)
         {
@@ -945,10 +1051,10 @@ void app_init(void)
         vbat_init(power_handle);
         led_init();
         ir_learn_init();
-#if (Project_key == 625)
-        ir_init(UPD6121G2_68, CUSTOM_08_F7_A);
-#else
-        ir_init(UPD6121G2_68, CUSTOM_02_7D_A);
+#if (Project_key == 603)
+         ir_init(UPD6121G2_68, CUSTOM_02_7D_A);
+#elif(Project_key == 954)
+        ir_init(SAA3010_36_46, HIGH_CUSTOM_FFFD_D000_3010_1_1A_A);       
 #endif
         voice_report_init();
         keyscan_init(KEY_MODE_SINGLE, keyvalue_handle);

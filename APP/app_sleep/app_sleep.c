@@ -60,8 +60,8 @@ typedef struct {
 static remote_control_status_t remote_control_status;
 static uint8_t sleep_timernum = 0xFF;
 
-WEAK void Action_After_Prepare_Sleep(void){}
-WEAK void Action_After_Enter_Deep_Sleep(void){}
+WEAK void action_after_prepare_sleep(void){}
+WEAK void action_after_enter_deep_sleep(void){}
 
 static bool app_lock_check(void)
 {
@@ -103,7 +103,7 @@ static void app_sleep_task(void)
 #else
         mouse_switch();
 #endif
-
+			
         }
         else {
             swtimer_restart(sleep_timernum);
@@ -133,25 +133,34 @@ void prepare_before_sleep(void)
     {
         DEBUG_LOG_STRING("PREPARE BEFORE SLEEP \r\n");
         remote_control_status.keep_conn = true;
-        app_queue_reset();
-        vbat_deinit();
-        led_deinit();
-        keyscan_stop();
-        software_timer_stop();
 
 #if defined(SOFTWARE_IIC) || defined(HARDWARE_IIC)
         GPIO_Init(IIC_SCL_PIN, GPIO_Mode_Out_Low);
         GPIO_Init(IIC_SDA_PIN, GPIO_Mode_Out_Low);
 
 #endif
-#ifdef  LG
+
+#if defined (QMA_6100)
+        GPIO_Init(IIC_SCL_PIN, GPIO_Mode_Out_High);
+        GPIO_Init(IIC_SDA_PIN, GPIO_Mode_Out_High);
+#endif
+        action_after_prepare_sleep();
+
+        app_queue_reset();
+        vbat_deinit();
+        led_deinit();
+        keyscan_stop();
+        software_timer_stop();
+#ifdef MOUSE_COM_MODE
+        mouse_deinit();
+#elif  LG
         mouse_lpm_int_mode();
 #endif
+
 #ifdef IR_RCV_PIN
         GPIO_Init(IR_RCV_PIN, GPIO_Mode_Out_High);
 #endif
 
-        Action_After_Prepare_Sleep();
         key_wakeup_set();
     }
 }
@@ -168,7 +177,15 @@ void enter_deep_sleep(void)
 #endif
 #endif
 
-    Action_After_Enter_Deep_Sleep();
+#ifdef QMA_6100
+    // qma_int_mode();
+    // led_off(LED_1);
+#endif
+#if defined (QMA_6100)
+        GPIO_Init(IIC_SCL_PIN, GPIO_Mode_Out_High);
+        GPIO_Init(IIC_SDA_PIN, GPIO_Mode_Out_High);
+#endif
+    action_after_enter_deep_sleep();
 
     if (bt_check_le_connected())
     {

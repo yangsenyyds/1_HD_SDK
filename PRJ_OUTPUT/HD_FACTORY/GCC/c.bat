@@ -17,9 +17,6 @@ set RESPIN_ROM_UTIL_PATH=%LIB_PATH%\bt_rom\util
 set path=D:\Environment\RISC-V\msys64\mingw32\bin;%path%;
 
 @echo clear
-cd "%OUTPUT_PATH%"
-del flash.dat
-cd "%LOCAL_PATH%"
 make clean
 
 @echo make

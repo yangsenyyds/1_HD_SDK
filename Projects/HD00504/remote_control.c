@@ -903,7 +903,7 @@ static void keyvalue_handle(key_report_t* key_report)
     else if (key_pressed_num == 1)
     {
         keynum = 0;
-        for(uint8_t i = 0; i < KEY_COL_NUM; i++) {
+        for(uint8_t i = 0; i < KEY_ROW_NUM; i++) {
             keynum += key_report->keynum_report_buf[i];
         }
 		factory_KeyProcess(keynum==Voice_Keynum?0xff:keynum);
@@ -921,8 +921,7 @@ static void keyvalue_handle(key_report_t* key_report)
                 hid_send_buf[0] = 0x00;
             }
 #if (Project_key == 505)
-            if(keynum == 49)
-            {
+            if(keynum == 49){
                 memset((void*)hid_send_buf, 0, KeyBuf[keynum].key_send_len);
                 memcpy((void*)hid_send_buf, (void*)KeyBuf[keynum].keyvalue, 2);
                 hid_send_buf[3] = hid_send_buf[1];

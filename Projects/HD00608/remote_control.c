@@ -115,9 +115,7 @@ static const uint8_t *s_4a18_buf_arry[] = {
 };
 
 static const uint8_t scan_rsp_data_buf[] = {0x00};
-static const uint8_t adv_data_buf[] = {
-    0x02, 0x01, 0x05, 0x03, 0x03, 0x12, 0x18, 0x03,
-     0x19, 0x80, 0x01, 0x03, 0x09, 0x41, 0x52, 0x05, 0xFF, 0x71, 0x01, 0x04, 0x1E};
+static const uint8_t adv_data_buf[] = {0x02, 0x01, 0x05, 0x03, 0x03, 0x12, 0x18, 0x03, 0x19, 0x80, 0x01, 0x03, 0x09, 0x41, 0x52, 0x05, 0xFF, 0x71, 0x01, 0x04, 0x1E};
 
 MEMORY_NOT_PROTECT_UNDER_LPM_ATT static uint16_t ir_learn_buf_cur_offset;
 MEMORY_NOT_PROTECT_UNDER_LPM_ATT static uint16_t ir_learn_buf_len;
@@ -284,26 +282,29 @@ static void key_pressed_handle(void)
             }
         }
     }
-    else if (key_pressed_num == 2)
+    else if (key_pressed_num == 3)
     {
-        if (keynum == Right_Keynum && keynum_second == Back_Keynum && le_connected_state)
+        if (keynum == Right_Keynum && keynum_second == Left_Keynum && keynum_third == Back_Keynum)//&& le_connected_state)
         {
-            DEBUG_LOG_STRING("RESET TV: key_pressed_time[%d] \r\n", key_pressed_time);
-            if (key_pressed_time < 10) {
+            DEBUG_LOG_STRING("RESET TV: key_pressed_time[%d]123 \r\n", key_pressed_time);
+            if (key_pressed_time < 4) {
                 key_pressed_time++;
                 swtimer_restart(key_pressed_timernum);
             }
-            else if (key_pressed_time >= 10)
-            {
-                uint8_t sendbuf[] = {0x4F, 0x00, 0X00};
-
-                ATT_sendNotify(94, sendbuf, 3);
-                sendbuf[1] = 0XF1;
-                ATT_sendNotify(94, sendbuf, 3);
+            if(key_pressed_time >= 3){
+                led_on(LED_2, 100, 90000);
             }
+            // else if (key_pressed_time >= 10)
+            // {
+            //     uint8_t sendbuf[] = {0x4F, 0x00, 0X00};
+
+            //     ATT_sendNotify(94, sendbuf, 3);
+            //     sendbuf[1] = 0XF1;
+            //     ATT_sendNotify(94, sendbuf, 3);
+            // }
         }
     }
-    else if (key_pressed_num == 3)
+    else if (key_pressed_num == 2)
     {
         if (keynum == Menu_Keynum && keynum_second == Left_Keynum && keynum_third == Back_Keynum)
         {
@@ -403,6 +404,18 @@ static void keyvalue_handle(key_report_t *key_report)
     key_pressed_num = key_report->key_press_cnt;
     DEBUG_LOG_STRING("KEYNUM [%d][%d][%d][%d][%d][%d] \r\n", key_report->keynum_report_buf[0], key_report->keynum_report_buf[1], key_report->keynum_report_buf[2],
     key_report->keynum_report_buf[3], key_report->keynum_report_buf[4], key_report->keynum_report_buf[5]);
+    if(key_pressed_num == 3){
+        if (key_report->keynum_report_buf[Right_Col] == Right_Keynum && key_report->keynum_report_buf[Left_Col] == Left_Keynum && key_report->keynum_report_buf[Back_Col] == Back_Keynum)//&& key_report->keynum_report_buf[Back_Col] == Back_Keynum)
+        {
+            keynum = Right_Keynum;
+            keynum_second = Left_Keynum;
+            keynum_third = Back_Keynum;
+            key_pressed_time = 0;
+            swtimer_start(key_pressed_timernum, UNIT_TIME_1S, TIMER_START_ONCE);
+            DEBUG_LOG_STRING("RESET RCU START \r\n");
+        }
+    }
+#if 0
     if (key_pressed_num == 0)
     {
 #ifdef AUDIO_TEST_MODE
@@ -438,19 +451,18 @@ static void keyvalue_handle(key_report_t *key_report)
                     key_report->keynum_report_buf[4] + key_report->keynum_report_buf[5];
 
 #ifdef AUDIO_TEST_MODE
-        // if (keynum == 3) {
-        //     voice_status.mode = STANDARD_DATA;
-        //     mic_open();
-        // }
-        // else if (keynum == 2) {
-
-        // }
-        // else if(keynum == 7) {
-        //     voice_status.mode = ENCODE_DATA;
-        //     mic_open();
-        // }
-                    voice_status.mode = PCM_DATA;
+        if (keynum == 3) {
+            voice_status.mode = STANDARD_DATA;
             mic_open();
+        }
+        else if (keynum == 2) {
+            voice_status.mode = PCM_DATA;
+            mic_open();
+        }
+        else if(keynum == 7) {
+            voice_status.mode = ENCODE_DATA;
+            mic_open();
+        }
 #else
         if (!first_pair && !adv_flag && keynum == Home_Keynum) {
             led_on(LED_2, 200, 0);
@@ -523,6 +535,7 @@ static void keyvalue_handle(key_report_t *key_report)
             DEBUG_LOG_STRING("HCI_DTM_TEST START \r\n");
         }
     }
+#endif
 }
 
 static void power_handle(uint8_t batlevel)

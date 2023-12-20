@@ -1,5 +1,5 @@
 mem_patch00:
-14   #mem_patch00
+84   #mem_patch00
 00   #mem_patch01
 00   #mem_patch02
 00   #mem_patch03
@@ -7,7 +7,7 @@ mem_patch00:
 00   #mem_patch05
 00   #mem_patch06
 00   #mem_patch07
-00   #mem_patch08
+01   #mem_patch08
 00   #mem_patch09
 00   #mem_patch0a
 00   #mem_patch0b
@@ -35,14 +35,14 @@ c2   #mem_patch11
 00   #mem_patch21
 d0   #mem_patch22
 60   #mem_patch23
-c6   #mem_patch24
-40   #mem_patch25
+c7   #mem_patch24
+c0   #mem_patch25
 40   #mem_patch26
 e0   #mem_patch27
 00   #mem_patch28
 00   #mem_patch29
 90   #mem_patch2a
-a9   #mem_patch2b
+a8   #mem_patch2b
 00   #mem_patch2c
 00   #mem_patch2d
 00   #mem_patch2e
@@ -110,6 +110,7 @@ mem_le_local_mtu:fb 00
 mem_le_remote_mtu:17
 mem_local_rx_max_octets:1b 00 48 08 1b 00 48 08  # 1b
 mem_le_local_feature:fd 5f
+
 ###3.0###
 mem_lmp_io_cap_payload_iocap:03 00 00
 mem_role_switch_flag:00
@@ -230,10 +231,10 @@ mem_param_a2dp_buffer_judge_add_buffer_limit:02
 mem_param_a2dp_dac_sbc_same_buffer_flag:01
 
 mem_rf_debug_enable: 00
-mem_rf_debug_rf_rx_debug_gpio: 09
-mem_rf_debug_rf_tx_debug_gpio: 05
-mem_rf_debug_rf_sync_detect_debug_gpio: 05
-mem_rf_debug_rf_crc_error_debug_gpio: 05
+mem_rf_debug_rf_rx_debug_gpio: 0d
+mem_rf_debug_rf_tx_debug_gpio: 0e
+mem_rf_debug_rf_sync_detect_debug_gpio: 0f
+mem_rf_debug_rf_crc_error_debug_gpio: 13
 
 #mem_app_debug_info_timer use to set first debug timeout
 #mem_param_app_debug_info_timeout use to set period

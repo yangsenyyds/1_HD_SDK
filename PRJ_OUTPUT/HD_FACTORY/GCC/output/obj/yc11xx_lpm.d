@@ -6,8 +6,7 @@ output/obj/yc11xx_lpm.o: ../../../Platform/sdk/yc11xx_lpm.c \
  ../../../Projects/HD_FACTORY/remote_control.h \
  ../../../Platform/sdk/yc11xx_gpio.h \
  ../../../Platform/devices/ble/hci/yc_dev_bt.h \
- ../../../Projects/HD_FACTORY/att_list.h \
- ../../../Platform/core/yc_debug.h ../../../Platform/core/yc11xx.h
+ ../../../Projects/HD_FACTORY/att_list.h
 
 ../../../Platform/sdk/yc11xx_lpm.h:
 
@@ -28,7 +27,3 @@ output/obj/yc11xx_lpm.o: ../../../Platform/sdk/yc11xx_lpm.c \
 ../../../Platform/devices/ble/hci/yc_dev_bt.h:
 
 ../../../Projects/HD_FACTORY/att_list.h:
-
-../../../Platform/core/yc_debug.h:
-
-../../../Platform/core/yc11xx.h:

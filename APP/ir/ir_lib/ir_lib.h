@@ -83,7 +83,6 @@ typedef enum {
     CUSTOM_01_01_A,
     CUSTOM_01_FE_A,
     CUSTOM_02_00_A,
-    CUSTOM_02_1D_A,
     CUSTOM_02_BD_A,
     CUSTOM_02_F5_A,
     CUSTOM_02_FD_A,

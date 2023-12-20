@@ -103,7 +103,6 @@ SRCINCLUDE += -I$(SDK_ROOT)/devices/bt
 SRCINCLUDE += -I$(SDK_ROOT)/devices/flash
 SRCINCLUDE += -I$(SDK_ROOT)/devices/ota
 SRCINCLUDE += -I$(SDK_ROOT)/devices/dtm
-SRCINCLUDE += -I$(APP_ROOT)/SECRETKEY
 SRCINCLUDE += -I$(APP_ROOT)/app_queue
 SRCINCLUDE += -I$(APP_ROOT)/app_sleep
 SRCINCLUDE += -I$(APP_ROOT)/software_timer
@@ -175,7 +174,7 @@ $(ALL_C_OBJ) : $(OBJ_DIR)/%.o : %.c
 
 out : $(ALL_C_OBJ) $(STARTUP_OBJ)
 	@echo Start Build Image.
-	@$(CC)  $(COMMONPAMS) $(LINKFILE) $(LINKPARAMS) $(LINK_MAP)/$@.map -Os -o $(OUTPUT_DIR)/$@.elf $^ -L $(APP_ROOT)/SECRETKEY -lSecretKey
+	@$(CC)  $(COMMONPAMS) $(LINKFILE) $(LINKPARAMS) $(LINK_MAP)/$@.map -Os -o $(OUTPUT_DIR)/$@.elf $^
 	$(OBJCOPY) -O ihex $(OUTPUT_DIR)/$@.elf $(OUTPUT_DIR)/$@.hex
 	$(OBJDUMP) --source --all-headers --demangle --line-numbers --wide $(OUTPUT_DIR)/$@.elf > $(OUTPUT_DIR)/$@.lst
 	@echo GNU RISC-V Cross Print Size

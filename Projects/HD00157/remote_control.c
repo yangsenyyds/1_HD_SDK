@@ -716,6 +716,108 @@ static const uint8_t IRKeyBuf[][1] = {
     {0xDE}, // 38 放大镜
     {0x44}, // 39 OK -->PAIR 83
 };
+#elif (LG_Project == 952 )//LG-21 1821
+
+static const KeyBuf_TypeDef KeyBuf[] = {
+    {0x00, 0x00, 0, 0}, // 0
+
+    {0x00, 0x00, 1, DAXIS_KEY_HANDLE}, // 1 POWER
+    {0x0B, 0x00, 1, DAXIS_KEY_HANDLE}, // 2 STB
+    {0x11, 0x00, 1, DAXIS_KEY_HANDLE}, // 3 '1'
+    {0x12, 0x00, 1, DAXIS_KEY_HANDLE}, // 4 '2'
+    {0x13, 0x00, 1, DAXIS_KEY_HANDLE}, // 5 '3'
+
+    {0x14, 0x00, 1, DAXIS_KEY_HANDLE}, // 6 '4'
+    {0x15, 0x00, 1, DAXIS_KEY_HANDLE}, // 7 '5'
+    {0x16, 0x00, 1, DAXIS_KEY_HANDLE}, // 8 '6'
+    {0x17, 0x00, 1, DAXIS_KEY_HANDLE}, // 9 '7'
+    {0x18, 0x00, 1, DAXIS_KEY_HANDLE}, // 10 '8'
+
+    {0x19, 0x00, 1, DAXIS_KEY_HANDLE}, // 11 '9'
+    {0x1A, 0x00, 1, DAXIS_KEY_HANDLE}, // 12 节目列表
+    {0x1B, 0x00, 1, DAXIS_KEY_HANDLE}, // 13 '0'
+    {0x1C, 0x00, 1, DAXIS_KEY_HANDLE}, // 14 '...'
+    {0x02, 0x00, 1, DAXIS_KEY_HANDLE}, // 15 VOL+
+
+    {0x09, 0x00, 1, DAXIS_KEY_HANDLE}, // 16 MUTE
+    {0x00, 0x00, 1, DAXIS_KEY_HANDLE}, // 17 CH+
+    {0x03, 0x00, 1, DAXIS_KEY_HANDLE}, // 18 VOL-
+    {0x8B, 0x00, 1, DAXIS_KEY_HANDLE}, // 19 VOICE
+    {0x01, 0x00, 1, DAXIS_KEY_HANDLE}, // 20 CH-
+
+    {0x28, 0x00, 1, DAXIS_KEY_HANDLE}, // 21 HOME
+    {0x40, 0x00, 1, DAXIS_KEY_HANDLE}, // 22 UP
+    {0x43, 0x00, 1, DAXIS_KEY_HANDLE}, // 23 机顶盒菜单
+    {0x07, 0x00, 1, DAXIS_KEY_HANDLE}, // 24 LEFT
+    {0x06, 0x00, 1, DAXIS_KEY_HANDLE}, // 25 RIGHT
+
+    {0x9f, 0x00, 1, DAXIS_KEY_HANDLE}, // 26 BACK
+    {0x41, 0x00, 1, DAXIS_KEY_HANDLE}, // 27 DOWN
+    {0xAB, 0x00, 1, DAXIS_KEY_HANDLE}, // 28 GUIDE
+    {0x56, 0x00, 1, DAXIS_KEY_HANDLE}, // 29 最近列表
+    {0x7C, 0x00, 1, DAXIS_KEY_HANDLE}, // 30 INPUT
+
+    {0x5C, 0x00, 1, DAXIS_KEY_HANDLE}, // 31 SET
+    {0x61, 0x00, 1, DAXIS_KEY_HANDLE}, // 32 RED
+    {0x72, 0x00, 1, DAXIS_KEY_HANDLE}, // 33 GREEN
+    {0x71, 0x00, 1, DAXIS_KEY_HANDLE}, // 34 YELLOW
+    {0x63, 0x00, 1, DAXIS_KEY_HANDLE}, // 35 BLUE
+    {0x95, 0x00, 1, DAXIS_KEY_HANDLE}, // 36 PAUSE
+    {0x94, 0x00, 1, DAXIS_KEY_HANDLE}, // 37 PLAY
+    {0xEF, 0x00, 1, DAXIS_KEY_HANDLE}, // 38 放大镜
+    {0x44, 0x00, 1, DAXIS_KEY_HANDLE}, // 39 OK -->PAIR 83
+};
+
+static const uint8_t IRKeyBuf[][1] = {
+    {0x00}, // 0
+
+    {0x08}, // 1 POWER
+    {0x0B}, // 2 STB
+    {0xDE}, // 3 '1'
+    {0xDE}, // 4 '2'
+    {0xDE}, // 5 '3'
+
+    {0xDE}, // 6 '4'
+    {0xDE}, // 7 '5'
+    {0xDE}, // 8 '6'
+    {0xDE}, // 9 '7'
+    {0xDE}, // 10 '8'
+
+    {0xDE}, // 11 '9'
+    {0xDE}, // 12 节目列表
+    {0xDE}, // 13 '0'
+    {0xDE}, // 14 '...'
+    {0x02}, // 15 VOL+
+
+    {0x09}, // 16 MUTE
+    {0x00}, // 17 CH+
+    {0x03}, // 18 VOL-
+    {0xDE}, // 19 VOICE
+    {0x01}, // 20 CH-
+
+    {0x28}, // 21 HOME
+    {0x40}, // 22 UP
+    {0x43}, // 23 机顶盒菜单
+    {0x07}, // 24 LEFT
+    {0x06}, // 25 RIGHT
+
+    {0xDE}, // 26 BACK
+    {0x41}, // 27 DOWN
+    {0xAB}, // 28 GUIDE
+    {0x56}, // 29 最近列表
+    {0x7C}, // 30 INPUT
+
+    {0x5c}, // 31 SET
+    {0x61}, // 32 RED
+    {0x72}, // 33 GREEN
+    {0x71}, // 34 YELLOW
+    {0x63}, // 35 BLUE
+    {0xDE}, // 36 PLAY
+    {0xDE}, // 37 PAUSE
+    {0xDE}, // 38 放大镜
+    {0x44}, // 39 OK -->PAIR 83
+};
+
 #endif
 /// 总计：301条（1 + 1 + 7 + 7 + 8 + 10 + 13 + 12 + 22 + 42 + 39 + 30 + 43 + 35 + 14 + 9 + 5 + 3）
 const static uint8_t head_freq_buf[] =

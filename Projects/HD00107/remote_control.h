@@ -7,7 +7,7 @@
 #include "yc_dev_bt.h"
 #include "att_list.h"
 #include "factory_test_off_line.h"
-#define LG_Project  (107)
+#define LG_Project  (165)
 #define LG (2)
 #define LG22 (2)
 /* WATCH_DOG */
@@ -371,7 +371,6 @@ typedef enum
     addr_base = 0x3C000,
 
 } FlashRecordAddr_TypeDef; // 存储数据需要 8字节
-extern const uint8_t product_key_s[];
 extern void LE_LTK_LOST(void);
 extern void action_after_mic_close(void);
 extern void action_after_led_blk(void);

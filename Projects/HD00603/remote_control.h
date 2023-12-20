@@ -7,7 +7,7 @@
 #include "yc_dev_bt.h"
 #include "att_list.h"
 
-
+#define Project_key  (954)
 /* WATCH_DOG */
 #define FUNCTION_WATCH_DOG
 
@@ -43,7 +43,8 @@
 #define KEY_ROW4_PIN    (GPIO_15)
 #define KEY_ROW5_PIN    (GPIO_19)
 #define KEY_ROW6_PIN    (GPIO_23)
-#define KEY_ROW_NUM     (6)
+#define KEY_ROW7_PIN    (GPIO_32)
+#define KEY_ROW_NUM     (7)
 
 #define KEY_COL1_PIN    (GPIO_24)
 #define KEY_COL2_PIN    (GPIO_27)

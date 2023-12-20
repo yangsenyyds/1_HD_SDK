@@ -8,7 +8,7 @@
 #include "att_list.h"
 #include "factory_test_off_line.h"
 // #define ADV_TIME (1)
-#define Project_key  (550)
+#define Project_key  (554)
 
 /* WATCH_DOG */
 #define FUNCTION_WATCH_DOG

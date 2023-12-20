@@ -5,8 +5,9 @@ output/obj/audio.o: ../../../APP/audio/audio.c ../../../APP/audio/audio.h \
  ../../../Platform/sdk/yc11xx_audio_adc.h \
  ../../../Platform/devices/ble/hci/yc_dev_bt.h \
  ../../../Projects/HD00610_3527_factory_test/att_list.h \
- ../../../APP/factory/factory_test_off_line.h \
+ ../../../Projects/HD00610_3527_factory_test/factory_test.h \
  ../../../APP/app_sleep/app_sleep.h \
+ ../../../Projects/HD00610_3527_factory_test/remote_control.h \
  ../../../Platform/devices/ble/att/att.h \
  ../../../APP/software_timer/software_timer.h \
  ../../../Platform/sdk/yc11xx_systick.h \
@@ -34,9 +35,11 @@ output/obj/audio.o: ../../../APP/audio/audio.c ../../../APP/audio/audio.h \
 
 ../../../Projects/HD00610_3527_factory_test/att_list.h:
 
-../../../APP/factory/factory_test_off_line.h:
+../../../Projects/HD00610_3527_factory_test/factory_test.h:
 
 ../../../APP/app_sleep/app_sleep.h:
+
+../../../Projects/HD00610_3527_factory_test/remote_control.h:
 
 ../../../Platform/devices/ble/att/att.h:
 

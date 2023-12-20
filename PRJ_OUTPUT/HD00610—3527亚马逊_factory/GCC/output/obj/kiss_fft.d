@@ -8,7 +8,8 @@ output/obj/kiss_fft.o: ../../../APP/audio/encode/opus/kiss_fft.c \
  ../../../Platform/sdk/yc11xx_audio_adc.h \
  ../../../Platform/devices/ble/hci/yc_dev_bt.h \
  ../../../Projects/HD00610_3527_factory_test/att_list.h \
- ../../../APP/factory/factory_test_off_line.h \
+ ../../../Projects/HD00610_3527_factory_test/factory_test.h \
+ ../../../Projects/HD00610_3527_factory_test/remote_control.h \
  ../../../Platform/devices/ble/att/att.h \
  ../../../APP/audio/encode/opus/_kiss_fft_guts.h \
  ../../../APP/audio/encode/opus/kiss_fft.h \
@@ -42,7 +43,9 @@ output/obj/kiss_fft.o: ../../../APP/audio/encode/opus/kiss_fft.c \
 
 ../../../Projects/HD00610_3527_factory_test/att_list.h:
 
-../../../APP/factory/factory_test_off_line.h:
+../../../Projects/HD00610_3527_factory_test/factory_test.h:
+
+../../../Projects/HD00610_3527_factory_test/remote_control.h:
 
 ../../../Platform/devices/ble/att/att.h:
 
