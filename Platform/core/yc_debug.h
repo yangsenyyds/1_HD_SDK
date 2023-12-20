@@ -594,6 +594,7 @@ enum
 
 
 
+uint8_t get_float_data_array(float input_value,uint8_t * output_str);
 
 
 #endif //_YC_DEBUG_H_

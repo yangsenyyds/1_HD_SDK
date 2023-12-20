@@ -7,7 +7,7 @@ mem_nv_data_number:01
 ##############BLUETOOTH CONFIG##############
 ###commom###
 mem_device_option:10
-mem_lmp_version:09 0e 05 06 00
+mem_lmp_version:08 5d 00 62 87
 ###ble###
 mem_le_lap:33 55 66 78 F1 60
 mem_le_scan_data_len:05
@@ -163,10 +163,10 @@ mem_param_a2dp_buffer_judge_add_buffer_limit:02
 mem_param_a2dp_dac_sbc_same_buffer_flag:01
 
 mem_rf_debug_enable: 00
-mem_rf_debug_rf_rx_debug_gpio: 09
-mem_rf_debug_rf_tx_debug_gpio: 05
-mem_rf_debug_rf_sync_detect_debug_gpio: 05
-mem_rf_debug_rf_crc_error_debug_gpio: 05
+mem_rf_debug_rf_rx_debug_gpio: 05
+mem_rf_debug_rf_tx_debug_gpio: 06
+mem_rf_debug_rf_sync_detect_debug_gpio: 07
+mem_rf_debug_rf_crc_error_debug_gpio: 08
 
 #mem_app_debug_info_timer use to set first debug timeout
 #mem_param_app_debug_info_timeout use to set period

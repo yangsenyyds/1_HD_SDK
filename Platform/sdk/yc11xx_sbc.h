@@ -31,7 +31,7 @@ uint32_t Audio_SbcGetDstAddr(void);
 void Audio_SbcSrcMramSelect(bool isMram);
 uint8_t Audio_SbcErrorAndReinit(void);
 void Audio_SbcFarrowFilterClose(void);
-
+uint16_t SADC_ReadSAdcValue(void);
 
 
 

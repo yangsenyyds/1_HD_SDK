@@ -59,6 +59,7 @@ pf_patch_ext:
 	beq patch24_2,p_le_disconnect
 	beq patch24_6,p_le_enable
 	beq patch24_7,p_le_disable
+	beq patch25_2,p_le_context_nextevent
 	beq patch25_6, p_le_receive_on_attempt_cont
 	beq patch26_6,p_le_acknowledge
 /*************************2M***********************************/
@@ -75,6 +76,75 @@ pf_patch_ext:
 	beq patch3e_3,p_check_51cmd_once
 	beq patch3e_4,p_check_51cmd_once_continue
 	branch assert
+
+
+p_le_check_update_small:
+	add rega,coffset_le_event_cnt,contr
+	ifetcht 2,contr
+	fetch 2,mem_le_instant1
+//	add rega,coffset_le_instant,contr
+//	ifetch 2,contr
+	isub temp,pdata
+	arg 0xffff,temp
+	isub temp,null
+	branch le_update,zero
+	arg 0xf000,temp
+	isub temp,null
+	nbranch le_update,positive
+	rtn
+
+
+//regb regc is cb function
+//queue is state flag
+p_le_check_update_flag:
+	ifetch 1,rega
+	qisolate0 pdata
+	rtn true
+	add rega,coffset_le_event_cnt,contr
+	ifetcht 2,contr
+	fetch 2,mem_le_instant1
+	
+	isub temp,pdata
+	branch le_update,zero
+	nbranch p_le_check_update_small,positive
+	sub pdata,1,null
+	branch le_update_ahead1,zero
+	rtn
+	
+
+
+
+p_le_update_channel_map:
+	arg 0,regc
+	arg le_update_channel_map_cb,regb
+	arg lestate_update_map,queue
+	branch p_le_check_update_flag
+
+
+
+
+p_le_context_nextevent:
+	call push_stack_rega_b_c
+	storer loopcnt ,2,mem_loopcnt
+	add rega,coffset_mode,contr
+	ifetch 1,contr
+	rtnbit0 mode_le
+	add rega,coffset_le_event_cnt,contw
+	ifetch 2,contw
+	increase 1,pdata
+	istore 2,contw
+	call le_update_param
+	call p_le_update_channel_map
+	call le_update_phy	
+	call le_context_nexthop
+	call pop_stack_rega_b_c
+	fetchr loopcnt ,2,mem_loopcnt
+	rtn
+
+
+
+
+
 
 p_soft_reset_protect:
 	jam 3, core_reset
@@ -518,7 +588,6 @@ p_le_ltk_lost:
 	jam BT_EVT_LE_LTK_LOST,mem_fifo_temp
 	branch ui_ipc_send_event
 
-
 p_le_parse_cont:
 	fetch 1,mem_le_packet_llid
 	beq LLID_LE_LL,p_le_parse_ll
@@ -531,12 +600,28 @@ p_le_parse_ll:
 	beq LL_CHANNEL_MAP_IND,p_le_parse_channel_map_ind
 	beq LL_FEATURE_REQ,p_le_parse_feature_req
 	beq LL_FEATURE_RSP,p_le_parse_feature_rsp
+	beq LL_VERSION_IND,p_le_parse_version_rsp
+	beq LL_LENGTH_REQ,p_le_parse_length_req
 	branch le_parse_ll+1
+
+p_le_parse_length_req:
+	call le_parse_length_req
+	call p_le_send_ll_data
+	rtn
+
+
+
+p_le_parse_version_rsp:
+	call p_le_send_ll_data
+	rtn master
+	call le_send_version_ind
+	rtn
 
 
 
 //LL Opcode:0x09
 p_le_parse_feature_rsp:
+	call p_le_send_ll_data
 	rtn
 
 p_check_dle_update:
@@ -562,6 +647,7 @@ p_check_smp_sec_update:
 
 //LL Opcode:0x08
 p_le_parse_feature_req:
+	call p_le_send_ll_data
 	call le_send_feature_rsp
 	call p_check_slave_feature_update
 	call p_check_mtu_update
@@ -587,7 +673,7 @@ p_le_parse_channel_map_ind:
 	ifetch 5,contr
 	store 5,mem_le_new_map
 	ifetch 2,contr
-	store 2,mem_le_instant
+	store 2,mem_le_instant1
 p_le_update_map_enable:
 	fetch 1,mem_le_state
 	set1 lestate_update_map,pdata
@@ -748,6 +834,8 @@ p_print_error_ptr:
 	branch debug_log_print
 
 
+
+
 p_tws_100ms_event_polling:
 	//call p_check_recovery_dac_rate
 	branch tws_100ms_event_polling+1
@@ -769,7 +857,6 @@ endif
 	nbranch le_slave_unsync,sync	// vol.6 part B 4.5.1 respond even crc error
 	call p_le_got_first_packet
 	bmark1 mark_ble_crc_fail,p_le_slave_match
-//	jam 0,mem_lpo_calc_flag
 	branch p_le_slave_match,match
 	branch le_slave_cont
 
@@ -786,7 +873,6 @@ p_check_51cmd_once:
 	call ui_ipc_put_lock
 	copy temp,pdata
 	rtn blank
-//	beq BT_CMD_UPDATE_LPOCLK,p_lpo_calibration_start
 	beq BT_CMD_OTA_SWITCH,p_cmd_ota_start
 	beq BT_CMD_LE_UPDATE_CONN,le_l2cap_tx_update_req
 	beq BT_CMD_START_ADV,p_check_51cmd_adv
@@ -869,7 +955,7 @@ p_enable_adc1:
 
 	branch adc_read_result_val
 
-	
+//	
 p_le_enable_latecy_handle:
 	call le_clr_config_short_mult
 	fetcht 2,mem_le_tsniff
@@ -982,6 +1068,50 @@ ipc_tx_bt_data_buf_media:
 	jam IPC_DATA_SUBTYPE_MEDIA,mem_ipc_data_tx_buf_subtype
 	branch ipc_tx_bt_data_buf_with_type
 endif
+
+
+
+p_le_send_ll_data:
+	fetch 1,mem_ipc_enable
+	rtn blank
+	
+	call bt_wake_up_m0_light_sleep
+
+	fetch 1,mem_le_rxbuf_data_ll_length
+	pincrease 2
+	copy pdata, loopcnt
+	
+	call ipc_check_tx_buf_is_enough
+	nrtn user
+	
+	fetcht 3,mem_param_ipc_to_m0_wptr_addr
+	ifetch 3,temp
+	copy pdata,contw
+	
+	arg IPC_TYPE_ll,temp
+	call ipc_tx_byte_write
+
+	fetcht 1,mem_le_rxbuf_data_ll_length
+	call ipc_tx_byte_write
+
+	copy contw,rega	
+	 // total len
+	fetch 1,mem_le_rxbuf_data_ll_length
+	copy pdata, loopcnt
+
+	setarg mem_le_rxbuf_data_ll_opcode
+	copy pdata, contr
+
+	copy rega,contw
+         
+	branch  ipc_tx_block_write
+
+	
+
+
+
+
+
 
 
 
@@ -2195,11 +2325,6 @@ p_check_connect_tx_complete:
 	rtn
 
 
-//p_set_lpo_suc:
-
-//	jam 1,mem_lpo_calc_flag
-//	rtn
-
 p_lpm_dispatch:
 	fetch 1,mem_lpm_mode
 	rtn blank
@@ -2215,19 +2340,9 @@ p_lpm_dispatch:
 
 	call malloc_check_have_buffer_malloc
 	rtn user
-
-//	fetch 3,mem_clks_per_lpo
-//	call p_set_lpo_suc, blank
-	
-//	jam 0x3f,0x8089
 	call lpo_calibration
-//	jam 0x3e,0x8089
 	fetch 3,mem_clks_per_lpo
 	rtn blank
-
- //     	fetch 1,mem_lpo_calc_flag
-  //    	nrtn blank
-         
 	fetch 1,mem_ssp_enable
 	branch p_lpm_dispatch_next,blank
 	fetch 1,mem_sp_local_key_invalid	// simple pairing is not ready

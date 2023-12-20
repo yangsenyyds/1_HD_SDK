@@ -17,7 +17,7 @@
 #include "encode.h"
 #endif
 #ifdef QMA_6100
-// #include "qma6100.h"
+#include "qma6100.h"
 #endif
 #ifdef MIR3DA_267
 #include "mir3da_267.h"
@@ -178,12 +178,8 @@ void enter_deep_sleep(void)
 #endif
 
 #ifdef QMA_6100
-    // qma_int_mode();
-    // led_off(LED_1);
-#endif
-#if defined (QMA_6100)
-        GPIO_Init(IIC_SCL_PIN, GPIO_Mode_Out_High);
-        GPIO_Init(IIC_SDA_PIN, GPIO_Mode_Out_High);
+    qma_int_mode();
+    led_off(LED_1);
 #endif
     action_after_enter_deep_sleep();
 

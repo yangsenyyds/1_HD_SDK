@@ -81,6 +81,7 @@ VPATH += $(MAIN_DIR)
 VPATH += $(PRJ_DIR)
 VPATH += $(SDK_ROOT)/devices/ble/att
 VPATH += $(SDK_ROOT)/devices/ble/hci
+VPATH += $(SDK_ROOT)/devices/ble/lmp
 VPATH += $(SDK_ROOT)/devices/bt
 VPATH += $(SDK_ROOT)/devices/flash
 VPATH += $(SDK_ROOT)/devices/ota
@@ -97,12 +98,15 @@ VPATH += $(APP_ROOT)/ir/ir_learn/ir_learn_from_remote
 VPATH += $(APP_ROOT)/ir/ir_send
 VPATH += $(APP_ROOT)/ir/ir_lib
 VPATH += $(APP_ROOT)/audio
+VPATH += $(APP_ROOT)/audio/encode/adpcm
+VPATH += $(APP_ROOT)/factory
 VPATH += $(ENCODE_ROOT)
 
 SRCINCLUDE += -I$(MAIN_DIR)
 SRCINCLUDE += -I$(PRJ_DIR)
 SRCINCLUDE += -I$(SDK_ROOT)/devices/ble/hci
 SRCINCLUDE += -I$(SDK_ROOT)/devices/ble/att
+SRCINCLUDE += -I$(SDK_ROOT)/devices/ble/lmp
 SRCINCLUDE += -I$(SDK_ROOT)/devices/bt
 SRCINCLUDE += -I$(SDK_ROOT)/devices/flash
 SRCINCLUDE += -I$(SDK_ROOT)/devices/ota
@@ -120,6 +124,8 @@ SRCINCLUDE += -I$(APP_ROOT)/ir/ir_learn/ir_learn_from_remote
 SRCINCLUDE += -I$(APP_ROOT)/ir/ir_send
 SRCINCLUDE += -I$(APP_ROOT)/ir/ir_lib
 SRCINCLUDE += -I$(APP_ROOT)/audio
+SRCINCLUDE += -I$(APP_ROOT)/audio/encode/adpcm
+SRCINCLUDE += -I$(APP_ROOT)/factory
 SRCINCLUDE += -I$(ENCODE_ROOT)
 
 
@@ -152,6 +158,7 @@ APP := \
 	yc11xx_dev_bt_data_trans.c \
 	yc11xx_dev_qspi.c \
 	yc_dev_bt.c \
+	yc_ble_ll.c \
 	yc_ota.c \
 	hci_dtm_test.c \
 	att.c \
@@ -166,6 +173,8 @@ APP := \
 	ir_load.c \
 	ir_lib.c \
 	audio.c \
+	adpcm.c \
+	factory_test_off_line.c \
 	$(wildcard $(ENCODE_ROOT)/*.c) \
 
 APP_DIR := $(notdir $(APP))

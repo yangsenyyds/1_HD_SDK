@@ -16,13 +16,9 @@
 #include "yc11xx_iwdg.h"
 #endif
 
-#if OPUS
-#include "opus_codec_drv.h"
-#elif MSBC
+
 #include "hd_sbc.h"
-#elif ADPCM 
 #include "adpcm.h"
-#endif
 
 #ifdef AUDIO_TEST_MODE
 #include "yc11xx_uart.h"
@@ -41,20 +37,24 @@
 #define START_NTF_TIME      (10)
 #endif
 
-#ifdef AUDIO_TEST_MODE
-#define uart_DMA_TXBuf_len  (1024)
-#define uart_DMA_RXBuf_len  (2)
-#endif
 
 typedef struct {
-    uint8_t VoiceEncodeBuf[ENCODE_OUTPUT_SIZE];
-}VoiceEncodeQue_TypeDef;
+    uint8_t VoiceEncodeBuf[ENCODE_OUTPUT_MSBC_SIZE];
+}VoiceEncodeQue_TypeDef_MSBC;
+
+typedef struct {
+    uint8_t VoiceEncodeBuf[ENCODE_OUTPUT_ADCPCM_SIZE];
+}VoiceEncodeQue_TypeDef_ADCPCM;
 
 typedef struct {
     uint8_t *ReadPtr;
-    uint8_t DataBuf[ENCODE_INPUT_SIZE*MICRECORD_CACHE_NUM];
-}MicRecord_TypeDef;
+    uint8_t DataBuf[ENCODE_INPUT_MSBC_SIZE*MICRECORD_CACHE_MSBC_NUM];
+}MicRecord_TypeDef_MSBC;
 
+typedef struct {
+    uint8_t *ReadPtr;
+    uint8_t DataBuf[ENCODE_INPUT_ADCPCM_SIZE*MICRECORD_CACHE_ADCPCM_NUM];
+}MicRecord_TypeDef_ADCPCM;
 #ifdef FUNCTION_WATCH_DOG
 extern IWDG_InitTypeDef gWdtInit;
 #endif
@@ -89,33 +89,28 @@ static const int16_t input_sample1khz[320]={
 MEMORY_NOT_PROTECT_UNDER_LPM_ATT uint8_t UART_TxBuf[uart_DMA_TXBuf_len];
 MEMORY_NOT_PROTECT_UNDER_LPM_ATT uint8_t UART_RxBuf[uart_DMA_RXBuf_len];
 #endif
-#ifdef ADPCM
+
 static const uint8_t audio_end[] = {0x00};
-#ifdef audio_start_20
-static const uint8_t search_buf[20] = {0x08};
-static const uint8_t audio_start[20] = {0x04};
-static const uint8_t get_caps_respone_buf[20] = {0x0B,0x00,0x04,0x00,0x03,0x00,0x86,0x00,0x14};
-#else
+
 static const uint8_t search_buf[] = {0x08};
 static const uint8_t audio_start[] = {0x04};
-static const uint8_t get_caps_respone_buf[] = {0x0B,0x00,0x04,0x00,0x03,0x00,0x86,0x00,0x14};
-#endif
-
-
-
-
+// static const uint8_t get_caps_respone_buf[] = {0x0B ,0x00 ,0x04 ,0x00 ,0x03 ,0x00 ,0x86 ,0x00,0x86};
+static const uint8_t get_caps_respone_buf[] = {0x0B ,0x01 ,0x00 ,0x03 ,0x03 ,0x00 ,0x78 ,0x00,0x00};
 static  uint8_t send_num_buf[3] = {0x0A,0X00,0X00};
 static  uint16_t send_num_cnt;
 
 MEMORY_NOT_PROTECT_UNDER_LPM_ATT static uint8_t adpcm_sendbuf_offset;
 MEMORY_NOT_PROTECT_UNDER_LPM_ATT static google_tv_audio_header audioHeader;
-#elif MSBC
+
 MEMORY_NOT_PROTECT_UNDER_LPM_ATT static uint8_t ntf_buf_offset;
-MEMORY_NOT_PROTECT_UNDER_LPM_ATT static uint8_t VoiceNTFBuf[AUDIO_SEND_NTF_SIZE];
-#endif
+MEMORY_NOT_PROTECT_UNDER_LPM_ATT static uint8_t VoiceNTFBuf_MSBC[AUDIO_SEND_NTF_MSBC_SIZE];
+MEMORY_NOT_PROTECT_UNDER_LPM_ATT static uint8_t VoiceNTFBuf_ADCPCM[AUDIO_SEND_NTF_ADCPCM_SIZE];
+
 MEMORY_NOT_PROTECT_UNDER_LPM_ATT static QueMgr_TypeDef VoiceEncodeQueMgr;
-MEMORY_NOT_PROTECT_UNDER_LPM_ATT static VoiceEncodeQue_TypeDef VoiceEncodeQue[ENCODE_CACHE_NUM];
-MEMORY_NOT_PROTECT_UNDER_LPM_ATT static MicRecord_TypeDef MicRecord;
+MEMORY_NOT_PROTECT_UNDER_LPM_ATT static VoiceEncodeQue_TypeDef_MSBC VoiceEncodeQue_MSBC[ENCODE_CACHE_MSBC_NUM];
+MEMORY_NOT_PROTECT_UNDER_LPM_ATT static VoiceEncodeQue_TypeDef_ADCPCM VoiceEncodeQue_ADCPCM[ENCODE_CACHE_MSBC_NUM];
+MEMORY_NOT_PROTECT_UNDER_LPM_ATT static MicRecord_TypeDef_MSBC MicRecord_MSBC;
+MEMORY_NOT_PROTECT_UNDER_LPM_ATT static MicRecord_TypeDef_ADCPCM MicRecord_ADCPCM;
 voice_status_t voice_status;
 static uint8_t timeout_timernum = 0xFF;
 static uint8_t start_ntf_timernum = 0xFF;
@@ -127,22 +122,37 @@ WEAK void app_sleep_lock_set(DEV_LOCK_TypeDef dev_lock, bool state){}
 
 static uint16_t Get_MicReocrd_Len(void)
 {
-    uint32_t AdcWptr = HREADW(CORE_ADCD_ADDR);
-    int MicRecord_Len = AdcWptr - TO_16BIT_ADDR(MicRecord.ReadPtr);
+        uint32_t AdcWptr = HREADW(CORE_ADCD_ADDR);
+        int MicRecord_Len;
+        if(get_List_state() == ADCPCM_MODE){
+            MicRecord_Len = AdcWptr - TO_16BIT_ADDR(MicRecord_ADCPCM.ReadPtr);
+            if (MicRecord_Len < 0) {               
+                return (uint16_t)(MicRecord_Len + ENCODE_INPUT_ADCPCM_SIZE*ENCODE_CACHE_ADCPCM_NUM);
+            }
+            return (uint16_t)MicRecord_Len;
+        }
+        else{
+            MicRecord_Len = AdcWptr - TO_16BIT_ADDR(MicRecord_MSBC.ReadPtr);
+            if (MicRecord_Len < 0) {            
+                return (uint16_t)(MicRecord_Len + ENCODE_INPUT_MSBC_SIZE*ENCODE_CACHE_MSBC_NUM);
+            }
+            return (uint16_t)MicRecord_Len;
+        }
 
-    if (MicRecord_Len < 0) {
-        return (uint16_t)(MicRecord_Len + ENCODE_INPUT_SIZE*MICRECORD_CACHE_NUM);
-    }
-
-    return (uint16_t)MicRecord_Len;
 }
 
 static void Audio_AdcConfig(void)
 {
     AUDIO_ADCInitTypeDef adcparaminit;
 
-    adcparaminit.Adc_StartAddr = MicRecord.DataBuf; 
-    adcparaminit.Adc_BufferSize = ENCODE_INPUT_SIZE*MICRECORD_CACHE_NUM;
+    if(get_List_state() == ADCPCM_MODE){
+        adcparaminit.Adc_StartAddr = MicRecord_ADCPCM.DataBuf;
+        adcparaminit.Adc_BufferSize = ENCODE_INPUT_ADCPCM_SIZE*MICRECORD_CACHE_ADCPCM_NUM;
+    }
+    else{
+        adcparaminit.Adc_StartAddr = MicRecord_MSBC.DataBuf;
+        adcparaminit.Adc_BufferSize = ENCODE_INPUT_MSBC_SIZE*MICRECORD_CACHE_MSBC_NUM;
+    }
     adcparaminit.Adc_Sample = ADC_Sample16K;
     adcparaminit.Mic_Type = MicIsANA;              
     adcparaminit.Adc_VolFadeEnable = ENABLE;  
@@ -159,7 +169,6 @@ static void Audio_AdcConfig(void)
     AUDIO_AdcInit(adcparaminit);
 }
 
-#ifndef AUDIO_TEST_MODE
 static void Voice_Send(void)
 {
     // while(IPC_TxBufferIsEnough(4) && Bt_HciGetUsedBufferNum() < HCI_QUEUE_MAX-2 && VoiceEncodeQueMgr.current_queue_len > 0)
@@ -168,150 +177,96 @@ static void Voice_Send(void)
 #ifdef FUNCTION_WATCH_DOG
         IWDG_ReloadCounter(&gWdtInit);
 #endif 
-#ifdef FACTORY_MODE
-        uint8_t sendbuf[ENCODE_SEND_SIZE + FACTORY_FRAME_LEN] = {FRAME_HEADER, RCU << 4 + PC, CMD_VOICE, 0x00, ENCODE_SEND_SIZE, 0x00};
-        memcpy((void *)&sendbuf[6], (void *)&VoiceEncodeQue[VoiceEncodeQueMgr.read_index++], ENCODE_SEND_SIZE);
-        ATT_sendNotify(DONGLE_SEND_HANDLE, sendbuf, ENCODE_SEND_SIZE + FACTORY_FRAME_LEN);
-        VoiceEncodeQueMgr.current_queue_len--;
-        voice_status.loss_cnt--;
-#endif
-
-#if OPUS
-        ATT_sendNotify(AUDIO_SNED_HANDLE, (void *)&VoiceEncodeQue[VoiceEncodeQueMgr.read_index++], AUDIO_SEND_NTF_SIZE);
-        VoiceEncodeQueMgr.current_queue_len--;
-        voice_status.loss_cnt--;
-#elif MSBC
-        memcpy((void *)&VoiceNTFBuf[ntf_buf_offset], (void *)&VoiceEncodeQue[VoiceEncodeQueMgr.read_index++], ENCODE_OUTPUT_SIZE - 3);
-#ifdef VIZIO
-        ntf_buf_offset += ENCODE_OUTPUT_SIZE;
-#else
-        ntf_buf_offset += ENCODE_OUTPUT_SIZE - 3;
-#endif 
-        VoiceEncodeQueMgr.current_queue_len--;
-        voice_status.loss_cnt--;
-        if (ntf_buf_offset >= AUDIO_SEND_NTF_SIZE)
+        if(get_List_state() == ADCPCM_MODE)
         {
-            ntf_buf_offset = AUDIO_FRAME_HEADER_LEN;
-            update_voice_packet(VoiceNTFBuf);
-#if SAMSUNG
-            VoiceNTFBuf[0] = voice_status.packet_cnt++;
-            ATT_sendNotify(AUDIO_SNED_HANDLE, VoiceNTFBuf, AUDIO_SEND_NTF_SIZE);
-#elif LG
-            ATT_sendNotify(VoiceNTFBuf[0], (void *)&VoiceNTFBuf[2], VoiceNTFBuf[1]);
-#elif VIZIO
-            ATT_sendNotify(AUDIO_SNED_HANDLE, VoiceNTFBuf, AUDIO_SEND_NTF_SIZE);
-#endif
-        }
-#elif ADPCM
-
-            if (adpcm_sendbuf_offset >= 120) {
-                ATT_sendNotify(AUDIO_SNED_HANDLE, (void *)&VoiceEncodeQue[VoiceEncodeQueMgr.read_index++].VoiceEncodeBuf[adpcm_sendbuf_offset], 14);
-                adpcm_sendbuf_offset = 0;
-                VoiceEncodeQueMgr.current_queue_len--;
-                send_num_cnt++;
-                send_num_buf[2] = send_num_cnt; /// send_num_cnt;
-                send_num_buf[1] = send_num_cnt >>8; 
-                ATT_sendNotify(AUDIO_CTRL_HANDLE, send_num_buf, 3);
-            }
-            else {
-                ATT_sendNotify(AUDIO_SNED_HANDLE, (void *)&VoiceEncodeQue[VoiceEncodeQueMgr.read_index].VoiceEncodeBuf[adpcm_sendbuf_offset], AUDIO_SEND_NTF_SIZE);
-                adpcm_sendbuf_offset += AUDIO_SEND_NTF_SIZE;
-            }
-			
+            ATT_sendNotify(AUDIO_SNED_ADCPCM_HANDLE, (void *)&VoiceEncodeQue_ADCPCM[VoiceEncodeQueMgr.read_index++].VoiceEncodeBuf[0], ENCODE_OUTPUT_ADCPCM_SIZE);
+            VoiceEncodeQueMgr.current_queue_len--;
+            send_num_cnt++;
+            // if(send_num_cnt % 16 == 0){
+            //     send_num_buf[2] = send_num_cnt; /// send_num_cnt;
+            //     send_num_buf[1] = send_num_cnt >>8; 
+            //     ATT_sendNotify(AUDIO_CTRL_ADCPCM_HANDLE, send_num_buf, 3);            
+            // }
             voice_status.loss_cnt--;
-#endif
-            if (VoiceEncodeQueMgr.read_index == ENCODE_CACHE_NUM - 1) {
+
+            if (VoiceEncodeQueMgr.read_index == ENCODE_CACHE_ADCPCM_NUM - 1) {
                 VoiceEncodeQueMgr.read_index = 0;
             }
+        }
+        else
+        {
+            memcpy((void *)&VoiceNTFBuf_MSBC[ntf_buf_offset], (void *)&VoiceEncodeQue_MSBC[VoiceEncodeQueMgr.read_index++], ENCODE_OUTPUT_MSBC_SIZE - 3);
+            ntf_buf_offset += ENCODE_OUTPUT_MSBC_SIZE;
+
+            VoiceEncodeQueMgr.current_queue_len--;
+            voice_status.loss_cnt--;
+            if (ntf_buf_offset >= AUDIO_SEND_NTF_MSBC_SIZE)
+            {
+                ntf_buf_offset = AUDIO_FRAME_HEADER_MSBC_LEN;
+                update_voice_packet(VoiceNTFBuf_MSBC);
+                ATT_sendNotify(AUDIO_SNED_MSBC_HANDLE, VoiceNTFBuf_MSBC, AUDIO_SEND_NTF_MSBC_SIZE);
+            }
+            if (VoiceEncodeQueMgr.read_index == ENCODE_CACHE_MSBC_NUM - 1) {
+                VoiceEncodeQueMgr.read_index = 0;
+            }
+        }
     }
 }
-#endif
 
 static void Voice_Encode(void)
-{ 
-    if (Get_MicReocrd_Len() >= ENCODE_INPUT_SIZE && VoiceEncodeQueMgr.current_queue_len < ENCODE_CACHE_NUM)
+{
+
+    if(get_List_state() == ADCPCM_MODE)
     {
-        for(uint8_t i = 0; i < ENCODE_TIMES_ONCE; i++)
+        if (Get_MicReocrd_Len() >= ENCODE_INPUT_ADCPCM_SIZE && VoiceEncodeQueMgr.current_queue_len < ENCODE_CACHE_ADCPCM_NUM)
         {
-#ifdef AUDIO_TEST_MODE
-            if (voice_status.mode == STANDARD_DATA)
+            for(uint8_t i = 0; i < ENCODE_TIMES_ONCE; i++)
             {
-#if OPUS
-                int frame_size = drv_audio_codec_encode((int16_t *)input_sample1khz, (void *)&VoiceEncodeQue[0].VoiceEncodeBuf[2]);
-                VoiceEncodeQue[0].VoiceEncodeBuf[0] = (uint8_t)(frame_size >> 8);
-                VoiceEncodeQue[0].VoiceEncodeBuf[1] = (uint8_t)frame_size;
-                VoiceEncodeQue[0].VoiceEncodeBuf[82] = '\n';
-                UART_SendDataFromBuff(AUDIO_UART, (void *)&VoiceEncodeQue[0], AUDIO_SEND_NTF_SIZE+3);
-#endif
-                return;
-            }
-            else if (voice_status.mode == PCM_DATA)
-            {
-                UART_SendDataFromBuff(AUDIO_UART, MicRecord.ReadPtr, ENCODE_INPUT_SIZE);
-                MicRecord.ReadPtr += ENCODE_INPUT_SIZE;
-                if (MicRecord.ReadPtr == &MicRecord.DataBuf[ENCODE_INPUT_SIZE*MICRECORD_CACHE_NUM])
+
+                Adpcm_FrameEncode_Google_TV_Audio((int16_t *)MicRecord_ADCPCM.ReadPtr, (void *)&VoiceEncodeQue_ADCPCM[VoiceEncodeQueMgr.write_index].VoiceEncodeBuf[6],
+                 &audioHeader, ENCODE_INPUT_ADCPCM_SIZE/2);
+                // VoiceEncodeQue_ADCPCM[VoiceEncodeQueMgr.write_index].VoiceEncodeBuf[0] = ((audioHeader.frame_number & 0xff00) >> 8);
+                // VoiceEncodeQue_ADCPCM[VoiceEncodeQueMgr.write_index].VoiceEncodeBuf[1] = ((audioHeader.frame_number & 0xff) - 1);
+                // VoiceEncodeQue_ADCPCM[VoiceEncodeQueMgr.write_index].VoiceEncodeBuf[2] = audioHeader.remote_id;
+                // VoiceEncodeQue_ADCPCM[VoiceEncodeQueMgr.write_index].VoiceEncodeBuf[3] = (audioHeader.adpcmVal.previous_predict_adpcm & 0xff00) >> 8;
+                // VoiceEncodeQue_ADCPCM[VoiceEncodeQueMgr.write_index].VoiceEncodeBuf[4] = (audioHeader.adpcmVal.previous_predict_adpcm & 0xff);
+                // VoiceEncodeQue_ADCPCM[VoiceEncodeQueMgr.write_index].VoiceEncodeBuf[5] = audioHeader.adpcmVal.tableIndex;
+                VoiceEncodeQueMgr.write_index++;
+                voice_status.loss_cnt += 1;
+
+        
+                VoiceEncodeQueMgr.current_queue_len++;
+                if (VoiceEncodeQueMgr.write_index == ENCODE_CACHE_ADCPCM_NUM - 1)
                 {
-                    MicRecord.ReadPtr = MicRecord.DataBuf;
+                    VoiceEncodeQueMgr.write_index = 0;
                 }
-
-                return;
-            } 
-#endif
-
-#ifdef FACTORY_MODE
-            msbc_encode_process((int16_t *)MicRecord.ReadPtr, (void *)&VoiceEncodeQue[VoiceEncodeQueMgr.write_index++]);
-            voice_status.loss_cnt++;
-#endif
-
-#if OPUS
-            drv_audio_codec_encode((int16_t *)MicRecord.ReadPtr, (void *)&VoiceEncodeQue[VoiceEncodeQueMgr.write_index++]);
-            voice_status.loss_cnt++;
-#elif MSBC
-            msbc_encode_process((int16_t *)MicRecord.ReadPtr, (void *)&VoiceEncodeQue[VoiceEncodeQueMgr.write_index++]);
-            voice_status.loss_cnt++;
-#elif ADPCM
-            
-
-            Adpcm_FrameEncode_Google_TV_Audio((int16_t *)MicRecord.ReadPtr, (void *)&VoiceEncodeQue[VoiceEncodeQueMgr.write_index].VoiceEncodeBuf[6], &audioHeader, ENCODE_INPUT_SIZE/2);
-            VoiceEncodeQue[VoiceEncodeQueMgr.write_index].VoiceEncodeBuf[0] = ((audioHeader.frame_number & 0xff00) >> 8);
-            VoiceEncodeQue[VoiceEncodeQueMgr.write_index].VoiceEncodeBuf[1] = ((audioHeader.frame_number & 0xff) - 1);
-            VoiceEncodeQue[VoiceEncodeQueMgr.write_index].VoiceEncodeBuf[2] = audioHeader.remote_id;
-            VoiceEncodeQue[VoiceEncodeQueMgr.write_index].VoiceEncodeBuf[3] = (audioHeader.adpcmVal.previous_predict_adpcm & 0xff00) >> 8;
-            VoiceEncodeQue[VoiceEncodeQueMgr.write_index].VoiceEncodeBuf[4] = (audioHeader.adpcmVal.previous_predict_adpcm & 0xff);
-            VoiceEncodeQue[VoiceEncodeQueMgr.write_index].VoiceEncodeBuf[5] = audioHeader.adpcmVal.tableIndex;
-            VoiceEncodeQueMgr.write_index++;
-            voice_status.loss_cnt += 7;
-
-#endif
-            VoiceEncodeQueMgr.current_queue_len++;
-            if (VoiceEncodeQueMgr.write_index == ENCODE_CACHE_NUM - 1)
-            {
-                VoiceEncodeQueMgr.write_index = 0;
-            }
-            MicRecord.ReadPtr += ENCODE_INPUT_SIZE;
-            if (MicRecord.ReadPtr == &MicRecord.DataBuf[ENCODE_INPUT_SIZE*MICRECORD_CACHE_NUM])
-            {
-                MicRecord.ReadPtr = MicRecord.DataBuf;
-            }
-#ifdef AUDIO_TEST_MODE
-            if (voice_status.mode == ENCODE_DATA)
-            {
-#ifdef FACTORY_MODE
-                UART_SendDataFromBuff(AUDIO_UART, (void *)&VoiceEncodeQue[VoiceEncodeQueMgr.read_index++], ENCODE_SEND_SIZE);
-#endif
-#if ADPCM
-                uint8_t uart_send_buf[ENCODE_OUTPUT_SIZE];
-                memcpy(uart_send_buf, (void *)&VoiceEncodeQue[VoiceEncodeQueMgr.read_index++].VoiceEncodeBuf[3], ENCODE_OUTPUT_SIZE-3);
-                uart_send_buf[ENCODE_OUTPUT_SIZE-3] = '\r';
-                uart_send_buf[ENCODE_OUTPUT_SIZE-2] = '\n';
-                UART_SendDataFromBuff(AUDIO_UART, uart_send_buf, ENCODE_OUTPUT_SIZE-1);
-#endif
-                VoiceEncodeQueMgr.current_queue_len--;
-                if (VoiceEncodeQueMgr.read_index == ENCODE_CACHE_NUM - 1) {
-                    VoiceEncodeQueMgr.read_index = 0;
+                MicRecord_ADCPCM.ReadPtr += ENCODE_INPUT_ADCPCM_SIZE;
+                if (MicRecord_ADCPCM.ReadPtr == &MicRecord_ADCPCM.DataBuf[ENCODE_INPUT_ADCPCM_SIZE*MICRECORD_CACHE_ADCPCM_NUM])
+                {
+                    MicRecord_ADCPCM.ReadPtr = MicRecord_ADCPCM.DataBuf;
                 }
             }
-#endif
+        }    
+    }
+    else
+    {
+        if (Get_MicReocrd_Len() >= ENCODE_INPUT_MSBC_SIZE && VoiceEncodeQueMgr.current_queue_len < ENCODE_CACHE_MSBC_NUM)
+        {
+            for(uint8_t i = 0; i < ENCODE_TIMES_ONCE; i++)
+            {
+                msbc_encode_process((int16_t *)MicRecord_MSBC.ReadPtr, (void *)&VoiceEncodeQue_MSBC[VoiceEncodeQueMgr.write_index++]);
+                voice_status.loss_cnt++;
+                VoiceEncodeQueMgr.current_queue_len++;
+                if (VoiceEncodeQueMgr.write_index == ENCODE_CACHE_MSBC_NUM - 1)
+                {
+                    VoiceEncodeQueMgr.write_index = 0;
+                }
+                MicRecord_MSBC.ReadPtr += ENCODE_INPUT_MSBC_SIZE;
+                if (MicRecord_MSBC.ReadPtr == &MicRecord_MSBC.DataBuf[ENCODE_INPUT_MSBC_SIZE*MICRECORD_CACHE_MSBC_NUM])
+                {
+                    MicRecord_MSBC.ReadPtr = MicRecord_MSBC.DataBuf;
+                }
+            }
         }
     }
 }
@@ -345,7 +300,9 @@ static void timeout_timer_cb(void)
 #if OPUS
 #elif MSBC
 #elif ADPCM
-        ATT_sendNotify(AUDIO_CTRL_HANDLE, (void *)audio_end, sizeof(audio_end));
+        if(get_List_state() == ADCPCM_MODE){
+            ATT_sendNotify(AUDIO_CTRL_HANDLE, (void *)audio_end, sizeof(audio_end));
+        }
 #endif
     }
 }
@@ -382,29 +339,29 @@ static uint8_t voice_timer_init(void)
 }
 #endif
 
-#ifdef ADPCM
+
 void voice_status_change(void)
 {
     if (voice_status.get_caps) {
         voice_status.get_caps = false;
-        ATT_sendNotify(AUDIO_CTRL_HANDLE, (void *)get_caps_respone_buf, sizeof(get_caps_respone_buf));
+        ATT_sendNotify(AUDIO_CTRL_ADCPCM_HANDLE, (void *)get_caps_respone_buf, sizeof(get_caps_respone_buf));
     }
     else if(voice_status.search) {
         voice_status.search = false;
-        ATT_sendNotify(AUDIO_CTRL_HANDLE, (void *)search_buf, sizeof(search_buf));
+        ATT_sendNotify(AUDIO_CTRL_ADCPCM_HANDLE, (void *)search_buf, sizeof(search_buf));
     }
     else if (voice_status.mic_open) {
         voice_status.mic_open = false;  
-        ATT_sendNotify(AUDIO_CTRL_HANDLE, (void *)audio_start, sizeof(audio_start));
+        ATT_sendNotify(AUDIO_CTRL_ADCPCM_HANDLE, (void *)audio_start, sizeof(audio_start));
         mic_open();
     }
     else if (voice_status.mic_close) {
         voice_status.mic_close = false;
-        ATT_sendNotify(AUDIO_CTRL_HANDLE, (void *)audio_end, sizeof(audio_end));
+        ATT_sendNotify(AUDIO_CTRL_ADCPCM_HANDLE, (void *)audio_end, sizeof(audio_end));
         mic_close();
     }
 }
-#endif
+
 
 void mic_close(void)
 {
@@ -428,38 +385,38 @@ void mic_close(void)
 
 void mic_open(void)
 {
-    DEBUG_LOG_STRING("mic open \r\n");
-    // DEBUG_LOG_STRING("HciUsedBufferNum [%d] \r\n", Bt_HciGetUsedBufferNum());
-
-
     app_sleep_lock_set(AUDIO_LOCK, true);
     tx_power_switch_set(false);
     bt_set_tx_power(TX_POWER_5DB);
     bt_enable_le_tx_md();
 
-#ifdef FACTORY_MODE
-    System_ChangeDPLL(CLOCK_DPLL_96M_multiple);
-#endif
-#ifdef OPUS
-    System_ChangeDPLL(CLOCK_DPLL_192M_multiple);
-#elif MSBC
-    ntf_buf_offset = AUDIO_FRAME_HEADER_LEN;
-    voice_status.packet_cnt = 0;
-    System_ChangeDPLL(CLOCK_DPLL_96M_multiple);
-    memset(VoiceNTFBuf, 0, AUDIO_SEND_NTF_SIZE);
-#elif ADPCM
-    send_num_cnt = 0;
-    send_num_buf[1] = 0;
-    send_num_buf[2] = 0;
-    adpcm_sendbuf_offset = 0;
-    System_ChangeDPLL(CLOCK_DPLL_48M_multiple);
-    Adpcm_FrameEncode_Restart(&audioHeader);
-#endif
-    voice_status.mic_open_flag = true;
-    MicRecord.ReadPtr = MicRecord.DataBuf;
-    memset(MicRecord.DataBuf, 0, ENCODE_INPUT_SIZE*MICRECORD_CACHE_NUM);
-    memset(VoiceEncodeQue, 0, ENCODE_OUTPUT_SIZE*ENCODE_CACHE_NUM);
-    memset(&VoiceEncodeQueMgr, 0, sizeof(QueMgr_TypeDef));
+    if(get_List_state() == ADCPCM_MODE)
+    {
+        DEBUG_LOG_STRING("mic adcpcm open \r\n");
+        send_num_cnt = 0;
+        send_num_buf[1] = 0;
+        send_num_buf[2] = 0;
+        System_ChangeDPLL(CLOCK_DPLL_48M_multiple);
+        Adpcm_FrameEncode_Restart(&audioHeader);
+        voice_status.mic_open_flag = true;        
+        MicRecord_ADCPCM.ReadPtr = MicRecord_ADCPCM.DataBuf;
+        memset(MicRecord_ADCPCM.DataBuf, 0, ENCODE_INPUT_ADCPCM_SIZE*MICRECORD_CACHE_ADCPCM_NUM);
+        memset(VoiceEncodeQue_ADCPCM, 0, ENCODE_OUTPUT_ADCPCM_SIZE*ENCODE_CACHE_ADCPCM_NUM);
+        memset(&VoiceEncodeQueMgr, 0, sizeof(QueMgr_TypeDef));
+    }
+    else
+    {
+        DEBUG_LOG_STRING("mic msbc open \r\n");
+        ntf_buf_offset = AUDIO_FRAME_HEADER_MSBC_LEN;
+        voice_status.packet_cnt = 0;
+        System_ChangeDPLL(CLOCK_DPLL_96M_multiple);
+        memset(VoiceNTFBuf_MSBC, 0, AUDIO_SEND_NTF_MSBC_SIZE);
+        voice_status.mic_open_flag = true;
+        MicRecord_MSBC.ReadPtr = MicRecord_MSBC.DataBuf;
+        memset(MicRecord_MSBC.DataBuf, 0, ENCODE_INPUT_MSBC_SIZE*MICRECORD_CACHE_MSBC_NUM);
+        memset(VoiceEncodeQue_MSBC, 0, ENCODE_OUTPUT_MSBC_SIZE*ENCODE_CACHE_MSBC_NUM);
+        memset(&VoiceEncodeQueMgr, 0, sizeof(QueMgr_TypeDef));        
+    }
 
     Audio_ClkInit();
     Audio_AdcConfig();

@@ -292,6 +292,7 @@ int print_string_log_raw(char *str, size_t size, char *format, va_list vaArgP)
     debugUart_pollTx();
     uint32_t ulIdx, ulValue, ulPos, ulCount, ulBase, ulNeg;
     char *pcStr, pcBuf[16], cFill;
+    uint8_t data_for_float [20] ={0};
     char HexFormat;
     static const int8_t* const g_pcHex1 = "0123456789abcdef";
     static const int8_t* const g_pcHex2 = "0123456789ABCDEF";
@@ -411,6 +412,17 @@ int print_string_log_raw(char *str, size_t size, char *format, va_list vaArgP)
                     ulNeg = 0;
                     HexFormat='X';
                     goto convert;
+                }
+
+                case 'f':
+                {
+                   float float_data = 0; 
+                   float_data = va_arg(vaArgP, double);
+                   uint8_t float_data_len = 0;
+   		 uint8_t float_data_buf[40]={0};
+   		 float_data_len= get_float_data_array(float_data,float_data_buf);
+                    print_string(uart_tx_buff, &uart_tx_local_ptr, float_data_buf, float_data_len);
+                    break;
                 }
 
                 case 'x':
@@ -799,6 +811,56 @@ int print_format_string(char *str, size_t size, char *format, va_list vaArgP)
     }//while
 
     return uart_tx_local_ptr;
+}
+
+
+uint8_t get_float_data_array(float input_value,uint8_t * output_str)
+{    
+    uint8_t *output_ptr = output_str;
+    float value = input_value;
+    int hight =0;
+    float low =0.0;
+    int i =0;
+    int ch[20] = {0};
+    float tp = 0.1;
+    float num = 0.0;
+    int count = 0;
+    uint8_t len = 0;
+    
+    hight = (int)value;
+    low = value - hight;
+    i = 0;
+    while(hight > 0)
+    {
+        ch[i++] = hight%10;
+        hight /=10;
+    }
+    count = i;
+    for(i = 0;i<count;i++)
+    {
+        *(output_ptr++) = ch[i] +'0';
+    }
+    len += count;
+    *output_ptr++ = '.';
+    len ++;
+    num = low;
+    i = 0;
+    while((6 > i) && (num > 0))
+    {
+        ch[i] = (int)(num*10);
+        num = num*10 - (int)(num*10);
+        i++;
+
+    }
+    count = i;
+    for(i = 0;i<count;i++)
+    {
+        *output_ptr++ = ch[i] +'0';
+    }
+    *output_ptr ='\0';
+    len += count;
+
+    return len;
 }
 
 

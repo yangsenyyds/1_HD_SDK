@@ -85,6 +85,5 @@
         "stdlib.h": "c",
         "factory_test_off_line.h": "c"
     },
-    "C_Cpp.errorSquiggles": "enabled",
-    "C_Cpp.dimInactiveRegions": false
+    "C_Cpp.errorSquiggles": "enabled"
 }

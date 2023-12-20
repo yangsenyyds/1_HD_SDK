@@ -239,7 +239,7 @@ static const uint16_t HIGH_CUSTOM_C000_6000_BUF[] = {0XC000, 0X6000};
 static const uint16_t HIGH_CUSTOM_FFFD_6000_BUF[] = {0xFFFD, 0X6000};
 static const uint16_t HIGH_CUSTOM_FFFD_E000_BUF[] = {0xFFFD, 0XE000};
 static const uint16_t HIGH_CUSTOM_FFFD_8800_BUF[] = {0xFFFD, 0X8800};
-static const uint16_t HIGH_CUSTOM_FFFD_D000_3010_1_1A_A_BUF[] = {0xFFFD, 0XD000};
+
 static const uint16_t CUSTOM_6BIT_02_BUF[] = {
     CODE1, 0x6000, // REPEAT_DISABLE src   keynum
     0, 0, //LEAD TIME
@@ -1456,9 +1456,6 @@ uint16_t * get_ir_customer(customer_code_t customer)
         break;
     case HIGH_CUSTOM_FFFD_E000_A:
         ir_customer = (uint16_t *)HIGH_CUSTOM_FFFD_E000_BUF;
-        break;
-    case HIGH_CUSTOM_FFFD_D000_3010_1_1A_A:
-        ir_customer = (uint16_t *)HIGH_CUSTOM_FFFD_D000_3010_1_1A_A_BUF;
         break;
     case HIGH_CUSTOM_FFFD_8800_A:
         ir_customer = (uint16_t *)HIGH_CUSTOM_FFFD_8800_BUF;

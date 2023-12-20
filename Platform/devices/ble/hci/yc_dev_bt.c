@@ -24,8 +24,10 @@ WEAK void ENCRYPT_DONE(void){}
 WEAK void ENCRYPT_FAIL(uint8_t reason){}
 WEAK void CONN_PARAM_ACCEPTED(void){}
 WEAK void LE_LTK_LOST(void){}
-
-
+/* time */
+void LOG_COMPILE_INFO(){
+    DEBUG_LOG_STRING("COMPILE TIME : %s %s \r\n",__DATE__,__TIME__);
+}
 /* uninitialized variables need power - off protection*/
 volatile BT_REC_INFO gRecinfo;
 volatile BT_FAC_STORE_INFO gFacStoreinfo;
@@ -33,6 +35,45 @@ static BLE_STATE gBLEState;
 volatile BT_REC_INFO *gpRecinfo = &gRecinfo;
 volatile BT_FAC_STORE_INFO *gFacRecinfo = &gFacStoreinfo;
 /***********************************************************ble driver relative************************************************************/
+void bt_set_smp_iocap(uint8_t iocap)
+{
+	HWRITE(mem_le_pres_iocap,iocap);
+}
+
+void bt_set_smp_oob(uint8_t oob)
+{
+	HWRITE(mem_le_pres_oob,oob);
+}
+
+void bt_set_smp_max_keysize(uint8_t keysize)
+{
+	HWRITE(mem_le_pres_max_keysize,keysize);
+}
+
+void bt_set_smp_init_key_distribution(uint8_t keyinit)
+{
+	HWRITE(mem_le_pres_init_key_distribution,keyinit);
+}
+
+void bt_set_smp_key_distribution(uint8_t keydistribution)
+{
+	HWRITE(mem_le_pres_resp_key_distribution,keydistribution);
+}
+
+void bt_set_local_feature(uint8_t  *feature, uint8_t len)
+{
+    uint8_t lens = 0;
+    
+    if(len > BT_FEATURE_LEN)
+        return;
+
+    for(uint8_t i =0 ; i<= len; i++)
+    {
+        HWRITE(mem_le_local_feature+lens, *(feature+lens));
+        lens++;
+    }
+}
+
 /*check  reconnect*/
 bool bt_check_save_connect_info(void)
 {
@@ -65,7 +106,7 @@ void bt_state_init(void)
     gBLEState.secondState = BLE_IDLE;
 
     for (uint8_t i = 0; i < 6; i++) {
-        HWRITE(mem_le_lap + i,  HREAD(mem_0_3_6v_adc_io_data + i));
+        HWRITE(mem_le_lap + i,  HREAD(mem_0_3_6v_adc_io_data + i) + 2);
     }
     DEBUG_LOG_BT("ble %x%x%x%x%x%x\r\n",HREAD(mem_0_3_6v_adc_io_data + 5),
     HREAD(mem_0_3_6v_adc_io_data + 4) ,HREAD(mem_0_3_6v_adc_io_data + 3) ,HREAD(mem_0_3_6v_adc_io_data + 2) ,HREAD(mem_0_3_6v_adc_io_data + 1) 
@@ -606,6 +647,7 @@ void Bt_EvtCallBack(uint8_t len, uint8_t *dataPtr)
         Dev_WakeUp();
         break;
     case BT_EVT_RESET:
+        LOG_COMPILE_INFO();
         Dev_PowerOn();
         break;
     

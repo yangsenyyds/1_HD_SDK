@@ -1821,7 +1821,7 @@
 #define	IPC_TYPE_MESH                           	//0x07
 #define	IPC_TYPE_BT_TO_CM0_DATA                 	0x06
 #define	IPC_TYPE_CM0_TO_BT_DATA                 	0x07
-#define	IPC_TYPE_ADV                            	0x08
+#define	IPC_TYPE_ll                             	0x08
 #define	IPC_TYPE_SCAN                           	0x09
 #define	IPC_TYPE_A2DP                           	0x0a
 #define	IPC_TYPE_HFP                            	0x0b

@@ -1,0 +1,2838 @@
+//define FPGA
+//define FUNCTION_ZCODE_WORK
+//define FUNCTION_TEST_ZCODE
+//define FUNCTION_CHARGE_DEFAULT_DISABLE
+define FUNCTION_WATCH_DOG
+//define FUNCTION_WATCH_DOG_INTR
+//define DEBUG_LOG_FUN
+//define BT_RMC_CODE
+//define BT_DEBUG
+//define FUNCTION_ADCKEY_ENABLE_QUEUE
+//define FUNCTION_ADCKEY_ENABLE
+
+//define FUNCTION_CLASSIC_BQB_ENABLE
+
+//define FUNCTION_CM0_LIGHT_SLEEP_ENABLE
+//define FUNCTION_MEDIA_DEAL_IN_M0
+
+//define FUNCTION_RF_PERFORMANCE_TEST
+/******************************************/
+/**************   Start   *****************/
+/******************************************/
+//jam 0x11,0x804c
+//jam 0x80,0x8019
+//jam 0x1 ,core_ice_ctrl
+//branch loadcode_spi_efuse_load
+/*	jam 0x12,0x4ff1
+	call wdt_disable_watchdog
+call ice_break
+	jam 0x13,0x4ff1*/
+	bbit1 8,pf_patch_ext
+	beq patch00_4, p_patch_for_efuse
+	beq patch00_2, p_main_loop
+	beq patch0c_5,p_end_of_packet
+         beq patch10_7,p_set_sync_on
+	beq patch11_1,p_rf_rx_enable
+	beq patch11_6,p_rf_tx_enable_pwr
+	beq patch11_7,p_initialize_radio
+	beq patch12_0,p_save_rssi
+	beq patch14_5,p_lpm_sleep
+	beq patch16_2,p_app_init
+	beq patch16_4,p_app_evt_timer_handle
+	beq patch1c_7,p_ipc_clear_mem_block
+	beq patch1d_3,p_ipc_rx_process
+	beq patch1d_5,p_ipc_tx_common
+	beq patch1d_6,p_ipc_tx_bt_event
+	branch assert
+
+//patch20_0
+pf_patch_ext:
+	beq patch22_4,p_l2cap_clear_server_ptr
+	beq patch22_6,p_malloc_buffer
+	beq patch22_7,p_free_buffer
+	beq patch23_5,p_le_slave_dispatch
+	beq patch23_6,p_le_slave_match
+//	beq patch24_0,p_le_slave_unsync
+/************************2M************************************/	
+	beq patch24_1,p_le_slave_more_data
+/************************2M************************************/	
+	beq patch24_2,p_le_disconnect
+	beq patch24_6,p_le_enable
+	beq patch24_7,p_le_disable
+	beq patch25_6, p_le_receive_on_attempt_cont
+	beq patch26_6,p_le_acknowledge
+/*************************2M***********************************/
+	beq patch27_5,p_le_parse
+	beq patch27_6,p_le_parse_cont
+	beq patch27_7,p_le_parse_l2cap
+//	beq patch28_7,p_le_lpm_set_mult
+	beq patch2a_4,p_le_start_adv_time_reach
+	beq patch2a_7,p_le_send_adv_ind
+	beq patch2b_0,p_le_send_adv_transmit
+	beq patch2b_5,p_le_pairing_sm
+	beq patch2b_3,p_le_connect_req_handle
+	beq patch2b_7,p_le_parse_enc_req_cont
+	beq patch3e_3,p_check_51cmd_once
+	beq patch3e_4,p_check_51cmd_once_continue
+	branch assert
+
+p_soft_reset_protect:
+	jam 3, core_reset
+	rtn
+	
+p_patch_for_efuse:
+	fetch 2,mem_rf_init_ptr
+	bbit0 14,p_soft_reset_protect
+	rtn
+
+
+	
+p_le_got_first_packet:
+	rtnmark1 mark_ble_crc_fail
+	fetch 1,mem_le_conn_rcv
+	increase 1,pdata
+	store 1,mem_le_conn_rcv
+	fetch 1,mem_le_state
+	rtnbit1 lestate_got_first_packet
+	set1 lestate_got_first_packet,pdata
+	store 1,mem_le_state
+	fetch 2,mem_le_init_superto
+	store 2,mem_le_superto
+	setarg 0
+	store 4,mem_le_transmit_window
+	rtn
+	
+
+
+
+
+p_le_transmit_norx:
+	rtnmark1 mark_ble_crc_fail
+	call le_transmit
+	branch end_of_packet
+
+
+p_le_prepare_tx:
+	rtnmark1 mark_ble_crc_fail
+	branch le_prepare_tx+1
+
+
+
+
+
+p_le_send_adv_transmit:
+	fetch 1,mem_le_adv_transmit
+	increase 1,pdata
+	store 1,mem_le_adv_transmit
+	arg 1800,stop_watch
+	disable match
+	branch p_le_transmit_receive_sifs_without_change_mode
+
+
+p_le_transmit_receive_sifs_without_change_mode:
+	call le_transmit
+	fetcht 1,mem_last_freq
+	call set_freq_rx
+	nop 200
+	call rf_rx_enable
+	enable swfine
+	arg 5500,timeup
+	branch le_receive_rxon
+
+
+
+p_set_sync_on:
+	jam 0x5,modem_en
+	nop 2
+	jam 0x0,modem_en					/* if called from tx or rx */
+	fetch 1,mem_fcomp_div
+	beq XTAL_24M,p_set_sync_on_24m
+	beq XTAL_16M,set_sync_on_16m
+p_set_sync_on_24m:
+	jam 0xaa,core_rf_ldo_cfg4
+	jam 0xaa,core_rf_ldo_cfg5
+	jam 0x15,core_rf_ldo_cfg6
+	
+	jam 0xf8,core_rf_ldo_en0 //ldo en
+	jam 0x04,core_rf_ldo_en1
+	nop 60
+	jam 0x7a,core_syn_en //module en
+	jam 0,core_rx_en0
+	jam 0,core_rx_en1    
+	jam 0,core_tx_en0
+	jam 0,core_tx_en1
+
+	jam 0x2a,core_rf_ldo_cfg5  //ldo bleeding current disable
+	jam 0x78,core_rf_ldo_en0
+p_set_sync_on_next:
+	jam 0,core_syn_cal_ctrl
+	rtn
+
+
+p_wdt_disable_all_dog:
+	fetch 1,core_ice_wdt_mode
+	set0 1,pdata
+	set0 2,pdata
+	branch lpmreg2_write_ice_wdt
+	
+
+p_lpm_sleep:
+	copy temp,loopcnt
+	call p_wdt_disable_all_dog
+	copy loopcnt,temp
+	branch lpm_sleep+1
+
+
+
+
+
+
+
+
+p_malloc_buffer:
+	call malloc_buffer_is_enough_big
+	branch assert,blank
+p_malloc_buffer_big:
+	fetch 2,mem_temp_alloc_big_malloc_cnt
+	increase 1,pdata
+	store 2,mem_temp_alloc_big_malloc_cnt
+
+	arg mem_alloc_big_block,rega
+	branch queue_delete
+
+
+p_le_acknowledge:
+	rtnmark1 mark_ble_crc_fail
+	call le_supervision_flush
+	rtn user2
+	branch le_acknowledge+3
+
+
+p_le_parse:
+	rtnmark1 mark_old_packet
+	rtnmark1 mark_ble_crc_fail
+	rtn user2
+	branch le_parse+3
+
+p_le_receive_on_attempt_cont:
+	disable user2
+	enable swfine
+	arg PARAM_T_IFS_150US+PARAM_20MS_INIT+PARAM_SYNC_TIME_DIFFERENCE,stop_watch
+	fetch 1,mem_system_clk
+	imul32 stop_watch,stop_watch
+	call rf_debug_active_sync_line	//L-H
+	branch p_le_receive_skip,attempt
+	call calc_clke_all_modem
+	fetch 1,mem_le_state
+	bbit0 lestate_got_first_packet,p_le_receive_skip
+	fetcht 6,mem_sync_clke
+	call lpm_adjust_clk,wake
+p_le_receive_skip:
+	call save_rssi
+	enable enable_white
+	enable enable_crc
+	parse demod,bucket,8
+	rshift3 pwindow,pdata
+	store 1,mem_le_rxbuf_data_header
+	parse demod,bucket,8
+	rshift3 pwindow,pdata
+	store 1,mem_le_rxbuf_data_length
+ 	copy pdata,loopcnt
+	branch le_rx_nopayload,zero
+	arg mem_alloc_big_block,rega
+	call queue_get_len
+	call p_discard_packet,blank
+	bmark1 mark_ble_encryption,le_rx_dec
+	branch le_rx_loop
+
+p_discard_packet:
+	enable user2
+	rtn
+
+p_random_data_genrate:
+	arg mem_cm0_random_data,contw
+	force 16,loopcnt
+	branch  generate_random_another
+	
+
+
+
+
+
+p_le_disconnect:	
+	call p_set_timeout_discon_reason
+	jam 0, mem_no_timeout_discon_reason
+	call le_clear_connection_info
+	call app_disconn_reason_collect_ble
+ifdef SECURE_CONNECTION
+	call le_clear_pairing_state
+	call le_sc_state_clear
+endif
+	jam BT_EVT_LE_DISCONNECTED,mem_fifo_temp
+	branch ui_ipc_send_event
+
+
+
+
+
+p_set_timeout_discon_reason:
+	fetch 1,mem_no_timeout_discon_reason
+	nrtn blank
+	jam BT_HCI_ERR_CONN_TIMEOUT,mem_le_diconnect_reson
+	rtn
+
+
+
+p_app_evt_timer_handle:
+	// For cm0 timer
+//	call ipc_100ms_timer_work
+p_app_evt_100ms_loop:
+	fetch 1,mem_app_evt_timer_count
+	rtn blank
+	increase -1,pdata
+	store 1,mem_app_evt_timer_count
+	fetch 2,mem_cb_event_timer
+	call callback_func
+	branch p_app_evt_100ms_loop
+
+p_main_loop:
+ifdef SIMPLE_PAIRING
+	call sp_calc_sequence
+endif
+ifdef SECURE_CONNECTION
+	call sp_calc_sequence_256
+endif
+
+ifdef SIMPLE_PAIRING
+ifdef SECURE_CONNECTION
+	call sp_calc_sequence_256_check
+endif
+endif
+	call le_advertising_dispatch
+	call idle_dispatch
+	call app_process_idle
+	call connection_dispatch
+	call p_lpm_dispatch
+	branch p_main_loop
+
+
+p_le_connect_req_handle:
+	call calc_clke_offset
+	call le_l2cap_reset_signaling_identifier
+	jam BT_EVT_LE_CONNECTED,mem_fifo_temp
+	call ui_ipc_send_event
+	call context_save
+	branch end_of_packet
+
+p_le_pairing_sm:
+	call le_fifo_check_nearly_full
+	nrtn blank	
+	fetch 1,mem_le_pairing_state
+	beq FLAG_LE_PARING_SEND_ENC_INFORMATION,p_le_pairng_sm_send_enc_information
+	branch le_pairing_sm+4
+
+
+p_le_pairng_sm_send_enc_information:	
+	jam FLAG_LE_PARING_SEND_MASTER_IDENTIFICATION,mem_le_pairing_state
+	call le_send_smp_master_identification
+	jam BT_EVT_MASTER_IDENTIFICATION,mem_fifo_temp
+	branch ui_ipc_send_event	
+
+p_le_send_adv_ind:
+	fetch 1,mem_le_adv_type
+	fetcht 1,mem_le_adv_own_addr_type
+	lshift4 temp,temp
+	lshift2 temp,temp
+	iadd temp,temp
+	storet 1,mem_le_txheader
+	beq ADV_DIRECT_IND,p_le_send_adv_direct_ind
+	branch le_send_adv_ind+8
+
+
+p_le_send_adv_direct_ind:
+	setarg 12
+	store 1,mem_le_txlen
+	fetch 6,mem_le_lap
+	store 6,mem_le_txpayload
+	fetch 6,mem_le_plap
+	istore 6,contw
+	branch le_send_adv_transmit
+
+
+p_check_51cmd_le_disconnect:	
+	jam 1,mem_no_timeout_discon_reason
+	setarg 20 // 100ms
+	store 2,mem_le_superto
+	store 2,mem_le_init_superto
+	fetch 1,mem_le_diconnect_reson
+	copy pdata,regc
+	branch le_send_terminate_ind
+	
+
+p_le_parse_enc_req_cont:
+	fetch 1,mem_le_pairing_state
+	beq FLAG_LE_PAIRING_AFTER_AUTH,le_parse_enc_req_after_auth
+	fetch 1,mem_le_configuration
+	bbit1  BIT_BLE_PAIRING_FIXED_LTK,le_parse_enc_req_fixed_ltk
+	fetch 1,mem_nv_data_number
+	ncall p_load_device_list_mode_4,blank
+	fetch 1,mem_ltk_exists
+	beq 0,p_le_ltk_lost
+	branch le_parse_enc_req_after_auth
+
+
+
+p_nvram_find_addr_from_bd_list:
+	call disable_user
+	fetch 1,mem_nv_data_number
+	rtn blank		// not nv data
+	fetch 2,mem_ui_state_map   /*check bt mode*/
+	bbit1 UI_STATE_BT_CONNECTED,find_addr_from_bd_list_SPP_mode
+p_find_addr_from_bd_list_ble_mode:
+	fetch 1,mem_le_conn_peer_addr_type
+	beq MASTER_PUBLIC_ADDR, find_addr_from_bd_list_static_addr
+	fetch 1,mem_le_plap+5
+	compare 0xc0,pdata,0xc0
+	branch find_addr_from_bd_list_static_addr,true
+	compare 0x40,pdata,0xc0
+	branch find_addr_from_bd_list_random_addr,true
+	compare 0x00,pdata,0xc0
+	branch find_addr_from_bd_list_random_non_resolvable_private_address,true
+find_addr_from_bd_list_static_addr:
+	jam REC_4_MODE_STATIC_ADDRESS,mem_temp_reconn_record
+	fetch 6,mem_le_plap
+	branch  find_addr_from_bd_list_common
+	
+find_addr_from_bd_list_random_non_resolvable_private_address:	
+	jam REC_4_MODE_RANDOM_NON_RESOLVABLE_PRIVATE_ADDRESS,mem_temp_reconn_record
+	branch find_addr_from_bd_list_common
+
+//input :pdata EDIV and rands
+find_addr_from_bd_list_random_addr:
+	jam REC_4_MODE_RANDOM_RESOLVABLE_PRIVATE_ADDRESS,mem_temp_reconn_record
+	branch find_addr_from_bd_list_common
+	
+//input :pdata EDIV and rands
+find_addr_from_bd_list_SPP_mode:
+	jam REC_3_MODE,mem_temp_reconn_record
+	fetch 6,mem_plap
+/*list : bt_mode + bd mac+*/
+find_addr_from_bd_list_common:
+	store 6,mem_temp_reconn_record+1
+	fetch 2,mem_nv_data_ptr      /*mem_nv_data*/
+	ifetcht 1,pdata				/*fetch 1, mem_nv_data     bt mode*/
+//	pincrease 1				/*pdata = mem_nv_data+1*/
+	store 2,mem_list_item_ptr	/*mem_list_item_ptr =mem_nv_data+1 */
+	storet 1,mem_select_list_item  /*mem_select_list_item =mem_nv_data  bt_mode  */
+	fetch 1,mem_nv_data_number
+	icopy regc
+nvram_find_addr_from_list:
+	fetch 2,mem_list_item_ptr
+	copy pdata,rega
+	call nvram_find_addr_from_list_compare
+	rtn user
+	fetcht 2,mem_list_item_ptr
+	increase NV_DATA_LEN,temp
+	storet 2,mem_list_item_ptr
+	increase -1,temp
+	ifetch 1,temp
+	store 1,mem_select_list_item
+	increase -1,regc
+	nbranch nvram_find_addr_from_list,zero
+	fetch 1,mem_nv_data_number
+	pincrease DECREASED_ONE
+	store 1,mem_select_list_item
+	rtn
+
+
+nvram_find_addr_from_list_compare:
+	fetch 1,mem_temp_reconn_record
+	bne REC_3_MODE,find_addr_from_list_compare_ble_mode
+/* compare static addr */
+find_master_addr_from_list_compare:
+	arg mem_temp_reconn_record,regb
+	arg 7,loopcnt
+	call string_compare
+	branch enable_user,zero
+	rtn
+
+
+p_load_device_list_mode_4:
+	call p_nvram_find_addr_from_bd_list
+	nbranch clear_ltk_exists,user
+	rtn
+
+
+find_irk_form_list_compare:
+	ifetcht 1,rega
+	isub temp,null
+	nrtn zero
+	arg mem_le_prand,contw
+	arg 16,loopcnt
+	call clear_mem
+	fetch 3,mem_le_plap+3
+	store 3,mem_le_prand
+	call genernate_master_MacAddress
+	fetch 2,mem_le_aes_128+13
+	byteswap pdata,pdata
+	lshift8 pdata,temp
+	ifetch 1,contr
+	iadd temp,pdata
+	fetcht 3,mem_le_plap
+	isub temp,null
+	branch enable_user,zero
+	rtn
+
+
+find_ediv_form_list_compare:
+	ifetcht 1,rega
+	isub temp,null
+	nrtn zero
+	copy contr,rega
+	add contr,8,regc
+	arg mem_le_rand,regb
+	arg 8,loopcnt
+	call string_compare
+	branch enable_user,zero
+	copy regc,rega
+	arg mem_le_irk,regb
+	arg 8,loopcnt
+	call string_compare
+	branch enable_user,zero
+	rtn
+
+
+find_addr_from_list_compare_ble_mode:
+	beq REC_4_MODE_RANDOM_RESOLVABLE_PRIVATE_ADDRESS,find_irk_form_list_compare
+	beq REC_4_MODE_RANDOM_NON_RESOLVABLE_PRIVATE_ADDRESS,find_ediv_form_list_compare
+	branch find_master_addr_from_list_compare	
+
+
+	
+//add more device
+//	call nv_find_addr_from_bd_list
+p_le_ltk_lost:
+	call le_send_reject_ind
+	jam FLAG_LE_ENC_NULL,mem_le_enc_state
+	jam FLAG_LE_ENC_NULL,mem_le_pairing_state
+	jam BT_EVT_LE_LTK_LOST,mem_fifo_temp
+	branch ui_ipc_send_event
+
+
+p_le_parse_cont:
+	fetch 1,mem_le_packet_llid
+	beq LLID_LE_LL,p_le_parse_ll
+	branch le_parse_l2cap
+
+p_le_parse_ll:
+	fetch 1,mem_le_rxbuf_data_ll_opcode
+	beq LL_START_ENC_RSP,p_le_parse_start_enc_rsp
+	beq LL_TERMINATE_IND,p_le_parse_terminate_ind
+	beq LL_CHANNEL_MAP_IND,p_le_parse_channel_map_ind
+	beq LL_FEATURE_REQ,p_le_parse_feature_req
+	beq LL_FEATURE_RSP,p_le_parse_feature_rsp
+	beq LL_VERSION_IND,p_le_parse_version_rsp
+	beq LL_LENGTH_REQ,p_le_parse_length_req
+	branch le_parse_ll+1
+
+p_le_parse_length_req:
+	call le_parse_length_req
+	call p_le_send_ll_data
+	rtn
+
+
+
+p_le_parse_version_rsp:
+	call p_le_send_ll_data
+	rtn master
+	call le_send_version_ind
+	rtn
+
+
+
+//LL Opcode:0x09
+p_le_parse_feature_rsp:
+	call p_le_send_ll_data
+	rtn
+
+p_check_dle_update:
+	fetch 1,mem_le_config
+	bbit1 0,le_send_data_length_req
+	rtn
+
+p_check_slave_feature_update:
+	fetch 1,mem_le_config
+	bbit1 1,p_le_send_slave_feature_req
+	rtn
+
+p_check_mtu_update:
+	fetch 1,mem_le_config
+	bbit1 2,le_send_att_exchange_mtu_requset
+	rtn
+
+p_check_smp_sec_update:
+	fetch 1,mem_le_config
+	bbit1 3,check_51cmd_le_smp_sec_req
+	rtn
+
+
+//LL Opcode:0x08
+p_le_parse_feature_req:
+	call p_le_send_ll_data
+	call le_send_feature_rsp
+	call p_check_slave_feature_update
+	call p_check_mtu_update
+	call p_check_smp_sec_update
+	call p_check_dle_update
+	rtn
+
+
+//LL Opcode:0x09
+p_le_send_slave_feature_req:
+	arg 9,rega
+	arg LL_SLAVE_FEATURE_REQ,regb
+	call le_fifo_malloc_tx_ll
+	fetch 8,mem_le_local_feature
+	or pdata,FUN_LL_FEATURE_LE_ENCRYPTION,pdata
+	istore 8,contw
+	rtn
+
+
+
+//LL Opcode:0x01
+p_le_parse_channel_map_ind:
+	ifetch 5,contr
+	store 5,mem_le_new_map
+	ifetch 2,contr
+	store 2,mem_le_instant
+p_le_update_map_enable:
+	fetch 1,mem_le_state
+	set1 lestate_update_map,pdata
+	store 1,mem_le_state
+//	jam 1, mem_le_ll_no_need_rx
+	rtn
+
+
+
+p_le_parse_terminate_ind:
+	fetch 1,mem_le_rxbuf_data_ll_control_data
+	store 1,mem_le_diconnect_reson
+	setarg 20 // 200ms
+	store 2,mem_le_superto
+	store 2,mem_le_init_superto
+	jam 1,mem_no_timeout_discon_reason
+	rtn
+
+
+
+p_le_parse_start_enc_rsp:
+	rtn master 
+	jam BT_EVT_ENCRYPTION_CHANGE,mem_fifo_temp
+	call ui_ipc_send_event	
+	jam FLAG_LE_SEND_START_ENC_RSP,mem_le_enc_state
+	branch le_send_start_enc_rsp
+
+
+p_l2cap_clear_server_ptr:
+	fetch 1,mem_l2cap_temp_ch_psm
+	beq PSM_AVCTP,p_l2cap_clear_avr_ptr
+	beq PSM_AVDTP,p_l2cap_clear_a2dp_ptr
+	branch l2cap_clear_server_ptr+1
+p_l2cap_clear_avr_ptr:
+	call l2cap_clear_avr_ptr
+	branch p_l2cap_clear_ptr
+p_l2cap_clear_a2dp_ptr:
+	call l2cap_clear_a2dp_ptr
+p_l2cap_clear_ptr:
+	fetch 1,mem_l2cap_active_ch_count
+	sub pdata,2,null
+	nrtn positive
+	branch app_bt_disconnect
+p_check_51cmd_once_continue:
+	fetch 1,mem_fifo_temp
+	bmark0 mark_context,check_51cmd_check_idle
+	beq BT_CMD_PLAY_PAUSE, p_cmd_play_pause
+	beq BT_CMD_LE_DISCONNECT,p_check_51cmd_le_disconnect
+	branch check_51cmd_once_continue+3
+p_cmd_play_pause:
+	call p_avctp_send_play_pause
+	branch cmd_exit
+p_avctp_send_play_pause:
+	call l2cap_malloc_is_fifo_nearly_full
+	nrtn blank
+	
+	fetch 1,mem_play_button_state
+	beq A2DP_STATE_PALY_RELEASE,p_avctp_send_pause
+	beq A2DP_STATE_PAUSE_RELEASE,p_avctp_send_play
+
+	fetch 1,mem_a2dp_state
+	beq A2DP_STATE_OPEN,p_avctp_send_play
+	beq A2DP_STATE_START,p_avctp_send_pause
+	beq A2DP_STATE_SUSPEND,p_avctp_send_play
+	rtn
+	
+p_avctp_send_play:
+	call avctp_send_play
+	jam A2DP_STATE_PALY_RELEASE ,mem_play_button_state
+	rtn
+p_avctp_send_pause:
+	call avctp_send_pause
+	jam A2DP_STATE_PAUSE_RELEASE ,mem_play_button_state
+	rtn
+
+
+
+
+
+p_app_init_efuse_data:
+	setarg EFUSE_OFFSET_UCODE
+	arg mem_efuse_ucodeu,rega
+	arg 0x06,temp
+	call efuse_read_data
+
+	setarg EFUSE_OFFSET_VIO_VOLTAGE_CAL
+	arg mem_efuse_vio_vol_cal_val,rega
+	arg 24,temp
+	call efuse_read_data
+
+	//To distinguish the application
+	fetch 1,mem_efuse_chip_app_category
+	bne drc_op_rc, assert
+
+	////To distinguish chip category 
+         call p_chip_category_check
+	
+	//vio voltage calibration reload
+	fetch 1,mem_efuse_vio_vol_cal_val
+	ncall p_reload_efuse_ldo_config, blank
+	rtn
+	
+
+
+p_chip_category_check:
+	 fetch 1,mem_efuse_chip_category
+	 nrtn blank
+	 fetch 1,core_config
+	 rshift pdata,pdata
+	 and_into 0x03,pdata
+	 bne 0,assert
+	 rtn
+
+p_chip_lowend_memory_init:
+	 fetch 1,mem_efuse_chip_category
+	 nrtn blank
+	 setarg 0xaa
+	 store 1,0x18000
+	 setarg 0x55
+	 store 1,0x18001
+	 rtn
+
+
+p_reload_efuse_ldo_config:
+	fetch 3,core_ldo_control
+	store 3,mem_temp
+	fetch 1,mem_efuse_vio_vol_cal_val
+	store 1,mem_temp+3
+	fetch 4,mem_temp
+	store 4,core_lpm_reg
+	setarg lpmreg2_sel_ldo_control
+	branch lpm_write2
+	rtn
+
+
+p_newconn_init:
+	jam 0,mem_lmo_tid2
+	branch newconn_init+1
+p_free_buffer:
+	call malloc_check_in_big_queue
+	arg mem_alloc_normal_block,rega
+	branch p_free_buffer_normal,blank
+p_free_buffer_big:
+	fetch 2,mem_temp_alloc_big_free_cnt
+	increase 1,pdata
+	store 2,mem_temp_alloc_big_free_cnt
+
+	arg mem_alloc_big_block,rega
+	branch queue_insert
+p_free_buffer_normal:
+	call malloc_check_in_normal_queue
+	//rtn blank
+	call p_print_error_ptr,blank
+	branch free_buffer_normal+2
+p_print_error_ptr:
+	arg LOG_POINT_1110,rega
+	copy regb,temp
+	branch debug_log_print
+
+
+p_tws_100ms_event_polling:
+	//call p_check_recovery_dac_rate
+	branch tws_100ms_event_polling+1
+
+p_le_slave_dispatch:
+	jam 0,mem_le_md_count
+	set0 mark_ble_crc_fail,mark
+ifdef SECURE_CONNECTION
+	call sp_calc_sequence_256
+	call le_secure_connect_sm
+endif
+	disable attempt
+	call le_supervision_update
+	branch p_le_disconnect,positive
+	fetch 1,mem_le_rx_phy
+	call le_enable_phy_by_pdata
+	call le_setup
+	call le_receive_slave
+	nbranch le_slave_unsync,sync	// vol.6 part B 4.5.1 respond even crc error
+	call p_le_got_first_packet
+	bmark1 mark_ble_crc_fail,p_le_slave_match
+	branch p_le_slave_match,match
+	branch le_slave_cont
+
+
+
+	
+
+
+p_check_51cmd_once:
+	call ui_ipc_get_lock
+	arg mem_ipc_fifo_c512bt,rega
+	call fifo_out
+	copy pdata,temp
+	call ui_ipc_put_lock
+	copy temp,pdata
+	rtn blank
+	beq BT_CMD_OTA_SWITCH,p_cmd_ota_start
+	beq BT_CMD_LE_UPDATE_CONN,le_l2cap_tx_update_req
+	beq BT_CMD_START_ADV,p_check_51cmd_adv
+	beq BT_CMD_SHUTDOWN_QSPI,p_bt_shutdown_qspi
+	beq BT_CMD_LE_TX_MD_ON,le_set_config_more_data
+	beq BT_CMD_LE_TX_MD_OFF,le_clr_config_more_data
+	beq BT_CMD_DISABLE_ICEMODE,ice_mode_disable_function
+	beq BT_CMD_ENABLE_LE_LATENCY,p_le_enable_latecy_handle
+	beq BT_CMD_DISABLE_LE_LATENCY,le_set_config_short_mult
+	beq BT_CMD_FIRST_POWER_ON,p_riscv_first_power_on_check
+	beq BT_CMD_STOP_ADV,p_check_51cmd_stop_adv
+	beq BT_CMD_STOP_DIRECT_ADV,p_check_51cmd_stop_direct_adv
+	beq BT_CMD_UPDATE_RANDOM_DATA,p_random_data_genrate
+	branch check_51cmd_once+8
+
+
+
+
+p_check_51cmd_stop_adv:
+	jam OFF,mem_le_adv_enable
+	branch p_end_of_packet
+	
+
+p_check_51cmd_stop_direct_adv:
+	jam OFF,mem_le_adv_enable
+	branch p_end_of_packet
+
+
+p_riscv_first_power_on_check:
+         fetch 1,mem_efuse_chip_category
+         nrtn blank
+	fetcht 2,0x18000
+	setarg 0x55aa
+	isub temp,pdata
+	ncall assert,zero
+	rtn
+
+
+p_hvin_batcount_increase_timer:
+	fetch 1,mem_hvin_bat_enable
+	rtn blank
+//	fetch 2,mem_ui_state_map
+//	rtnbit0 UI_STATE_BLE_CONNECTED
+	fetch 1,mem_hvin_bat_cnt
+	pincrease 1
+	store 1,mem_hvin_bat_cnt
+	rtn
+
+p_check_hvin_timer:
+	fetch 1,mem_hvin_bat_cnt
+	sub pdata,5,null					//500ms
+	rtn positive
+	jam 0,mem_hvin_bat_cnt
+p_check_hvin_batvalue:
+	jam ADC_CONFIG_HVIN,mem_adc_config_flag
+	branch p_enable_adc1
+
+
+
+
+
+//enable_adc:
+//	arg enable_adc_check,regc
+//	call context_search
+//	branch enable_adc_wait,zero
+p_enable_adc1:
+	call enable_adc_ana_work
+	call read_adc_mode
+	store 1,core_gpadc_ctrl
+
+	//Set adc sum config.
+//	jam 0x07,core_gpadc_ctrl
+	jam 0x30,core_sum_ctrl
+	nop 60
+
+	// Start adc sum
+	call adc_enable_adc_sum
+
+	nop 1000  // 1/24ms
+
+	branch adc_read_result_val
+
+	
+p_le_enable_latecy_handle:
+	call le_clr_config_short_mult
+	fetcht 2,mem_le_tsniff
+	rshift2 temp,temp
+// input: temp, tsniff, unit is 1.25ms
+p_set_mult:
+	storet 2,mem_temp
+	fetch 2 ,mem_time_wake_gap
+	idiv temp
+	call wait_div_end
+	quotient pdata
+	increase -1,pdata
+	store 1,mem_lpm_mult
+	copy pdata,temp
+	fetch 1,mem_lpm_current_mult
+	rtn blank
+	storet 1,mem_lpm_current_mult
+	rtn
+	
+p_check_51cmd_adv:
+	jam ON,mem_le_adv_enable
+	rtn
+
+p_check_51cmd_check_batvalue_gpio:
+	jam ADC_CONFIG_GPIO,mem_adc_config_flag
+	fetch 1,mem_adc_channel
+	call p_enable_adc
+p_send_evt_batvalue:
+	jam BT_CMD_SDAC_GPIO_MODE,mem_fifo_temp
+	branch ipc_tx_bt_event
+	
+p_read_adc_mode:	
+//	fetch 1,mem_adc_config_flag
+//	beq ADC_CONFIG_HVIN,adc_adc_mode_vbat
+	//beq ADC_CONFIG_GPIO,adc_check_gpio
+p_adc_check_gpio:
+	fetch 1,mem_adc_channel
+	lshift3 pdata,pdata
+	or pdata,7,pdata
+	rtn	
+
+	
+p_adc_current_value_gpio_size_set0:
+	jam 0,mem_adc_current_value_gpio_size
+	rtn
+p_enable_adc:
+	call enable_adc_ana_work
+	call p_read_adc_mode
+	store 1,core_gpadc_ctrl
+	//Set adc sum config.
+//	jam 0x07,core_gpadc_ctrl
+	jam 0x30,core_sum_ctrl
+	nop 60
+	// Start adc sum
+	call adc_enable_adc_sum
+	nop 500  // 1/24ms
+p_adc_read_result_val:
+ifdef FUNCTION_ADCKEY_ENABLE_QUEUE
+	//call ice_break
+	fetch 1,mem_adc_current_value_gpio_size
+	beq 0x12,p_adc_current_value_gpio_size_set0
+	fetch 2,core_adc_sum
+	copy pdata,rega
+	
+	setarg mem_adc_current_value_gpio
+	fetcht 1,mem_adc_current_value_gpio_size
+	iadd temp,pdata
+	
+	icopy contw
+	copy rega,pdata
+	istore 2,contw
+
+	fetch 1,mem_adc_current_value_gpio_size
+	increase 2,pdata
+	store 1,mem_adc_current_value_gpio_size
+else
+	fetch 2,core_adc_sum
+	store 2,mem_adc_current_value_gpio
+endif
+p_adc_read_end:
+	call adc_disable_adc_sum
+	jam 0,core_gpadc_ctrl
+	storer regb,1,core_rf_ldo_cfg6
+	//jam 0xff,mem_adc_config_flag
+	rtn
+
+p_cmd_ota_start:
+	jam OTA_SOFT_CHANGE_FLAG,mem_change_ota_soft_flag
+	rtn
+
+
+
+ifdef FUNCTION_MEDIA_DEAL_IN_M0
+p_media_process_by_host:
+	arg mem_media_block,rega
+ 	call queue_get_len
+ 	rtn blank
+
+	// One data packet is this length.
+	arg 10,loopcnt
+	call ipc_check_tx_buf_is_enough
+	nbranch l2cap_rx_reset_state,user
+
+ 	call l2cap_rx_reset_state
+ 
+	arg mem_media_block,rega
+	call queue_delete
+// input: regb: payload ptr
+ipc_tx_bt_data_buf_media:
+	jam IPC_DATA_SUBTYPE_MEDIA,mem_ipc_data_tx_buf_subtype
+	branch ipc_tx_bt_data_buf_with_type
+endif
+
+
+
+p_le_send_ll_data:
+	fetch 1,mem_ipc_enable
+	rtn blank
+	
+	call bt_wake_up_m0_light_sleep
+
+	fetch 1,mem_le_rxbuf_data_ll_length
+	pincrease 2
+	copy pdata, loopcnt
+	
+	call ipc_check_tx_buf_is_enough
+	nrtn user
+	
+	fetcht 3,mem_param_ipc_to_m0_wptr_addr
+	ifetch 3,temp
+	copy pdata,contw
+	
+	arg IPC_TYPE_ll,temp
+	call ipc_tx_byte_write
+
+	fetcht 1,mem_le_rxbuf_data_ll_length
+	call ipc_tx_byte_write
+
+	copy contw,rega	
+	 // total len
+	fetch 1,mem_le_rxbuf_data_ll_length
+	copy pdata, loopcnt
+
+	setarg mem_le_rxbuf_data_ll_opcode
+	copy pdata, contr
+
+	copy rega,contw
+         
+	branch  ipc_tx_block_write
+
+	
+
+
+
+
+
+
+
+
+p_ipc_rx_cmd:
+	// store contr
+	copy contr,regb
+	arg mem_ipc_fifo_c512bt,rega
+	call fifo_is_full
+	nrtn blank
+		// make sure have buffer to do this.
+	// restore contr
+	copy regb,contr
+         branch ipc_rx_cmd
+    
+p_ipc_rx_cmd_acl_data:	
+	copy contr,regb
+	
+	arg mem_alloc_big_block,rega
+	call queue_get_len
+	sub pdata,6,null
+	rtn positive
+	
+	copy regb,contr
+	call ipc_rx_byte_read
+	call ipc_rx_byte_read
+	store 1,mem_fifo_temp
+	call ipc_rx_block_read_end
+	fetch 1,mem_fifo_temp
+	beq BT_CMD_LE_UPDATE_CONN,le_l2cap_tx_update_req
+	beq BT_CMD_LE_DISCONNECT,p_check_51cmd_le_disconnect
+         beq BT_CMD_LE_SMP_SECURITY_REQUEST,check_51cmd_le_smp_sec_req
+         beq BT_CMD_LE_LENGTH_REQ,le_send_data_length_req
+         rtn
+
+
+p_ipc_rx_block_clear:
+	call ipc_rx_byte_read
+	loop p_ipc_rx_block_clear
+	branch ipc_rx_block_read_end
+
+p_ipc_rx_ble_discard_packet:
+	copy rega,contr
+	call ipc_rx_byte_read
+	icopy loopcnt
+	call p_ipc_rx_block_clear
+	rtn
+
+p_ipc_rx_process:
+	call p_ipc_rx_process1
+p_ipc_rx_process1:
+	fetch 1,mem_ipc_enable
+	rtn blank
+	call ipc_rx_items_inquire
+	rtn zero // no data
+	icopy contr
+//	jam 0x3f, 0x8087
+	call ipc_rx_byte_read
+//	jam 0x3e, 0x8087
+//	isolate1 7,pdata
+//	nrtn true
+//	set0 7, pdata
+	beq IPC_TYPE_CMD,p_ipc_rx_cmd
+	beq IPC_TYPE_CM0_TO_BT_DATA,p_ipc_rx_data_buf
+	beq IPC_TYPE_ACL_CMD, p_ipc_rx_cmd_acl_data
+	branch assert
+	//branch ipc_rx_process
+//type/len/data(subtype addr)
+p_ipc_rx_data_buf:
+	copy contr,rega
+	fetch 2,mem_ui_state_map	
+	isolate0 UI_STATE_BLE_CONNECTED,pdata
+	branch p_ipc_rx_ble_discard_packet,true
+//	jam 2,mem_le_ll_no_need_rx
+	copy rega,contr
+	// ipc total length
+	call ipc_rx_byte_read
+	// subType
+	call ipc_rx_byte_read
+	store 1,mem_ipc_data_rx_buf_subtype
+	call ipc_rx_store_contr
+	fetch 1,mem_ipc_data_rx_buf_subtype
+	beq IPC_DATA_SUBTYPE_FREE,p_ipc_rx_data_buf_sub_free_buf
+	
+	call p_le_check_enc_status
+	nrtn user
+	
+	arg mem_alloc_big_block,rega
+	call queue_get_len
+	sub pdata,6,null
+	rtn positive
+	
+	call ipc_rx_restore_contr
+p_ipc_rx_data_buf_process:
+	arg 3,loopcnt
+	arg mem_ipc_data_rx_buf_payload_ptr,contw
+	call ipc_rx_block_read // Think more? like buffer not enough or other
+	fetch 2,mem_temp_rv2bt_rx_malloc_cnt
+	increase 1,pdata
+	store 2,mem_temp_rv2bt_rx_malloc_cnt
+	fetch 1,mem_ipc_data_rx_buf_subtype
+	beq IPC_DATA_SUBTYPE_BLE,p_ipc_rx_data_buf_sub_ble_data
+//	beq IPC_DATA_SUBTYPE_SPP,p_ipc_rx_data_buf_sub_spp_data
+	branch ipc_rx_data_buf+10
+
+
+p_le_check_enc_status:
+	call enable_user
+	
+	fetch 1,mem_le_enc_state
+	rtneq FLAG_LE_ENC_END
+	
+	fetch 1, mem_le_enc_state
+	sub pdata,FLAG_LE_SEND_START_ENC_RSP,null
+	rtn zero
+
+	fetch 1,mem_le_enc_state
+	rtn blank
+
+	branch disable_user
+
+
+
+
+
+p_ipc_rx_data_buf_sub_free_buf:
+	call p_ipc_rx_data_buf_free_ipc_work
+	fetchr regb,3,mem_ipc_data_rx_buf_payload_ptr
+	branch free_buffer
+p_ipc_rx_data_buf_free_ipc_work:
+	call ipc_rx_restore_contr
+	arg 3,loopcnt
+	arg mem_ipc_data_rx_buf_payload_ptr,contw
+	branch ipc_rx_block_read
+
+
+p_ipc_rx_data_buf_sub_ble_data:
+	fetcht 3,mem_ipc_data_rx_buf_payload_ptr
+	ifetch 2,temp
+	store 2,mem_current_packet_length //data  len
+	copy pdata,rega//len
+	
+	storet 3,mem_at_payload_ptr
+	call le_fifo_malloc_tx_l2cap_gatt
+	copy rega,loopcnt
+	fetch 3,mem_at_payload_ptr
+	pincrease 2
+	copy pdata,contr
+	call memcpy_fast
+	branch ipc_rx_data_buf_free_rxBuf
+
+
+
+p_le_handle_packet:
+	ifetch 2,contr
+	beq LE_L2CAP_CID_ATT,p_le_parse_att
+	beq LE_L2CAP_CID_SMP,p_le_parse_smp
+	beq LE_L2CAP_CID_SIGNAL,le_parse_signaling
+	rtn
+
+
+	
+p_le_parse_l2cap:
+	fetch 3,mem_rcv_ble_l2cap_ptr
+	rtn blank
+	add pdata,2,contr	//l2cap length
+	call p_le_handle_packet
+	branch le_release_l2cap_rcv_ptr	
+
+p_le_parse_smp:
+	ifetch 1,contr
+	beq SMP_IDENTITY_ADDRESS_INFORMATION,p_le_parse_smp_identity_address_information
+	beq SMP_IDENTITY_INFORMATION,p_le_parse_smp_identity_information
+	beq SMP_PAIRING_FAILED,p_le_parse_smp_pairing_failed
+	branch le_parse_smp+1
+
+
+p_le_parse_smp_pairing_failed:
+	ifetch 1,contr
+	store 1,mem_le_ll_pairing_fail_reason
+	force smp_pairing_timer,queue
+	call timer_stop
+	jam FLAG_LE_PAIRING_NULL,mem_le_pairing_state
+	jam BT_EVT_LE_PAIRING_FAIL,mem_fifo_temp
+	branch ui_ipc_send_event
+
+p_le_parse_smp_identity_information:
+	arg mem_le_irk,contw
+	call memcpy16
+	jam BT_EVT_LE_INDENTITYINFO,mem_fifo_temp
+	branch ui_ipc_send_event
+
+
+
+
+
+p_le_parse_smp_identity_address_information:
+	ifetch 1,contr
+	ifetch 6,contr
+	store 6,mem_smp_ppaddr
+	jam BT_EVT_INDENTITYADDRESS,mem_fifo_temp
+	call ui_ipc_send_event
+	call le_check_init_key_distribution
+	isolate0 LE_INITATOR_IRK_BIT,pdata
+	branch le_send_pairing_fail_unspecified_reason,true
+	rtn
+
+	
+
+	
+p_le_parse_att:
+	 fetcht 2,mem_rcv_ble_l2cap_ptr
+	 copy temp,regb
+	 call ipc_tx_bt_data_buf_ble
+	 setarg 0
+	 store 3,mem_rcv_ble_l2cap_ptr
+	 rtn
+	
+p_app_init:
+	//call p_test_tx
+	fetch 1,mem_device_option
+	beq drc_op_rc,p_headset_init
+	branch p_app_init
+
+
+
+
+p_check_key_is_down:
+	//touch1 check
+	fetch 1,0x839c
+	bbit1 0,p_key_down_protect
+	//gpio check
+	//fetch 4,core_gpio_in
+	//bbit0 11,p_key_down_protect
+	rtn
+
+p_key_down_protect:
+	//jam 0x3f,0x8083
+	fetch 1,mem_m0_lpm_flag
+	set1 0,pdata
+	store 1,mem_m0_lpm_flag
+	//jam 0x3e,0x8083
+	branch p_bt_wake_up_m0_light_sleep
+
+	
+p_headset_cb_idle_process:
+	call p_dtm_test_loop
+//	call p_check_key_is_down
+	call p_chip_category_check
+ifdef FUNCTION_ADCKEY_ENABLE
+	call p_check_51cmd_check_batvalue_gpio
+endif
+	call p_check_hvin_timer
+ifdef FUNCTION_TEST_ZCODE
+	call z_test_empty_work
+	call z_test_empty_work1
+endif
+
+ifdef FUNCTION_WATCH_DOG
+	call p_wdt_kick_watchdog
+endif //FUNCTION_WATCH_DOG
+	rtn
+//	call p_sco_process_polling
+//	branch headset_cb_idle_process	
+
+
+
+p_ipc_clear_mem_block:
+	//Test Lpm Time: 0.211ms
+	// clear memory need too long time, no need do it.
+	fetch 3,mem_param_ipc_to_m0_rptr_addr
+	add pdata,4,pdata
+	fetcht 3,mem_param_ipc_to_bt_wptr_addr
+	branch ipc_clear_mem_block+3
+
+
+	
+
+p_headset_init:
+	fetch 1,0x8341
+	store 1,mem_hibernate_flag
+	call p_check_hvin_batvalue
+//	random pdata
+//	store 1,mem_ble_addr_random
+//	jam 0,mem_lmo_tid2
+	call select_system_clk_12M_xtal
+//	call initialize_sys_clk_setting_dpll
+	//jam 0x24,0x8015 //qspi work on 24M
+	jam 37,mem_le_ch_mapped
+//	call headset_init
+	
+ifdef FUNCTION_WATCH_DOG
+ifdef FUNCTION_WATCH_DOG_INTR
+	call wdt_init_interrupt_with_start
+else
+	call wdt_init_reset_with_start
+	call wdt_enable_riscv_watchdog
+	call p_riscv_kick_watchdog_500ms
+endif
+
+endif //FUNCTION_WATCH_DOG
+//	call lpm_disable_exen_output
+	nbranch wake_from_power,wake
+wake_for_lpm:
+	call set_gpio_after_lpm
+	call ipc_lock_m0_lmp_wait_work_flag
+	call enable_xip
+	jam BT_EVT_WAKEUP,mem_fifo_temp
+	branch ipc_tx_bt_event
+	
+wake_from_power:	
+	setarg SVN_REVISON
+	store 2,mem_soft_version
+	
+	//set 2M 
+	arg 0x0303,temp
+	call le_set_phys
+	call le_pairing_mode_init
+	call enable_ice_wake_and_function
+	call p_chip_lowend_memory_init
+	call p_app_init_efuse_data
+	call p_gpio_init
+	jam 0x04,mem_le_adv_delay
+	// close wdt
+//	call wdt_disable_watchdog
+//	call initialize_sys_clk_setting_dpll
+//	call select_system_clk_12M_xtal
+	//jam 0x24,0x8015 //qspi work on 24M
+	// Temp use
+	//setarg 0xe2
+	//call p_buck_setting_by_efuse_data
+//	call p_buck_setting_by_efuse_data_func
+//	call lpm_disable_exen_output
+	setarg p_hp_user_evt
+	store 2,mem_cb_bb_event_process
+	
+	setarg p_headset_evt_100ms_timer
+	store 2,mem_cb_event_timer
+	
+	setarg p_headset_cb_idle_process
+	store 2,mem_cb_idle_process
+	
+	setarg cb_enter_lpm
+	store 2,mem_cb_before_lpm
+	setarg cb_enter_hibernate
+	store 2,mem_cb_before_hibernate
+
+	fetch 1,mem_hibernate_flag
+	bbit1 2,p_evt_restart	
+	// store local addr
+//	fetch 6,mem_lap
+//	store 6,mem_local_bdaddr
+//	call check_51cmd_check_batvalue
+	call enable_xip
+wake_from_power_continue:
+	jam BT_EVT_RESET,mem_fifo_temp
+	branch ipc_tx_bt_event
+
+p_evt_restart:
+	call enable_xip
+	jam BT_EVT_RESTART,mem_fifo_temp
+	branch ipc_tx_bt_event
+	
+
+p_first_power_on_set_flag:
+	fetcht 4,core_lpm_buckctrl
+	set1 26,temp
+	storet 4,core_lpm_reg
+	jam lpmreg_sel_buck_cfg,core_lpm_wr
+	rtn
+
+cb_enter_hibernate:
+	call p_first_power_on_set_flag
+//	call p_lpm_write_ctrl_buck
+	jam MCU_STATE_HIBERNATE,mem_ipc_mcu_state
+	call ipc_check_ack
+enter_hibernate_prepare_work:
+	call qspi_powerdown_flash
+	branch p_clear_gpio_before_sleep
+
+cb_enter_lpm:
+//	fetch 1,mem_lmp_conn_state
+//	store 1,mem_xlmp_conn_state
+//	jam 0,mem_xlmp_clock_offset_valid
+//	call p_lpm_charge_set_wakeup_setting
+	branch enter_hibernate_prepare_work
+
+
+p_clear_gpio_before_sleep_sub2:	
+	arg 8,loopcnt
+	arg core_gpio_conf1,contr
+	branch p_setgpio_loop
+	
+
+p_clear_gpio_before_sleep:	
+	call p_clear_gpio_before_sleep_sub2
+	arg 32,loopcnt
+	arg core_gpio_conf,contr
+p_setgpio_loop:
+	copy contr,contw
+	ifetch 1,contr
+	beq gpcfg_qspi_sck,p_setgpio_pulldown
+	beq gpcfg_qspi_io0,p_setgpio_pulldown
+	beq gpcfg_qspi_io1,p_setgpio_pulldown
+	beq gpcfg_qspi_io3 ,p_setgpio_pulldown
+	beq gpcfg_iic_scl,p_setgpio_pulldown
+	beq gpcfg_iic_sda,p_setgpio_pulldown
+	//beq gpcfg_pullup,setgpio_pulldown
+	branch p_setgpio_loop_end
+p_setgpio_pulldown:
+	setarg gpcfg_pulldown
+	istore 1,contw
+p_setgpio_loop_end:
+	loop p_setgpio_loop
+	rtn
+
+p_gpio_init:
+	call p_gpio_init2
+	arg 32,loopcnt
+	arg core_gpio_conf,contr
+p_setgpio_init_loop:
+	copy contr,contw
+	ifetch 1,contr
+	beq gpcfg_input,p_setgpio_init_pulldown
+	branch p_setgpio_init_loop_end
+p_setgpio_init_pulldown:
+	setarg gpcfg_pulldown
+	istore 1,contw
+p_setgpio_init_loop_end:
+	loop p_setgpio_init_loop
+	rtn
+
+
+p_gpio_init2:
+	arg 8,loopcnt
+	arg core_gpio_conf1,contr
+	branch p_setgpio_init_loop
+
+
+
+
+
+
+
+p_headset_evt_100ms_timer:
+//	call connect_hid_timer_100ms
+	call p_hvin_batcount_increase_timer
+	rtn
+//	branch headset_evt_100ms_timer
+
+
+
+p_hp_user_evt:
+	copy regc,pdata
+	beq BT_EVT_BB_CONNECTED,app_lpm_mult_enable
+	// Change sniff param
+	beq BT_EVT_EXIT_SNIFF,init_lmp_sniff_param
+	beq BT_EVT_LE_CONNECTED,RC_process_le_conn
+	beq BT_EVT_LE_DISCONNECTED,p_app_le_event_bb_disconn
+	beq BT_EVT_BB_DISCONNECTED,p_headset_evt_bb_disconnect
+	branch headset_cb_bb_event_process
+
+
+
+p_app_le_event_bb_disconn:
+	call l2cap_ble_link_queue_init
+	rtn
+
+	
+
+
+
+
+RC_process_le_conn:
+	call app_ble_stop_adv
+	call app_lpm_mult_enable	
+	rtn
+	
+RC_scale_process_le_discon:
+	call  app_lpm_mult_disable
+	rtn
+
+
+
+
+p_headset_evt_bb_disconnect:
+	jam 1,mem_hfp_rfcomm_channel
+	jam 1,mem_hfp_remote_rfcomm_channel
+	branch headset_evt_bb_disconnect
+
+p_wdt_kick_watchdog:
+	branch wdt_kick_watchdog_1_5s
+
+p_riscv_kick_watchdog_500ms:
+	jam 0x7b,0x800c
+	rtn
+
+p_disable_adv:	
+	jam 0,mem_le_adv_enable
+	rtn
+
+p_buck_setting_by_efuse_data_func:
+	fetch 1,mem_efuse_buck_cal
+	nbranch p_buck_setting_by_efuse_data,blank
+	arg 0xe2,pdata // 0xe4 is 2.05V 0xe2 is 1.73V
+	//branch p_buck_setting_by_efuse_data
+// input pdata
+p_buck_setting_by_efuse_data:
+	//increase -1,pdata
+	fetcht 4,core_lpm_buckctrl
+	storet 4,core_lpm_reg
+	store 1,core_lpm_reg+1
+p_lpm_write_ctrl_buck:
+	call p_lpm_write_wait_clock
+	jam lpmreg_sel_buck_cfg,core_lpm_wr
+	branch p_lpm_write_wait_clock
+
+p_bbldo_setting:
+	// change pmu_bbldo_vctrim<3:0>
+	fetch 1,core_lpm_ctrl+3
+	and pdata,0x0f,pdata
+	or pdata,0x80,pdata // dpll below 96M use 8, set to c when dpll is 192M
+	store 1,core_lpm_reg+3
+	
+	fetch 3,core_lpm_ctrl
+	store 3,core_lpm_reg
+	call p_lpm_write_wait_clock
+	jam lpmreg_sel_ctrl,core_lpm_wr
+	branch p_lpm_write_wait_clock
+
+p_lpm_write_wait_clock:
+	until null,lpo_edge
+	until null,lpo_edge
+	until null,lpo_edge
+	until null,lpo_edge
+	until null,lpo_edge
+	rtn
+
+
+p_rf_tx_enable_pwr:
+	fetch 1,mem_tx_power
+	beq TX_POWER_F3DB,set_tx_power_f3db
+	beq TX_POWER_f5DB,set_tx_power_f5db
+	beq TX_POWER_f20DB,set_tx_power_f20db
+	beq TX_POWER_f30DB,set_tx_power_f30db
+	call p_rx_high_sens
+	beq TX_POWER_0DB,set_tx_power_0db
+	beq TX_POWER_3DB,set_tx_power_3db
+	beq TX_POWER_5DB,p_set_tx_power_5db
+	beq TX_POWER_6DB,set_tx_power_6db
+	beq TX_POWER_7DB,set_tx_power_7db
+	beq TX_POWER_10DB,p_set_tx_power_10db
+p_set_tx_power_0db:
+	jam 0xa3,core_rf_ldo_cfg8
+	jam 0x0a,core_rf_ldo_cfg9
+	jam 0x0c,core_tx_pwr_ctrl1
+	jam 0x62,core_tx_pwr_ctrl0
+	rtn
+p_set_tx_power_10db:
+	jam 0xf0,core_tx_pwr_ctrl0
+	branch set_tx_power_10db+1
+p_set_tx_power_5db:
+	jam 0xaa,core_rf_ldo_cfg8
+	jam 0x0a,core_rf_ldo_cfg9
+	jam 0x0f,core_tx_pwr_ctrl1
+	jam 0x68,core_tx_pwr_ctrl0
+	rtn
+
+p_set_tx_power_f5db:
+	call p_rx_low_sens
+	jam 0xa3,core_rf_ldo_cfg8
+	jam 0x07,core_rf_ldo_cfg9
+	jam 0x07,core_tx_pwr_ctrl1
+	jam 0x66,core_tx_pwr_ctrl0
+	rtn
+
+p_rx_high_sens:
+	//jam 0x00,core_force_ctrl
+	//jam 0x7a,core_rx_lna_isel_force
+	jam 0x38,core_rx_mixer_cfg0
+	jam 0x84,core_rx_mixer_cfg1
+	rtn
+p_rx_low_sens:
+	//jam 0x04,core_force_ctrl
+	//jam 0x4a,core_rx_lna_isel_force
+	jam 0x34,core_rx_mixer_cfg0
+	jam 0x64,core_rx_mixer_cfg1
+	rtn
+
+
+p_set_gpio_after_lpm:
+	call qspi_gpio_set
+	call qspi_gpio_init	// use default three qspi setting
+	nop 400						// some flash will fail if no delay here
+	call qspi_release_powerdown_flash
+	nop 100
+	rtn
+
+p_initialize_radio:
+	jam 3, core_rx_lna_cfg3
+	jam 0xba,core_rx_lna_isel_force
+	jam 0x04,core_force_ctrl
+	jam 0xe6,core_syn_aac_cfg1
+	jam 0x29,core_syn_afc_cfg1
+	//jam 0x02,core_rf_ldo_cfg1
+	setarg 0x9d3
+	store 2,core_rx_bq_bw_cal
+	jam 0x7e,core_rf_wb_sat_th
+	jam 0x72,core_rf_nb_sat_th
+	jam 0x01,rf_dpsk_demod_mode
+	//call p_set_gpio_after_lpm,wake
+	//remote 3b,little distance 1b
+	//jam 0x1b,0x8a78
+	jam 0x3b,0x8a78
+
+	jam 0x2b,core_tx_mixer_cfg1
+	jam 0x13,core_tx_mixer_cfg2
+
+	jam 0xba,0x8a38
+	jam 0x04,0x8a1b
+
+	jam 0x7a,0x8968
+	jam 0x76,0x8969
+	jam 0x3e,0x8962
+	jam 0x03,0x8975
+
+	jam 0x2e,0x8960
+	// rx current
+	jam 0x94,0x8a7a
+	call p_set_gpio_after_lpm,wake
+	
+	// avoid BQB 01010101 NAK rate too high.
+	jam 0x40,0x8921
+
+	//winsize=(1/48)*agc_win
+	//AGC lock timeout=winsize*timeout reg=1.4us*2^14=23mS
+	jam 0xff,0x896f
+	jam 0x3f,0x8970 
+
+	ncall wdt_disable_watchdog_enable_xtal,wake
+	
+	//call lpm_cal_xtal_startup
+	call dpll_en
+
+	// Normal no need to high current.
+	ncall ldo_control_ildsel_cur_clr,wake
+	call lpm_cal_xtal_startup
+	call p_app_gpio_init
+	jam 0xe3,core_clkoff
+	jam 0xfd,core_clkoff+1
+	setarg 0x80f
+	branch lpm_write_config
+	
+
+
+p_app_gpio_init:
+         jam gpcfg_no_ie, 0x808a
+//	jam gpcfg_no_ie,0x812d
+//	jam gpcfg_no_ie,0x812e
+//	jam gpcfg_no_ie,0x812f
+	rtn
+
+
+
+dpll_en:
+	//ldo enable
+	jam 0x01,core_clkpll_ctrl1
+	nop 100
+	//modules enable
+	jam 0x40,core_clkpll_ctrl0 // Audio need 384M, must enable.
+	jam 0x5f,core_clkpll_ctrl1 // default 256M(80uA)/153M(50uA) not enable. DPLL mode 192M must enable.
+	jam 0x61,core_clkpll_ctrl2 // RF ADC/DAC dpll enable(200uA), ana_audio_clk(89uA) must enable.
+	nop 23
+	//rstn release
+	jam 0x43,core_clkpll_ctrl0
+	nop 200
+	//close ldo load bleeding
+	//jam 0x23,0x8a03
+	rtn
+
+
+ldo_control_ildsel_cur_clr:
+	setarg 0x00
+// input: pdata
+ldo_control_ildsel_cur:
+	fetcht 4,core_ldo_control
+	storet 4,core_lpm_reg
+	fetcht 1,core_lpm_reg+2
+	and temp,0xe3,temp
+	lshift2 pdata,pdata
+	ior temp,pdata
+	store 1,core_lpm_reg+2
+//	setarg 0x60
+//	store 1,core_lpm_reg+3     // da_ldo_dig_core_vsel    reduce 500us
+	fetch 4,core_lpm_reg
+	branch lpmreg2_write_ldo_control
+
+wdt_disable_watchdog_enable_xtal:
+	// check if xtal is already enable.
+	fetch 1,core_ice_wdt_mode
+	rtnbit1 4
+	set0 1,pdata
+	set1 4,pdata
+	call lpmreg2_write_ice_wdt
+	// need > 2.5ms
+	nop 30000				// wait xtal on
+	rtn
+
+
+
+/*p_patch_for_ota_online_update_flash:
+	fetch 1,mem_change_ota_soft_flag
+	beq OTA_SOFT_CHANGE_FLAG, p_ota_loadcode
+	rtn  
+
+p_ota_loadcode:
+	//call check_m0_qspi_lock_and_pause
+//	fetch 1,0x8051
+//	set1 0,pdata
+//	store 1,0x8051
+	call check_riscv_qspi_lock_and_pause
+	jam 0,mem_qspi_lock_flag_respin
+	//call ice_break
+	call p_ota_copy_ram
+	//call ice_break
+	jam OTA_NEED_ENABLE_XIP_FLAG,mem_ota_enable_xip_flag
+ifdef FUNCTION_WATCH_DOG
+	call p_wdt_kick_watchdog
+endif //FUNCTION_WATCH_DOG
+	jam 0x00,mem_ucode_flag
+//	jam 0x02,0x8010
+	branch app_reload_code
+p_ota_copy_ram:
+// in FPGA, aes must set RC clock, clock must 4mutl to flash.
+	//jam 0x06,0x8042
+	// store the ota GATT handle
+	fetch 1,mem_ota_notify_handle
+	store 1,mem_ota_notify_handle_mram
+	fetch 1,mem_ota_write_handle
+	store 1,mem_ota_write_handle_mram
+	// Skip patch point var
+	arg 504,loopcnt
+	arg 0x4040,contr
+	arg 0x3000,contw
+p_copy_loop:
+	ifetch 8,contr
+	istore 8,contw
+	loop p_copy_loop
+	rtn
+*/
+
+p_tws_s_generate_scan_window:
+	fetch 1,mem_tws_state
+	bne TWS_STATE_PAIRING,p_tws_s_generate_scan_window_random
+	fetch 2,mem_le_tws_scan_window
+	increase 2,pdata
+	branch tws_s_generate_scan_window_end
+p_tws_s_generate_scan_window_random:
+	random pdata
+	and pdata,0xff,pdata
+	branch tws_s_generate_scan_window+2
+
+
+
+
+
+
+
+/////////////////////////////////////////////////////// CM0 light sleep //////////////////////////////////////////////////////////////////
+p_bt_shutdown_qspi:
+	fetch 2,core_clkoff
+	rtnbit0 CLOCK_OFF_CM0
+
+	// Only for 32pin. 20200417
+	setarg 0x404040
+	store 3,0x8090
+	
+	setarg 0x404040
+	store 3,0x8094
+	rtn
+
+	
+p_bt_wake_up_m0_light_sleep:
+	fetch 2,core_clkoff
+	rtnbit0 CLOCK_OFF_CM0
+
+	// Start qspi, Becouse io1 and io2 have 180uA current.
+	// Only for 32pin. 20200417
+	setarg 0x060502
+	store 3,0x8090
+	
+	setarg 0x040307
+	store 3,0x8094
+	
+	fetch 2,core_clkoff
+	set0 CLOCK_OFF_CM0,pdata
+	branch store_clkoff
+
+
+p_ipc_tx_common:
+	call p_bt_wake_up_m0_light_sleep
+	fetch 1,mem_ipc_enable
+	rtn blank
+	call bt_wake_up_m0_light_sleep
+	fetchr loopcnt,1,mem_ipc_tx_data_len
+	call ipc_check_tx_buf_is_enough
+	nrtn user
+	branch ipc_tx_common+7
+
+p_ipc_tx_bt_event:
+	call p_bt_wake_up_m0_light_sleep
+	branch ipc_tx_bt_event+1
+/////////////////////////////////////////////////////// CM0 light sleep //////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+p_le_slave_match:
+	fetch 1,mem_rssi
+	store 2,mem_rssi_sum
+	jam 1,mem_rssi_update
+	fetch 1,mem_le_md_count
+	pincrease 1
+	store 1,mem_le_md_count
+	fetcht 1,mem_le_ce_num
+	isub temp,null
+	branch le_slave_cont,positive
+	call p_le_acknowledge
+	call p_le_prepare_tx
+	fetch 1,mem_le_tx_phy
+	call le_enable_phy_by_pdata
+	call p_le_transmit_norx
+	branch le_slave_match+10
+
+
+
+
+p_rf_rx_enable:
+	call rf_debug_inactive_rx_line
+	branch rf_rx_enable+1
+	
+p_le_slave_more_data:
+	call p_set_sync_on
+	enable attempt
+	call le_transmit_receive_sifs_notx
+	branch le_slave_more_data+3
+
+
+
+
+
+
+
+
+
+
+
+
+ifdef FUNCTION_ZCODE_WORK
+////////////////////////////////////////////////////////////  ZCODE //////////////////////////////////////////
+/*
+	Dynamic load, use for "mergepatch.pl"
+*/
+p_zcode_entrance_2Bytes_common:
+	store 2, mem_zcode_temp_param0
+	//branch p_zcode_entrance 
+//  mem_zcode_temp_param0 ---- zocde number(0~1f)
+p_zcode_entrance:
+	fetcht 2,mem_zcode_temp_param0 // zcode number @ high 4bit
+	rshift4 temp,temp
+	fetch 2,mem_zcode_current_number
+	isub temp,null
+	branch zcode_run,zero // if this zcode is already loaded, do not load again
+	storet 2,mem_zcode_current_number
+p_load_zcode:
+	fetch 2,mem_param_zcode_buff
+	branch assert,blank
+	//increase 1,temp
+	setarg ZCODE_BUFF_SIZE
+	imul32 temp,temp
+	fetch 3,mem_xip_flash_offset
+	isub temp,pdata
+	fetcht 3,mem_storage_start_addr
+	iadd temp,pdata
+	increase -4,pdata
+	store 3,mem_flash_address
+	setarg ZCODE_BUFF_SIZE
+	store 2,mem_flash_trans_length
+	setarg ZCODE_BUFF_M0_ADDR_PTR
+	store 2,mem_flash_data_address
+	call mqspi_read
+
+p_zcode_entrance0:
+	jam ZCODE_CODE_SIZE,mem_patch_len
+	setarg ZCODE_BUFF_M0_ADDR_PTR
+	call load_ucode_efuse+2
+	branch zcode_run
+
+
+
+//mem_flash_address:flash address
+//mem_flash_data_address:memory source
+//mem_flash_trans_length:read length
+mqspi_read:
+	call check_riscv_qspi_lock_and_pause
+	fetch 1,core_qspi_ctrl
+	copy pdata,regb
+	fetch 1,core_qspi_delay
+	copy pdata,regc
+	call qspi_mode_check
+	set1 2,pdata
+	store 1,core_qspi_ctrl
+	rshift8 pdata,pdata
+	store 1,core_qspi_delay
+	rshift8 pdata,pdata
+	store 1,mem_qspi_tbuf
+	fetch 2,mem_flash_data_address
+	store 2,core_qspi_rxaddr
+	fetch 2,mem_flash_trans_length
+	store 2,core_qspi_rxlen
+	setarg 4
+	store 2,core_qspi_txlen
+	call qspi_mmode
+
+	fetch 2,mem_mram_qspi_tx_addr
+	store 2,core_qspi_txaddr
+	fetcht 2,mem_mram_qspi_tx_addr
+	setarg 0x10000
+	iadd temp,contw
+	setarg 0x3b
+	istore 1,contw
+	fetch 3,mem_flash_address
+	rshift16 pdata,temp
+	istoret 1,contw
+	branch qspi_read_cont
+endif
+
+
+
+p_le_enable:
+	enable le
+	set0 mark_ble_2M,mark
+	set0 mark_ble_lr,mark
+	jam 0x01,0x8901
+	jam 0x80,0x8920
+	jam 0xa7,0x8925
+	jam 0x03,0x8930 //sync window, classic need 6, ble need 3
+	jam 0x58,0x8933
+	jam 0x0a,0x8934
+	jam 0x40,0x8937
+	jam 9,core_rx_bq_cfg0
+	rtn
+
+p_le_disable:
+	disable le
+	set0 mark_ble_encryption,mark
+	jam 0x00,0x8901
+	jam 0x80,0x8920
+	jam 0xa3,0x8925
+	jam 0x06,0x8930 //sync window, classic need 6, ble need 3
+	jam 0x68,0x8933
+	jam 0x09,0x8934
+	jam 0x28,0x8937
+	jam 9,core_rx_bq_cfg0
+	rtn
+
+
+p_end_of_packet:
+	disable encode_fec0
+	disable encode_fec2
+	disable encode_fec3
+	disable decode_fec0
+	disable decode_fec2
+	disable enable_crc
+	disable encrypt
+	disable enable_white
+	branch shutdown_radio,is_rx
+	until null,tx_clear
+	nop 150          /* flush out the last bit */
+	branch shutdown_radio
+
+p_check_rssi:
+	fetch 1,mem_rssi_hex
+	store 1,mem_rssi_sum
+ifdef FUNCTION_RF_PERFORMANCE_TEST
+	call p_check_rssi_count
+endif
+	jam 1,mem_rssi_update
+ifdef FUNCTION_CM0_LIGHT_SLEEP_ENABLE
+	fetch 1,mem_tx_power
+	bne TX_POWER_F5DB,p_check_rssi_end
+	fetch 1,mem_rssi_sum
+	sub pdata,RSSI_ADJUST_PHO,null
+	ncall p_bt_wake_up_m0_light_sleep,positive
+endif //FUNCTION_CM0_LIGHT_SLEEP_ENABLE
+p_check_rssi_end:
+	rtn
+
+ifdef FUNCTION_RF_PERFORMANCE_TEST
+p_check_rssi_count:
+	//fetch 1,mem_rssi_hex
+	sub pdata,40,null
+	branch p_check_rssi_count_40,positive
+	sub pdata,50,null
+	branch p_check_rssi_count_50,positive
+	sub pdata,60,null
+	branch p_check_rssi_count_60,positive
+	sub pdata,70,null
+	branch p_check_rssi_count_70,positive
+	branch p_check_rssi_count_80
+
+p_check_rssi_total:
+	fetcht 4,mem_test_link_performance_rssi_total_value
+	iadd temp,temp
+	storet 4,mem_test_link_performance_rssi_total_value
+	
+	fetcht 2,mem_test_link_performance_rssi_total_cnt
+	increase 1,temp
+	storet 2,mem_test_link_performance_rssi_total_cnt
+	rtn
+
+p_check_rssi_count_80:
+	fetcht 2,mem_test_link_performance_rssi_80_cnt
+	increase 1,temp
+	storet 2,mem_test_link_performance_rssi_80_cnt
+	branch p_check_rssi_total
+
+p_check_rssi_count_70:
+	fetcht 2,mem_test_link_performance_rssi_70_cnt
+	increase 1,temp
+	storet 2,mem_test_link_performance_rssi_70_cnt
+	branch p_check_rssi_total
+
+p_check_rssi_count_60:
+	fetcht 2,mem_test_link_performance_rssi_60_cnt
+	increase 1,temp
+	storet 2,mem_test_link_performance_rssi_60_cnt
+	branch p_check_rssi_total
+
+p_check_rssi_count_50:
+	fetcht 2,mem_test_link_performance_rssi_50_cnt
+	increase 1,temp
+	storet 2,mem_test_link_performance_rssi_50_cnt
+	branch p_check_rssi_total
+
+p_check_rssi_count_40:
+	fetcht 2,mem_test_link_performance_rssi_40_cnt
+	increase 1,temp
+	storet 2,mem_test_link_performance_rssi_40_cnt
+	branch p_check_rssi_total
+
+
+p_check_buf_empty_count:
+	fetcht 2,mem_test_link_performance_buffer_empty_total_cnt
+	increase 1,temp
+	storet 2,mem_test_link_performance_buffer_empty_total_cnt
+	rtn
+endif
+
+p_byte_sign_extern:
+	isolate1 7,pdata
+	nrtn true
+	arg 0xff00,temp
+	ior temp,pdata
+	rtn
+
+p_save_rssi:
+	// bit6 is signed bit.
+	fetch 1,modem_nb_pow
+	isolate1 6,pdata
+	setflag true,7,pdata
+	store 1,mem_modem_rssi
+
+	fetch 1,modem_gain
+	and pdata,0x0f,temp
+	lshift temp,temp
+	rshift4 pdata,pdata
+	iadd temp,temp
+	mul32 temp,3,rega // (abb_gain + lna_gain*2)*3
+
+	fetch 1,mem_modem_rssi
+	call p_byte_sign_extern
+	sub pdata,0,pdata //-modem_nb_pow
+	iadd rega,pdata // (abb_gain + lna_gain*2)*3 + (-modem_nb_pow)
+	increase -9,pdata // (abb_gain + lna_gain*2)*3 + (-modem_nb_pow) - 9
+	and pdata,0x1ff,pdata
+	isolate1 8,pdata
+	nbranch save_rssi_store,true
+	setarg 0
+	branch save_rssi_store
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+p_lpm_get_sleep_lpo:
+	fetch 1,mem_context
+	compare 3,pdata,0x7		/* sco won't sleep */
+	nbranch p_lpm_get_sleep_lpo_unconn,true
+	fetch 2,mem_context + coffset_tsniff
+	branch p_lpm_get_sleep_lpo_not_allow,blank /* role switch */
+	branch p_lpm_get_sleep_lpo_not_allow,wake
+	//bpatch patch15_0,mem_patch15
+	fetcht 1,mem_lpm_current_mult
+	fetch 2,mem_context + coffset_tsniff
+	imul32 temp,pdata
+	rshift4 temp,temp
+	rshift2 temp,temp
+	isub temp,pdata
+	fetcht 4,mem_context + coffset_sniff_anchor
+	iadd temp,pdata
+	fetcht 1,mem_lpm_overhead
+	isub temp,pdata
+	lshift16 pdata,alarm
+	//bpatch patch15_1,mem_patch15
+	fetch 2,mem_context + coffset_rx_window
+	rshift pdata,pdata
+	call clk2bt
+	deposit alarm
+	call clk_diff
+	copy clke,temp
+	call clk_diff_rt
+	branch p_lpm_get_sleep_lpo_not_allow,user
+p_lpm_get_sleep_lpo_clkrt2lpo:
+	call clk2lpo
+p_lpm_get_sleep_lpo_check:
+	fetch 1,mem_lpm_xtalcnt
+	isub temp,null
+	branch p_lpm_get_sleep_lpo_not_allow,positive
+	storet 4,mem_sleep_counter
+	branch setarg1
+
+
+p_lpm_get_sleep_lpo_unconn:
+	fetch 1,mem_context
+	bbit1 state_inconn,p_lpm_get_sleep_lpo_not_allow // wont sleep in connection
+	bbit1 state_inpage,p_lpm_get_sleep_lpo_not_allow // wont sleep when paging
+	fetch 1,mem_ssp_enable
+	branch p_lpm_get_sleep_lpo_unconn_nossp,blank
+	fetch 1,mem_sp_local_key_invalid	// simple pairing is not ready
+	branch p_lpm_get_sleep_lpo_not_allow,blank
+p_lpm_get_sleep_lpo_unconn_nossp:
+	fetch 1,mem_le_adv_enable
+	nbranch p_lpm_get_sleep_lpo_unconn_cont,blank
+	fetch 1,mem_scan_mode
+	branch p_lpm_get_sleep_lpo_not_allow,blank
+p_lpm_get_sleep_lpo_unconn_cont:
+	fetch 2,mem_lpm_interval
+	branch p_lpm_get_sleep_lpo_not_allow,blank
+p_lpm_get_sleep_lpo_unconn_sleep_btclk:
+	fetcht 1,mem_lpm_overhead
+	isub temp,pdata
+	arg 7500,temp				/* 1.25ms */
+	imul32 temp,pdata
+	branch p_lpm_get_sleep_lpo_clkrt2lpo
+
+p_lpm_get_sleep_lpo_not_allow:
+	branch setarg0
+
+
+
+p_ipc_check_allow_lpm:
+	fetch 1,mem_ipc_enable
+	rtn blank
+	call lpm_check_link_allow_in_lpm
+	nbranch setarg1,user
+	fetch 2,mem_m0_lpm_flag
+	nbranch setarg1,blank
+	call ipc_rx_items_inquire
+	nbranch setarg1,zero
+	call ipc_tx_items_inquire
+	nbranch setarg1,zero
+	branch setarg0
+
+
+
+p_check_connect_tx_complete:
+	fetch 2,mem_ui_state_map	
+	isolate0 UI_STATE_BLE_CONNECTED,pdata
+	branch enable_blank,true
+	fetch 1,mem_le_txlen
+	rtn
+
+
+p_lpm_dispatch:
+	fetch 1,mem_lpm_mode
+	rtn blank
+
+	call p_check_connect_tx_complete
+	nrtn blank
+
+	call l2cap_malloc_is_fifo_empty
+	nrtn blank
+
+	call le_fifo_check_empty
+	nrtn blank
+
+	call malloc_check_have_buffer_malloc
+	rtn user
+	call lpo_calibration
+	fetch 3,mem_clks_per_lpo
+	rtn blank
+	fetch 1,mem_ssp_enable
+	branch p_lpm_dispatch_next,blank
+	fetch 1,mem_sp_local_key_invalid	// simple pairing is not ready
+	rtn blank
+p_lpm_dispatch_next:
+	fetch 1,mem_sc_calc
+	nrtn blank
+
+	// Step1: check bt core APP allow lpm or not      if  not enter lpm, mult set is not  used
+	call lpm_check_wake_lock
+	nrtn blank
+
+	// Step2: check CM0 core APP allow lpm or not
+	call p_ipc_check_allow_lpm
+	nrtn blank
+	
+	// Step3: calculate sleep time enough or not.
+	call p_lpm_get_sleep_lpo
+	rtn blank
+	// Step4: notify CM0 core enter sleep mode.
+	call ipc_check_enter_lpm
+	nrtn blank
+	
+	// Step5: re-calculate sleep time, avoid c program work too long.
+	call p_lpm_get_sleep_lpo
+	rtn blank
+
+//	call ice_break
+//	branch lpm_dispatch_next+6
+	branch lpm_dispatch_lpo+5
+
+
+
+ifdef TEST_MONITOR_SBC_ERROR_WORK
+p_l2cap_call_proc_avdtp_media_data:
+	call sbc_clk_on
+
+	// for tws must update sbc stream output format
+	call sbc_update_stream_out
+
+	// set flag
+	arg LOG_POINT_1600,rega
+	fetcht 2,mem_a2dp_seq_num
+	call debug_log_print
+
+  	arg mem_media_block,rega
+	call queue_get_read_ptr
+
+	// point to data
+	add pdata,16,contr
+
+	arg 12,rega
+p_avd_media_get_offset_loop:
+	ifetch 1,contr
+	increase 1,rega
+	beq 0,p_avd_media_get_offset_loop
+
+	ifetch 1,contr
+	bne 0x9c,assert
+
+	fetch 1,0x4ff4
+	branch avd_media_get_offset_loop+5,blank
+	jam 0,0x4ff4
+	increase 1,rega
+	branch avd_media_get_offset_loop+5
+endif
+
+
+
+
+p_le_adv_not_match:
+	fetch 1,mem_le_adv_channel_map_temp
+	fetcht 1,mem_le_adv_channel_map
+	isub temp,null
+	nbranch le_adv_loop,zero
+	random pdata 
+	arg 0x1ff,temp
+	iand temp,pdata
+	add pdata,250,pdata	
+	call p_le_delay1
+p_le_adv_restart:
+	call timer_reinit
+	arg le_adv_interval_timer,queue
+	fetch 2,mem_le_adv_interval
+	branch timer_init
+
+
+p_le_delay1:
+	copy pdata,temp
+	call p_le_adv_delay
+	copy temp,pdata
+	increase -1,pdata
+	nbranch p_le_delay1,blank
+	rtn
+
+
+p_le_adv_delay:
+	fetch 1,mem_le_adv_delay
+	branch delay1
+
+
+
+
+delay1:
+	increase -1,pdata
+	nop 12
+	nbranch delay1,blank
+	rtn
+
+
+
+p_le_adv_loop_tx:
+	enable swfine
+	call le_init_adv
+	call le_next_adv_channel
+	call p_le_send_adv_ind
+	nbranch p_le_adv_not_match,match
+	fetch 1,mem_le_req_rcv
+	increase 1,pdata
+	store 1,mem_le_req_rcv
+	fetch 1,mem_le_rxbuf_adv_header
+	and pdata,0x0f,pdata
+	beq SCAN_REQ,p_le_parse_scan_req_handle
+	beq CONNECT_REQ,p_le_parse_connect_req_handle
+	call shutdown_radio
+	branch p_le_adv_not_match
+
+
+p_le_parse_connect_req_handle:
+	fetch 6,mem_le_rxbuf_adv_connect_ind_adv_address
+	fetcht 6,mem_le_lap
+	isub temp,null
+	nbranch p_ble_filter_end,  zero
+	fetch 1,mem_white_list_num
+	beq 0,p_white_filter_pass
+	fetch 1,mem_le_white_filter_policy
+	beq NONE_FILTER,p_white_filter_pass
+	beq WHITE_LIST_SCAN_FILTER,p_white_filter_pass
+	beq WHITE_LIST_CONNECT_FILTER,p_white_filter_check
+	beq WHITE_LIST_CONN_SCAN_FILTER,p_white_filter_check
+p_white_filter_check:
+	fetch 1,mem_le_adv_channel_map_temp
+	copy pdata,alarm
+	call p_check_addr_in_white_list
+	copy alarm,pdata
+	store 1,mem_le_adv_channel_map_temp
+	nbranch p_ble_filter_end,user
+p_white_filter_pass:
+	branch le_parse_connect_req+4
+
+
+
+
+
+p_check_addr_in_white_list:
+	fetchr loopcnt,1,mem_white_list_num
+	fetcht 6, mem_le_rxbuf_adv_scan_req_scan_address
+	arg mem_white_list,contr
+p_addr_compare:
+	ifetch 6,contr
+	storet 6,mem_temp1
+	isub temp,pdata
+	branch enable_user,zero
+	copy loopcnt,regb
+//	arg mem_le_irk,contw
+//	call memcpy16
+	call check_reslovable_address
+	rtn user
+	copy regb,loopcnt
+	loop p_addr_compare
+	rtn
+
+check_reslovable_address:
+//	ifetcht 1,rega
+//	isub temp,null
+//	nrtn zero    
+	call disable_user
+	arg mem_le_prand,contw
+	arg 16,loopcnt
+	call clear_mem
+	fetch 3,mem_temp1+3
+	store 3,mem_le_prand
+	call genernate_master_MacAddress
+	fetch 2,mem_le_aes_128+13
+	byteswap pdata,pdata
+	lshift8 pdata,temp
+	ifetch 1,contr
+	iadd temp,pdata
+	fetcht 3,mem_temp1
+	isub temp,null
+	branch enable_user,zero
+	rtn
+
+
+load_regext:
+	force 4,loopcnt
+p_load_regext_loop:
+//	ifetchr regext,4,contr
+	ifetch 4,contr
+ 	icopy regext	
+	increase 1,regext_index
+	loop p_load_regext_loop
+	rtn
+
+genernate_master_MacAddress:
+	arg mem_le_prand ,contr
+	call load_data128
+	arg mem_le_irk,contr
+//	ifetch 1,rega
+	call load_regext
+	force aes_big_endian | aes_load,aes_ctrl
+	force 0x0,aes_ctrl
+	call wait_aes
+	arg mem_le_aes_128,contw
+	branch store_aes_result
+
+
+p_le_parse_scan_req_handle:
+	fetch 6,mem_le_rxbuf_adv_scan_req_adv_address
+	fetcht 6,mem_le_lap
+	isub temp,null
+	nbranch p_ble_filter_end,zero
+	fetch 1,mem_white_list_num
+	beq 0,p_scan_filter_pass
+	fetch 1,mem_le_white_filter_policy
+	beq NONE_FILTER,p_scan_filter_pass
+	beq WHITE_LIST_SCAN_FILTER,p_white_filter_scan_check
+	beq WHITE_LIST_CONNECT_FILTER,p_scan_filter_pass
+	beq WHITE_LIST_CONN_SCAN_FILTER,p_white_filter_scan_check
+p_white_filter_scan_check:
+	fetch 1,mem_le_adv_channel_map_temp
+	copy pdata,alarm
+	call p_check_addr_in_white_list
+	copy alarm,pdata
+	store 1,mem_le_adv_channel_map_temp
+	nbranch p_ble_filter_end,user
+	//nrtn blank
+p_scan_filter_pass:
+p_le_send_scan_response:
+	arg SCAN_RSP,temp
+	fetch 1,mem_le_adv_own_addr_type
+	nsetflag blank,LE_SENDER_ADDR_BIT,temp
+	storet 1,mem_le_txheader
+	fetcht 1,mem_le_scan_data_len
+	add temp,6,pdata
+	store 1,mem_le_txlen
+	fetch 6,mem_le_lap
+	store 6,mem_le_txpayload
+	arg mem_le_scan_data,contr
+	copy temp,loopcnt
+	call memcpy_fast
+	call le_transmit_norx
+	branch p_le_adv_not_match
+
+p_ble_filter_end:
+	call  end_of_packet
+	branch p_le_adv_not_match
+
+
+p_le_start_adv_time_reach:  
+	branch p_le_adv_loop_tx
+
+
+
+
+
+
+/******************************************************************DTM TEST********************************************************************/
+
+p_dtm_test_loop:
+	fetch 1,mem_le_dtm_swtich
+	rtn blank
+	fetch 1, mem_le_dtm_mode
+	beq 	BT_CMD_FREQ_TEST,p_le_freq_tx
+	beq  BT_CMD_HCI_TX_TEST, p_le_hci_tx_test
+	beq  BT_CMD_HCI_RX_TEST,p_le_test_rx
+	beq  BT_CMD_HCI_END,p_hci_end
+	beq  BT_CMD_HCI_RESET,p_hci_reset
+	branch p_dtm_test_loop
+
+
+p_pn9_data_init:	
+	arg 0xff,loopcnt
+	arg mem_pn9_data,contw
+	branch  pn9
+
+p_le_test_access:
+	setarg 0x717641
+	lshift8 pdata,pdata
+	or_into 0x29,pdata
+	iforce access
+	setarg 0x555555
+	store 3,mem_le_crcinit
+	rtn	
+
+	
+
+p_le_test_rx:
+	jam 0,mem_lpm_mode
+	setarg 0
+	store 6,mem_rx_miss_count
+	store 2,mem_le_test_pcnt
+	store 2,mem_rx_err_count
+	call p_pn9_data_init	
+	call le_enable
+	call set_sync_on
+	fetcht 1,mem_freq_test
+	increase -2,temp
+//	call lerx_setfreq
+	call set_freq_rx
+	fetch 2,mem_param_pll_setup
+	call sleep
+	call rf_rx_enable
+	fetchr regb,2,mem_rx_count
+//	arg 1500,regb	//packet count
+	call p_le_test_access
+	call le_prep
+	disable is_tx
+	enable is_rx
+	enable decode_fec0
+	disable swfine
+	arg 800,stop_watch		//160 about 100ms
+eut_test_rx_packets:
+	correlate null,timeout
+//	correlate null,never
+	nbranch eut_test_miss,sync
+eut_test_rx_sync:
+	setarg 0x555555
+	store 3,mem_le_crcinit
+	iforce crc24_init
+	enable enable_crc
+	parse demod,bucket,8
+	rshift3 pwindow,pdata
+	store 1,mem_le_rxbuf
+	parse demod,bucket,8
+	rshift3 pwindow,pdata
+	istore 1,contw
+	copy pdata,loopcnt
+//	arg 64,loopcnt
+	arg mem_pn9_data,contr
+//	arg mem_le_rxbuf,contw
+	disable user
+eut_test_rx_loop:
+	parse demod,bucket,8
+	rshift3 pwindow,pdata
+//	ifetcht 1,contr
+	istore 1,contw
+//	istore 1,contwu
+//	isub temp,null
+//	ncall eut_test_rx_err,zero
+	loop eut_test_rx_loop
+	parse demod,bucket,24	
+	enable swfine
+	arg param_sifs,stop_watch		// start SIFS timer after last bit of crc
+	rshift32 pdata,pdata
+	rshift16 pdata,pdata
+	istore 3,contw
+	call eut_test_rx_err,crc_failed
+eut_test_rx1_end:
+	call eut_calc_fer
+	force 0x08,radio_ctrl
+	force 0x00,radio_ctrl
+	jam 0x20,0x8902
+	jam 0xa0,0x8902
+//call shutdown_radio
+	fetch 1,mem_le_hci_test
+	rtn blank
+//	call p_le_test_access
+	call le_prep
+	disable swfine
+	arg 3,stop_watch
+	increase -1,regb
+	nbranch eut_test_rx_packets,zero
+eut_test_rx_end:
+	rtn
+
+eut_test_miss:
+	fetch 2,mem_rx_miss_count
+	increase  1,pdata
+	store 2,mem_rx_miss_count
+	call eut_test_rx_err
+	branch eut_test_rx1_end
+	
+eut_test_rx_err:
+	enable user
+	rtn	
+
+eut_calc_fer:
+	branch eut_rx_err,user
+	fetch 2,mem_rx_ok_count
+	increase 1,pdata
+	store 2,mem_rx_ok_count
+	rtn
+
+eut_rx_err:
+	fetch 2,mem_rx_err_count
+	increase 1,pdata
+	store 2,mem_rx_err_count
+	rtn
+
+	
+p_le_hci_tx_test:
+//	call ice_break
+//jam 37,mem_tx_data_lenth
+//jam 2,mem_freq_test
+//	jam 0xe0,0x8907
+	call p_rf_tx_enable_pwr
+	call p_pn9_data_init
+//	jam 4,mem_tx_power
+	call le_enable
+//	jam 0x4f,0x8912 //if_inv
+p_test_tx_loop:
+//	jam 0,0x8907
+	call p_le_test_access
+//	call p_test_ble_tx_on
+	call set_sync_on
+//	jam 0x21,0x8908
+	fetcht 1,mem_freq_test
+	increase -2,temp
+	call set_freq_tx
+//	jam 0,0x8907
+//	jam 0x00,0x8909
+//	jam 0xff,0x890a
+//	jam 0x9f,0x890b	
+//	jam 0x2e,0x890f	
+	set1 TXGFSK,radio_ctrl
+	enable encode_fec0
+	enable is_tx
+	disable is_rx
+	call le_wait_tx
+	nop 6
+//	jam 0x00,0x8908	
+	rshift16 access,pdata
+	rshift8 pdata,pdata
+	rshift4 pdata,pdata
+	inject mod,40
+	setarg 0x555555
+	store 3,mem_le_crcinit
+	iforce crc24_init
+	enable enable_crc
+	fetchr loopcnt,1,mem_tx_data_lenth
+	fetch 1,mem_test_data1
+	inject mod,8
+	fetch 1,mem_tx_data_lenth
+	inject mod,8
+	fetch 1,mem_test_data1
+	beq 0,p_test_pn9_send
+	beq 1,p_test_0x0f_send
+	beq 2,p_test_0x55_send
+	branch p_test_pn9_send
+
+
+	
+p_test_0x55_send:
+	setarg 0x55
+	inject mod,8
+	loop p_test_0x55_send
+	branch p_test_send_end
+
+p_test_0x0f_send:
+	setarg 0x0f
+	inject mod,8
+	loop p_test_0x0f_send
+	branch p_test_send_end
+	
+p_test_pn9_send:
+	arg mem_pn9_data,contr
+p_test_pn9_send_loop:
+	ifetch 1,contr
+	inject mod,8
+	loop p_test_pn9_send_loop
+	branch p_test_send_end
+
+p_test_send_end:
+	enable enable_parity
+	inject mod,24
+	disable enable_parity
+	
+	until null,tx_clear
+	nop 100          /* flush out the last bit */
+	disable encode_fec0
+	call end_of_packet
+	fetch 1,mem_le_hci_test
+	rtn blank
+	nop 2037
+	branch p_test_tx_loop
+
+
+/*
+p_set_sync_on:
+	jam 0x5,modem_en
+	nop 2
+	jam 0x0,modem_en					
+	jam 0xaa,core_rf_ldo_cfg4
+	jam 0xaa,core_rf_ldo_cfg5
+	jam 0x15,core_rf_ldo_cfg6
+	jam 0xf8,core_rf_ldo_en0
+	jam 4,core_rf_ldo_en1
+	nop 120
+	jam 0x7a,core_syn_en
+	jam 0,core_rx_en0
+	jam 0,core_rx_en1
+	jam 0,core_tx_en0
+	jam 0,core_tx_en1
+	jam 0x2a,core_rf_ldo_cfg5
+	jam 0x78,core_rf_ldo_en0
+	jam 0,core_syn_cal_ctrl
+	rtn
+*/
+
+
+p_set_freq_tx:
+	jam 0x12,core_syn_top_ctrl
+	storet 1,mem_last_freq
+	copy temp,rega
+	call rf_tx_write_freq
+	//nop 0x3c0
+	fetch 2,mem_param_pll_setup
+	call sleep
+	branch rf_tx_enable
+
+
+
+p_test_ble_tx_on:
+	//call p_test_ble_bt_rx_off	//close rx
+	call set_sync_on
+	fetcht 1,mem_freq_point
+	call p_set_freq_tx
+	enable encode_fec0
+	enable is_tx
+	disable is_rx
+	set1 TXGFSK,radio_ctrl
+	jam 0x22,0x890d             //not send data
+	rtn
+
+p_le_freq_tx:
+	call p_test_ble_tx_on
+	call p_pn9_data_init	
+p_test_tx_carrier_loop:
+	fetch 1,mem_freq_check_flag
+	branch p_hci_end, blank
+         arg 0x19,pdata
+	copy pdata,loopcnt
+	arg mem_pn9_data,contr
+p_pnloop_carrier:
+	ifetch 1,contr
+	inject mod,8
+	loop p_pnloop_carrier
+	branch p_test_tx_carrier_loop
+
+p_hci_end:
+	jam 0,mem_le_dtm_swtich
+p_hci_reset:
+	jam 0,mem_freq_check_flag
+	jam 0,mem_le_dtm_mode
+	jam 0,mem_le_dtm_tx_packet
+	rtn
+
+
+
+
+
+
+

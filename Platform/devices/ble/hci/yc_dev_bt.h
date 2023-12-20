@@ -108,6 +108,30 @@ typedef enum
 	WHITE_LIST_CONN_SCAN_FILTER,
 }LE_WHITE_POLICY;
 
+#define BT_FEATURE_LEN 8
+
+
+
+/**********************************************************le feature***********************************************************************/
+#define BT_LE_FEAT_BIT_ENC                      0
+#define BT_LE_FEAT_BIT_CONN_PARAM_REQ           1
+#define BT_LE_FEAT_BIT_EXT_REJ_IND              2
+#define BT_LE_FEAT_BIT_SLAVE_FEAT_REQ           3
+#define BT_LE_FEAT_BIT_PING                     4
+#define BT_LE_FEAT_BIT_DLE                      5
+#define BT_LE_FEAT_BIT_PRIVACY                  6
+#define BT_LE_FEAT_BIT_EXT_SCAN                 7
+#define BT_LE_FEAT_BIT_PHY_2M                   8
+#define BT_LE_FEAT_BIT_SMI_TX                   9
+#define BT_LE_FEAT_BIT_SMI_RX                   10
+#define BT_LE_FEAT_BIT_PHY_CODED                11
+#define BT_LE_FEAT_BIT_ADV_EXT                  12
+#define BT_LE_FEAT_BIT_ADV_PER                  13
+#define BT_LE_FEAT_BIT_CHAN_SEL_ALGO_2          14
+#define BT_LE_FEAT_BIT_PWR_CLASS_1              15
+#define BT_LE_FEAT_BIT_MIN_USED_CHAN_PROC       16
+
+#define LE_LL_FEATURE_LEN 8
 /*********************************************************** linkkey relative************************************************************/
 
 #define Flash_BLE_ADDR 0x7d100	
@@ -182,6 +206,14 @@ typedef enum
 }BLE_DEVICE_INFO_TYPE;
 
 /*********************************************************** Function declaration relative************************************************************/
+void bt_set_smp_iocap(uint8_t iocap);
+void bt_set_smp_oob(uint8_t oob);
+void bt_set_smp_max_keysize(uint8_t keysize);
+void bt_set_smp_init_key_distribution(uint8_t keyinit);
+void bt_set_smp_key_distribution(uint8_t keydistribution);
+
+void bt_set_local_feature(uint8_t  *feature, uint8_t len);
+
 bool bt_check_save_connect_info(void);
 void bt_state_init(void);
 void bt_set_le_addr(uint8_t *addr);

@@ -8,6 +8,7 @@
 #include "malloc.h"
 #include "yc_dev_bt.h"
 #include "app_config.h"
+#include "yc_ble_ll.h"
 
 #ifdef FUNCTION_WATCH_DOG
 IWDG_InitTypeDef gWdtInit = {
@@ -30,7 +31,7 @@ static IPCHandleCb_TypeDef IPCHandleCb[IPC_TYPE_NUM] = {
     Bt_BleCallBack,//ble
     Bt_DataBufferCallBack,//buffer
     IpcDefaultCallBack,//mesh
-    IpcDefaultCallBack,//mesh
+    Bt_LmpCallBack,//mesh
     IpcDefaultCallBack,//mesh
     IpcDefaultCallBack,//a2dp
     IpcDefaultCallBack,//hfp
@@ -46,7 +47,7 @@ static void bt_init(void)
 {    
     Memory_InitHeap((uint *)gHeapBuffer, HEAP_BUFFER_SIZE);
     Bt_HciFifo_Init();
-    
+    uint8_t feature[8] = {0xfd,0,0,0,0,0,0,0};
     if(!Lpm_GetWakeFlag())
     {
         IPC_Init(&IPCHandleCb);
@@ -55,6 +56,7 @@ static void bt_init(void)
         bt_set_tx_power(TX_POWER_5DB);
         bt_state_init();
         bt_set_local_dle(251,2120,251,2120);
+        bt_set_local_feature(feature, sizeof(feature));
     }
 }
 
