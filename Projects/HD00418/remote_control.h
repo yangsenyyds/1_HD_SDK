@@ -55,8 +55,8 @@
 
 
 /* LED */
-#define LED_1_PIN       (GPIO_7)
-#define LED_2_PIN       (GPIO_6)
+#define LED_1_PIN       (GPIO_6)
+#define LED_2_PIN       (GPIO_7)
 
 #define LED_ON      (GPIO_Mode_Out_Low)
 #define LED_OFF     (GPIO_Mode_Out_High)

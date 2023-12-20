@@ -7,7 +7,7 @@
 #include "yc_dev_bt.h"
 #include "att_list.h"
 #define LG22 (2)
-#define LG_Project  (163)
+#define LG_Project  (952)
 /* WATCH_DOG */
 #define FUNCTION_WATCH_DOG
 // #define ADV_TIME 1

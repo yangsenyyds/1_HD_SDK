@@ -50,8 +50,6 @@ typedef struct
 {
     uint8_t MouseNTFBuf[MOUSE_SEND_LEN];
 } MouseNTFQue_TypeDef;
-
-const uint8_t product_key_s[] = {15,2,125};
 #if (LG_Project == 107)//lg20 5501
 static const KeyBuf_TypeDef KeyBuf[] = {
     {0x00, 0x00, 0, 0}, // 0
@@ -1267,10 +1265,10 @@ static void update_axis_2_usr_data(int16_t *acc_in, int16_t *gyro_in)
 {
     int16_t gyro_out[3];
     float gyro[3], acc[3];
-    //DEBUG_LOG_STRING("acc_in [%d] [%d] [%d] gyro_in[%d][%d] [%d]\r\n",acc_in[0],acc_in[1],acc_in[2],gyro_in[0],gyro_in[1], gyro_in[2]);
+    DEBUG_LOG_STRING("acc_in [%d] [%d] [%d] gyro_in[%d][%d] [%d]\r\n",acc_in[0],acc_in[1],acc_in[2],gyro_in[0],gyro_in[1], gyro_in[2]);
     auto_calibration_axis(acc_in, gyro_in, gyro_out);
-    //DEBUG_LOG_STRING("1acc_in [%d] [%d] [%d] gyro_in[%d][%d] [%d] acclsb %d\r\n",acc_in[0],acc_in[1],acc_in[2],gyro_in[0],gyro_in[1], gyro_in[2],get_acc_lsb_div());
-    //DEBUG_LOG_STRING("get_acc_lsb_div = %d get_gyro_lsb_div = %d\r\n",get_acc_lsb_div(),get_gyro_lsb_div());
+    DEBUG_LOG_STRING("1acc_in [%d] [%d] [%d] gyro_in[%d][%d] [%d] acclsb %d\r\n",acc_in[0],acc_in[1],acc_in[2],gyro_in[0],gyro_in[1], gyro_in[2],get_acc_lsb_div());
+    DEBUG_LOG_STRING("get_acc_lsb_div = %d get_gyro_lsb_div = %d\r\n",get_acc_lsb_div(),get_gyro_lsb_div());
     acc[0] = acc_in[0] * (1.0f / get_acc_lsb_div()) * AXRATIO * G_CONST_VALUE;
     acc[1] = acc_in[1] * (1.0f / get_acc_lsb_div()) * AYRATIO * G_CONST_VALUE;
     acc[2] = acc_in[2] * (1.0f / get_acc_lsb_div()) * AZRATIO * G_CONST_VALUE;
@@ -1278,7 +1276,7 @@ static void update_axis_2_usr_data(int16_t *acc_in, int16_t *gyro_in)
     gyro[0] = gyro_out[0] * (1.0f / get_gyro_lsb_div()) * GYXRATIO * GYRO_CONST_VALUE;
     gyro[1] = gyro_out[1] * (1.0f / get_gyro_lsb_div()) * GYYRATIO * GYRO_CONST_VALUE;
     gyro[2] = gyro_out[2] * (1.0f / get_gyro_lsb_div()) * GYZRATIO * GYRO_CONST_VALUE;
-   // DEBUG_LOG_STRING("222 acc [%d] [%d] [%d] gyro_in[%d][%d] [%d]\r\n",acc[0],acc[1],acc[2],gyro[0],gyro[1], gyro[2]);
+    DEBUG_LOG_STRING("222 acc [%d] [%d] [%d] gyro_in[%d][%d] [%d]\r\n",acc[0],acc[1],acc[2],gyro[0],gyro[1], gyro[2]);
     /// ax
     usr_axis_key_buf[ACC_GYRO_FRM_AX_H] = (((int16_t)gyro[0]) >> 8) & 0xff;
     usr_axis_key_buf[ACC_GYRO_FRM_AX_L] = (((int16_t)gyro[0]) >> 0) & 0xff;
@@ -1297,9 +1295,9 @@ static void update_axis_2_usr_data(int16_t *acc_in, int16_t *gyro_in)
     /// gz
     usr_axis_key_buf[ACC_GYRO_FRM_GZ_H] = (((int16_t)acc[2]) >> 8) & 0xff;
     usr_axis_key_buf[ACC_GYRO_FRM_GZ_L] = (((int16_t)acc[2]) >> 0) & 0xff;
-    // DEBUG_LOG_STRING("ux:%02x,%02x,%02x,%02x,%02x,%02x,%02x,%02x,%02x,%02x,%02x,%02x\r\n", usr_axis_key_buf[4], usr_axis_key_buf[5], usr_axis_key_buf[6], usr_axis_key_buf[7],
-    // usr_axis_key_buf[8], usr_axis_key_buf[9], usr_axis_key_buf[10], usr_axis_key_buf[11],
-    // usr_axis_key_buf[12], usr_axis_key_buf[13], usr_axis_key_buf[14], usr_axis_key_buf[15]);
+    DEBUG_LOG_STRING("ux:%02x,%02x,%02x,%02x,%02x,%02x,%02x,%02x,%02x,%02x,%02x,%02x\r\n", usr_axis_key_buf[4], usr_axis_key_buf[5], usr_axis_key_buf[6], usr_axis_key_buf[7],
+    usr_axis_key_buf[8], usr_axis_key_buf[9], usr_axis_key_buf[10], usr_axis_key_buf[11],
+    usr_axis_key_buf[12], usr_axis_key_buf[13], usr_axis_key_buf[14], usr_axis_key_buf[15]);
 }
 
 /*

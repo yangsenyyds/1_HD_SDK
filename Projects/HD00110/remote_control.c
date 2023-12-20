@@ -42,7 +42,6 @@ enum
     APP_KEY_IDX_OK = 25,
     APP_KEY_IDX_VOICE = 19,
 };
-const uint8_t product_key_s[] = {15,2,123};
 #if LG22
 static const uint8_t adv_data_buf[] = {0x02, 0x01, 0x05, 0x17, 0xFF, 0xC4, 0x00, 0x53, 0x43, 0x44, 0x20, 0x31, 0x39, 0x2E, 0x31, 0x2C, 0x42, 0x41, 0x20, 0x33, 0x35, 0x2C, 0x77, 0x65, 0x62, 0x4F, 0x53};
 static const uint8_t scan_rsp_data_buf[] = {0x09, 0x09, 0x4C, 0x47, 0x45, 0x20, 0x4D, 0x52, 0x32, 0x32};
@@ -461,8 +460,6 @@ pkt_type
 void update_voice_packet(uint8_t *pkt)
 {
     uint8_t len = 0;
-
-
     if (pkt)
     {
         if (app_pkt_type == E_APP_PKT_TYPE_START_ADUIO) /// kv 03
@@ -546,13 +543,6 @@ void update_voice_packet(uint8_t *pkt)
             pkt[1] = len; /// len
         }
     }
-    if(get_factory_state())
-    {
-
-        pkt[0] = 250; /// handle
-        pkt[1] = 123; /// len 
-        // DEBUG_LOG_STRING("pkt[0] = %d \r\n",pkt[0]);
-    }
 }
 
 /*
@@ -627,11 +617,6 @@ static void auto_calibration_axis(int16_t *acc_in, int16_t *gyro_in, int16_t *gy
                 gyro_offset[2] = (int16_t)(sum_gyro[2] / GYRO_BUF_SIZE);
                 DEBUG_LOG_STRING("axis calibration:%d	%d	%d\n", gyro_offset[0], gyro_offset[1], gyro_offset[2]);
                 cnt = 0;
-                if(get_factory_state())
-                {
-                    uint8_t factory_mouse_move_state[3] ={0x0,0x0,0x0};
-                    ATT_sendNotify(65532, (void *)&factory_mouse_move_state, sizeof(factory_mouse_move_state));
-                }
             }
             else
             {
@@ -640,11 +625,6 @@ static void auto_calibration_axis(int16_t *acc_in, int16_t *gyro_in, int16_t *gy
         }
         else
         {
-            if(get_factory_state())
-            {
-                uint8_t factory_mouse_move_state[3] ={0x0,0x0,0x1};
-                ATT_sendNotify(65532, (void *)&factory_mouse_move_state, sizeof(factory_mouse_move_state));
-            }
             auto_cnt = 0; 
             cnt = 0;
         }
@@ -847,7 +827,7 @@ static uint8_t all_state_switch(int16_t *acc_in, int16_t *gyro_in)
         }
     }
 
-    if (bt_check_le_connected() && axis_key_enable)
+    if (bt_check0_le_connected() && axis_key_enable)
     {
         uint8_t head_upt = 0;
         do
@@ -1744,10 +1724,12 @@ void app_init(void)
         led_init();
         voice_report_init();
         ir_init(UPD6121G2_68, CUSTOM_04_FB_A);
-        keyscan_init(KEY_MODE_SINGLE, keyvalue_handle);
-        check_mouse_chip_id();
-        encode_timer_init();
 
+        keyscan_init(KEY_MODE_SINGLE, keyvalue_handle);
+
+        check_mouse_chip_id();
+        
+        encode_timer_init();
         app_rpt_timeout_timernum = swtimer_add(app_rpt_timeout_handle);
         brand_pressed_timernum = swtimer_add(key_pressed_handle);
         encode_timernum = swtimer_add(encode_handle);

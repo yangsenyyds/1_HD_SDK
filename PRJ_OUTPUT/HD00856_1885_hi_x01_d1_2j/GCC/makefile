@@ -1,5 +1,5 @@
 ifeq ($(OS),Windows_NT)
-GCC_ARM_PATH = D:\Environment\RISC-V\riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib
+GCC_ARM_PATH = C:\Users\Ljp\Desktop\RISC-V\riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib
 else
 GCC_ARM_PATH = /usr/gcc-arm-none-eabi-7-2018-q2-update
 endif

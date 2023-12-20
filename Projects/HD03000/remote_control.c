@@ -31,7 +31,7 @@ enum{
     Back_Keynum = 15,
     CONN_PARAM = 99,
 };
-#if (MENU == 1)//涓嶉棯鐏殑
+#if (MENU == 1)//不闪灯的
 static const uint8_t ir_data[] = {
     0x00,
 
@@ -89,7 +89,7 @@ static const uint8_t ir_data[] = {
     0X00,
     0X46,
 };
-#else //闂伅娆�
+#else //闪灯款
 static const uint8_t ir_data[] = {
     0x00,
 
@@ -331,7 +331,7 @@ static void keyvalue_handle(key_report_t* key_report)
     else if (key_pressed_num == 1)
     {
         keynum = 0;
-        for(uint8_t i = 0; i < KEY_COL_NUM; i++){
+        for(uint8_t i = 0; i < KEY_ROW_NUM; i++){
             keynum += key_report->keynum_report_buf[i];
         }
         DEBUG_LOG_STRING("KEY [%d] \r\n", keynum);
@@ -700,7 +700,7 @@ void app_init(void)
 {
     if (!Lpm_GetWakeFlag())
     {
-        bt_set_ce_length_num(0x0F);//小锟斤拷锟斤拷  锟斤拷锟斤拷锟�0x08
+        bt_set_ce_length_num(0x0F);//С����  �����0x08
         software_timer_start(SYSTEM_CURRENT_CLOCK, 10);
         app_sleep_init();
         vbat_init(power_handle);

@@ -1047,7 +1047,7 @@ static void mouse_handle(void *data)
     gyro_buf[0] = sensor_data->gx;
     gyro_buf[1] = sensor_data->gy;
     gyro_buf[2] = sensor_data->gz;
-    // DEBUG_LOG_STRING("acc_buf = %d %d %d,gyro_buf = %d %d %dr\n",acc_buf[0], acc_buf[1], acc_buf[2], gyro_buf[0],gyro_buf[1] ,gyro_buf[2]);
+    DEBUG_LOG_STRING("acc_buf = %d %d %d,gyro_buf = %d %d %dr\n",acc_buf[0], acc_buf[1], acc_buf[2], gyro_buf[0],gyro_buf[1] ,gyro_buf[2]);
     if (!all_state_switch(acc_buf, gyro_buf))
     {
         if(Bt_HciGetUsedBufferNum() <= 12) {

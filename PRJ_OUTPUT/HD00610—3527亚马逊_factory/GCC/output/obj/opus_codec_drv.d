@@ -10,7 +10,8 @@ output/obj/opus_codec_drv.o: \
  ../../../Platform/sdk/yc11xx_audio_adc.h \
  ../../../Platform/devices/ble/hci/yc_dev_bt.h \
  ../../../Projects/HD00610_3527_factory_test/att_list.h \
- ../../../APP/factory/factory_test_off_line.h \
+ ../../../Projects/HD00610_3527_factory_test/factory_test.h \
+ ../../../Projects/HD00610_3527_factory_test/remote_control.h \
  ../../../Platform/devices/ble/att/att.h \
  ../../../APP/audio/encode/opus/opus.h \
  ../../../APP/audio/encode/opus/opus_types.h \
@@ -36,7 +37,9 @@ output/obj/opus_codec_drv.o: \
 
 ../../../Projects/HD00610_3527_factory_test/att_list.h:
 
-../../../APP/factory/factory_test_off_line.h:
+../../../Projects/HD00610_3527_factory_test/factory_test.h:
+
+../../../Projects/HD00610_3527_factory_test/remote_control.h:
 
 ../../../Platform/devices/ble/att/att.h:
 

@@ -565,6 +565,45 @@ static const uint8_t keyvalue_buf[] = {
     0xBB,//HULU //下1
 
 };
+
+#elif (Project_key == 225)
+static const uint8_t keyvalue_buf[] = {
+    0x00,
+
+    0x02,   // POWER 1
+    0xa0,   // voice
+    0xEF,   // 层叠
+    0x12,   // ch+
+    0x60,   // up
+
+    0x62,  // right 6
+    0x68,  // ok
+    0xb9,  // Pause
+    0x65,  // left
+    0x4f,  // 中间
+
+    0xd2,  // 123 ....
+    0x79,  // home
+    0x58,  // back
+    0x61,  // down
+    0xf4,  // primevideo //上2
+
+    0x10,  // ch- 16
+    0xB4,  //上3 samsungtv plus
+    0xf3,  // 
+    0x07,  // vol+
+    0x0f,  // mute
+
+    0x0b,  // vol- 21 
+    0xBC, //RAKUTEN TV下3
+    0x00, //中2
+    0x37, // WWW
+    0xf3, //上1 netflix
+
+    0x00,//中 1 //26
+    0xDF, // DISNEPLT+//下 2  
+
+};
 #endif
 static const uint8_t scan_rsp_data_buf[] = {0x13, 0x09, 0x53, 0x6D, 0x61, 0x72, 0x74, 0x20, 0x43, 0x6F, 0x6E, 0x74, 0x72, 0x6F, 0x6C, 0x20, 0x32, 0x30, 0x31, 0x36};
 static const uint8_t adv_data_buf[] = {0x02, 0x01, 0x05, 0x03, 0x19, 0x80, 0x01, 0x07, 0x02, 0x12, 0x18, 0x0F, 0x18, 0x0A, 0x18};
@@ -799,7 +838,6 @@ static void keyvalue_handle(key_report_t *key_report)
                 + key_report->keynum_report_buf[4] + key_report->keynum_report_buf[5];
         DEBUG_LOG_STRING("KeyNum [%d] \r\n", keynum);
         led_on(LED_1, 0, 0);
-        // led_on(LED_1, 200, 0);
         if (keynum == Pwr_Keynum) {
             send_number = 0;
             swtimer_start(power_timernum, 10, TIMER_START_ONCE);
@@ -844,9 +882,7 @@ static void keyvalue_handle(key_report_t *key_report)
 static void power_handle(uint8_t batlevel)
 {
     DEBUG_LOG_STRING("BAT LEVEL: %d \r\n", batlevel);
-
-    // start_adv(ADV_TYPE_NOMAL, 0x10, true);
-
+    
     if (batlevel <= 20 && tx_power_switch) {
         tx_power_switch = false;
         bt_set_tx_power(TX_POWER_5DB);
@@ -1151,7 +1187,6 @@ void app_init(void)
         param_accepted_timernum = swtimer_add(param_accepted_handle);
         low_power_timernum = swtimer_add(low_power_handle);
         power_timernum = swtimer_add(ir_send_smart);
-
         if (!SecretKey_Check())
         {
 #ifdef SecretKey_Check_enable

@@ -101,6 +101,9 @@ static const uint8_t audio_start[] = {0x04};
 static const uint8_t get_caps_respone_buf[] = {0x0B,0x00,0x04,0x00,0x03,0x00,0x86,0x00,0x14};
 #endif
 
+
+
+
 static  uint8_t send_num_buf[3] = {0x0A,0X00,0X00};
 static  uint16_t send_num_cnt;
 
@@ -121,7 +124,6 @@ WEAK void update_voice_packet(uint8_t *voice_buf){}
 WEAK void action_after_mic_close(void){}
 WEAK void tx_power_switch_set(bool switch_enable){}
 WEAK void app_sleep_lock_set(DEV_LOCK_TypeDef dev_lock, bool state){}
-
 
 static uint16_t Get_MicReocrd_Len(void)
 {
@@ -191,12 +193,10 @@ static void Voice_Send(void)
         {
             ntf_buf_offset = AUDIO_FRAME_HEADER_LEN;
             update_voice_packet(VoiceNTFBuf);
-
 #if SAMSUNG
             VoiceNTFBuf[0] = voice_status.packet_cnt++;
             ATT_sendNotify(AUDIO_SNED_HANDLE, VoiceNTFBuf, AUDIO_SEND_NTF_SIZE);
 #elif LG
-
             ATT_sendNotify(VoiceNTFBuf[0], (void *)&VoiceNTFBuf[2], VoiceNTFBuf[1]);
 #elif VIZIO
             ATT_sendNotify(AUDIO_SNED_HANDLE, VoiceNTFBuf, AUDIO_SEND_NTF_SIZE);
@@ -465,7 +465,7 @@ void mic_open(void)
     Audio_AdcConfig();
 #ifdef AUDIO_TEST_MODE
     AUDIO_AdcDmaSet(true);
-    audio_task();
+    app_queue_insert(audio_task);
 #else
     swtimer_start(start_ntf_timernum, START_NTF_TIME, TIMER_START_ONCE);
 #ifndef FACTORY_MODE

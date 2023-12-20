@@ -176,14 +176,7 @@ static void Voice_Send(void)
                 VoiceNTFBuf[0] = voice_status.packet_cnt++;
                 ATT_sendNotify(AUDIO_SNED_HANDLE, VoiceNTFBuf, AUDIO_SEND_NTF_SIZE);
 #elif LG
-                if(VoiceNTFBuf[0] == 250)
-                {
-                    ATT_sendNotify(65532, (void *)&VoiceNTFBuf[2], VoiceNTFBuf[1]);
-                }
-                else
-                {
-                    ATT_sendNotify(VoiceNTFBuf[0], (void *)&VoiceNTFBuf[2], VoiceNTFBuf[1]);
-                }
+                ATT_sendNotify(VoiceNTFBuf[0], (void *)&VoiceNTFBuf[2], VoiceNTFBuf[1]);
                 //DEBUG_LOG_STRING("audio %02x %02x %02x %02x %02x %02x %02x %02x %02x %02x\r\n", VoiceNTFBuf[0], VoiceNTFBuf[1], VoiceNTFBuf[2], VoiceNTFBuf[3], VoiceNTFBuf[4], VoiceNTFBuf[5], VoiceNTFBuf[6], VoiceNTFBuf[7], VoiceNTFBuf[8], VoiceNTFBuf[9]);
                 //DEBUG_LOG_STRING("audio %02x %02x %02x %02x %02x %02x\r\n", VoiceNTFBuf[64], VoiceNTFBuf[65], VoiceNTFBuf[66],VoiceNTFBuf[67], VoiceNTFBuf[68], VoiceNTFBuf[69]);
                 // for(uint16_t i = 0; i < VoiceNTFBuf[1]; i++){

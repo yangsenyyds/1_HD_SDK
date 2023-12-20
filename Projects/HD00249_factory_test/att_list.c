@@ -34,7 +34,7 @@ static uint8_t Service_Changed_ccc[2];
 
 static const uint8_t SERVICE_DEVICE_INFO[] = {UUID2ARRAY(UUID_SERVICE_DEVICE_INFO)};
 static const uint8_t CHRCTR_MANUFACTURE_NAME[] = {UUID2ARRAY(UUID_CHRCTR_MANUFACTURE_NAME)};
-static const uint8_t manufacture_name[] = {"Smart Control 2016"};
+static const uint8_t manufacture_name[] = {""};
 static const uint8_t CHRCTR_SYSTEM_ID[] = {UUID2ARRAY(UUID_CHRCTR_SYSTEM_ID)};
 static const uint8_t system_id[] = {0x01,0x02,0x03,0x04,0x05,0x53,0x04,0x00};
 static const uint8_t CHRCTR_MODEL_NUMBER[] = {UUID2ARRAY(UUID_CHRCTR_MODEL_NUMBER)};

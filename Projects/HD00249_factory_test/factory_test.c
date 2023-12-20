@@ -30,7 +30,6 @@ void factory_WriteDataParse(unsigned short handle, unsigned char *data, unsigned
         {
             // enter factory mode
             g_factorymode = true;
-
             app_sleep_timer_set(PAIR_DONE_DELAY);
         }
         else if (0 == memcmp(cmd_mic_close, data, sizeof(cmd_mic_close) - 1))

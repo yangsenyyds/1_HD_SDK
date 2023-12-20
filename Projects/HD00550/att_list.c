@@ -196,7 +196,7 @@ const ATT_TABLE_TYPE Att_List[] =
 	{56,16,CHRCTR_REPORT,2,CHRCTR_CFBF_01},
 	{57,2,CHARACTERTIC_CONFIGURATION,2,CHRCTR_CFBF_01_value},
 
-	/* OTA Service */
+			/* OTA Service */
 	{65500,2,PRIMARY_SERVICE,2,OTA_SERVICE},
 
 	{65501,2,GATT_CHARACTERISTIC,1,READ_WRITE_WITHOUT_RESPONSE_NOTIFY_PREMITTED},
@@ -209,7 +209,7 @@ const ATT_TABLE_TYPE Att_List[] =
 	{65530,2,PRIMARY_SERVICE,16,factory_primary_uuid},
 
 	{65531, 2, GATT_CHARACTERISTIC, 1, NOTIFY_READ_WRITE_WITHOUT_RESPONSE_PREMITTED},
-	{65532, 16, factory_characteristic_uuid, sizeof(product_id_s) -1, product_id_s},
+	{65532, 16, factory_characteristic_uuid, sizeof(product_id_s), product_id_s},
 };
 
 static uint16_t Get_AttListSize(void)

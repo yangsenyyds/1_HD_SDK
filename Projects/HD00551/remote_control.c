@@ -414,7 +414,7 @@ static void keyvalue_handle(key_report_t *key_report)
     else if (key_pressed_num == 1)
     {
         keynum = 0;
-        for (uint8_t i = 0; i < KEY_COL_NUM; i++)
+        for (uint8_t i = 0; i < KEY_ROW_NUM; i++)
         {
             keynum += key_report->keynum_report_buf[i];
         }

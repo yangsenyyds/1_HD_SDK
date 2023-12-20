@@ -96,7 +96,6 @@ VPATH += $(APP_ROOT)/flash/YC
 VPATH += $(APP_ROOT)/ir/ir_learn/ir_learn_from_tv
 VPATH += $(APP_ROOT)/ir/ir_send
 VPATH += $(APP_ROOT)/audio
-VPATH += $(APP_ROOT)/factory
 VPATH += $(ENCODE_ROOT)
 
 SRCINCLUDE += -I$(MAIN_DIR)
@@ -119,7 +118,6 @@ SRCINCLUDE += -I$(APP_ROOT)/flash/YC
 SRCINCLUDE += -I$(APP_ROOT)/ir/ir_learn/ir_learn_from_tv
 SRCINCLUDE += -I$(APP_ROOT)/ir/ir_send
 SRCINCLUDE += -I$(APP_ROOT)/audio
-SRCINCLUDE += -I$(APP_ROOT)/factory
 SRCINCLUDE += -I$(ENCODE_ROOT)
 
 
@@ -157,6 +155,7 @@ APP := \
 	att.c \
 	flash.c \
 	app_queue.c \
+	factory_test.c \
 	app_sleep.c \
 	vbat.c \
 	keyscan.c \
@@ -164,7 +163,6 @@ APP := \
 	ir_send.c \
 	ir_learn_from_tv.c \
 	audio.c \
-	factory_test_off_line.c \
 	$(wildcard $(ENCODE_ROOT)/*.c) \
 
 APP_DIR := $(notdir $(APP))

@@ -356,7 +356,7 @@ static void keyvalue_handle(key_report_t* key_report)
     else if (key_pressed_num == 1)
     {
         keynum = 0;
-        for(uint8_t i = 0; i < KEY_COL_NUM; i++) {
+        for(uint8_t i = 0; i < KEY_ROW_NUM; i++) {
             keynum += key_report->keynum_report_buf[i];
         }
         DEBUG_LOG_STRING("KEY [%d][%d][%d][%d][%d][%d][%d]\r\n", key_report->keynum_report_buf[0]
@@ -796,12 +796,9 @@ void app_init(void)
             }
 #endif
         }
-        GPIO_Init(GPIO_34,GPIO_Mode_Out_High);
-            // while(1)
-            // {
-            //     DEBUG_LOG_STRING("read %d\r\n",GPIO_ReadDataBit(GPIO_23));
-            // }
         // DEBUG_LOG_STRING("LIGHT_LED_PIN %d\r\n",GPIO_ReadDataBit(LIGHT_LED_PIN));
+
+
         // qma6100_init();
         DEBUG_LOG_STRING("APP INIT DONE \r\n");
     }

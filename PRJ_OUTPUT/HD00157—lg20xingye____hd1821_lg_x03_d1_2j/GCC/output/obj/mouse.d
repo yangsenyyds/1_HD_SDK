@@ -12,7 +12,7 @@ output/obj/mouse.o: ../../../APP/LG/mouse/qmi8658_A/mouse.c \
  ../../../Platform/core/btreg.h \
  ../../../Platform/devices/bt/yc11xx_dev_bt_data_trans.h \
  ../../../Platform/core/yc_debug.h ../../../Platform/core/yc11xx.h \
- ../../../Vendor/Remote_Control/app_config.h
+ ../../../Vendor/Remote_Control/app_config.h ../../../APP/led/led.h
 
 ../../../APP/LG/mouse/qmi8658_A/mouse.h:
 
@@ -47,3 +47,5 @@ output/obj/mouse.o: ../../../APP/LG/mouse/qmi8658_A/mouse.c \
 ../../../Platform/core/yc11xx.h:
 
 ../../../Vendor/Remote_Control/app_config.h:
+
+../../../APP/led/led.h:

@@ -231,7 +231,7 @@ static void key_pressed_handle(void)
                 keynum_second = 0;
                 key_pressed_time = 0;
                 led_state = true;
-                led_on(LED_2,200,30000);
+                led_on(LED_2,200,3000);
                 Bt_ClearRemoteDevInfo();
                 Bt_ClearDeviceNvdataInfo();
                 start_adv(ADV_TYPE_NOMAL, 0x10,true);

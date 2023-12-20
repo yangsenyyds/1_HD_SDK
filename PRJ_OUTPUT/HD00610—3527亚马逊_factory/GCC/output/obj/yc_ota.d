@@ -11,7 +11,8 @@ output/obj/yc_ota.o: ../../../Platform/devices/ota/yc_ota.c \
  ../../../Platform/sdk/yc11xx_gpio.h \
  ../../../Platform/sdk/yc11xx_audio_adc.h \
  ../../../Projects/HD00610_3527_factory_test/att_list.h \
- ../../../APP/factory/factory_test_off_line.h \
+ ../../../Projects/HD00610_3527_factory_test/factory_test.h \
+ ../../../Projects/HD00610_3527_factory_test/remote_control.h \
  ../../../Platform/devices/ble/att/att.h \
  ../../../Projects/HD00610_3527_factory_test/att_list.h \
  ../../../Platform/sdk/yc11xx_iwdg.h
@@ -44,7 +45,9 @@ output/obj/yc_ota.o: ../../../Platform/devices/ota/yc_ota.c \
 
 ../../../Projects/HD00610_3527_factory_test/att_list.h:
 
-../../../APP/factory/factory_test_off_line.h:
+../../../Projects/HD00610_3527_factory_test/factory_test.h:
+
+../../../Projects/HD00610_3527_factory_test/remote_control.h:
 
 ../../../Platform/devices/ble/att/att.h:
 

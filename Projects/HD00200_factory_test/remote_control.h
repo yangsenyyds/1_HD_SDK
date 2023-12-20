@@ -7,7 +7,7 @@
 #include "yc_dev_bt.h"
 #include "att_list.h"
 #include "factory_test_off_line.h"
-#define Project_key  (248)
+#define Project_key  (208)
 /* WATCH_DOG */
 #define FUNCTION_WATCH_DOG
 
@@ -16,7 +16,7 @@
 #define DEBUG_GPIO_DEFINE   (GPIO_9)
 
 /* SecretKey_Check_enable */
-// #define SecretKey_Check_enable (1)
+#define SecretKey_Check_enable (1)
 
 /* sleep 1 hour*/
 #define SLEEP_ONE_HOUR      (1)
@@ -102,7 +102,7 @@ typedef enum {
 /// slave latency
 #define DF_SLAVE_LATENCY_VALUE_128 (128)
 #define DF_SLAVE_LATENCY_VALUE_32 (32)
-extern const uint8_t product_key_s[];
+
 extern bool encrypt_state;
 extern void LE_LTK_LOST(void);
 extern void update_conn_param(bool is_sleep);

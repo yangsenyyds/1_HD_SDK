@@ -256,7 +256,6 @@ static void keyscan_once(void)
     }
     
     if (key_report.key_press_cnt > 0) {
-        // DEBUG_LOG_STRING("key lock \r\n");
         app_sleep_lock_set(KEY_LOCK, true);
     }
 }
@@ -267,7 +266,6 @@ static void key_task(void)
     {
         if (key_cfg.key_mode == KEY_MODE_SINGLE)
         {
-
             if (key_changed)
             {
                 key_changed = false;

@@ -14,7 +14,7 @@ set RESPIN_ROM_UTIL_PATH=%LIB_PATH%\bt_rom\util
 
 
 @echo start compile RISCV bin
-set path=D:\Environment\RISC-V\msys64\mingw32\bin;%path%;
+set path=C:\Users\Ljp\Desktop\RISC-V\msys64\mingw32\bin;%path%;
 
 @echo clear
 cd "%OUTPUT_PATH%"

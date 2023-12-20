@@ -7,7 +7,7 @@
 #include "yc_dev_bt.h"
 #include "att_list.h"
 
-#define Project_key (859)
+#define Project_key (857)
 /* WATCH_DOG */
 #define FUNCTION_WATCH_DOG
 

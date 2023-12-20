@@ -29,7 +29,7 @@
 #define KEY_ROW5_PIN    (GPIO_19)
 #define KEY_ROW6_PIN    (GPIO_23)
 #define KEY_ROW7_PIN    (GPIO_32)
-#define KEY_ROW_NUM     (7)
+#define KEY_ROW_NUM     (6)
 
 #define KEY_COL1_PIN    (GPIO_24)
 #define KEY_COL2_PIN    (GPIO_27)
@@ -38,7 +38,7 @@
 #define KEY_COL5_PIN    (GPIO_30)
 #define KEY_COL6_PIN    (GPIO_31)
 #define KEY_COL7_PIN    (GPIO_33)
-#define KEY_COL_NUM     (7)
+#define KEY_COL_NUM     (6)
 
 /* LED */
 #define LED_1_PIN   (GPIO_7)
@@ -75,21 +75,12 @@
 
 #define FRAME_HEADER    (0xAA)
 
-
-#define CODE_BURN_FLASHADDR1    (0x1000)
-#define CODE_BURN_FLASHADDR2    (0x40000)
-#define CODE_OFFSET_LEN         (3)
-#define SERIAL_NAME_LEN         (16)
 typedef enum{
     PC,
     DONGLE,
     RCU
 }DIR_SEND_TypeDef;
 
-typedef enum {
-    SecretKey_Addr = 0x3BF00,
-    addr_base = 0x3C000,
-} FlashRecordAddr_TypeDef; //存储数据需要 8字节
 #define CMD_NAME_CHECK  (0x01)
 #define CMD_KEY         (0x02)
 #define CMD_VOICE       (0x03)

@@ -65,16 +65,16 @@
 #define LED_OFF     (GPIO_Mode_Out_High)
 
 /* VOICE */
-#define AUDIO_TEST_MODE  
+// #define AUDIO_TEST_MODE  
 #ifdef AUDIO_TEST_MODE
 #include "yc11xx_uart.h"
 #define AUDIO_UART              (UARTA)
 #define AUDIO_UART_RX_GPIO      (GPIO_11)
 #define AUDIO_UART_TX_GPIO      (DEBUG_GPIO_DEFINE)
 #endif
-#define AdcOutputMode   (ADC_DifferentialOutput)
+#define AdcOutputMode   (ADC_SingleEndOutputWithCapacitor)
 #define AdcAnaSEWithCapacitor_VOLTAGE_GAIN  (20)
-#define AdcAnaDiffConfig_VOLTAGE_GAIN       (26)
+#define AdcAnaDiffConfig_VOLTAGE_GAIN       (15)
 
 #define OPUS                    (1)
 

@@ -9,7 +9,7 @@
 
 /* WATCH_DOG */
 #define FUNCTION_WATCH_DOG
-#define Project_key  (804)
+#define Project_key  (803)
 /* LOG */
 #define FUNCTION_CONTROL_DEBUG_ENABLE
 #define DEBUG_GPIO_DEFINE (GPIO_9)
