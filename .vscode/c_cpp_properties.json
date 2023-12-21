@@ -8,7 +8,11 @@
                 "${workspaceFolder}/Vendor/Remote_Control",
                 "${workspaceFolder}/APP/**",
                 "${workspaceFolder}/Platform/**",
+<<<<<<< HEAD
                 "${workspaceFolder}/Projects/HD01053",
+=======
+                "${workspaceFolder}/Projects/HD00110",
+>>>>>>> parent of 7cb7d62 (1)
                 "${workspaceFolder}/Platform/sdk/bt"
             ],
             "defines": [
