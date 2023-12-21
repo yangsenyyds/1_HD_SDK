@@ -144,7 +144,11 @@ void prepare_before_sleep(void)
         GPIO_Init(IIC_SCL_PIN, GPIO_Mode_Out_High);
         GPIO_Init(IIC_SDA_PIN, GPIO_Mode_Out_High);
 #endif
+<<<<<<< HEAD
         action_after_prepare_sleep();
+=======
+        Action_After_Prepare_Sleep();
+>>>>>>> parent of 4040280 (Merge branch 'master' of git.zhlh6.cn:yangsenyyds/MY_SDK)
 
         app_queue_reset();
         vbat_deinit();
@@ -185,7 +189,11 @@ void enter_deep_sleep(void)
         GPIO_Init(IIC_SCL_PIN, GPIO_Mode_Out_High);
         GPIO_Init(IIC_SDA_PIN, GPIO_Mode_Out_High);
 #endif
+<<<<<<< HEAD
     action_after_enter_deep_sleep();
+=======
+    Action_After_Enter_Deep_Sleep();
+>>>>>>> parent of 4040280 (Merge branch 'master' of git.zhlh6.cn:yangsenyyds/MY_SDK)
 
     if (bt_check_le_connected())
     {

@@ -7,7 +7,11 @@
 #include "yc_dev_bt.h"
 #include "att_list.h"
 #include "factory_test_off_line.h"
+<<<<<<< HEAD
 #define Project_key  (255)
+=======
+#define Project_key  (256)
+>>>>>>> parent of 4040280 (Merge branch 'master' of git.zhlh6.cn:yangsenyyds/MY_SDK)
 /* WATCH_DOG */
 #define FUNCTION_WATCH_DOG
 

@@ -628,7 +628,44 @@ static void keyvalue_handle(key_report_t* key_report)
         }
         else {
             if(led_state == 0) {
+<<<<<<< HEAD:Projects/HD01053/remote_control.c
                 led_on(LED_1,100,0);
+=======
+                led_on(LED_1,120,480);
+            }
+            if(keynum == Power_Keynum && Bt_CheckIsPaired())
+            {
+                struct bt_le_adv_param bt_adv_param;
+                bt_adv_param.Type = ADV_TYPE_NOMAL;
+                bt_adv_param.adv_max_interval = 0x10;
+                IPC_TxControlCmd(BT_CMD_STOP_ADV);
+                bt_set_le_state(BLE_IDLE);
+                bt_set_le_state(BLE_ADV);
+                flash_read(power_key_mac,(uint8_t *)&power_adv_data_buf,sizeof(power_adv_data_buf));
+                power_adv_data_buf[25] += 1;
+                flash_write(power_key_mac, (uint8_t *)&power_adv_data_buf, sizeof(power_adv_data_buf),CHUNK_INF);
+                DEBUG_LOG_BT("gRecinfo.sPeerBDaddr = %x %x %x %x %x %x\r\n",power_adv_data_buf[15],power_adv_data_buf[16],power_adv_data_buf[17],power_adv_data_buf[18],power_adv_data_buf[19],power_adv_data_buf[20]);
+                bt_start_le_adv(&bt_adv_param, power_adv_data_buf, sizeof(power_adv_data_buf));
+                app_sleep_lock_set(ADV_LOCK, true); 
+                app_sleep_timer_set(DIRECT_ADV_TIME);
+            }
+            else if(keynum == NETFLIX_Keynum && Bt_CheckIsPaired())
+            {
+                struct bt_le_adv_param bt_adv_param;
+                bt_adv_param.Type = ADV_TYPE_NOMAL;
+                bt_adv_param.adv_max_interval = 0x10;
+                IPC_TxControlCmd(BT_CMD_STOP_ADV);
+                bt_set_le_state(BLE_IDLE);
+                bt_set_le_state(BLE_ADV);
+
+                flash_read(netflix_key_mac,(uint8_t *)&Netflix_adv_data_buf,sizeof(Netflix_adv_data_buf));
+                Netflix_adv_data_buf[25] += 1;
+                flash_write(netflix_key_mac, (uint8_t *)&Netflix_adv_data_buf, sizeof(Netflix_adv_data_buf),CHUNK_INF);
+
+                bt_start_le_adv(&bt_adv_param, Netflix_adv_data_buf, sizeof(Netflix_adv_data_buf));
+                app_sleep_lock_set(ADV_LOCK, true); 
+                app_sleep_timer_set(DIRECT_ADV_TIME);        
+>>>>>>> parent of 4040280 (Merge branch 'master' of git.zhlh6.cn:yangsenyyds/MY_SDK):Projects/HD00901/remote_control.c
             }
             swtimer_start(key_pressed_timernum, 100, TIMER_START_ONCE);
         }
@@ -862,10 +899,14 @@ void ENCRYPT_DONE(void)
     DEBUG_LOG_STRING("ENCRYPT_DONE \r\n");
     app_sleep_timer_set(ENCRYPT_DONE_DELAY);
     dis_encrypt_state = false;
+<<<<<<< HEAD:Projects/HD01053/remote_control.c
     encrypt_state = true;
     update_conn_param(false);
     led_on(LED_1,200,1200);
     ATT_SendExchangeMtuReq();
+=======
+    led_on(LED_1,200,1200);
+>>>>>>> parent of 4040280 (Merge branch 'master' of git.zhlh6.cn:yangsenyyds/MY_SDK):Projects/HD00901/remote_control.c
 
 }
 
@@ -877,7 +918,18 @@ void PAIR_FAIL(uint8_t reason)
 void PAIR_DONE(void)
 {
     DEBUG_LOG_STRING("PAIR_DONE \r\n");
+<<<<<<< HEAD:Projects/HD01053/remote_control.c
     app_sleep_timer_set(PAIR_DONE_DELAY);   
+=======
+    app_sleep_timer_set(PAIR_DONE_DELAY);
+    memcpy((void *)&power_adv_data_buf[19],(void *)gRecinfo.sPeerBDaddr,6);
+    memcpy((void *)&Netflix_adv_data_buf[19],(void *)gRecinfo.sPeerBDaddr,6);
+    DEBUG_LOG_STRING("mac %x %x %x %x %x %x\r\n",gRecinfo.sPeerBDaddr[0]
+    ,gRecinfo.sPeerBDaddr[1],gRecinfo.sPeerBDaddr[2],gRecinfo.sPeerBDaddr[3]
+    ,gRecinfo.sPeerBDaddr[4],gRecinfo.sPeerBDaddr[5]);
+    flash_write(power_key_mac, (uint8_t *)&power_adv_data_buf, sizeof(power_adv_data_buf),CHUNK_INF);
+    flash_write(netflix_key_mac, (uint8_t *)&Netflix_adv_data_buf, sizeof(Netflix_adv_data_buf),CHUNK_INF);
+>>>>>>> parent of 4040280 (Merge branch 'master' of git.zhlh6.cn:yangsenyyds/MY_SDK):Projects/HD00901/remote_control.c
 }
 
 void LE_DISCONNECTED(uint8_t reason)

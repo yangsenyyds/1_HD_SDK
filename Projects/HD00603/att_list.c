@@ -51,8 +51,16 @@ static const uint8_t SERVICE_DEVICE_INFO[] = {UUID2ARRAY(UUID_SERVICE_DEVICE_INF
 static const uint8_t CHRCTR_PNP_ID[] = {UUID2ARRAY(UUID_CHRCTR_PNP_ID)};
 //603
 static const uint8_t pnp_id_value[] = {0x02,0x71,0x01,0x14,0x04,0x3C,0x00};
+<<<<<<< HEAD
 //954
 // static const uint8_t pnp_id_value[] = {0x02,0x71,0x01,0x18,0x04,0x43,0x00};
+=======
+#elif (Project_key == 621)
+static const uint8_t pnp_id_value[] = {0x02,0x71,0x01,0x14,0x04,0x16,0x00};//PRIMEVIDEO_NETFLIX_hbo_HULU
+#elif (Project_key == 625)
+static const uint8_t pnp_id_value[] = {0x02,0x71,0x01,0x14,0x04,0x12,0x00};//PRIMEVIDEO_NETFLIX_hbo_vue
+#endif
+>>>>>>> parent of 4040280 (Merge branch 'master' of git.zhlh6.cn:yangsenyyds/MY_SDK)
 static const uint8_t CHRCTR_MANUFACTURE_NAME[] = {UUID2ARRAY(UUID_CHRCTR_MANUFACTURE_NAME)};
 static const uint8_t manufacture_name_value[] = {"Amazon Remote"};
 static const uint8_t CHRCTR_SOFTWARE[] = {UUID2ARRAY(UUID_CHRCTR_SOFTWARE)};

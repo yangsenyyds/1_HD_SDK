@@ -460,6 +460,15 @@ pkt_type
 void update_voice_packet(uint8_t *pkt)
 {
     uint8_t len = 0;
+<<<<<<< HEAD
+=======
+    if(get_factory_state())
+    {
+        pkt[0] = AUDIO_SNED_HANDLE; /// handle
+        pkt[1] = 123; /// len 
+    }
+
+>>>>>>> parent of 4040280 (Merge branch 'master' of git.zhlh6.cn:yangsenyyds/MY_SDK)
     if (pkt)
     {
         if (app_pkt_type == E_APP_PKT_TYPE_START_ADUIO) /// kv 03

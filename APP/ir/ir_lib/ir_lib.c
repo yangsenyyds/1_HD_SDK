@@ -1457,9 +1457,12 @@ uint16_t * get_ir_customer(customer_code_t customer)
     case HIGH_CUSTOM_FFFD_E000_A:
         ir_customer = (uint16_t *)HIGH_CUSTOM_FFFD_E000_BUF;
         break;
+<<<<<<< HEAD
     case HIGH_CUSTOM_FFFD_D000_3010_1_1A_A:
         ir_customer = (uint16_t *)HIGH_CUSTOM_FFFD_D000_3010_1_1A_A_BUF;
         break;
+=======
+>>>>>>> parent of 4040280 (Merge branch 'master' of git.zhlh6.cn:yangsenyyds/MY_SDK)
     case HIGH_CUSTOM_FFFD_8800_A:
         ir_customer = (uint16_t *)HIGH_CUSTOM_FFFD_8800_BUF;
         break;
