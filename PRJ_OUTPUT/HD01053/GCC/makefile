@@ -95,6 +95,8 @@ VPATH += $(APP_ROOT)/led
 VPATH += $(APP_ROOT)/flash/YC
 VPATH += $(APP_ROOT)/ir/ir_send
 VPATH += $(APP_ROOT)/ir/ir_lib
+VPATH += $(APP_ROOT)/ir/ir_learn/ir_learn_from_remote
+VPATH += $(APP_ROOT)/ir/ir_learn/ir_learn_from_tv_google
 VPATH += $(APP_ROOT)/custom_audio/audio_134size
 VPATH += $(APP_ROOT)/custom_audio/audio_134size/encode/adpcm
 
@@ -117,6 +119,8 @@ SRCINCLUDE += -I$(APP_ROOT)/led
 SRCINCLUDE += -I$(APP_ROOT)/flash/YC
 SRCINCLUDE += -I$(APP_ROOT)/ir/ir_send
 SRCINCLUDE += -I$(APP_ROOT)/ir/ir_lib
+SRCINCLUDE += -I$(APP_ROOT)/ir/ir_learn/ir_learn_from_remote
+SRCINCLUDE += -I$(APP_ROOT)/ir/ir_learn/ir_learn_from_tv_google
 SRCINCLUDE += -I$(APP_ROOT)/custom_audio/audio_134size
 SRCINCLUDE += -I$(APP_ROOT)/custom_audio/audio_134size/encode/adpcm
 
@@ -162,6 +166,8 @@ APP := \
 	ir_send.c \
 	ir_load.c \
 	ir_lib.c \
+	ir_learn_from_remote.c \
+	ir_learn_from_tv_google.c \
 	audio.c \
 	$(wildcard $(APP_ROOT)/audio/encode/adpcm/*.c) \
 

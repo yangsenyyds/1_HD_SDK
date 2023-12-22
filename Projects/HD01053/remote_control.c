@@ -19,10 +19,16 @@
 #include "ir_send.h"
 #include "ir_load.h"
 #include "ir_lib.h"
+#include "ir_learn_from_tv_google.h"
 
 #include "yc11xx_dev_qspi.h"
 #include "SecretKey.h"
 #include "yc11xx_iwdg.h"
+
+MEMORY_NOT_PROTECT_UNDER_LPM_ATT static uint8_t key_pressed_num;
+MEMORY_NOT_PROTECT_UNDER_LPM_ATT static uint8_t learn_data_from_tv[5][256];
+MEMORY_NOT_PROTECT_UNDER_LPM_ATT static uint8_t learn_data_num;
+static uint8_t learn_ble_send[3];
 typedef struct {
     uint8_t keyvalue[2];
     uint8_t key_send_len;
@@ -36,6 +42,10 @@ enum{
     Voice_Keynum = 2,
     Back_Keynum  = 13,
     CONN_PARAM = 99,
+    MUTE_Keynum = 6,
+    INPUT_Keynum = 30,//12,
+    VOL_Keynum = 19,
+    VOL__Keynum = 21,
 };
 #if (Project_key == 400)//
 static const uint8_t ir_data[] = {
@@ -549,6 +559,11 @@ static void keyvalue_handle(key_report_t* key_report)
     
     if (key_pressed_num == 0)
     {
+        if(get_ir_learn_state () && (keynum == INPUT_Keynum || keynum == Power__Keynum || keynum == MUTE_Keynum || keynum == VOL_Keynum || keynum == VOL__Keynum)) {
+            learn_ble_send[0] = 0x01;
+            ATT_sendNotify(76, (void*)learn_ble_send, sizeof(learn_ble_send));
+            set_key_press_state(false);
+        }
         if (bt_check_le_connected() && encrypt_state)
         {
             uint8_t hid_send_buf[KeyBuf[keynum].key_send_len];
@@ -592,6 +607,33 @@ static void keyvalue_handle(key_report_t* key_report)
             }
             swtimer_start(key_pressed_timernum, 100, TIMER_START_ONCE);            
         }
+        if(get_ir_learn_state () && (keynum == INPUT_Keynum || keynum == Power__Keynum || keynum == MUTE_Keynum || keynum == VOL_Keynum || keynum == VOL__Keynum)) {
+            memset(learn_ble_send, 0, sizeof(learn_ble_send));
+            switch (keynum)
+            {
+            case INPUT_Keynum:
+                learn_ble_send[2] = 0xB2;
+                break;
+            case Power__Keynum:
+                learn_ble_send[2] = 0x1A;
+                break;
+            case MUTE_Keynum:
+                learn_ble_send[2] = 0xA4;
+                break;
+            case VOL_Keynum:
+                learn_ble_send[2] = 0x18;
+                break;
+            case VOL__Keynum:
+                learn_ble_send[2] = 0x19;
+                break;                                                                
+            }
+            ATT_sendNotify(76, (void*)learn_ble_send, sizeof(learn_ble_send));
+            SysTick_DelayMs(100);
+            ir_tv_learn_send(keynum);
+            set_key_press_state(true);
+            // uint8_t a = 0x55;
+            // ATT_sendNotify(BAT_REPORT_HANDLE, &a, 1);
+        }
         else if (bt_check_le_connected() && encrypt_state)
         {
             uint8_t hid_send_buf[KeyBuf[keynum].key_send_len];
@@ -616,7 +658,7 @@ static void keyvalue_handle(key_report_t* key_report)
                 swtimer_start(vioce_timernum, 10000, TIMER_START_ONCE);
                 led_state = true;
                 led_on(LED_1,0,0);
-                
+
             }
             else if(keynum != Voice_Keynum) {
                 if(led_state == 0) {
@@ -832,6 +874,32 @@ void Write_DataParse(const ATT_TABLE_TYPE *table, uint8_t *data, uint8_t len)
             app_sleep_lock_set(APP_LOCK, false);
         }
         OS_EXIT_CRITICAL();
+    }
+    else if (table->dataLen >= len) {
+        memcpy((void *)table->dataPtr, (void *)data, len);
+    }
+    else if(table->handle == 68){
+        if(len == 1 && data[0] == 0x01){
+            app_sleep_lock_set(APP_LOCK, true);
+            learn_data_num = 0;
+            memset(learn_data_from_tv,0x00,sizeof(learn_data_from_tv));
+            ir_learn_data_clr();
+        }
+        else if(len == 1 && data[0] == 0x00){
+            for(uint8_t i = 0; i < learn_data_num; i++){
+                ir_learn_data_fill(&learn_data_from_tv[i][0]);
+            }
+            app_sleep_lock_set(APP_LOCK, false);
+        }
+    }
+    else if(table->handle == 70){
+        if(len == 2 && data[0] == 0x00){
+            learn_data_from_tv[learn_data_num][0] = data[1];
+        }
+    }
+    else if(table->handle == 72){
+        memcpy(&learn_data_from_tv[learn_data_num][1], data, len);
+        learn_data_num++;
     }
     else if (table->dataLen >= len) {
         memcpy((void *)table->dataPtr, (void *)data, len);

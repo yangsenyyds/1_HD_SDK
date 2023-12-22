@@ -5,6 +5,7 @@ output/obj/ir_load.o: ../../../APP/ir/ir_send/ir_load.c \
  ../../../Platform/sdk/yc11xx_audio_adc.h \
  ../../../Platform/devices/ble/hci/yc_dev_bt.h \
  ../../../Projects/HD01053/att_list.h ../../../APP/ir/ir_lib/ir_lib.h \
+ ../../../APP/ir/ir_learn/ir_learn_from_remote/ir_learn_from_remote.h \
  ../../../APP/ir/ir_send/ir_send.h \
  ../../../APP/software_timer/software_timer.h \
  ../../../Platform/sdk/yc11xx_systick.h \
@@ -27,6 +28,8 @@ output/obj/ir_load.o: ../../../APP/ir/ir_send/ir_load.c \
 ../../../Projects/HD01053/att_list.h:
 
 ../../../APP/ir/ir_lib/ir_lib.h:
+
+../../../APP/ir/ir_learn/ir_learn_from_remote/ir_learn_from_remote.h:
 
 ../../../APP/ir/ir_send/ir_send.h:
 

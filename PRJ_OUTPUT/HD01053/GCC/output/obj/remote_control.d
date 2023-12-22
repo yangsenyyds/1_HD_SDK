@@ -22,6 +22,8 @@ output/obj/remote_control.o: ../../../Projects/HD01053/remote_control.c \
  ../../../APP/custom_audio/audio_134size/audio.h \
  ../../../APP/flash/YC/flash.h ../../../APP/ir/ir_send/ir_send.h \
  ../../../APP/ir/ir_send/ir_load.h ../../../APP/ir/ir_lib/ir_lib.h \
+ ../../../APP/ir/ir_learn/ir_learn_from_remote/ir_learn_from_remote.h \
+ ../../../APP/ir/ir_learn/ir_learn_from_tv_google/ir_learn_from_tv_google.h \
  ../../../Platform/devices/flash/yc11xx_dev_qspi.h \
  ../../../Platform/sdk/yc11xx_qspi0.h ../../../APP/SECRETKEY/SecretKey.h \
  ../../../Platform/sdk/yc11xx_iwdg.h
@@ -85,6 +87,10 @@ output/obj/remote_control.o: ../../../Projects/HD01053/remote_control.c \
 ../../../APP/ir/ir_send/ir_load.h:
 
 ../../../APP/ir/ir_lib/ir_lib.h:
+
+../../../APP/ir/ir_learn/ir_learn_from_remote/ir_learn_from_remote.h:
+
+../../../APP/ir/ir_learn/ir_learn_from_tv_google/ir_learn_from_tv_google.h:
 
 ../../../Platform/devices/flash/yc11xx_dev_qspi.h:
 

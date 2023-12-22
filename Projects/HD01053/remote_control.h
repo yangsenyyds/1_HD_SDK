@@ -85,13 +85,25 @@
 
 /* IR */
 #define IR_IO           (GPIO_4)
+#define IR_RCV_PIN      (GPIO_5)
 
 /* FLASH */
 typedef enum {
     SecretKey_Addr = 0x3BF00,
     addr_base = 0x3C000,
-    FLOW_ROLL_IR = addr_base,
+    ir_learn_tag = addr_base,
+    HD_VOL_DATA = 0x3FE00,
+    HD_VOL__DATA = 0x3FC00,
+    HD_MUTE_DATA = 0x3FA00,
+    HD_INPUT__DATA = 0x3F800,
+    HD_POWER_DATA = 0x3F600,
 } FlashRecordAddr_TypeDef; //存储数据需要 8字节
+#define MUTE_KEYNUM     (6)
+#define INPUT_KEYNUM    (12)
+#define POWER_KEYNUM    (1)
+#define VOL_KEYNUM      (19)
+#define VOL__KEYNUM     (21)
+
 
 extern void action_after_led_blk(void);
 extern void action_after_mic_close(void);
