@@ -10,7 +10,8 @@ output/obj/led.o: ../../../APP/led/led.c ../../../APP/led/led.h \
  ../../../Platform/devices/ble/att/att.h \
  ../../../APP/software_timer/software_timer.h \
  ../../../Platform/sdk/yc11xx_systick.h \
- ../../../Vendor/Remote_Control/app_config.h
+ ../../../Vendor/Remote_Control/app_config.h \
+ ../../../Platform/core/yc_debug.h ../../../Platform/core/yc11xx.h
 
 ../../../APP/led/led.h:
 
@@ -37,3 +38,7 @@ output/obj/led.o: ../../../APP/led/led.c ../../../APP/led/led.h \
 ../../../Platform/sdk/yc11xx_systick.h:
 
 ../../../Vendor/Remote_Control/app_config.h:
+
+../../../Platform/core/yc_debug.h:
+
+../../../Platform/core/yc11xx.h:

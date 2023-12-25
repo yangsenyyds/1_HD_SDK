@@ -150,9 +150,8 @@ void prepare_before_sleep(void)
 #ifdef IR_RCV_PIN
         GPIO_Init(IR_RCV_PIN, GPIO_Mode_Out_High);
 #endif
-
-        Action_After_Prepare_Sleep();
         key_wakeup_set();
+        Action_After_Prepare_Sleep();        
     }
 }
 

@@ -428,41 +428,6 @@ void key_wakeup_set(void)
 #endif
 }
 
-bool key_wakeup_get(void)
-{
-    bool ret = false;
-    
-#if (KEY_COL_NUM >= 1)
-    ret |= !GPIO_ReadDataBit(KEY_COL1_PIN);
-#endif
-#if (KEY_COL_NUM >= 2)
-    ret |= !GPIO_ReadDataBit(KEY_COL2_PIN);
-#endif
-#if (KEY_COL_NUM >= 3)
-    ret |= !GPIO_ReadDataBit(KEY_COL3_PIN);
-#endif
-#if (KEY_COL_NUM >= 4)
-    ret |= !GPIO_ReadDataBit(KEY_COL4_PIN);
-#endif
-#if (KEY_COL_NUM >= 5)
-    ret |= !GPIO_ReadDataBit(KEY_COL5_PIN);
-#endif
-#if (KEY_COL_NUM >= 6)
-    ret |= !GPIO_ReadDataBit(KEY_COL6_PIN);
-#endif
-#if (KEY_COL_NUM >= 7)
-    ret |= !GPIO_ReadDataBit(KEY_COL7_PIN);
-#endif
-#if (KEY_COL_NUM >= 8)
-    ret |= !GPIO_ReadDataBit(KEY_COL8_PIN);
-#endif
-
-#ifdef LG
-    ret |= GPIO_ReadDataBit(MOUSE_INT_PIN);
-#endif
-    return ret;
-}
-
 bool key_wakeup_get_high(void)
 {
     bool ret = false;
@@ -577,4 +542,9 @@ uint8_t keyscan_init(key_mode_t mode, key_report_cb_t cb)
     swtimer_start(key_report_timernum, KEY_REPORT_INTERVAL_TIME, TIMER_START_REPEAT);
 
     return 0;
+}
+
+uint8_t get_key_timernum(void)
+{
+    return key_report_timernum;
 }

@@ -18,6 +18,9 @@ typedef struct KEY_REPORT {
 
 typedef void (*key_report_cb_t)(key_report_t *);
 
+extern uint8_t get_key_timernum(void);
+extern void key_wakeup_set_high(void);
+extern bool key_wakeup_get_high(void);
 extern bool key_wakeup_get(void);
 extern void key_wakeup_set(void);
 extern void keyscan_stop(void);

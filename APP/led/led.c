@@ -3,7 +3,7 @@
 #include "app_sleep.h"
 #include "yc11xx_gpio.h"
 #include "app_config.h"
-
+#include "yc_debug.h"
 #ifndef BLK_UNIT_TIME
 #define BLK_UNIT_TIME (100)
 #endif
@@ -52,7 +52,7 @@ static void led_task(void)
             {
                 led[LED_1].count++;
                 led[LED_1].time = 0;
-
+                DEBUG_LOG_STRING("55 %d  %d\r\n",led[LED_1].count * led[LED_1].blk_once_time,led[LED_1].blk_total_time);
                 if (led[LED_1].count * led[LED_1].blk_once_time >= led[LED_1].blk_total_time) {
                     memset((void *)&led[LED_1], 0, sizeof(led_state_t));
                     GPIO_Init(LED_1_PIN, LED_OFF);
@@ -168,6 +168,7 @@ static void led_task(void)
             return;
         }
     }
+    DEBUG_LOG_STRING("171 \r\n");
     app_sleep_lock_set(LED_LOCK, false);
     action_after_led_blk();
 }

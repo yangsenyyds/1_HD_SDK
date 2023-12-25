@@ -20,6 +20,7 @@
 #include "ir_load.h"
 #include "ir_lib.h"
 
+#include "yc11xx_lpm.h"
 #include "yc11xx_dev_qspi.h"
 #include "SecretKey.h"
 #include "yc11xx_iwdg.h"
@@ -145,7 +146,7 @@ power
 FF FF 41 6D 6C 6F 67 69 63 01 D9 C2 38 
 F9 53 1C 0A
 */
-MEMORY_NOT_PROTECT_UNDER_LPM_ATT static uint8_t key_pressed_num;
+ static uint8_t key_pressed_num;
 static bool tx_power_switch = true;
 static uint8_t vioce_timernum = 0xFF;
 static uint8_t key_pressed_timernum = 0xFF;
@@ -157,7 +158,7 @@ static uint8_t keynum;
 static uint8_t keynum_second;
 
 static uint8_t ir_state;
-static bool led_state;
+static uint8_t led_state;
 static bool conn_param_state;
 static uint8_t updata_connect_state;
 static uint32_t sleep_time_state;
@@ -413,12 +414,15 @@ static void keyvalue_handle(key_report_t* key_report)
                 swtimer_start(vioce_send_timernum, 100, TIMER_START_ONCE);
                 led_on(LED_1,0,0);
                 
-            }else if(keynum != Voice_Keynum)
+            }
+            else if(keynum != Voice_Keynum)
             {
                 if(led_state == 0) {
+                    led_state = 2;
                     led_on(LED_1,0,120);
                 }
                 ATT_sendNotify(KeyBuf[keynum].handle, (void*)hid_send_buf, KeyBuf[keynum].key_send_len);
+                DEBUG_LOG_STRING("424  %d %d\r\n", HREADW(M0_LPM_REG),led_state);
             }
         }
         else
@@ -493,9 +497,14 @@ static void keyvalue_handle(key_report_t* key_report)
     }   
 }
 
+void Action_After_Prepare_Sleep(void)
+{
+    if(key_pressed_num == 1 && bt_check_le_connected() && encrypt_state){
+        key_wakeup_set_high();
+    }
+}
 void action_after_mic_close(void)
 {
-    // update_conn_param(true);
     led_state = false;
     led_off(LED_1);
     voice_key_state = false;
@@ -503,8 +512,16 @@ void action_after_mic_close(void)
 
 void action_after_led_blk(void)
 {
-    if (led_state) {
+    DEBUG_LOG_STRING("514  %d \r\n", led_state);
+    if (led_state == 1)
+    {
         led_state = false;
+    }
+    else if(led_state == 2)
+    {
+        swtimer_stop(get_key_timernum());
+        Lpm_unLockLpm(LPM_ALL_LOCK);
+        DEBUG_LOG_STRING("521  %d \r\n", HREADW(M0_LPM_REG));
     }
 }
 
@@ -807,6 +824,7 @@ void Dev_PowerOn(void)
     }
     else{
         app_sleep_lock_set(ADV_LOCK, true);
+        app_sleep_timer_set(SHUTDOWN_TIME);
     }
     // else {
     //     start_adv(ADV_TYPE_NOMAL, 0x10, true);
@@ -868,12 +886,17 @@ void app_init(void)
     {
         app_queue_reset();
 
-        if (key_wakeup_get())
+        if (key_wakeup_get() && keynum != 1)
         {
             sleep_time_state = 0;
             remote_control_reinit();
             DEBUG_LOG_STRING("WAKE UP %d\r\n" ,wake_up_state);
 
+        }
+        else if(key_wakeup_get_high() && keynum == 1){
+            sleep_time_state = 0;
+            remote_control_reinit();
+            DEBUG_LOG_STRING("WAKE UP %d\r\n" ,wake_up_state);            
         }
         else 
         {
