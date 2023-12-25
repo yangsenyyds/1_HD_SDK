@@ -384,7 +384,7 @@ bool key_wakeup_get(void)
 #endif
 #if (KEY_COL_NUM >= 8)
     ret |= !GPIO_ReadDataBit(KEY_COL8_PIN);
-#endif 
+#endif
 
 #ifdef LG
     ret |= GPIO_ReadDataBit(MOUSE_INT_PIN);
@@ -426,6 +426,112 @@ void key_wakeup_set(void)
     GPIO_Init(KEY_COL8_PIN, GPIO_Mode_In_Up);
     GPIO_WakeUp(KEY_COL8_PIN, GPIO_WakeUpLow);
 #endif
+}
+
+bool key_wakeup_get(void)
+{
+    bool ret = false;
+    
+#if (KEY_COL_NUM >= 1)
+    ret |= !GPIO_ReadDataBit(KEY_COL1_PIN);
+#endif
+#if (KEY_COL_NUM >= 2)
+    ret |= !GPIO_ReadDataBit(KEY_COL2_PIN);
+#endif
+#if (KEY_COL_NUM >= 3)
+    ret |= !GPIO_ReadDataBit(KEY_COL3_PIN);
+#endif
+#if (KEY_COL_NUM >= 4)
+    ret |= !GPIO_ReadDataBit(KEY_COL4_PIN);
+#endif
+#if (KEY_COL_NUM >= 5)
+    ret |= !GPIO_ReadDataBit(KEY_COL5_PIN);
+#endif
+#if (KEY_COL_NUM >= 6)
+    ret |= !GPIO_ReadDataBit(KEY_COL6_PIN);
+#endif
+#if (KEY_COL_NUM >= 7)
+    ret |= !GPIO_ReadDataBit(KEY_COL7_PIN);
+#endif
+#if (KEY_COL_NUM >= 8)
+    ret |= !GPIO_ReadDataBit(KEY_COL8_PIN);
+#endif
+
+#ifdef LG
+    ret |= GPIO_ReadDataBit(MOUSE_INT_PIN);
+#endif
+    return ret;
+}
+
+bool key_wakeup_get_high(void)
+{
+    bool ret = false;
+    
+#if (KEY_COL_NUM >= 1)
+    ret |= GPIO_ReadDataBit(KEY_COL1_PIN);
+#endif
+#if (KEY_COL_NUM >= 2)
+    ret |= GPIO_ReadDataBit(KEY_COL2_PIN);
+#endif
+#if (KEY_COL_NUM >= 3)
+    ret |= GPIO_ReadDataBit(KEY_COL3_PIN);
+#endif
+#if (KEY_COL_NUM >= 4)
+    ret |= GPIO_ReadDataBit(KEY_COL4_PIN);
+#endif
+#if (KEY_COL_NUM >= 5)
+    ret |= GPIO_ReadDataBit(KEY_COL5_PIN);
+#endif
+#if (KEY_COL_NUM >= 6)
+    ret |= GPIO_ReadDataBit(KEY_COL6_PIN);
+#endif
+#if (KEY_COL_NUM >= 7)
+    ret |= GPIO_ReadDataBit(KEY_COL7_PIN);
+#endif
+#if (KEY_COL_NUM >= 8)
+    ret |= GPIO_ReadDataBit(KEY_COL8_PIN);
+#endif
+
+#ifdef LG
+    ret |= GPIO_ReadDataBit(MOUSE_INT_PIN);
+#endif
+    return ret;
+}
+
+void key_wakeup_set_high(void)
+{
+#if (KEY_COL_NUM >= 1)
+    GPIO_Init(KEY_COL1_PIN, GPIO_Mode_In_Up);
+    GPIO_WakeUp(KEY_COL1_PIN, GPIO_WakeUpHigh);
+#endif
+#if (KEY_COL_NUM >= 2)
+    GPIO_Init(KEY_COL2_PIN, GPIO_Mode_In_Up);
+    GPIO_WakeUp(KEY_COL2_PIN, GPIO_WakeUpHigh);
+#endif
+#if (KEY_COL_NUM >= 3)
+    GPIO_Init(KEY_COL3_PIN, GPIO_Mode_In_Up);
+    GPIO_WakeUp(KEY_COL3_PIN, GPIO_WakeUpHigh);
+#endif
+#if (KEY_COL_NUM >= 4)
+    GPIO_Init(KEY_COL4_PIN, GPIO_Mode_In_Up);
+    GPIO_WakeUp(KEY_COL4_PIN, GPIO_WakeUpHigh);
+#endif
+#if (KEY_COL_NUM >= 5)
+    GPIO_Init(KEY_COL5_PIN, GPIO_Mode_In_Up);
+    GPIO_WakeUp(KEY_COL5_PIN, GPIO_WakeUpHigh);
+#endif
+#if (KEY_COL_NUM >= 6)
+    GPIO_Init(KEY_COL6_PIN, GPIO_Mode_In_Up);
+    GPIO_WakeUp(KEY_COL6_PIN, GPIO_WakeUpHigh);
+#endif
+#if (KEY_COL_NUM >= 7)
+    GPIO_Init(KEY_COL7_PIN, GPIO_Mode_In_Up);
+    GPIO_WakeUp(KEY_COL7_PIN, GPIO_WakeUpHigh);
+#endif
+#if (KEY_COL_NUM >= 8)
+    GPIO_Init(KEY_COL8_PIN, GPIO_Mode_In_Up);
+    GPIO_WakeUp(KEY_COL8_PIN, GPIO_WakeUpHigh);
+#endif    
 }
 
 void keyscan_stop(void)

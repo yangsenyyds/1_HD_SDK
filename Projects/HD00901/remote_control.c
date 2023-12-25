@@ -769,7 +769,8 @@ void LE_DISCONNECTED(uint8_t reason)
         start_adv(ADV_TYPE_DIRECT, 0x08, true);
     }
     else {
-        start_adv(ADV_TYPE_NOMAL, 0x10,true);
+        app_sleep_lock_set(ADV_LOCK, true);
+        // start_adv(ADV_TYPE_NOMAL, 0x10,true);
     }
 }
 
@@ -803,6 +804,9 @@ void Dev_PowerOn(void)
 
     if (Bt_CheckIsPaired()) {
         start_adv(ADV_TYPE_DIRECT, 0x08, true);
+    }
+    else{
+        app_sleep_lock_set(ADV_LOCK, true);
     }
     // else {
     //     start_adv(ADV_TYPE_NOMAL, 0x10, true);
