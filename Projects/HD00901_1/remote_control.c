@@ -41,7 +41,7 @@ enum{
     VolCol = 3,
     Back__Keynum = 13,
     Back_Col = 0,
-	CONN_PARAM = 99,
+	CONN_PARAM = 49,
 };
 #if (Project_key == 901)
 static const uint8_t ir_data[] = {
@@ -74,36 +74,36 @@ static const uint8_t ir_data[] = {
     0X73,
     0X72,
 };
-
+#define BLE_SEND_CTOL (129)
 static const KeyBuf_TypeDef KeyBuf[] = {
     {0x00, 0x00, 0, 0},
 
     {0x66, 0x00, 8, 121},
-    {0xBB, 0x01, 4, 125},
-    {0x21, 0x02, 4, 125},
-    {0x2A, 0x02, 4, 125},
-    {0x0A, 0x00, 4, 125},
+    {0xBB, 0x01, 4, BLE_SEND_CTOL},
+    {0x21, 0x02, 4, BLE_SEND_CTOL},
+    {0x2A, 0x02, 4, BLE_SEND_CTOL},
+    {0x0A, 0x00, 4, BLE_SEND_CTOL},
 
-    {0x42, 0x00, 4, 125},//6
-    {0x44, 0x00, 4, 125},
-    {0x41, 0x00, 4, 125},
-    {0x45, 0x00, 4, 125},
-    {0x43, 0x00, 4, 125},   
+    {0x42, 0x00, 4, BLE_SEND_CTOL},//6
+    {0x44, 0x00, 4, BLE_SEND_CTOL},
+    {0x41, 0x00, 4, BLE_SEND_CTOL},
+    {0x45, 0x00, 4, BLE_SEND_CTOL},
+    {0x43, 0x00, 4, BLE_SEND_CTOL},   
 
-    {0x11, 0x00, 4, 125}, //11
-    {0X23, 0x02, 4, 125}, 
-    {0x24, 0x02, 4, 125},
-    {0xE2, 0X00, 4, 125},//
+    {0x11, 0x00, 4, BLE_SEND_CTOL}, //11
+    {0X23, 0x02, 4, BLE_SEND_CTOL}, 
+    {0x24, 0x02, 4, BLE_SEND_CTOL},
+    {0xE2, 0X00, 4, BLE_SEND_CTOL},//
     {0x4b, 0X00, 8, 121}, 
 
-    {0xE9, 0X00, 4, 125},//16
-    {0xEA, 0X00, 4, 125},
+    {0xE9, 0X00, 4, BLE_SEND_CTOL},//16
+    {0xEA, 0X00, 4, BLE_SEND_CTOL},
     {0x4E, 0X00, 8, 121},
-    {0x6F, 0X00, 4, 125},
-    {0x07, 0X00, 4, 125},
+    {0x6F, 0X00, 4, BLE_SEND_CTOL},
+    {0x07, 0X00, 4, BLE_SEND_CTOL},
 
-    {0x06, 0X00, 4, 125},//21
-    {0x09, 0X00, 4, 125},
+    {0x06, 0X00, 4, BLE_SEND_CTOL},//21
+    {0x09, 0X00, 4, BLE_SEND_CTOL},
 };
 
 #endif
@@ -335,7 +335,7 @@ static void key_pressed_handle(void)
             if(key_pressed_time == 3)
             {
                 uint8_t feedback[4] = {0x12, 0x00, 0x00, 0x00};
-                ATT_sendNotify(125, (void*)feedback, sizeof(feedback));
+                ATT_sendNotify(BLE_SEND_CTOL, (void*)feedback, sizeof(feedback));
                 return ;
             }else{
                 swtimer_restart(key_pressed_timernum);
@@ -386,7 +386,8 @@ static void keyvalue_handle(key_report_t* key_report)
         factory_KeyProcess(keynum==Voice_Keynum?0xff:keynum);
         swtimer_start(key_press_time_timernum, 1000, TIMER_START_ONCE);
         DEBUG_LOG_STRING("KEY [%d][%d][%d][%d][%d][%d][%d]\r\n", key_report->keynum_report_buf[0]
-        ,key_report->keynum_report_buf[1],key_report->keynum_report_buf[2],key_report->keynum_report_buf[3],key_report->keynum_report_buf[4],key_report->keynum_report_buf[5],key_report->keynum_report_buf[6]);
+        ,key_report->keynum_report_buf[1],key_report->keynum_report_buf[2],key_report->keynum_report_buf[3],key_report->keynum_report_buf[4],key_report->keynum_report_buf[5]
+        );
         if (bt_check_le_connected() && encrypt_state)
         {
             uint8_t hid_send_buf[KeyBuf[keynum].key_send_len];
@@ -543,7 +544,7 @@ void update_conn_param(bool is_sleep)
             conn_param_state = true;
             swtimer_start(low_power_timernum, 100, TIMER_START_REPEAT);
         }
-        bt_le_conn_updata_param_req(0x08, 0x08, CONN_PARAM, 500);
+        bt_le_conn_updata_param_req(0x10, 0x10, CONN_PARAM, 220);
     }
     else {
         bt_le_conn_updata_param_req(0x08, 0x08, 0, 1);
@@ -782,6 +783,7 @@ void LE_CONNECTED(void)
     bt_set_lpm_overhead_wake_time(0x10);
     bt_set_le_state(BLE_CONNECTED);
     bt_disable_le_tx_md();
+    ATT_SendExchangeMtuReq();
 	if(bt_check_save_connect_info()){
         Bt_SaveBleDeviceInfoToFlash(BLE_CONNECT_ADDR);
     }
@@ -827,6 +829,7 @@ void app_init(void)
     if (!Lpm_GetWakeFlag())
     {
         bt_set_ce_length_num(0x0F);//小包用  大包用0x08
+        bt_set_le_mtu_size(251);
         software_timer_start(SYSTEM_CURRENT_CLOCK, 10);
         app_sleep_init();
         vbat_init(power_handle);
