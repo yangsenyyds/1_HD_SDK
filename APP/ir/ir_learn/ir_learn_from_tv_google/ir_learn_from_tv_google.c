@@ -141,7 +141,7 @@ void ir_learn_data_fill(uint8_t *tv_ir_learn_data)
     else if(tv_ir_learn_data[IR_TYPE] == IR_TYPE_TOGGLE) {
         irparams.repeat = 2;
     }
-DEBUG_LOG_STRING("flash_record_exist(ir_learn_tag) = %d \r\n",flash_record_exist(ir_learn_tag));
+    DEBUG_LOG_STRING("flash_record_exist(ir_learn_tag) = %d \r\n",flash_record_exist(ir_learn_tag));
     if (flash_record_exist(ir_learn_tag)) {
         uint8_t learn_tag = 1;
         flash_write(ir_learn_tag, (uint8_t *)&learn_tag, sizeof(learn_tag),STATE_INF);

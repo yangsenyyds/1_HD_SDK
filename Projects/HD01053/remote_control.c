@@ -881,6 +881,7 @@ void Write_DataParse(const ATT_TABLE_TYPE *table, uint8_t *data, uint8_t len)
             ir_learn_data_clr();
         }
         else if(len == 1 && data[0] == 0x00){
+            DEBUG_LOG_STRING("111111111111111111");
             for(uint8_t i = 0; i < learn_data_num; i++){
                 ir_learn_data_fill(&learn_data_from_tv[i][0]);
             }
