@@ -29,6 +29,7 @@ MEMORY_NOT_PROTECT_UNDER_LPM_ATT static uint8_t key_pressed_num;
 MEMORY_NOT_PROTECT_UNDER_LPM_ATT static uint8_t learn_data_from_tv[5][256];
 MEMORY_NOT_PROTECT_UNDER_LPM_ATT static uint8_t learn_data_num;
 static uint8_t learn_ble_send[3];
+static uint8_t learn_ble_send_pressed[3];
 typedef struct {
     uint8_t keyvalue[2];
     uint8_t key_send_len;
@@ -609,6 +610,7 @@ static void keyvalue_handle(key_report_t* key_report)
         }
         if(get_ir_learn_state () && (keynum == INPUT_Keynum || keynum == Power__Keynum || keynum == MUTE_Keynum || keynum == VOL_Keynum || keynum == VOL__Keynum)) {
             memset(learn_ble_send, 0, sizeof(learn_ble_send));
+            DEBUG_LOG_STRING("+++++++++++++++++++++++2");
             switch (keynum)
             {
             case INPUT_Keynum:
@@ -832,8 +834,7 @@ void Read_Parse(const ATT_TABLE_TYPE *table)
 
 void Write_DataParse(const ATT_TABLE_TYPE *table, uint8_t *data, uint8_t len)
 {
-    DEBUG_LOG_STRING("WRITE HANDLE: %d  LEN: %d\r\n", table->handle, len);
-    
+    DEBUG_LOG_STRING("WRITE HANDLE: %d  LEN: %d DATA: %x learn; %d\r\n", table->handle, len, data[0],learn_data_num);
     if (table->handle == AUDIO_CMD_HANDLE)
     {
         if(!memcmp(MIC_OPEN, data, 1) && voice_key_state == false){
@@ -858,9 +859,6 @@ void Write_DataParse(const ATT_TABLE_TYPE *table, uint8_t *data, uint8_t len)
             }
         }
     }
-    else if(table->handle == 79 && !memcmp(tv_open_write_handle_79,data,sizeof(tv_open_write_handle_79))) {
-        ATT_sendNotify(81, (void*)tv_open_reply_handle_79, sizeof(tv_open_reply_handle_79));
-    }
     else if (table->handle == OTA_WRITE_HANDLE)
     {
         if (app_sleep_check()) {
@@ -874,9 +872,6 @@ void Write_DataParse(const ATT_TABLE_TYPE *table, uint8_t *data, uint8_t len)
             app_sleep_lock_set(APP_LOCK, false);
         }
         OS_EXIT_CRITICAL();
-    }
-    else if (table->dataLen >= len) {
-        memcpy((void *)table->dataPtr, (void *)data, len);
     }
     else if(table->handle == 68){
         if(len == 1 && data[0] == 0x01){
