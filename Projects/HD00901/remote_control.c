@@ -804,9 +804,11 @@ void Dev_PowerOn(void)
     if (Bt_CheckIsPaired()) {
         start_adv(ADV_TYPE_DIRECT, 0x08, true);
     }
-    // else {
-    //     start_adv(ADV_TYPE_NOMAL, 0x10, true);
-    // }
+    else {
+        // start_adv(ADV_TYPE_NOMAL, 0x10, true);
+        app_sleep_lock_set(ADV_LOCK, true);
+        app_sleep_timer_set(DIRECT_ADV_TIME);
+    }
 }
 
 void tx_power_switch_set(bool switch_enable)
