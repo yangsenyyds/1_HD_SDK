@@ -10,9 +10,10 @@ output/obj/yc11xx_dev_bt_data_trans.o: \
  ../../../Platform/sdk/yc11xx_audio_adc.h \
  ../../../Platform/devices/ble/hci/yc_dev_bt.h \
  ../../../Projects/HD00210/att_list.h \
+ ../../../APP/factory/factory_test_off_line.h \
+ ../../../Platform/devices/ble/att/att.h \
  ../../../Platform/devices/bt/yc11xx_dev_bt_aap.h \
- ../../../APP/malloc/malloc.h ../../../Platform/sdk/bt/yc11xx_ipc.h \
- ../../../Platform/devices/ble/att/att.h
+ ../../../APP/malloc/malloc.h ../../../Platform/sdk/bt/yc11xx_ipc.h
 
 ../../../Platform/devices/bt/yc11xx_dev_bt_data_trans.h:
 
@@ -38,10 +39,12 @@ output/obj/yc11xx_dev_bt_data_trans.o: \
 
 ../../../Projects/HD00210/att_list.h:
 
+../../../APP/factory/factory_test_off_line.h:
+
+../../../Platform/devices/ble/att/att.h:
+
 ../../../Platform/devices/bt/yc11xx_dev_bt_aap.h:
 
 ../../../APP/malloc/malloc.h:
 
 ../../../Platform/sdk/bt/yc11xx_ipc.h:
-
-../../../Platform/devices/ble/att/att.h:

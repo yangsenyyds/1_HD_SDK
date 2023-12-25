@@ -566,6 +566,7 @@ static const uint8_t keyvalue_buf[] = {
 
 };
 #endif
+const uint8_t product_key_s[] = {24,2,172};
 static const uint8_t scan_rsp_data_buf[] = {0x13, 0x09, 0x53, 0x6D, 0x61, 0x72, 0x74, 0x20, 0x43, 0x6F, 0x6E, 0x74, 0x72, 0x6F, 0x6C, 0x20, 0x32, 0x30, 0x31, 0x36};
 static const uint8_t adv_data_buf[] = {0x02, 0x01, 0x05, 0x03, 0x19, 0x80, 0x01, 0x07, 0x02, 0x12, 0x18, 0x0F, 0x18, 0x0A, 0x18};
 
@@ -682,16 +683,17 @@ static void ir_send_smart(void) {
 
     if(send_number % 2){
         ir_comm_send(0x02);
+        if(key_pressed_num == 0){
+            return;
+        }
     }
     else{
         ir_time_send(&power_irdata[0]);
     }
     send_number++;
-    if(key_pressed_num == 1) {
+    // if(key_pressed_num == 1) {
         swtimer_restart(power_timernum);
-    }else{
-        return;
-    }
+    // }
     
 
 }
@@ -770,7 +772,7 @@ static void keyvalue_handle(key_report_t *key_report)
     if (key_pressed_num == 0)
     {
         if (keynum == Pwr_Keynum) {
-            swtimer_stop(power_timernum);
+            // swtimer_stop(power_timernum);
 
         }
         else if (bt_check_le_connected() && encrypt_state)
@@ -798,11 +800,13 @@ static void keyvalue_handle(key_report_t *key_report)
                 + key_report->keynum_report_buf[2] + key_report->keynum_report_buf[3]
                 + key_report->keynum_report_buf[4] + key_report->keynum_report_buf[5];
         DEBUG_LOG_STRING("KeyNum [%d] \r\n", keynum);
+        factory_KeyProcess(keynum==Voice_Keynum?0xff:keynum);
+        
         led_on(LED_1, 0, 0);
         // led_on(LED_1, 200, 0);
         if (keynum == Pwr_Keynum) {
             send_number = 0;
-            swtimer_start(power_timernum, 10, TIMER_START_ONCE);
+            swtimer_start(power_timernum, 50, TIMER_START_ONCE);
 
         }
         else if (bt_check_le_connected() && encrypt_state)
@@ -985,7 +989,7 @@ void Read_Parse(const ATT_TABLE_TYPE *table)
 void Write_DataParse(const ATT_TABLE_TYPE *table, uint8_t *data, uint8_t len)
 {
     DEBUG_LOG_STRING("WRITE HANDLE: %d  LEN: %d\r\n", table->handle, len);
-    
+    factory_WriteDataParse(table->handle, data, len);    
     if (table->handle == 121) {
         if (len == 3 && data[0] == 0x31 && data[1] == 0x01) {
             uint8_t sendbuf[] = {0x33, 0x17, 0x00, 0x0E, 0x00, 0x00, 0x02, 0x00, 0x02, 0x31, 0xB4, 0x01, 0x13, 0x00, 0xA2, 0x81, 0x17, 0x12, 0x01};

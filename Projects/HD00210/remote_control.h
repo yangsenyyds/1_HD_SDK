@@ -6,8 +6,8 @@
 #include "yc11xx_audio_adc.h"
 #include "yc_dev_bt.h"
 #include "att_list.h"
-
-#define Project_key  (223)
+#include "factory_test_off_line.h"
+#define Project_key  (218)
 /* WATCH_DOG */
 #define FUNCTION_WATCH_DOG
 
@@ -79,8 +79,8 @@
 
 #define MSBC                    (1)
 #define SAMSUNG                 (1)
-
-#define AUDIO_SNED_HANDLE       (143)
+#define AUDIO_CMD_HANDLE        (141)
+#define AUDIO_SNED_HANDLE       (get_VoiceHandle())
 #define TIMEOUT_TIME            (15000)
 /* IR */
 #define IR_IO           (GPIO_4)
@@ -102,7 +102,7 @@ typedef enum {
 /// slave latency
 #define DF_SLAVE_LATENCY_VALUE_128 (128)
 #define DF_SLAVE_LATENCY_VALUE_32 (32)
-
+extern const uint8_t product_key_s[];
 extern bool encrypt_state;
 extern void LE_LTK_LOST(void);
 extern void update_conn_param(bool is_sleep);

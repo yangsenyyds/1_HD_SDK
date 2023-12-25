@@ -10,7 +10,9 @@ output/obj/att.o: ../../../Platform/devices/ble/att/att.c \
  ../../../Projects/HD00210/remote_control.h \
  ../../../Platform/sdk/yc11xx_gpio.h \
  ../../../Platform/sdk/yc11xx_audio_adc.h \
- ../../../Projects/HD00210/att_list.h
+ ../../../Projects/HD00210/att_list.h \
+ ../../../APP/factory/factory_test_off_line.h \
+ ../../../Platform/devices/ble/att/att.h
 
 ../../../Platform/devices/ble/att/att.h:
 
@@ -41,3 +43,7 @@ output/obj/att.o: ../../../Platform/devices/ble/att/att.c \
 ../../../Platform/sdk/yc11xx_audio_adc.h:
 
 ../../../Projects/HD00210/att_list.h:
+
+../../../APP/factory/factory_test_off_line.h:
+
+../../../Platform/devices/ble/att/att.h:

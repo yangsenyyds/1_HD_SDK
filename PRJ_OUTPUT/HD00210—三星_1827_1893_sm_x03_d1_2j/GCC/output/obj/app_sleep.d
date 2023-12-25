@@ -5,6 +5,9 @@ output/obj/app_sleep.o: ../../../APP/app_sleep/app_sleep.c \
  ../../../Platform/sdk/yc11xx_audio_adc.h \
  ../../../Platform/devices/ble/hci/yc_dev_bt.h \
  ../../../Projects/HD00210/att_list.h \
+ ../../../APP/factory/factory_test_off_line.h \
+ ../../../APP/app_sleep/app_sleep.h \
+ ../../../Platform/devices/ble/att/att.h \
  ../../../APP/software_timer/software_timer.h \
  ../../../Platform/sdk/yc11xx_systick.h \
  ../../../APP/app_queue/app_queue.h ../../../APP/key/keyscan.h \
@@ -13,8 +16,7 @@ output/obj/app_sleep.o: ../../../APP/app_sleep/app_sleep.c \
  ../../../Platform/sdk/yc11xx_lpm.h ../../../Platform/core/btreg.h \
  ../../../Platform/sdk/bt/yc11xx_bt_interface.h \
  ../../../Platform/core/yc_debug.h ../../../Platform/core/yc11xx.h \
- ../../../Vendor/Remote_Control/app_config.h \
- ../../../APP/app_sleep/app_sleep.h
+ ../../../Vendor/Remote_Control/app_config.h
 
 ../../../APP/app_sleep/app_sleep.h:
 
@@ -29,6 +31,12 @@ output/obj/app_sleep.o: ../../../APP/app_sleep/app_sleep.c \
 ../../../Platform/devices/ble/hci/yc_dev_bt.h:
 
 ../../../Projects/HD00210/att_list.h:
+
+../../../APP/factory/factory_test_off_line.h:
+
+../../../APP/app_sleep/app_sleep.h:
+
+../../../Platform/devices/ble/att/att.h:
 
 ../../../APP/software_timer/software_timer.h:
 
@@ -57,5 +65,3 @@ output/obj/app_sleep.o: ../../../APP/app_sleep/app_sleep.c \
 ../../../Platform/core/yc11xx.h:
 
 ../../../Vendor/Remote_Control/app_config.h:
-
-../../../APP/app_sleep/app_sleep.h:

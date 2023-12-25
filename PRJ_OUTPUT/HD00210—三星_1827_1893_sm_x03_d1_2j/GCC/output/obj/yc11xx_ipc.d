@@ -8,7 +8,9 @@ output/obj/yc11xx_ipc.o: ../../../Platform/sdk/bt/yc11xx_ipc.c \
  ../../../Platform/sdk/yc11xx_gpio.h \
  ../../../Platform/sdk/yc11xx_audio_adc.h \
  ../../../Platform/devices/ble/hci/yc_dev_bt.h \
- ../../../Projects/HD00210/att_list.h
+ ../../../Projects/HD00210/att_list.h \
+ ../../../APP/factory/factory_test_off_line.h \
+ ../../../Platform/devices/ble/att/att.h
 
 ../../../Platform/sdk/bt/yc11xx_ipc.h:
 
@@ -33,3 +35,7 @@ output/obj/yc11xx_ipc.o: ../../../Platform/sdk/bt/yc11xx_ipc.c \
 ../../../Platform/devices/ble/hci/yc_dev_bt.h:
 
 ../../../Projects/HD00210/att_list.h:
+
+../../../APP/factory/factory_test_off_line.h:
+
+../../../Platform/devices/ble/att/att.h:
