@@ -92,9 +92,9 @@ MEMORY_NOT_PROTECT_UNDER_LPM_ATT uint8_t UART_RxBuf[uart_DMA_RXBuf_len];
 #ifdef ADPCM
 static const uint8_t audio_end[] = {0x00};
 #ifdef audio_start_20
-static const uint8_t search_buf[20] = {0x08};
-static const uint8_t audio_start[20] = {0x04};
-static const uint8_t get_caps_respone_buf[20] = {0x0B,0x00,0x04,0x00,0x03,0x00,0x86,0x00,0x14};
+static const uint8_t search_buf[] = {0x08};
+static const uint8_t audio_start[] = {0x04};
+static const uint8_t get_caps_respone_buf[] = {0x0B,0x00,0x04,0x00,0x03,0x00,0x86,0x00,0x14};
 #else
 static const uint8_t search_buf[] = {0x08};
 static const uint8_t audio_start[] = {0x04};
