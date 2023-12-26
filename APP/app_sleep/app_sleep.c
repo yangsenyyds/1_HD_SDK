@@ -89,7 +89,8 @@ static void app_sleep_task(void)
             swtimer_restart(sleep_timernum);
         }
     }
-    else if (!remote_control_status.sleep_ready) {
+    else if (!remote_control_status.sleep_ready)
+    {
         remote_control_status.sleep_ready = true;
         app_queue_insert(app_sleep_task);
     }
@@ -131,6 +132,7 @@ static void app_sleep_task(void)
 
 void prepare_before_sleep(void)
 {
+    DEBUG_LOG_STRING("remote_control_status.keep_conn = %d \r\n",remote_control_status.keep_conn);
     if (!remote_control_status.keep_conn)
     {
         DEBUG_LOG_STRING("PREPARE BEFORE SLEEP \r\n");
@@ -288,7 +290,8 @@ void app_sleep_lock_set(DEV_LOCK_TypeDef dev_lock, bool state)
     case LATENCY_LOCK:
         remote_control_status.latency = state;
         if (state) {
-            app_queue_insert(app_sleep_task);
+            // app_queue_insert(app_sleep_task);
+            app_sleep_task();
         }
         break;
 

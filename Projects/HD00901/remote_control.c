@@ -386,6 +386,8 @@ static void keyvalue_handle(key_report_t* key_report)
 
         factory_KeyProcess(keynum==Voice_Keynum?0xff:keynum);
         swtimer_start(key_press_time_timernum, 1000, TIMER_START_ONCE);
+        // encrypt_state = 1;
+        led_state = 0;
         DEBUG_LOG_STRING("KEY [%d][%d][%d][%d][%d][%d][%d]\r\n", key_report->keynum_report_buf[0]
         ,key_report->keynum_report_buf[1],key_report->keynum_report_buf[2],key_report->keynum_report_buf[3],key_report->keynum_report_buf[4],key_report->keynum_report_buf[5],key_report->keynum_report_buf[6]);
         if (bt_check_le_connected() && encrypt_state)
@@ -503,6 +505,7 @@ void Action_After_Prepare_Sleep(void)
         key_wakeup_set_high();
     }
 }
+
 void action_after_mic_close(void)
 {
     led_state = false;
@@ -521,6 +524,8 @@ void action_after_led_blk(void)
     {
         swtimer_stop(get_key_timernum());
         Lpm_unLockLpm(LPM_ALL_LOCK);
+        app_sleep_lock_set(KEY_LOCK, false);
+        app_sleep_lock_set(LATENCY_LOCK, true);
         DEBUG_LOG_STRING("521  %d \r\n", HREADW(M0_LPM_REG));
     }
 }

@@ -32,13 +32,17 @@ void Lpm_PollingWork(void)
 {
     switch (HREAD(IPC_MCU_STATE))
     {
+        
         case IPC_MCU_STATE_RUNNING:
+        // DEBUG_LOG_STRING("37\r\n");
             Lpm_unLockLpm(M0_LPM_FLAG);
             break;
 
         case IPC_MCU_STATE_LMP:
             OS_ENTER_CRITICAL();
+            DEBUG_LOG_STRING("41 %d %d %d %d %d\r\n", IPC_IsTxBuffEmpty(),Lpm_CheckLpmFlag(),app_sleep_check(),HREADW(M0_LPM_REG),HREAD(mem_lpm_mode));
             if (IPC_IsTxBuffEmpty() && Lpm_CheckLpmFlag() && app_sleep_check()) {
+                DEBUG_LOG_STRING("45\r\n");
                 prepare_before_sleep();
                 Lpm_SleepWork();
             }
@@ -49,15 +53,18 @@ void Lpm_PollingWork(void)
             break;
 
         case IPC_MCU_STATE_HIBERNATE:
+        
             OS_ENTER_CRITICAL();
             prepare_before_sleep();
             Lpm_SleepWork();
             break;
             
         case IPC_MCU_STATE_STOP:
+                DEBUG_LOG_STRING("62\r\n");
             break;
         
         default:
+        DEBUG_LOG_STRING("66\r\n");
           	break;
     }
 }
