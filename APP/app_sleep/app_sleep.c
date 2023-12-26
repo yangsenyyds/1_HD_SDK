@@ -94,7 +94,8 @@ static void app_sleep_task(void)
         app_queue_insert(app_sleep_task);
     }
 #ifdef MOUSE
-    else if (remote_control_status.mouse) {
+    else if (remote_control_status.mouse)
+    {
         remote_control_status.mouse_time_cnt++;
         // DEBUG_LOG_STRING("MOUSE TIME CNT: %d \r\n", remote_control_status.mouse_time_cnt);
         if (remote_control_status.mouse_time_cnt >= MOUSE_STOP_TIMEOUT) {
@@ -117,7 +118,8 @@ static void app_sleep_task(void)
             remote_control_status.sleep_flag = true;
             Lpm_unLockLpm(LPM_ALL_LOCK);
         }
-        else {
+        else 
+        {
 #if LG
         bt_send_le_disconnect(0x13);
 #else
