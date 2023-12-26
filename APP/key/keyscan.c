@@ -76,8 +76,9 @@ typedef struct KEY_CFG {
 
 
 MEMORY_NOT_PROTECT_UNDER_LPM_ATT static bool key_changed = false;
-MEMORY_NOT_PROTECT_UNDER_LPM_ATT static key_report_t key_report;
+static key_report_t key_report;
 static uint8_t key_report_timernum = 0XFF;
+ uint8_t key_lock_state = 0;
 static uint8_t keynum_buf[ROW_NUM][COL_NUM];
 static key_cfg_t key_cfg;
 
@@ -257,7 +258,9 @@ static void keyscan_once(void)
     
     if (key_report.key_press_cnt > 0) {
         // DEBUG_LOG_STRING("key lock \r\n");
-        app_sleep_lock_set(KEY_LOCK, true);
+        if(!key_lock_state){
+            app_sleep_lock_set(KEY_LOCK, true);
+        }
     }
 }
 
@@ -326,6 +329,34 @@ static void keyscan_row_cfg(void)
 #endif
 #if (KEY_ROW_NUM >= 8)
     GPIO_Init(KEY_ROW8_PIN, GPIO_Mode_Out_Low);
+#endif
+}
+
+void keyscan_row_cfg_set(void)
+{
+#if (KEY_ROW_NUM >= 1)
+    GPIO_Init(KEY_ROW1_PIN, GPIO_Mode_Out_High);
+#endif
+#if (KEY_ROW_NUM >= 2)
+    GPIO_Init(KEY_ROW2_PIN, GPIO_Mode_Out_High);
+#endif
+#if (KEY_ROW_NUM >= 3)
+    GPIO_Init(KEY_ROW3_PIN, GPIO_Mode_Out_High);
+#endif
+#if (KEY_ROW_NUM >= 4)
+    GPIO_Init(KEY_ROW4_PIN, GPIO_Mode_Out_High);
+#endif
+#if (KEY_ROW_NUM >= 5)
+    GPIO_Init(KEY_ROW5_PIN, GPIO_Mode_Out_High);
+#endif
+#if (KEY_ROW_NUM >= 6)
+    GPIO_Init(KEY_ROW6_PIN, GPIO_Mode_Out_High);
+#endif
+#if (KEY_ROW_NUM >= 7)
+    GPIO_Init(KEY_ROW7_PIN, GPIO_Mode_Out_High);
+#endif
+#if (KEY_ROW_NUM >= 8)
+    GPIO_Init(KEY_ROW8_PIN, GPIO_Mode_Out_High);
 #endif
 }
 
@@ -466,36 +497,73 @@ bool key_wakeup_get_high(void)
 void key_wakeup_set_high(void)
 {
 #if (KEY_COL_NUM >= 1)
-    GPIO_Init(KEY_COL1_PIN, GPIO_Mode_In_Up);
-    GPIO_WakeUp(KEY_COL1_PIN, GPIO_WakeUpHigh);
+    if(key_report.keynum_report_buf[0] == 1){
+        GPIO_Init(KEY_COL1_PIN, GPIO_Mode_In_Up);
+        GPIO_WakeUp(KEY_COL1_PIN, GPIO_WakeUpHigh);
+    }
+    else{
+        GPIO_Init(KEY_COL1_PIN, GPIO_Mode_In_Up);
+        GPIO_WakeUp(KEY_COL1_PIN, GPIO_WakeUpLow);
+    }
+
 #endif
 #if (KEY_COL_NUM >= 2)
-    GPIO_Init(KEY_COL2_PIN, GPIO_Mode_In_Up);
-    GPIO_WakeUp(KEY_COL2_PIN, GPIO_WakeUpHigh);
+    if(key_report.keynum_report_buf[1] == 1){
+        GPIO_Init(KEY_COL2_PIN, GPIO_Mode_In_Up);
+        GPIO_WakeUp(KEY_COL2_PIN, GPIO_WakeUpHigh);
+    }
+    else{
+        GPIO_Init(KEY_COL2_PIN, GPIO_Mode_In_Up);
+        GPIO_WakeUp(KEY_COL2_PIN, GPIO_WakeUpLow);
+    }
 #endif
 #if (KEY_COL_NUM >= 3)
-    GPIO_Init(KEY_COL3_PIN, GPIO_Mode_In_Up);
-    GPIO_WakeUp(KEY_COL3_PIN, GPIO_WakeUpHigh);
+    if(key_report.keynum_report_buf[2] == 1){
+        GPIO_Init(KEY_COL3_PIN, GPIO_Mode_In_Up);
+        GPIO_WakeUp(KEY_COL3_PIN, GPIO_WakeUpHigh);
+    }
+    else{
+        GPIO_Init(KEY_COL3_PIN, GPIO_Mode_In_Up);
+        GPIO_WakeUp(KEY_COL3_PIN, GPIO_WakeUpLow);
+    }
 #endif
 #if (KEY_COL_NUM >= 4)
-    GPIO_Init(KEY_COL4_PIN, GPIO_Mode_In_Up);
-    GPIO_WakeUp(KEY_COL4_PIN, GPIO_WakeUpHigh);
+    if(key_report.keynum_report_buf[3] == 1){
+        GPIO_Init(KEY_COL4_PIN, GPIO_Mode_In_Up);
+        GPIO_WakeUp(KEY_COL4_PIN, GPIO_WakeUpHigh);
+    }
+    else{
+        GPIO_Init(KEY_COL4_PIN, GPIO_Mode_In_Up);
+        GPIO_WakeUp(KEY_COL4_PIN, GPIO_WakeUpLow);
+    }
 #endif
 #if (KEY_COL_NUM >= 5)
-    GPIO_Init(KEY_COL5_PIN, GPIO_Mode_In_Up);
-    GPIO_WakeUp(KEY_COL5_PIN, GPIO_WakeUpHigh);
+    if(key_report.keynum_report_buf[4] == 1){
+        GPIO_Init(KEY_COL5_PIN, GPIO_Mode_In_Up);
+        GPIO_WakeUp(KEY_COL5_PIN, GPIO_WakeUpHigh);
+    }
+    else{
+        GPIO_Init(KEY_COL5_PIN, GPIO_Mode_In_Up);
+        GPIO_WakeUp(KEY_COL5_PIN, GPIO_WakeUpLow);
+    }
 #endif
 #if (KEY_COL_NUM >= 6)
-    GPIO_Init(KEY_COL6_PIN, GPIO_Mode_In_Up);
-    GPIO_WakeUp(KEY_COL6_PIN, GPIO_WakeUpHigh);
+    if(key_report.keynum_report_buf[5] == 1){
+        GPIO_Init(KEY_COL6_PIN, GPIO_Mode_In_Up);
+        GPIO_WakeUp(KEY_COL6_PIN, GPIO_WakeUpHigh);
+    }
+    else{
+        GPIO_Init(KEY_COL6_PIN, GPIO_Mode_In_Up);
+        GPIO_WakeUp(KEY_COL6_PIN, GPIO_WakeUpLow);
+    }
 #endif
 #if (KEY_COL_NUM >= 7)
     GPIO_Init(KEY_COL7_PIN, GPIO_Mode_In_Up);
-    GPIO_WakeUp(KEY_COL7_PIN, GPIO_WakeUpHigh);
+    GPIO_WakeUp(KEY_COL7_PIN, GPIO_WakeUpLow);
 #endif
 #if (KEY_COL_NUM >= 8)
     GPIO_Init(KEY_COL8_PIN, GPIO_Mode_In_Up);
-    GPIO_WakeUp(KEY_COL8_PIN, GPIO_WakeUpHigh);
+    GPIO_WakeUp(KEY_COL8_PIN, GPIO_WakeUpLow);
 #endif    
 }
 
@@ -548,3 +616,4 @@ uint8_t get_key_timernum(void)
 {
     return key_report_timernum;
 }
+

@@ -76,8 +76,14 @@ static bool app_lock_check(void)
 
 static void app_sleep_task(void)
 {
+            DEBUG_LOG_STRING("79 %d %d %d %d %d\r\n",remote_control_status.app,
+                                remote_control_status.key,
+                                remote_control_status.led,
+                                remote_control_status.ir,
+                                remote_control_status.auido);
     if (remote_control_status.adv)
     {
+        DEBUG_LOG_STRING("82 \r\n"); 
         remote_control_status.adv_time_cnt++;
 #ifdef ADV_TIME
         DEBUG_LOG_STRING("ADV TIME CNT: %d \r\n", remote_control_status.adv_time_cnt);
@@ -91,6 +97,7 @@ static void app_sleep_task(void)
     }
     else if (!remote_control_status.sleep_ready)
     {
+        DEBUG_LOG_STRING("96 \r\n"); 
         remote_control_status.sleep_ready = true;
         app_queue_insert(app_sleep_task);
     }
@@ -115,7 +122,9 @@ static void app_sleep_task(void)
     else if (!remote_control_status.app && !remote_control_status.key && !remote_control_status.led
         && !remote_control_status.ir && !remote_control_status.auido)
     {
+        DEBUG_LOG_STRING("118 \r\n"); 
         if (remote_control_status.latency) {
+            DEBUG_LOG_STRING("119 \r\n");
             remote_control_status.sleep_flag = true;
             Lpm_unLockLpm(LPM_ALL_LOCK);
         }
@@ -132,7 +141,7 @@ static void app_sleep_task(void)
 
 void prepare_before_sleep(void)
 {
-    DEBUG_LOG_STRING("remote_control_status.keep_conn = %d \r\n",remote_control_status.keep_conn);
+    // DEBUG_LOG_STRING("remote_control_status.keep_conn = %d \r\n",remote_control_status.keep_conn);
     if (!remote_control_status.keep_conn)
     {
         DEBUG_LOG_STRING("PREPARE BEFORE SLEEP \r\n");
@@ -229,6 +238,7 @@ void app_sleep_lock_set(DEV_LOCK_TypeDef dev_lock, bool state)
     case KEY_LOCK:
     {
         remote_control_status.key = state;
+        // DEBUG_LOG_STRING("241 %d \r\n",state);
         if (state) {
             remote_control_status.adv_time_cnt = 0;
             Lpm_LockLpm(KEY_LPM_FLAG);
@@ -290,8 +300,8 @@ void app_sleep_lock_set(DEV_LOCK_TypeDef dev_lock, bool state)
     case LATENCY_LOCK:
         remote_control_status.latency = state;
         if (state) {
-            // app_queue_insert(app_sleep_task);
-            app_sleep_task();
+            app_queue_insert(app_sleep_task);
+            // app_sleep_task();
         }
         break;
 

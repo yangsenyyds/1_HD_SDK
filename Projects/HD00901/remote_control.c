@@ -349,7 +349,7 @@ static void key_pressed_handle(void)
 static void keyvalue_handle(key_report_t* key_report)
 {
     key_pressed_num = key_report->key_press_cnt;
-    
+    DEBUG_LOG_STRING("352  %d \r\n", key_pressed_num);
     if (key_pressed_num == 0)
     {
         if (bt_check_le_connected() && encrypt_state)
@@ -502,6 +502,8 @@ static void keyvalue_handle(key_report_t* key_report)
 void Action_After_Prepare_Sleep(void)
 {
     if(key_pressed_num == 1 && bt_check_le_connected() && encrypt_state){
+        // DEBUG_LOG_STRING("505 \r\n");
+        // keyscan_row_cfg_set();
         key_wakeup_set_high();
     }
 }
@@ -513,20 +515,26 @@ void action_after_mic_close(void)
     voice_key_state = false;
 }
 
+void key_press_lpm(void){
+
+}
 void action_after_led_blk(void)
 {
-    DEBUG_LOG_STRING("514  %d \r\n", led_state);
+    // DEBUG_LOG_STRING("514  %d \r\n", led_state);
     if (led_state == 1)
     {
         led_state = false;
     }
     else if(led_state == 2)
     {
-        swtimer_stop(get_key_timernum());
-        Lpm_unLockLpm(LPM_ALL_LOCK);
-        app_sleep_lock_set(KEY_LOCK, false);
-        app_sleep_lock_set(LATENCY_LOCK, true);
-        DEBUG_LOG_STRING("521  %d \r\n", HREADW(M0_LPM_REG));
+    swtimer_stop(get_key_timernum());
+    key_lock_state = 1;
+    software_timer_stop();
+    Lpm_unLockLpm(LPM_ALL_LOCK);
+    app_sleep_lock_set(KEY_LOCK, false);
+    app_sleep_lock_set(LATENCY_LOCK, true);
+    app_sleep_lock_set(KEY_LOCK, false);    
+    DEBUG_LOG_STRING("521  %d \r\n", HREADW(M0_LPM_REG));
     }
 }
 
@@ -551,6 +559,7 @@ static void power_handle(uint8_t batlevel)
 
 static void remote_control_reinit(void)
 {
+    key_lock_state = 0;
     keyscan_start();
     software_timer_start(SYSTEM_CURRENT_CLOCK, TIMER_UNIT_MS);
     vbat_reinit();
@@ -867,6 +876,7 @@ void app_init(void)
         vioce_send_timernum = swtimer_add(voice_send_handle);
 		low_power_timernum = swtimer_add(low_power_handle);
         key_press_time_timernum = swtimer_add(key_press_time_handle);
+        // key_press = swtimer_add(key_time);
         if (!SecretKey_Check())
         {
 #ifdef SecretKey_Check_enable
@@ -891,28 +901,35 @@ void app_init(void)
     {
         app_queue_reset();
 
-        if (key_wakeup_get() && keynum != 1)
+        if (keynum != 1)
         {
-            sleep_time_state = 0;
-            remote_control_reinit();
-            DEBUG_LOG_STRING("WAKE UP %d\r\n" ,wake_up_state);
+            if(key_wakeup_get())
+            {
+                sleep_time_state = 0;
+                remote_control_reinit();
+                DEBUG_LOG_STRING("1 WAKE UP %d\r\n" ,wake_up_state);
+            }
+            else 
+            {
+                enter_low_sleep();
+                // DEBUG_LOG_STRING("KEEP CONNECT\r\n");
+            }            
 
-        }
-        else if(key_wakeup_get_high() && keynum == 1){
-            sleep_time_state = 0;
-            remote_control_reinit();
-            DEBUG_LOG_STRING("WAKE UP %d\r\n" ,wake_up_state);            
         }
         else 
         {
-#ifdef SLEEP_ONE_HOUR
-            sleep_time_state++;
-            if(sleep_time_state > 3800){
-                bt_send_le_disconnect(0x13);
+            if(key_wakeup_get_high() && keynum == 1)
+            {
+                sleep_time_state = 0;
+                remote_control_reinit();
+                DEBUG_LOG_STRING(" 2 WAKE UP %d\r\n" ,wake_up_state);            
             }
-#endif            
-            enter_low_sleep();
-            DEBUG_LOG_STRING("KEEP CONNECT\r\n");
+            else 
+            {   
+                enter_low_sleep();
+                // DEBUG_LOG_STRING("KEEP CONNECT\r\n");
+            }
         }
+
     }
 }

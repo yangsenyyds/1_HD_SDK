@@ -40,9 +40,9 @@ void Lpm_PollingWork(void)
 
         case IPC_MCU_STATE_LMP:
             OS_ENTER_CRITICAL();
-            DEBUG_LOG_STRING("41 %d %d %d %d %d\r\n", IPC_IsTxBuffEmpty(),Lpm_CheckLpmFlag(),app_sleep_check(),HREADW(M0_LPM_REG),HREAD(mem_lpm_mode));
+            // DEBUG_LOG_STRING("41 %d %d %d %d %d\r\n", IPC_IsTxBuffEmpty(),Lpm_CheckLpmFlag(),app_sleep_check(),HREADW(M0_LPM_REG),HREAD(mem_lpm_mode));
             if (IPC_IsTxBuffEmpty() && Lpm_CheckLpmFlag() && app_sleep_check()) {
-                DEBUG_LOG_STRING("45\r\n");
+                // DEBUG_LOG_STRING("45\r\n");
                 prepare_before_sleep();
                 Lpm_SleepWork();
             }
