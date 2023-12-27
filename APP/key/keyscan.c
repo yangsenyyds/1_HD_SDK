@@ -497,11 +497,13 @@ bool key_wakeup_get_high(void)
 void key_wakeup_set_high(void)
 {
 #if (KEY_COL_NUM >= 1)
-    if(key_report.keynum_report_buf[0] == 1){
+    if(key_report.keynum_report_buf[0] == 1)
+    {
         GPIO_Init(KEY_COL1_PIN, GPIO_Mode_In_Up);
         GPIO_WakeUp(KEY_COL1_PIN, GPIO_WakeUpHigh);
     }
-    else{
+    else
+    {
         GPIO_Init(KEY_COL1_PIN, GPIO_Mode_In_Up);
         GPIO_WakeUp(KEY_COL1_PIN, GPIO_WakeUpLow);
     }
