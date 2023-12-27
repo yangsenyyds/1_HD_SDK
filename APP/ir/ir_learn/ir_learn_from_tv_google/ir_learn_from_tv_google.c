@@ -40,6 +40,7 @@ enum{
 void ir_tv_learn_send(uint16_t keynum)
 {
     memset(&irparams, 0x00, sizeof(irparams));
+    DEBUG_LOG_STRING("ir_tv_learn_send keynum %d\r\n",keynum);
     switch (keynum)
     {
         case POWER_KEYNUM: 
@@ -66,6 +67,7 @@ void ir_tv_learn_send(uint16_t keynum)
         case MUTE_KEYNUM:
         {
             if(!flash_read(HD_MUTE_DATA, (uint8_t *)&irparams, sizeof(irparams))){
+                DEBUG_LOG_STRING("MUTE_KEYNUM\r\n");
                 ir_remote_learn_send(irparams); 
             }
         }

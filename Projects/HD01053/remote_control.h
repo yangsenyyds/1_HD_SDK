@@ -98,8 +98,8 @@ typedef enum {
     HD_INPUT__DATA = 0x3F800,
     HD_POWER_DATA = 0x3F600,
 } FlashRecordAddr_TypeDef; //存储数据需要 8字节
-#define MUTE_KEYNUM     (6)
-#define INPUT_KEYNUM    (12)
+#define MUTE_KEYNUM     (20)
+#define INPUT_KEYNUM    (10)
 #define POWER_KEYNUM    (1)
 #define VOL_KEYNUM      (19)
 #define VOL__KEYNUM     (21)

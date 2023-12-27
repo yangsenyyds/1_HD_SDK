@@ -45,8 +45,8 @@ enum
     Voice_Keynum = 2,
     Back_Keynum = 13,
     CONN_PARAM = 99,
-    MUTE_Keynum = 6,
-    INPUT_Keynum = 30, // 12,
+    MUTE_Keynum = 20,
+    INPUT_Keynum = 10,
     VOL_Keynum = 19,
     VOL__Keynum = 21,
 };
@@ -394,7 +394,7 @@ static const KeyBuf_TypeDef KeyBuf[] = {
     {0x41, 0x00, 4, 35}, //
     {0x8D, 0x00, 4, 35}, // 8
     {0x44, 0x00, 4, 35}, //
-    {0x00, 0x00, 0, 0},  // 10
+    {0x9C, 0x00, 0, 0},  // 10
 
     {0x2A, 0x02, 4, 35}, // 11
     {0x23, 0x02, 2, 35}, // -
@@ -624,10 +624,11 @@ static void keyvalue_handle(key_report_t *key_report)
         //     }
         //     swtimer_start(key_pressed_timernum, 100, TIMER_START_ONCE);
         // }
+        DEBUG_LOG_STRING("---------------%d",get_ir_learn_state());
         if (get_ir_learn_state() && (keynum == INPUT_Keynum || keynum == Power__Keynum || keynum == MUTE_Keynum || keynum == VOL_Keynum || keynum == VOL__Keynum))
         {
             memset(learn_ble_send, 0, sizeof(learn_ble_send));
-            DEBUG_LOG_STRING("+++++++++++++++++++++++2");
+            DEBUG_LOG_STRING("+++++++++++++++++++++++%d",keynum);
             switch (keynum)
             {
             case INPUT_Keynum:
@@ -934,11 +935,13 @@ void Write_DataParse(const ATT_TABLE_TYPE *table, uint8_t *data, uint8_t len)
         }
         else if (len == 1 && data[0] == 0x00)
         {
-            DEBUG_LOG_STRING("111111111111111111");
+            DEBUG_LOG_STRING("111111111111111111\r\n");
             for (uint8_t i = 0; i < learn_data_num; i++)
             {
                 ir_learn_data_fill(&learn_data_from_tv[i][0]);
             }
+            ir_learn_init();
+            DEBUG_LOG_STRING("123456789\r\n");
             app_sleep_lock_set(APP_LOCK, false);
         }
     }
@@ -1109,6 +1112,7 @@ void app_init(void)
         app_sleep_init();
         vbat_init(power_handle);
         led_init();
+        ir_learn_init();
         voice_report_init();
         ir_init(UPD6121G_64, CUSTOM_77_88_A);
         keyscan_init(KEY_MODE_SINGLE, keyvalue_handle);

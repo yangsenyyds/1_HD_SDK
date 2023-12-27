@@ -84,6 +84,7 @@ static void ir_without_freq(void)
 void ir_send(void)
 {
     app_sleep_lock_set(IR_LOCK,true);
+    DEBUG_LOG_STRING("ir_send\r\n");
     for (uint16_t i = 0; i < ir_send_param.length; i)
     {
         if (ir_send_param.pwm_buf_p[i] == 0) {
@@ -902,6 +903,7 @@ void ir_remote_learn_send(ir_receive_param_t irparams)
         ir_endcode_param.endcode_end_offset = ir_send_param.length;
         ir_send_param.length = ir_endcode_param.endcode_start_offset;
     }
+    DEBUG_LOG_STRING("ir_remote_learn_send\r\n");
     app_queue_insert(ir_send);
 }
 #endif 

@@ -434,4 +434,5 @@ void ir_learn_init(void)
     else {
         ir_learn_done = false;
     }
+    DEBUG_LOG_STRING("ir_learn_done %d",ir_learn_done);
 }
