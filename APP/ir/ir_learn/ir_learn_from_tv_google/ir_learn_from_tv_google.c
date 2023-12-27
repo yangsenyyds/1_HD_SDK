@@ -66,7 +66,6 @@ void ir_tv_learn_send(uint16_t keynum)
         case MUTE_KEYNUM:
         {
             if(!flash_read(HD_MUTE_DATA, (uint8_t *)&irparams, sizeof(irparams))){
-                DEBUG_LOG_STRING("MUTE_KEYNUM\r\n");
                 ir_remote_learn_send(irparams); 
             }
         }
@@ -189,8 +188,7 @@ void ir_learn_data_clr(void){
 
 void ir_learn_init(void)
 {
-    DEBUG_LOG_STRING("ir_learn_init %d",flash_record_exist(ir_learn_tag));
-    if (flash_recor11111111111111d_exist(ir_learn_tag)) {
+    if (flash_record_exist(ir_learn_tag)) {
         ir_learn_done = false;
     }
     else {

@@ -487,8 +487,6 @@ static uint8_t ir_fb739a_ready(uint16_t irnum)
 
 static uint8_t repeat_bit_data_ready(uint16_t irnum)
 {
-
-
     memset((void *)&ir_send_param, 0x00, sizeof(ir_send_param));
     memset((void *)ir_pulse_data, 0, sizeof(ir_pulse_data));
     ir_send_param.pwm_buf_p = ir_pulse_data;
@@ -863,14 +861,11 @@ void set_ir_pulse_fill()
 void ir_remote_learn_send(ir_receive_param_t irparams)
 {
     app_sleep_lock_set(IR_LOCK,true);
-    DEBUG_LOG_STRING("1111\r\n");
     memset((void *)&ir_send_param, 0, sizeof(ir_send_param));
     memset((void *)ir_pulse_data, 0, sizeof(ir_pulse_data));
     ir_send_param.pwm_buf_p = ir_pulse_data;
     ir_set_freq(irparams.freq*1000);
-    DEBUG_LOG_STRING("2222\r\n");
     set_pwm_freq_div();
-    DEBUG_LOG_STRING("3333\r\n");
     for(uint16_t i = 0  ; i < irparams.len ; i++)
 	{
         if(i % 2 == 0){
@@ -905,9 +900,7 @@ void ir_remote_learn_send(ir_receive_param_t irparams)
         ir_endcode_param.endcode_end_offset = ir_send_param.length;
         ir_send_param.length = ir_endcode_param.endcode_start_offset;
     }
-    DEBUG_LOG_STRING("ir_remote_learn_send\r\n");
     app_queue_insert(ir_send);
-    DEBUG_LOG_STRING("4444\r\n");
 }
 #endif 
 
@@ -938,6 +931,7 @@ void ir_time_send(const uint16_t *time_data)
 
 void ir_comm_send(uint16_t irnum)
 {
+    DEBUG_LOG_STRING("ir_comm_send\r\n");
     app_sleep_lock_set(IR_LOCK,true);
     if (brand_type[FREQ_SIZE] != 0) {
         set_pwm_freq_div();
