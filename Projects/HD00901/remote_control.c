@@ -900,8 +900,8 @@ void app_init(void)
     else
     {
         app_queue_reset();
-
-        if (keynum != 1)
+// DEBUG_LOG_STRING("903 keynum = %d \r\n",key_pressed_num);
+        if (key_pressed_num != 1)
         {
             if(key_wakeup_get())
             {
@@ -918,7 +918,7 @@ void app_init(void)
         }
         else 
         {
-            if(key_wakeup_get_high() && keynum == 1)
+            if(key_wakeup_get_high() && key_pressed_num == 1)
             {
                 sleep_time_state = 0;
                 remote_control_reinit();

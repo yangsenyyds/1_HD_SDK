@@ -464,25 +464,73 @@ bool key_wakeup_get_high(void)
     bool ret = false;
     
 #if (KEY_COL_NUM >= 1)
-    ret |= GPIO_ReadDataBit(KEY_COL1_PIN);
+    if(key_report.keynum_report_buf[0] != 0)
+    {
+        ret |= GPIO_ReadDataBit(KEY_COL1_PIN);
+         DEBUG_LOG_STRING("470 ret = %d\r\n",ret);
+    }
+    // else
+    // {
+    //     ret |= !GPIO_ReadDataBit(KEY_COL1_PIN);
+    // }
 #endif
 #if (KEY_COL_NUM >= 2)
-    ret |= GPIO_ReadDataBit(KEY_COL2_PIN);
+    if(key_report.keynum_report_buf[1] != 0)
+    {
+        ret |= GPIO_ReadDataBit(KEY_COL2_PIN);
+        DEBUG_LOG_STRING("481 ret = %d\r\n",ret);
+    }
+    // else
+    // {
+    //     ret |= !GPIO_ReadDataBit(KEY_COL2_PIN);
+    // }
 #endif
 #if (KEY_COL_NUM >= 3)
-    ret |= GPIO_ReadDataBit(KEY_COL3_PIN);
+    if(key_report.keynum_report_buf[2] != 0)
+    {
+        ret |= GPIO_ReadDataBit(KEY_COL3_PIN);
+        DEBUG_LOG_STRING("492 ret = %d\r\n",ret);
+    }
+    // else
+    // {
+    //     ret |= !GPIO_ReadDataBit(KEY_COL3_PIN);
+    // }
 #endif
 #if (KEY_COL_NUM >= 4)
-    ret |= GPIO_ReadDataBit(KEY_COL4_PIN);
+    if(key_report.keynum_report_buf[3] != 0)
+    {
+        ret |= GPIO_ReadDataBit(KEY_COL4_PIN);
+        DEBUG_LOG_STRING("503 ret = %d\r\n",ret);   
+    }
+    // else
+    // {
+    //     ret |= !GPIO_ReadDataBit(KEY_COL4_PIN);
+    // }
 #endif
 #if (KEY_COL_NUM >= 5)
-    ret |= GPIO_ReadDataBit(KEY_COL5_PIN);
+    if(key_report.keynum_report_buf[4] != 0)
+    {
+        ret |= GPIO_ReadDataBit(KEY_COL5_PIN);
+        DEBUG_LOG_STRING("514 ret = %d\r\n",ret);
+    }
+    // else
+    // {
+    //     ret |= !GPIO_ReadDataBit(KEY_COL5_PIN);
+    // }
 #endif
 #if (KEY_COL_NUM >= 6)
-    ret |= GPIO_ReadDataBit(KEY_COL6_PIN);
+    if(key_report.keynum_report_buf[5] != 0)
+    {
+        ret |= GPIO_ReadDataBit(KEY_COL6_PIN);
+        DEBUG_LOG_STRING("525 ret = %d\r\n",ret);
+    }
+    // else
+    // {
+    //     ret |= !GPIO_ReadDataBit(KEY_COL6_PIN);
+    // }
 #endif
 #if (KEY_COL_NUM >= 7)
-    ret |= GPIO_ReadDataBit(KEY_COL7_PIN);
+
 #endif
 #if (KEY_COL_NUM >= 8)
     ret |= GPIO_ReadDataBit(KEY_COL8_PIN);
@@ -497,67 +545,76 @@ bool key_wakeup_get_high(void)
 void key_wakeup_set_high(void)
 {
 #if (KEY_COL_NUM >= 1)
-    if(key_report.keynum_report_buf[0] == 1)
+    if(key_report.keynum_report_buf[0] != 0)
     {
         GPIO_Init(KEY_COL1_PIN, GPIO_Mode_In_Up);
         GPIO_WakeUp(KEY_COL1_PIN, GPIO_WakeUpHigh);
     }
-    else
-    {
-        GPIO_Init(KEY_COL1_PIN, GPIO_Mode_In_Up);
-        GPIO_WakeUp(KEY_COL1_PIN, GPIO_WakeUpLow);
-    }
+    // else
+    // {
+    //     GPIO_Init(KEY_COL1_PIN, GPIO_Mode_In_Up);
+    //     GPIO_WakeUp(KEY_COL1_PIN, GPIO_WakeUpLow);
+    // }
 
 #endif
 #if (KEY_COL_NUM >= 2)
-    if(key_report.keynum_report_buf[1] == 1){
+    if(key_report.keynum_report_buf[1] != 0)
+    {
         GPIO_Init(KEY_COL2_PIN, GPIO_Mode_In_Up);
         GPIO_WakeUp(KEY_COL2_PIN, GPIO_WakeUpHigh);
     }
-    else{
-        GPIO_Init(KEY_COL2_PIN, GPIO_Mode_In_Up);
-        GPIO_WakeUp(KEY_COL2_PIN, GPIO_WakeUpLow);
-    }
+    // else
+    // {
+    //     GPIO_Init(KEY_COL2_PIN, GPIO_Mode_In_Up);
+    //     GPIO_WakeUp(KEY_COL2_PIN, GPIO_WakeUpLow);
+    // }
 #endif
 #if (KEY_COL_NUM >= 3)
-    if(key_report.keynum_report_buf[2] == 1){
+    if(key_report.keynum_report_buf[2] != 0)
+    {
         GPIO_Init(KEY_COL3_PIN, GPIO_Mode_In_Up);
         GPIO_WakeUp(KEY_COL3_PIN, GPIO_WakeUpHigh);
     }
-    else{
-        GPIO_Init(KEY_COL3_PIN, GPIO_Mode_In_Up);
-        GPIO_WakeUp(KEY_COL3_PIN, GPIO_WakeUpLow);
-    }
+    // else
+    // {
+    //     GPIO_Init(KEY_COL3_PIN, GPIO_Mode_In_Up);
+    //     GPIO_WakeUp(KEY_COL3_PIN, GPIO_WakeUpLow);
+    // }
 #endif
 #if (KEY_COL_NUM >= 4)
-    if(key_report.keynum_report_buf[3] == 1){
+    if(key_report.keynum_report_buf[3] != 0)
+    {
         GPIO_Init(KEY_COL4_PIN, GPIO_Mode_In_Up);
         GPIO_WakeUp(KEY_COL4_PIN, GPIO_WakeUpHigh);
     }
-    else{
-        GPIO_Init(KEY_COL4_PIN, GPIO_Mode_In_Up);
-        GPIO_WakeUp(KEY_COL4_PIN, GPIO_WakeUpLow);
-    }
+    // else
+    // {
+    //     GPIO_Init(KEY_COL4_PIN, GPIO_Mode_In_Up);
+    //     GPIO_WakeUp(KEY_COL4_PIN, GPIO_WakeUpLow);
+    // }
 #endif
 #if (KEY_COL_NUM >= 5)
-    if(key_report.keynum_report_buf[4] == 1){
+    if(key_report.keynum_report_buf[4] != 0)
+    {
         GPIO_Init(KEY_COL5_PIN, GPIO_Mode_In_Up);
         GPIO_WakeUp(KEY_COL5_PIN, GPIO_WakeUpHigh);
     }
-    else{
-        GPIO_Init(KEY_COL5_PIN, GPIO_Mode_In_Up);
-        GPIO_WakeUp(KEY_COL5_PIN, GPIO_WakeUpLow);
-    }
+    // else
+    // {
+    //     GPIO_Init(KEY_COL5_PIN, GPIO_Mode_In_Up);
+    //     GPIO_WakeUp(KEY_COL5_PIN, GPIO_WakeUpLow);
+    // }
 #endif
 #if (KEY_COL_NUM >= 6)
-    if(key_report.keynum_report_buf[5] == 1){
+    if(key_report.keynum_report_buf[5] != 0){
         GPIO_Init(KEY_COL6_PIN, GPIO_Mode_In_Up);
         GPIO_WakeUp(KEY_COL6_PIN, GPIO_WakeUpHigh);
     }
-    else{
-        GPIO_Init(KEY_COL6_PIN, GPIO_Mode_In_Up);
-        GPIO_WakeUp(KEY_COL6_PIN, GPIO_WakeUpLow);
-    }
+    // else
+    // {
+    //     GPIO_Init(KEY_COL6_PIN, GPIO_Mode_In_Up);
+    //     GPIO_WakeUp(KEY_COL6_PIN, GPIO_WakeUpLow);
+    // }
 #endif
 #if (KEY_COL_NUM >= 7)
     GPIO_Init(KEY_COL7_PIN, GPIO_Mode_In_Up);
