@@ -365,7 +365,7 @@ static const uint8_t keyvalue_buf[] = {
     0x0f,  // mute
 
     0x0b,  // vol- 21 
-    0x73, //上3 GLOBO PLAY
+    0xBF, //上3 GLOBO PLAY
     0x00, //中2
     0x37, //WWW下3
     0xf3, //上1 netflix
@@ -563,6 +563,44 @@ static const uint8_t keyvalue_buf[] = {
 
     0x00,//中 1 //26
     0xBB,//HULU //下1
+
+};
+#elif (Project_key == 266)
+static const uint8_t keyvalue_buf[] = {
+    0x00,
+
+    0x02,   // POWER 1
+    0xa0,   // voice
+    0xef,   //层叠
+    0x12,   // ch+
+    0x60,   // up
+
+    0x62,  // right 6
+    0x68,  // ok
+    0xb9,  // Pause
+    0x65,  // left
+    0x4f,  // 中间
+
+    0xd2,  // 123 11
+    0x79,  // home
+    0x58,  // back
+    0x61,  // down
+    0xf4,  // primevideo //上2
+
+    0x10,  // ch- 16
+    0xDF,  // DINEY //下 2  
+    0xf3,  // 
+    0x07,  // vol+
+    0x0f,  // mute
+
+    0x0b,  // vol- 21 
+    0x73, //上3 GLOBO PLAY
+    0x00, //中2
+    0x37, //WWW下3
+    0xf3, //上1 netflix
+
+    0x00,//中 1 //26
+    0xBC,//RAKUTEN TV //下1
 
 };
 #endif
