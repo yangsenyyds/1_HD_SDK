@@ -46,7 +46,7 @@ static uint8_t Service_Changed_CCC[2];
 static const uint8_t SERVICE_DEVICE_INFO[] = {UUID2ARRAY(UUID_SERVICE_DEVICE_INFO)};
 static const uint8_t CHRCTR_PNP_ID[] = {UUID2ARRAY(UUID_CHRCTR_PNP_ID)};
 static const uint8_t pnp_id_value[] = {0x01, 0x57, 0x09, 0x07, 0x00, 0x01, 0x00};
-;
+
 static const uint8_t HARDWARE_REVISION_ID[] = {UUID2ARRAY(UUID_CHRCTR_HARDWARE)};
 static const uint8_t hardware_revision_value[] = {"RTKBeeHardwareRev"};
 static const uint8_t CHRCTR_Firmware_Revision_String[] = {UUID2ARRAY(UUID_CHRCTR_FIRMWARE)};

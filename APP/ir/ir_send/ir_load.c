@@ -863,12 +863,14 @@ void set_ir_pulse_fill()
 void ir_remote_learn_send(ir_receive_param_t irparams)
 {
     app_sleep_lock_set(IR_LOCK,true);
-
+    DEBUG_LOG_STRING("1111\r\n");
     memset((void *)&ir_send_param, 0, sizeof(ir_send_param));
     memset((void *)ir_pulse_data, 0, sizeof(ir_pulse_data));
     ir_send_param.pwm_buf_p = ir_pulse_data;
     ir_set_freq(irparams.freq*1000);
+    DEBUG_LOG_STRING("2222\r\n");
     set_pwm_freq_div();
+    DEBUG_LOG_STRING("3333\r\n");
     for(uint16_t i = 0  ; i < irparams.len ; i++)
 	{
         if(i % 2 == 0){
@@ -905,6 +907,7 @@ void ir_remote_learn_send(ir_receive_param_t irparams)
     }
     DEBUG_LOG_STRING("ir_remote_learn_send\r\n");
     app_queue_insert(ir_send);
+    DEBUG_LOG_STRING("4444\r\n");
 }
 #endif 
 

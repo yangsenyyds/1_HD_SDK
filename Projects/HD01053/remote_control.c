@@ -568,7 +568,8 @@ static void key_pressed_handle(void)
 static void keyvalue_handle(key_report_t *key_report)
 {
     key_pressed_num = key_report->key_press_cnt;
-
+    DEBUG_LOG_STRING("key_pressed_num = %d\r\n",key_pressed_num);
+    DEBUG_LOG_STRING("%d %d\r\n",bt_check_le_connected(),encrypt_state);
     if (key_pressed_num == 0)
     {
         if (get_ir_learn_state() && (keynum == INPUT_Keynum || keynum == Power__Keynum || keynum == MUTE_Keynum || keynum == VOL_Keynum || keynum == VOL__Keynum))
@@ -624,11 +625,12 @@ static void keyvalue_handle(key_report_t *key_report)
         //     }
         //     swtimer_start(key_pressed_timernum, 100, TIMER_START_ONCE);
         // }
-        DEBUG_LOG_STRING("---------------%d",get_ir_learn_state());
         if (get_ir_learn_state() && (keynum == INPUT_Keynum || keynum == Power__Keynum || keynum == MUTE_Keynum || keynum == VOL_Keynum || keynum == VOL__Keynum))
         {
             memset(learn_ble_send, 0, sizeof(learn_ble_send));
-            DEBUG_LOG_STRING("+++++++++++++++++++++++%d",keynum);
+        if (get_ir_learn_state() && (keynum == INPUT_Keynum || keynum == Power__Keynum || keynum == MUTE_Keynum || keynum == VOL_Keynum || keynum == VOL__Keynum))
+        {
+            memset(learn_ble_send, 0, sizeof(learn_ble_send));
             switch (keynum)
             {
             case INPUT_Keynum:
@@ -647,10 +649,7 @@ static void keyvalue_handle(key_report_t *key_report)
                 learn_ble_send[2] = 0x19;
                 break;
             }
-            if (bt_check_le_connected())
-            {
-                ATT_sendNotify(76, (void *)learn_ble_send, sizeof(learn_ble_send));
-            }
+            ATT_sendNotify(76, (void *)learn_ble_send, sizeof(learn_ble_send));
             SysTick_DelayMs(100);
             ir_tv_learn_send(keynum);
             set_key_press_state(true);
@@ -659,6 +658,7 @@ static void keyvalue_handle(key_report_t *key_report)
         }
         else if (bt_check_le_connected() && encrypt_state)
         {
+            DEBUG_LOG_STRING("%d %d\r\n",bt_check_le_connected(),encrypt_state);
             uint8_t hid_send_buf[KeyBuf[keynum].key_send_len];
             memset((void *)hid_send_buf, 0, KeyBuf[keynum].key_send_len);
             memcpy((void *)hid_send_buf, (void *)KeyBuf[keynum].keyvalue, 2);
@@ -694,6 +694,7 @@ static void keyvalue_handle(key_report_t *key_report)
         }
         else
         {
+            DEBUG_LOG_STRING("................\r\n");
             if (led_state == 0)
             {
                 led_on(LED_1, 100, 0);
@@ -935,13 +936,11 @@ void Write_DataParse(const ATT_TABLE_TYPE *table, uint8_t *data, uint8_t len)
         }
         else if (len == 1 && data[0] == 0x00)
         {
-            DEBUG_LOG_STRING("111111111111111111\r\n");
             for (uint8_t i = 0; i < learn_data_num; i++)
             {
                 ir_learn_data_fill(&learn_data_from_tv[i][0]);
             }
             ir_learn_init();
-            DEBUG_LOG_STRING("123456789\r\n");
             app_sleep_lock_set(APP_LOCK, false);
         }
     }

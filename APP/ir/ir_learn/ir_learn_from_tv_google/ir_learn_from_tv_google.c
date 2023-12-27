@@ -40,7 +40,6 @@ enum{
 void ir_tv_learn_send(uint16_t keynum)
 {
     memset(&irparams, 0x00, sizeof(irparams));
-    DEBUG_LOG_STRING("ir_tv_learn_send keynum %d\r\n",keynum);
     switch (keynum)
     {
         case POWER_KEYNUM: 
@@ -190,7 +189,8 @@ void ir_learn_data_clr(void){
 
 void ir_learn_init(void)
 {
-    if (flash_record_exist(ir_learn_tag)) {
+    DEBUG_LOG_STRING("ir_learn_init %d",flash_record_exist(ir_learn_tag));
+    if (flash_recor11111111111111d_exist(ir_learn_tag)) {
         ir_learn_done = false;
     }
     else {
