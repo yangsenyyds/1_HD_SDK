@@ -60,11 +60,11 @@ void Lpm_PollingWork(void)
             break;
             
         case IPC_MCU_STATE_STOP:
-                DEBUG_LOG_STRING("62\r\n");
+                // DEBUG_LOG_STRING("62\r\n");
             break;
         
         default:
-        DEBUG_LOG_STRING("66\r\n");
+        // DEBUG_LOG_STRING("66\r\n");
           	break;
     }
 }

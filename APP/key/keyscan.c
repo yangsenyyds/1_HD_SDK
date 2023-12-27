@@ -75,7 +75,7 @@ typedef struct KEY_CFG {
 }key_cfg_t;
 
 
-MEMORY_NOT_PROTECT_UNDER_LPM_ATT static bool key_changed = false;
+ static bool key_changed = false;
 static key_report_t key_report;
 static uint8_t key_report_timernum = 0XFF;
  uint8_t key_lock_state = 0;
@@ -255,9 +255,8 @@ static void keyscan_once(void)
         }
 #endif
     }
-    
     if (key_report.key_press_cnt > 0) {
-        // DEBUG_LOG_STRING("key lock \r\n");
+
         if(!key_lock_state){
             app_sleep_lock_set(KEY_LOCK, true);
         }
@@ -268,9 +267,10 @@ static void key_task(void)
 {
     if (!memcmp(key_report.keynum_report_buf, key_report.keynum_scan_buf, KEY_COL_NUM))
     {
+
         if (key_cfg.key_mode == KEY_MODE_SINGLE)
         {
-
+            // DEBUG_LOG_STRING("273 \r\n");
             if (key_changed)
             {
                 key_changed = false;
@@ -639,7 +639,7 @@ void keyscan_start(void)
     keyscan_col_cfg();
     keyscan_row_cfg();
     keyscan_once();
-    memset(key_report.keynum_report_buf, 0, KEY_COL_NUM);
+    // memset(key_report.keynum_report_buf, 0, KEY_COL_NUM);
     swtimer_restart(key_report_timernum);
 }
 

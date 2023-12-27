@@ -217,10 +217,26 @@ static bool SecretKey_Check(void)
     return (memcmp((void *)secretkey_Ori, (void *)secretkey_Gen, 16) == 0) ? true : false;
 }
 
+static void key_press_time_handle_lpm(void){
+    if(key_pressed_num == 1 && bt_check_le_connected())
+    {
+        uint8_t hid_send_buf[KeyBuf[keynum].key_send_len];
+        memset((void*)hid_send_buf, 0, KeyBuf[keynum].key_send_len);
+
+        if(keynum == Voice_Keynum && voice_send_state == true) {
+            voice_send_state = false;
+            swtimer_stop(vioce_send_timernum);
+            ATT_sendNotify(KeyBuf[keynum].handle, (void*)hid_send_buf, KeyBuf[keynum].key_send_len);
+        }else if(keynum != Voice_Keynum) {
+            ATT_sendNotify(KeyBuf[keynum].handle, (void*)hid_send_buf, KeyBuf[keynum].key_send_len);
+        }
+        key_pressed_time = 0;
+    }
+}
+
 static void key_press_time_handle(void){
     if(key_pressed_num == 1)
     {
-        // DEBUG_LOG_STRING("key_pressed_time : %d \r\n", key_pressed_time);
         key_pressed_time++;
         if(key_pressed_time >= 60)
         {
@@ -229,19 +245,6 @@ static void key_press_time_handle(void){
             if(!bt_check_le_connected())
             {
                 set_key_press_state(false);
-            }
-            else
-            {
-                uint8_t hid_send_buf[KeyBuf[keynum].key_send_len];
-                memset((void*)hid_send_buf, 0, KeyBuf[keynum].key_send_len);
-
-                if(keynum == Voice_Keynum && voice_send_state == true) {
-                    voice_send_state = false;
-                    swtimer_stop(vioce_send_timernum);
-                    ATT_sendNotify(KeyBuf[keynum].handle, (void*)hid_send_buf, KeyBuf[keynum].key_send_len);
-                }else if(keynum != Voice_Keynum) {
-                    ATT_sendNotify(KeyBuf[keynum].handle, (void*)hid_send_buf, KeyBuf[keynum].key_send_len);
-                }
             }
             return;
         }
@@ -349,7 +352,7 @@ static void key_pressed_handle(void)
 static void keyvalue_handle(key_report_t* key_report)
 {
     key_pressed_num = key_report->key_press_cnt;
-    DEBUG_LOG_STRING("352  %d \r\n", key_pressed_num);
+    // DEBUG_LOG_STRING("352  %d \r\n", key_pressed_num);
     if (key_pressed_num == 0)
     {
         if (bt_check_le_connected() && encrypt_state)
@@ -383,11 +386,10 @@ static void keyvalue_handle(key_report_t* key_report)
         for(uint8_t i = 0; i < KEY_COL_NUM; i++) {
             keynum += key_report->keynum_report_buf[i];
         }
-
         factory_KeyProcess(keynum==Voice_Keynum?0xff:keynum);
-        swtimer_start(key_press_time_timernum, 1000, TIMER_START_ONCE);
+
         // encrypt_state = 1;
-        led_state = 0;
+        // led_state = 0;
         DEBUG_LOG_STRING("KEY [%d][%d][%d][%d][%d][%d][%d]\r\n", key_report->keynum_report_buf[0]
         ,key_report->keynum_report_buf[1],key_report->keynum_report_buf[2],key_report->keynum_report_buf[3],key_report->keynum_report_buf[4],key_report->keynum_report_buf[5],key_report->keynum_report_buf[6]);
         if (bt_check_le_connected() && encrypt_state)
@@ -433,6 +435,7 @@ static void keyvalue_handle(key_report_t* key_report)
                 led_state = 1;
                 led_on(LED_1,120,480);
             }
+            swtimer_start(key_press_time_timernum, 1000, TIMER_START_ONCE);            
             if(keynum == Power_Keynum && Bt_CheckIsPaired())
             {
                 struct bt_le_adv_param bt_adv_param;
@@ -527,14 +530,15 @@ void action_after_led_blk(void)
     }
     else if(led_state == 2)
     {
-    swtimer_stop(get_key_timernum());
-    key_lock_state = 1;
-    software_timer_stop();
-    Lpm_unLockLpm(LPM_ALL_LOCK);
-    app_sleep_lock_set(KEY_LOCK, false);
-    app_sleep_lock_set(LATENCY_LOCK, true);
-    app_sleep_lock_set(KEY_LOCK, false);    
-    DEBUG_LOG_STRING("521  %d \r\n", HREADW(M0_LPM_REG));
+        led_state = 0;
+        swtimer_stop(get_key_timernum());
+        key_lock_state = 1;
+        software_timer_stop();
+        Lpm_unLockLpm(LPM_ALL_LOCK);
+        app_sleep_lock_set(KEY_LOCK, false);
+        app_sleep_lock_set(LATENCY_LOCK, true);
+        app_sleep_lock_set(KEY_LOCK, false);    
+        DEBUG_LOG_STRING("521  %d \r\n", HREADW(M0_LPM_REG));
     }
 }
 
@@ -876,7 +880,6 @@ void app_init(void)
         vioce_send_timernum = swtimer_add(voice_send_handle);
 		low_power_timernum = swtimer_add(low_power_handle);
         key_press_time_timernum = swtimer_add(key_press_time_handle);
-        // key_press = swtimer_add(key_time);
         if (!SecretKey_Check())
         {
 #ifdef SecretKey_Check_enable
@@ -900,8 +903,9 @@ void app_init(void)
     else
     {
         app_queue_reset();
-// DEBUG_LOG_STRING("903 keynum = %d \r\n",key_pressed_num);
-        if (key_pressed_num != 1)
+        // DEBUG_LOG_STRING("903 keynum = %d \r\n",key_pressed_num);
+        // if (key_pressed_num != 1)
+        if (key_pressed_num == 0)
         {
             if(key_wakeup_get())
             {
@@ -918,8 +922,13 @@ void app_init(void)
         }
         else 
         {
-            if(key_wakeup_get_high() && key_pressed_num == 1)
+            if(key_pressed_time++ >= 70)
             {
+                key_press_time_handle_lpm();
+            }
+            if(key_wakeup_get_high() && key_pressed_num != 0)
+            {
+                app_sleep_lock_set(KEY_LOCK, true);
                 sleep_time_state = 0;
                 remote_control_reinit();
                 DEBUG_LOG_STRING(" 2 WAKE UP %d\r\n" ,wake_up_state);            
