@@ -803,10 +803,7 @@ void LE_DISCONNECTED(uint8_t reason)
     if (Bt_CheckIsPaired()) {
         start_adv(ADV_TYPE_DIRECT, 0x08, true);
     }
-    else {
-        app_sleep_lock_set(ADV_LOCK, true);
-        // start_adv(ADV_TYPE_NOMAL, 0x10,true);
-    }
+
 }
 
 void LE_CONNECTED(void)
@@ -842,7 +839,7 @@ void Dev_PowerOn(void)
     }
     else{
         app_sleep_lock_set(ADV_LOCK, true);
-        app_sleep_timer_set(SHUTDOWN_TIME);
+        app_sleep_timer_set(DIRECT_ADV_TIME);
     }
     // else {
     //     start_adv(ADV_TYPE_NOMAL, 0x10, true);
