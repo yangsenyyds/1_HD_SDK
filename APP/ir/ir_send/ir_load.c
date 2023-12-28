@@ -84,7 +84,6 @@ static void ir_without_freq(void)
 void ir_send(void)
 {
     app_sleep_lock_set(IR_LOCK,true);
-    DEBUG_LOG_STRING("ir_send\r\n");
     for (uint16_t i = 0; i < ir_send_param.length; i)
     {
         if (ir_send_param.pwm_buf_p[i] == 0) {
@@ -931,7 +930,6 @@ void ir_time_send(const uint16_t *time_data)
 
 void ir_comm_send(uint16_t irnum)
 {
-    DEBUG_LOG_STRING("ir_comm_send\r\n");
     app_sleep_lock_set(IR_LOCK,true);
     if (brand_type[FREQ_SIZE] != 0) {
         set_pwm_freq_div();

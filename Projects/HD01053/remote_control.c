@@ -694,7 +694,6 @@ static void keyvalue_handle(key_report_t *key_report)
             }
             else
             {
-                DEBUG_LOG_STRING("................\r\n");
                 if (led_state == 0)
                 {
                     led_on(LED_1, 100, 0);

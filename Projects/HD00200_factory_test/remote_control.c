@@ -602,8 +602,6 @@ static void ir_send_smart(void) {
     }else{
         return;
     }
-    
-
 }
 
 static void key_pressed_handle(void)
@@ -661,7 +659,7 @@ static void key_pressed_handle(void)
                 led_on(LED_1, 100, 600);
                 ir_comm_send(0xD1);
                 set_key_press_state(true);
-                
+ 
 
                 Bt_ClearRemoteDevInfo();
                 Bt_ClearDeviceNvdataInfo();
@@ -844,6 +842,7 @@ void stop_adv(void)
 
 void start_adv(enum advType type, uint16_t adv_interval, bool timeout)
 {
+
     struct bt_le_adv_param bt_adv_param;
     bt_adv_param.Type = type;
     bt_adv_param.adv_max_interval = adv_interval;
@@ -851,7 +850,7 @@ void start_adv(enum advType type, uint16_t adv_interval, bool timeout)
     if (bt_adv_param.Type == ADV_TYPE_NOMAL) {
         if(bt_get_le_state() == BLE_DIRECT_ADV) {
             stop_adv();
-        }    
+        }
         bt_set_le_state(BLE_ADV);
         bt_start_le_adv(&bt_adv_param, adv_data_buf, sizeof(adv_data_buf));
         if (timeout) {
@@ -859,11 +858,12 @@ void start_adv(enum advType type, uint16_t adv_interval, bool timeout)
             app_sleep_timer_set(SHUTDOWN_TIME);
         }
     }
+
     else if(bt_adv_param.Type == ADV_TYPE_DIRECT) {
         bt_set_le_state(BLE_DIRECT_ADV);
         bt_start_le_adv(&bt_adv_param, NULL, 0);
         if (timeout) {
-            app_sleep_lock_set(ADV_LOCK, true);            
+            app_sleep_lock_set(ADV_LOCK, true);   
             app_sleep_timer_set(DIRECT_ADV_TIME);
         }
     }
@@ -897,7 +897,8 @@ void Write_DataParse(const ATT_TABLE_TYPE *table, uint8_t *data, uint8_t len)
     factory_WriteDataParse(table->handle, data, len);    
     if (table->handle == 121) {
         if (len == 3 && data[0] == 0x31 && data[1] == 0x01) {
-            uint8_t sendbuf[] = {0x33, 0x17, 0x00, 0x0E, 0x00, 0x00, 0x02, 0x00, 0x02, 0x31, 0xB4, 0x01, 0x13, 0x00, 0xA2, 0x81, 0x17, 0x12, 0x01};
+            uint8_t sendbuf[] = {0x33, 0x17, 0x00, 0x0E, 0x00, 0x00, 0x02, 0x00,
+                                    0x02, 0x31, 0xB4, 0x01, 0x13, 0x00, 0xA2, 0x81, 0x17, 0x12, 0x01};
             ATT_sendNotify(147, sendbuf, sizeof(sendbuf));
         }
     }
