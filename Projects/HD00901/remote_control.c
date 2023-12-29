@@ -75,36 +75,36 @@ static const uint8_t ir_data[] = {
     0X73,
     0X72,
 };
-
+#define report_size (2)
 static const KeyBuf_TypeDef KeyBuf[] = {
     {0x00, 0x00, 0, 0},
 
     {0x66, 0x00, 8, 121},
-    {0xBB, 0x01, 4, 125},
-    {0x21, 0x02, 4, 125},
-    {0x2A, 0x02, 4, 125},
-    {0x0A, 0x00, 4, 125},
+    {0xBB, 0x01, report_size, 125},
+    {0x21, 0x02, report_size, 125},
+    {0x2A, 0x02, report_size, 125},
+    {0x0A, 0x00, report_size, 125},
 
-    {0x42, 0x00, 4, 125},//6
-    {0x44, 0x00, 4, 125},
-    {0x41, 0x00, 4, 125},
-    {0x45, 0x00, 4, 125},
-    {0x43, 0x00, 4, 125},   
+    {0x42, 0x00, report_size, 125},//6
+    {0x44, 0x00, report_size, 125},
+    {0x41, 0x00, report_size, 125},
+    {0x45, 0x00, report_size, 125},
+    {0x43, 0x00, report_size, 125},   
 
-    {0x89, 0x00, 4, 125}, //11
-    {0X23, 0x02, 4, 125}, 
-    {0x24, 0x02, 4, 125},
-    {0xE2, 0X00, 4, 125},//
-    {0x4b, 0X00, 8, 121}, 
+    {0x89, 0x00, report_size, 125}, //11
+    {0X23, 0x02, report_size, 125}, 
+    {0x24, 0x02, report_size, 125},
+    {0xE2, 0X00, report_size, 125},//
+    {0x4b, 0X00, report_size, 121}, 
 
-    {0xE9, 0X00, 4, 125},//16
-    {0xEA, 0X00, 4, 125},
+    {0xE9, 0X00, report_size, 125},//16
+    {0xEA, 0X00, report_size, 125},
     {0x4E, 0X00, 8, 121},
-    {0x6F, 0X00, 4, 125},
-    {0x07, 0X00, 4, 125},
+    {0x6F, 0X00, report_size, 125},
+    {0x07, 0X00, report_size, 125},
 
-    {0x06, 0X00, 4, 125},//21
-    {0x09, 0X00, 4, 125},
+    {0x06, 0X00, report_size, 125},//21
+    {0x09, 0X00, report_size, 125},
 };
 
 #endif
@@ -398,10 +398,10 @@ static void keyvalue_handle(key_report_t* key_report)
             memset((void*)hid_send_buf, 0, KeyBuf[keynum].key_send_len);
             memcpy((void*)hid_send_buf, (void*)KeyBuf[keynum].keyvalue, 2);
 
-            if (KeyBuf[keynum].key_send_len == 8) {
-                hid_send_buf[2] = hid_send_buf[0];
-                hid_send_buf[0] = 0x00;
-            }         
+            // if (KeyBuf[keynum].key_send_len == 8) {
+            //     hid_send_buf[2] = hid_send_buf[0];
+            //     hid_send_buf[0] = 0x00;
+            // }         
             DEBUG_LOG_STRING("att send  [%x] [%x] [%d] \r\n",KeyBuf[keynum].keyvalue[0],KeyBuf[keynum].keyvalue[1],KeyBuf[keynum].key_send_len);
 
             if (keynum == Voice_Keynum && !voice_key_state)

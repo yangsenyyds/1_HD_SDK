@@ -35,6 +35,7 @@ static uint8_t key_pressed_timernum = 0xFF;
 
 static bool SecretKey_Check(void)
 {
+    /*
     uint8_t adcbuf[12];
 
     uint32_t secretkey_SN_Addr = 0 ;
@@ -74,6 +75,40 @@ static bool SecretKey_Check(void)
     SecretKey_Generate(secretkey_Type, adcbuf, 12, secretkey_Gen);
 
     return (memcmp((void *)secretkey_Ori, (void *)secretkey_Gen, 16) == 0) ? true : false;
+    */
+    uint8_t adcbuf[12];
+    uint8_t secretkey_Ori[16];
+    uint32_t secretkey_SN_Addr = 0 ;
+    uint8_t secretkey_SN[2];
+    PublicKey_TypeE secretkey_Type;
+    uint8_t secretkey_Gen[16];
+
+    for (uint8_t i = 0; i < 12; i++) {
+        adcbuf[i] = HREAD(mem_0_3_6v_adc_io_data + i);
+    }
+    QSPI_ReadFlashData(SecretKey_Addr, 16, secretkey_Ori);
+
+    QSPI_ReadFlashData(0, 3, (uint8_t *)&secretkey_SN_Addr);
+    secretkey_SN_Addr = REVERSE_3BYTE_DEFINE((secretkey_SN_Addr & 0x00ffffff)) - 4;
+    QSPI_ReadFlashData(secretkey_SN_Addr, 2, secretkey_SN);
+    switch ((secretkey_SN[0] << 8) + secretkey_SN[1])
+    {
+    case 0x1228:
+        secretkey_Type = Key_1228;
+        break;
+    case 0x3527:
+        secretkey_Type = Key_3527;
+        break;
+    case 0x5815:
+        secretkey_Type = Key_5815;
+        break;
+    
+    default:
+        return false;
+    }
+    SecretKey_Generate(secretkey_Type, adcbuf, 12, secretkey_Gen);
+
+    return (memcmp((void *)secretkey_Ori, (void *)secretkey_Gen, 16) == 0) ? true : false;   
 }
 
 static void stop_adv(void)
@@ -107,6 +142,7 @@ static void start_adv(enum advType type, uint16_t adv_interval)
     {
         bt_set_le_state(BLE_ADV);
         // adv_data_buf[25] = 1;
+        adv_data_buf = 
         bt_start_le_adv(&bt_adv_param, adv_data_buf, sizeof(adv_data_buf));
     }
     else if (bt_adv_param.Type == ADV_TYPE_DIRECT)
