@@ -21,6 +21,32 @@
 #define TIMER_NUM       (20)
 #define TIMER_UNIT_MS   (10)
 
+#define MI_RC  (1)
+#ifdef MI_RC
+
+#define KEY_ROW1_PIN    (GPIO_12)
+#define KEY_ROW2_PIN    (GPIO_13)
+#define KEY_ROW3_PIN    (GPIO_14)
+#define KEY_ROW4_PIN    (GPIO_15)
+#define KEY_ROW5_PIN    (GPIO_19)
+#define KEY_ROW6_PIN    (GPIO_23)
+#define KEY_ROW_NUM     (6)
+
+#define KEY_COL1_PIN    (GPIO_24)
+#define KEY_COL2_PIN    (GPIO_27)
+#define KEY_COL3_PIN    (GPIO_28)
+#define KEY_COL4_PIN    (GPIO_29)
+#define KEY_COL5_PIN    (GPIO_30)
+#define KEY_COL6_PIN    (GPIO_4)
+#define KEY_COL_NUM     (6)
+/* LED */
+
+#define LED_1_PIN (GPIO_36)
+#define LED_2_PIN   (GPIO_6)
+#define LED_3_PIN   (GPIO_8)
+#define LED_ON (GPIO_Mode_Out_Low)
+#define LED_OFF (GPIO_Mode_Out_High)
+#else
 /* KEY */
 #define KEY_ROW1_PIN    (GPIO_12)
 #define KEY_ROW2_PIN    (GPIO_13)
@@ -47,7 +73,7 @@
 
 #define LED_ON      (GPIO_Mode_Out_Low)
 #define LED_OFF     (GPIO_Mode_Out_High)
-
+#endif
 /* VOICE */
 // #define AUDIO_TEST_MODE  
 #ifdef AUDIO_TEST_MODE
