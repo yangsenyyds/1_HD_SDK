@@ -23,7 +23,6 @@
 
 #define MI_RC  (1)
 #ifdef MI_RC
-
 #define KEY_ROW1_PIN    (GPIO_12)
 #define KEY_ROW2_PIN    (GPIO_13)
 #define KEY_ROW3_PIN    (GPIO_14)
@@ -46,6 +45,9 @@
 #define LED_3_PIN   (GPIO_8)
 #define LED_ON (GPIO_Mode_Out_Low)
 #define LED_OFF (GPIO_Mode_Out_High)
+
+/* IR */
+#define IR_IO           (GPIO_5)
 #else
 /* KEY */
 #define KEY_ROW1_PIN    (GPIO_12)
@@ -73,6 +75,8 @@
 
 #define LED_ON      (GPIO_Mode_Out_Low)
 #define LED_OFF     (GPIO_Mode_Out_High)
+/* IR */
+#define IR_IO           (GPIO_4)
 #endif
 /* VOICE */
 // #define AUDIO_TEST_MODE  
@@ -93,8 +97,7 @@
 #define ENCODE_OUTPUT_SIZE      (60)
 #define ENCODE_SEND_SIZE        (57)
 
-/* IR */
-#define IR_IO           (GPIO_4)
+
 
 /* FACTORY */
 #define FACTORY_MODE

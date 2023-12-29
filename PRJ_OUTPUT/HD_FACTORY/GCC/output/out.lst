@@ -8941,15 +8941,15 @@ ir_pwm_send():
  1006a7e:	4681                	li	a3,0
  1006a80:	17a00613          	li	a2,378
  1006a84:	0fc00593          	li	a1,252
- 1006a88:	4511                	li	a0,4
+ 1006a88:	4515                	li	a0,5
  1006a8a:	e82fd0ef          	jal	ra,100410c <PWM_Config>
  1006a8e:	8522                	mv	a0,s0
  1006a90:	b3cfd0ef          	jal	ra,1003dcc <SysTick_DelayUs>
  1006a94:	2e10106f          	j	1008574 <__riscv_restore_0>
- 1006a98:	4511                	li	a0,4
+ 1006a98:	4515                	li	a0,5
  1006a9a:	ebefd0ef          	jal	ra,1004158 <PWM_DisConfig>
  1006a9e:	03e00593          	li	a1,62
- 1006aa2:	4511                	li	a0,4
+ 1006aa2:	4515                	li	a0,5
  1006aa4:	b9bfc0ef          	jal	ra,100363e <GPIO_Init>
  1006aa8:	b7dd                	j	1006a8e <ir_pwm_send+0x1a>
 
@@ -10995,7 +10995,7 @@ app_init():
  10082b8:	4511                	li	a0,4
  10082ba:	bd1f90ef          	jal	ra,1001e8a <software_timer_start>
  10082be:	03e00593          	li	a1,62
- 10082c2:	4511                	li	a0,4
+ 10082c2:	4515                	li	a0,5
  10082c4:	b7afb0ef          	jal	ra,100363e <GPIO_Init>
  10082c8:	f68fe0ef          	jal	ra,1006a30 <led_init>
  10082cc:	ce9fe0ef          	jal	ra,1006fb4 <voice_report_init>
@@ -11607,7 +11607,7 @@ memset():
  1008e44:	425f7442 6553656c 6144646e 45206174     Bt_BleSendData E
  1008e54:	524f5252 000a0d20 010047a6 010046b4     RROR ....G...F..
  1008e64:	010046f4 01004722 01004754 01004780     .F.."G..TG...G..
- 1008e74:	353a3531 30343a35 00000000 20636544     15:55:40....Dec 
+ 1008e74:	333a3631 30343a33 00000000 20636544     16:33:40....Dec 
  1008e84:	32203932 00333230 504d4f43 20454c49     29 2023.COMPILE 
  1008e94:	454d4954 25203a20 73252073 000a0d20     TIME : %s %s ...
  1008ea4:	4c5f5442 0000474f 203a7325 6f636572     BT_LOG..%s: reco
