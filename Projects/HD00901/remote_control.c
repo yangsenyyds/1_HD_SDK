@@ -75,7 +75,7 @@ static const uint8_t ir_data[] = {
     0X73,
     0X72,
 };
-#define report_size (2)
+#define report_size (8)
 static const KeyBuf_TypeDef KeyBuf[] = {
     {0x00, 0x00, 0, 0},
 
@@ -398,10 +398,10 @@ static void keyvalue_handle(key_report_t* key_report)
             memset((void*)hid_send_buf, 0, KeyBuf[keynum].key_send_len);
             memcpy((void*)hid_send_buf, (void*)KeyBuf[keynum].keyvalue, 2);
 
-            // if (KeyBuf[keynum].key_send_len == 8) {
-            //     hid_send_buf[2] = hid_send_buf[0];
-            //     hid_send_buf[0] = 0x00;
-            // }         
+            if (KeyBuf[keynum].key_send_len == 8) {
+                hid_send_buf[2] = hid_send_buf[0];
+                hid_send_buf[0] = 0x00;
+            }         
             DEBUG_LOG_STRING("att send  [%x] [%x] [%d] \r\n",KeyBuf[keynum].keyvalue[0],KeyBuf[keynum].keyvalue[1],KeyBuf[keynum].key_send_len);
 
             if (keynum == Voice_Keynum && !voice_key_state)
@@ -746,6 +746,7 @@ void ENCRYPT_DONE(void)
     encrypt_state = true;
     dis_encrypt_state = false;
     // led_on(LED_1,200,1200);
+    ATT_SendExchangeMtuReq();
 
 }
 
@@ -863,6 +864,7 @@ void app_init(void)
 {
     if (!Lpm_GetWakeFlag())
     {
+             bt_set_le_mtu_size(251);
         bt_set_ce_length_num(0x0F);//小包用  大包用0x08
         software_timer_start(SYSTEM_CURRENT_CLOCK, 10);
         app_sleep_init();
