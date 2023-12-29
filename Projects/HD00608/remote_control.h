@@ -65,7 +65,7 @@
 #define LED_OFF     (GPIO_Mode_Out_High)
 
 /* VOICE */
-#define AUDIO_TEST_MODE  
+// #define AUDIO_TEST_MODE  
 #ifdef AUDIO_TEST_MODE
 #include "yc11xx_uart.h"
 #define AUDIO_UART              (UARTA)

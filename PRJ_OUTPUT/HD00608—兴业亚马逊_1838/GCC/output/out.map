@@ -127,13 +127,13 @@ Discarded input sections
                 0x0000000000000000       0x18 output/obj/yc_debug.o
  .text.print_format_string
                 0x0000000000000000      0x270 output/obj/yc_debug.o
- .rodata.g_pcHex2.3233
+ .rodata.g_pcHex2.3234
                 0x0000000000000000        0x4 output/obj/yc_debug.o
- .rodata.g_pcHex1.3232
+ .rodata.g_pcHex1.3233
                 0x0000000000000000        0x4 output/obj/yc_debug.o
- .rodata.g_pcHex2.3337
+ .rodata.g_pcHex2.3338
                 0x0000000000000000        0x4 output/obj/yc_debug.o
- .rodata.g_pcHex1.3336
+ .rodata.g_pcHex1.3337
                 0x0000000000000000        0x4 output/obj/yc_debug.o
  .text          0x0000000000000000        0x0 output/obj/yc_nvic.o
  .data          0x0000000000000000        0x0 output/obj/yc_nvic.o
@@ -405,7 +405,7 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 output/obj/yc11xx_ipc.o
  .text.IPC_TxPacket
                 0x0000000000000000       0x88 output/obj/yc11xx_ipc.o
- .rodata.__FUNCTION__.3225
+ .rodata.__FUNCTION__.3226
                 0x0000000000000000        0xd output/obj/yc11xx_ipc.o
  .text          0x0000000000000000        0x0 output/obj/yc11xx_audio_adc.o
  .data          0x0000000000000000        0x0 output/obj/yc11xx_audio_adc.o
@@ -490,7 +490,7 @@ Discarded input sections
                 0x0000000000000000       0x50 output/obj/yc11xx_qspi.o
  .debug_ranges  0x0000000000000000       0x40 output/obj/yc11xx_qspi.o
  .debug_line    0x0000000000000000      0x605 output/obj/yc11xx_qspi.o
- .debug_str     0x0000000000000000      0x987 output/obj/yc11xx_qspi.o
+ .debug_str     0x0000000000000000      0x988 output/obj/yc11xx_qspi.o
  .comment       0x0000000000000000       0x12 output/obj/yc11xx_qspi.o
  .debug_frame   0x0000000000000000       0xb8 output/obj/yc11xx_qspi.o
  .text          0x0000000000000000        0x0 output/obj/yc11xx_qspi0.o
@@ -598,7 +598,7 @@ Discarded input sections
                 0x0000000000000000       0xc0 output/obj/yc11xx_spi.o
  .debug_ranges  0x0000000000000000       0xc8 output/obj/yc11xx_spi.o
  .debug_line    0x0000000000000000     0x13ea output/obj/yc11xx_spi.o
- .debug_str     0x0000000000000000     0x10e8 output/obj/yc11xx_spi.o
+ .debug_str     0x0000000000000000     0x10e9 output/obj/yc11xx_spi.o
  .comment       0x0000000000000000       0x12 output/obj/yc11xx_spi.o
  .debug_frame   0x0000000000000000      0x240 output/obj/yc11xx_spi.o
  .text          0x0000000000000000        0x0 output/obj/yc11xx_systick.o
@@ -667,7 +667,7 @@ Discarded input sections
                 0x0000000000000000       0x70 output/obj/yc11xx_uart.o
  .debug_ranges  0x0000000000000000       0x88 output/obj/yc11xx_uart.o
  .debug_line    0x0000000000000000      0xe2c output/obj/yc11xx_uart.o
- .debug_str     0x0000000000000000      0xad7 output/obj/yc11xx_uart.o
+ .debug_str     0x0000000000000000      0xad8 output/obj/yc11xx_uart.o
  .comment       0x0000000000000000       0x12 output/obj/yc11xx_uart.o
  .debug_frame   0x0000000000000000      0x198 output/obj/yc11xx_uart.o
  .text          0x0000000000000000        0x0 output/obj/yc11xx_lpm.o
@@ -730,7 +730,7 @@ Discarded input sections
                 0x0000000000000000       0x58 output/obj/yc11xx_iic.o
  .debug_ranges  0x0000000000000000       0x48 output/obj/yc11xx_iic.o
  .debug_line    0x0000000000000000      0xbfa output/obj/yc11xx_iic.o
- .debug_str     0x0000000000000000      0xa60 output/obj/yc11xx_iic.o
+ .debug_str     0x0000000000000000      0xa61 output/obj/yc11xx_iic.o
  .comment       0x0000000000000000       0x12 output/obj/yc11xx_iic.o
  .debug_frame   0x0000000000000000      0x130 output/obj/yc11xx_iic.o
  .text          0x0000000000000000        0x0 output/obj/yc11xx_dev_bt_aap.o
@@ -913,14 +913,14 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 output/obj/HP_variable_cutoff.o
  .text.silk_HP_variable_cutoff
                 0x0000000000000000      0x19a output/obj/HP_variable_cutoff.o
- .debug_info    0x0000000000000000     0x1b92 output/obj/HP_variable_cutoff.o
- .debug_abbrev  0x0000000000000000      0x288 output/obj/HP_variable_cutoff.o
+ .debug_info    0x0000000000000000     0x1c85 output/obj/HP_variable_cutoff.o
+ .debug_abbrev  0x0000000000000000      0x28f output/obj/HP_variable_cutoff.o
  .debug_loc     0x0000000000000000      0x161 output/obj/HP_variable_cutoff.o
  .debug_aranges
                 0x0000000000000000       0x20 output/obj/HP_variable_cutoff.o
  .debug_ranges  0x0000000000000000       0x10 output/obj/HP_variable_cutoff.o
- .debug_line    0x0000000000000000      0x47e output/obj/HP_variable_cutoff.o
- .debug_str     0x0000000000000000     0x1464 output/obj/HP_variable_cutoff.o
+ .debug_line    0x0000000000000000      0x4b1 output/obj/HP_variable_cutoff.o
+ .debug_str     0x0000000000000000     0x150d output/obj/HP_variable_cutoff.o
  .comment       0x0000000000000000       0x12 output/obj/HP_variable_cutoff.o
  .debug_frame   0x0000000000000000       0x44 output/obj/HP_variable_cutoff.o
  .text          0x0000000000000000        0x0 output/obj/lin2log.o
@@ -931,14 +931,14 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 output/obj/LP_variable_cutoff.o
  .text.silk_LP_variable_cutoff
                 0x0000000000000000      0x1cc output/obj/LP_variable_cutoff.o
- .debug_info    0x0000000000000000     0x12f9 output/obj/LP_variable_cutoff.o
- .debug_abbrev  0x0000000000000000      0x2fc output/obj/LP_variable_cutoff.o
+ .debug_info    0x0000000000000000     0x13ec output/obj/LP_variable_cutoff.o
+ .debug_abbrev  0x0000000000000000      0x303 output/obj/LP_variable_cutoff.o
  .debug_loc     0x0000000000000000      0x597 output/obj/LP_variable_cutoff.o
  .debug_aranges
                 0x0000000000000000       0x20 output/obj/LP_variable_cutoff.o
  .debug_ranges  0x0000000000000000       0x38 output/obj/LP_variable_cutoff.o
- .debug_line    0x0000000000000000      0x4ab output/obj/LP_variable_cutoff.o
- .debug_str     0x0000000000000000      0xd22 output/obj/LP_variable_cutoff.o
+ .debug_line    0x0000000000000000      0x4de output/obj/LP_variable_cutoff.o
+ .debug_str     0x0000000000000000      0xdcb output/obj/LP_variable_cutoff.o
  .comment       0x0000000000000000       0x12 output/obj/LP_variable_cutoff.o
  .debug_frame   0x0000000000000000       0x44 output/obj/LP_variable_cutoff.o
  .text          0x0000000000000000        0x0 output/obj/noise_shape_analysis_FIX.o
@@ -952,14 +952,14 @@ Discarded input sections
                 0x0000000000000000      0xb4c output/obj/noise_shape_analysis_FIX.o
  .text.silk_SQRT_APPROX.part.0
                 0x0000000000000000       0x7a output/obj/noise_shape_analysis_FIX.o
- .debug_info    0x0000000000000000     0x27f2 output/obj/noise_shape_analysis_FIX.o
- .debug_abbrev  0x0000000000000000      0x449 output/obj/noise_shape_analysis_FIX.o
+ .debug_info    0x0000000000000000     0x28e5 output/obj/noise_shape_analysis_FIX.o
+ .debug_abbrev  0x0000000000000000      0x450 output/obj/noise_shape_analysis_FIX.o
  .debug_loc     0x0000000000000000     0x145d output/obj/noise_shape_analysis_FIX.o
  .debug_aranges
                 0x0000000000000000       0x38 output/obj/noise_shape_analysis_FIX.o
  .debug_ranges  0x0000000000000000      0x1d0 output/obj/noise_shape_analysis_FIX.o
- .debug_line    0x0000000000000000     0x1900 output/obj/noise_shape_analysis_FIX.o
- .debug_str     0x0000000000000000     0x187d output/obj/noise_shape_analysis_FIX.o
+ .debug_line    0x0000000000000000     0x1933 output/obj/noise_shape_analysis_FIX.o
+ .debug_str     0x0000000000000000     0x1926 output/obj/noise_shape_analysis_FIX.o
  .comment       0x0000000000000000       0x12 output/obj/noise_shape_analysis_FIX.o
  .debug_frame   0x0000000000000000       0xd8 output/obj/noise_shape_analysis_FIX.o
  .text          0x0000000000000000        0x0 output/obj/tables_LTP.o
@@ -1001,26 +1001,26 @@ Discarded input sections
                 0x0000000000000000        0xc output/obj/tables_LTP.o
  .rodata.silk_LTP_vq_sizes
                 0x0000000000000000        0x3 output/obj/tables_LTP.o
- .debug_info    0x0000000000000000     0x127c output/obj/tables_LTP.o
- .debug_abbrev  0x0000000000000000      0x21d output/obj/tables_LTP.o
+ .debug_info    0x0000000000000000     0x136f output/obj/tables_LTP.o
+ .debug_abbrev  0x0000000000000000      0x224 output/obj/tables_LTP.o
  .debug_aranges
                 0x0000000000000000       0x18 output/obj/tables_LTP.o
- .debug_line    0x0000000000000000      0x254 output/obj/tables_LTP.o
- .debug_str     0x0000000000000000      0xd5b output/obj/tables_LTP.o
+ .debug_line    0x0000000000000000      0x287 output/obj/tables_LTP.o
+ .debug_str     0x0000000000000000      0xe04 output/obj/tables_LTP.o
  .comment       0x0000000000000000       0x12 output/obj/tables_LTP.o
  .text          0x0000000000000000        0x0 output/obj/quant_LTP_gains.o
  .data          0x0000000000000000        0x0 output/obj/quant_LTP_gains.o
  .bss           0x0000000000000000        0x0 output/obj/quant_LTP_gains.o
  .text.silk_quant_LTP_gains
                 0x0000000000000000      0x1ce output/obj/quant_LTP_gains.o
- .debug_info    0x0000000000000000     0x13ed output/obj/quant_LTP_gains.o
- .debug_abbrev  0x0000000000000000      0x2a3 output/obj/quant_LTP_gains.o
+ .debug_info    0x0000000000000000     0x14e0 output/obj/quant_LTP_gains.o
+ .debug_abbrev  0x0000000000000000      0x2aa output/obj/quant_LTP_gains.o
  .debug_loc     0x0000000000000000      0x62b output/obj/quant_LTP_gains.o
  .debug_aranges
                 0x0000000000000000       0x20 output/obj/quant_LTP_gains.o
  .debug_ranges  0x0000000000000000       0x38 output/obj/quant_LTP_gains.o
- .debug_line    0x0000000000000000      0x62f output/obj/quant_LTP_gains.o
- .debug_str     0x0000000000000000      0xdfe output/obj/quant_LTP_gains.o
+ .debug_line    0x0000000000000000      0x662 output/obj/quant_LTP_gains.o
+ .debug_str     0x0000000000000000      0xea7 output/obj/quant_LTP_gains.o
  .comment       0x0000000000000000       0x12 output/obj/quant_LTP_gains.o
  .debug_frame   0x0000000000000000       0x58 output/obj/quant_LTP_gains.o
  .text          0x0000000000000000        0x0 output/obj/control_codec.o
@@ -1034,14 +1034,14 @@ Discarded input sections
                 0x0000000000000000      0x27e output/obj/control_codec.o
  .text.silk_setup_complexity
                 0x0000000000000000      0x1ac output/obj/control_codec.o
- .debug_info    0x0000000000000000     0x218e output/obj/control_codec.o
- .debug_abbrev  0x0000000000000000      0x3c6 output/obj/control_codec.o
+ .debug_info    0x0000000000000000     0x2281 output/obj/control_codec.o
+ .debug_abbrev  0x0000000000000000      0x3cd output/obj/control_codec.o
  .debug_loc     0x0000000000000000      0x424 output/obj/control_codec.o
  .debug_aranges
                 0x0000000000000000       0x38 output/obj/control_codec.o
  .debug_ranges  0x0000000000000000       0x70 output/obj/control_codec.o
- .debug_line    0x0000000000000000     0x1258 output/obj/control_codec.o
- .debug_str     0x0000000000000000     0x174e output/obj/control_codec.o
+ .debug_line    0x0000000000000000     0x128b output/obj/control_codec.o
+ .debug_str     0x0000000000000000     0x17f7 output/obj/control_codec.o
  .comment       0x0000000000000000       0x12 output/obj/control_codec.o
  .debug_frame   0x0000000000000000       0xd8 output/obj/control_codec.o
  .text          0x0000000000000000        0x0 output/obj/tables_pitch_lag.o
@@ -1059,12 +1059,12 @@ Discarded input sections
                 0x0000000000000000        0xc output/obj/tables_pitch_lag.o
  .rodata.silk_pitch_contour_10_ms_NB_iCDF
                 0x0000000000000000        0x3 output/obj/tables_pitch_lag.o
- .debug_info    0x0000000000000000     0x1138 output/obj/tables_pitch_lag.o
- .debug_abbrev  0x0000000000000000      0x1ec output/obj/tables_pitch_lag.o
+ .debug_info    0x0000000000000000     0x122b output/obj/tables_pitch_lag.o
+ .debug_abbrev  0x0000000000000000      0x1f3 output/obj/tables_pitch_lag.o
  .debug_aranges
                 0x0000000000000000       0x18 output/obj/tables_pitch_lag.o
- .debug_line    0x0000000000000000      0x25a output/obj/tables_pitch_lag.o
- .debug_str     0x0000000000000000      0xc59 output/obj/tables_pitch_lag.o
+ .debug_line    0x0000000000000000      0x28d output/obj/tables_pitch_lag.o
+ .debug_str     0x0000000000000000      0xd02 output/obj/tables_pitch_lag.o
  .comment       0x0000000000000000       0x12 output/obj/tables_pitch_lag.o
  .text          0x0000000000000000        0x0 output/obj/tables_pulses_per_block.o
  .data          0x0000000000000000        0x0 output/obj/tables_pulses_per_block.o
@@ -1091,26 +1091,26 @@ Discarded input sections
                 0x0000000000000000       0x11 output/obj/tables_pulses_per_block.o
  .rodata.silk_sign_iCDF
                 0x0000000000000000       0x2a output/obj/tables_pulses_per_block.o
- .debug_info    0x0000000000000000     0x117f output/obj/tables_pulses_per_block.o
- .debug_abbrev  0x0000000000000000      0x1fb output/obj/tables_pulses_per_block.o
+ .debug_info    0x0000000000000000     0x1272 output/obj/tables_pulses_per_block.o
+ .debug_abbrev  0x0000000000000000      0x202 output/obj/tables_pulses_per_block.o
  .debug_aranges
                 0x0000000000000000       0x18 output/obj/tables_pulses_per_block.o
- .debug_line    0x0000000000000000      0x261 output/obj/tables_pulses_per_block.o
- .debug_str     0x0000000000000000      0xc60 output/obj/tables_pulses_per_block.o
+ .debug_line    0x0000000000000000      0x294 output/obj/tables_pulses_per_block.o
+ .debug_str     0x0000000000000000      0xd09 output/obj/tables_pulses_per_block.o
  .comment       0x0000000000000000       0x12 output/obj/tables_pulses_per_block.o
  .text          0x0000000000000000        0x0 output/obj/decoder_set_fs.o
  .data          0x0000000000000000        0x0 output/obj/decoder_set_fs.o
  .bss           0x0000000000000000        0x0 output/obj/decoder_set_fs.o
  .text.silk_decoder_set_fs
                 0x0000000000000000      0x188 output/obj/decoder_set_fs.o
- .debug_info    0x0000000000000000     0x1758 output/obj/decoder_set_fs.o
- .debug_abbrev  0x0000000000000000      0x2b0 output/obj/decoder_set_fs.o
+ .debug_info    0x0000000000000000     0x184b output/obj/decoder_set_fs.o
+ .debug_abbrev  0x0000000000000000      0x2b7 output/obj/decoder_set_fs.o
  .debug_loc     0x0000000000000000       0xd8 output/obj/decoder_set_fs.o
  .debug_aranges
                 0x0000000000000000       0x20 output/obj/decoder_set_fs.o
  .debug_ranges  0x0000000000000000       0x10 output/obj/decoder_set_fs.o
- .debug_line    0x0000000000000000      0x5e7 output/obj/decoder_set_fs.o
- .debug_str     0x0000000000000000     0x106d output/obj/decoder_set_fs.o
+ .debug_line    0x0000000000000000      0x61a output/obj/decoder_set_fs.o
+ .debug_str     0x0000000000000000     0x1116 output/obj/decoder_set_fs.o
  .comment       0x0000000000000000       0x12 output/obj/decoder_set_fs.o
  .debug_frame   0x0000000000000000       0x44 output/obj/decoder_set_fs.o
  .text          0x0000000000000000        0x0 output/obj/warped_autocorrelation_FIX.o
@@ -1118,14 +1118,14 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 output/obj/warped_autocorrelation_FIX.o
  .text.silk_warped_autocorrelation_FIX_c
                 0x0000000000000000      0x1fc output/obj/warped_autocorrelation_FIX.o
- .debug_info    0x0000000000000000     0x12f3 output/obj/warped_autocorrelation_FIX.o
- .debug_abbrev  0x0000000000000000      0x308 output/obj/warped_autocorrelation_FIX.o
+ .debug_info    0x0000000000000000     0x13e6 output/obj/warped_autocorrelation_FIX.o
+ .debug_abbrev  0x0000000000000000      0x30f output/obj/warped_autocorrelation_FIX.o
  .debug_loc     0x0000000000000000      0x308 output/obj/warped_autocorrelation_FIX.o
  .debug_aranges
                 0x0000000000000000       0x20 output/obj/warped_autocorrelation_FIX.o
  .debug_ranges  0x0000000000000000       0x28 output/obj/warped_autocorrelation_FIX.o
- .debug_line    0x0000000000000000      0x731 output/obj/warped_autocorrelation_FIX.o
- .debug_str     0x0000000000000000      0xd06 output/obj/warped_autocorrelation_FIX.o
+ .debug_line    0x0000000000000000      0x764 output/obj/warped_autocorrelation_FIX.o
+ .debug_str     0x0000000000000000      0xdaf output/obj/warped_autocorrelation_FIX.o
  .comment       0x0000000000000000       0x12 output/obj/warped_autocorrelation_FIX.o
  .debug_frame   0x0000000000000000       0x44 output/obj/warped_autocorrelation_FIX.o
  .text          0x0000000000000000        0x0 output/obj/opus_multistream_decoder.o
@@ -1155,14 +1155,14 @@ Discarded input sections
                 0x0000000000000000      0x1fc output/obj/opus_multistream_decoder.o
  .text.opus_multistream_decoder_destroy
                 0x0000000000000000       0x18 output/obj/opus_multistream_decoder.o
- .debug_info    0x0000000000000000     0x1d3d output/obj/opus_multistream_decoder.o
- .debug_abbrev  0x0000000000000000      0x583 output/obj/opus_multistream_decoder.o
+ .debug_info    0x0000000000000000     0x1e30 output/obj/opus_multistream_decoder.o
+ .debug_abbrev  0x0000000000000000      0x58a output/obj/opus_multistream_decoder.o
  .debug_loc     0x0000000000000000     0x124b output/obj/opus_multistream_decoder.o
  .debug_aranges
                 0x0000000000000000       0x60 output/obj/opus_multistream_decoder.o
  .debug_ranges  0x0000000000000000      0x368 output/obj/opus_multistream_decoder.o
- .debug_line    0x0000000000000000     0x13ff output/obj/opus_multistream_decoder.o
- .debug_str     0x0000000000000000      0xb0f output/obj/opus_multistream_decoder.o
+ .debug_line    0x0000000000000000     0x1432 output/obj/opus_multistream_decoder.o
+ .debug_str     0x0000000000000000      0xbb8 output/obj/opus_multistream_decoder.o
  .comment       0x0000000000000000       0x12 output/obj/opus_multistream_decoder.o
  .debug_frame   0x0000000000000000      0x1bc output/obj/opus_multistream_decoder.o
  .text          0x0000000000000000        0x0 output/obj/LPC_inv_pred_gain.o
@@ -1172,14 +1172,14 @@ Discarded input sections
                 0x0000000000000000      0x3f2 output/obj/LPC_inv_pred_gain.o
  .text.silk_LPC_inverse_pred_gain_c
                 0x0000000000000000       0x48 output/obj/LPC_inv_pred_gain.o
- .debug_info    0x0000000000000000      0xd28 output/obj/LPC_inv_pred_gain.o
- .debug_abbrev  0x0000000000000000      0x322 output/obj/LPC_inv_pred_gain.o
+ .debug_info    0x0000000000000000      0xe1b output/obj/LPC_inv_pred_gain.o
+ .debug_abbrev  0x0000000000000000      0x329 output/obj/LPC_inv_pred_gain.o
  .debug_loc     0x0000000000000000      0x6f3 output/obj/LPC_inv_pred_gain.o
  .debug_aranges
                 0x0000000000000000       0x28 output/obj/LPC_inv_pred_gain.o
  .debug_ranges  0x0000000000000000       0x98 output/obj/LPC_inv_pred_gain.o
- .debug_line    0x0000000000000000      0x8e8 output/obj/LPC_inv_pred_gain.o
- .debug_str     0x0000000000000000      0x7f3 output/obj/LPC_inv_pred_gain.o
+ .debug_line    0x0000000000000000      0x91b output/obj/LPC_inv_pred_gain.o
+ .debug_str     0x0000000000000000      0x89c output/obj/LPC_inv_pred_gain.o
  .comment       0x0000000000000000       0x12 output/obj/LPC_inv_pred_gain.o
  .debug_frame   0x0000000000000000       0x7c output/obj/LPC_inv_pred_gain.o
  .text          0x0000000000000000        0x0 output/obj/decode_core.o
@@ -1187,14 +1187,14 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 output/obj/decode_core.o
  .text.silk_decode_core
                 0x0000000000000000      0x9b0 output/obj/decode_core.o
- .debug_info    0x0000000000000000     0x1c34 output/obj/decode_core.o
- .debug_abbrev  0x0000000000000000      0x34f output/obj/decode_core.o
+ .debug_info    0x0000000000000000     0x1d27 output/obj/decode_core.o
+ .debug_abbrev  0x0000000000000000      0x356 output/obj/decode_core.o
  .debug_loc     0x0000000000000000      0xad9 output/obj/decode_core.o
  .debug_aranges
                 0x0000000000000000       0x20 output/obj/decode_core.o
  .debug_ranges  0x0000000000000000       0xa0 output/obj/decode_core.o
- .debug_line    0x0000000000000000     0x133c output/obj/decode_core.o
- .debug_str     0x0000000000000000     0x1210 output/obj/decode_core.o
+ .debug_line    0x0000000000000000     0x136f output/obj/decode_core.o
+ .debug_str     0x0000000000000000     0x12b9 output/obj/decode_core.o
  .comment       0x0000000000000000       0x12 output/obj/decode_core.o
  .debug_frame   0x0000000000000000       0x6c output/obj/decode_core.o
  .text          0x0000000000000000        0x0 output/obj/resampler_rom.o
@@ -1224,12 +1224,12 @@ Discarded input sections
                 0x0000000000000000        0xc output/obj/resampler_rom.o
  .rodata.silk_resampler_frac_FIR_12
                 0x0000000000000000       0x60 output/obj/resampler_rom.o
- .debug_info    0x0000000000000000      0xc05 output/obj/resampler_rom.o
- .debug_abbrev  0x0000000000000000      0x1fd output/obj/resampler_rom.o
+ .debug_info    0x0000000000000000      0xcf8 output/obj/resampler_rom.o
+ .debug_abbrev  0x0000000000000000      0x204 output/obj/resampler_rom.o
  .debug_aranges
                 0x0000000000000000       0x18 output/obj/resampler_rom.o
- .debug_line    0x0000000000000000      0x244 output/obj/resampler_rom.o
- .debug_str     0x0000000000000000      0x801 output/obj/resampler_rom.o
+ .debug_line    0x0000000000000000      0x277 output/obj/resampler_rom.o
+ .debug_str     0x0000000000000000      0x8aa output/obj/resampler_rom.o
  .comment       0x0000000000000000       0x12 output/obj/resampler_rom.o
  .text          0x0000000000000000        0x0 output/obj/resampler_private_up2_HQ.o
  .data          0x0000000000000000        0x0 output/obj/resampler_private_up2_HQ.o
@@ -1246,14 +1246,14 @@ Discarded input sections
                 0x0000000000000000      0x15e output/obj/resampler_private_up2_HQ.o
  .text.silk_resampler_private_up2_HQ_wrapper
                 0x0000000000000000       0x18 output/obj/resampler_private_up2_HQ.o
- .debug_info    0x0000000000000000      0xe38 output/obj/resampler_private_up2_HQ.o
- .debug_abbrev  0x0000000000000000      0x278 output/obj/resampler_private_up2_HQ.o
+ .debug_info    0x0000000000000000      0xf2b output/obj/resampler_private_up2_HQ.o
+ .debug_abbrev  0x0000000000000000      0x27f output/obj/resampler_private_up2_HQ.o
  .debug_loc     0x0000000000000000      0x311 output/obj/resampler_private_up2_HQ.o
  .debug_aranges
                 0x0000000000000000       0x28 output/obj/resampler_private_up2_HQ.o
  .debug_ranges  0x0000000000000000       0x18 output/obj/resampler_private_up2_HQ.o
- .debug_line    0x0000000000000000      0x6db output/obj/resampler_private_up2_HQ.o
- .debug_str     0x0000000000000000      0x93d output/obj/resampler_private_up2_HQ.o
+ .debug_line    0x0000000000000000      0x70e output/obj/resampler_private_up2_HQ.o
+ .debug_str     0x0000000000000000      0x9e6 output/obj/resampler_private_up2_HQ.o
  .comment       0x0000000000000000       0x12 output/obj/resampler_private_up2_HQ.o
  .debug_frame   0x0000000000000000       0x58 output/obj/resampler_private_up2_HQ.o
  .text          0x0000000000000000        0x0 output/obj/bwexpander.o
@@ -1261,14 +1261,14 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 output/obj/bwexpander.o
  .text.silk_bwexpander
                 0x0000000000000000       0x4e output/obj/bwexpander.o
- .debug_info    0x0000000000000000      0xaed output/obj/bwexpander.o
- .debug_abbrev  0x0000000000000000      0x252 output/obj/bwexpander.o
+ .debug_info    0x0000000000000000      0xbe0 output/obj/bwexpander.o
+ .debug_abbrev  0x0000000000000000      0x259 output/obj/bwexpander.o
  .debug_loc     0x0000000000000000       0x80 output/obj/bwexpander.o
  .debug_aranges
                 0x0000000000000000       0x20 output/obj/bwexpander.o
  .debug_ranges  0x0000000000000000       0x10 output/obj/bwexpander.o
- .debug_line    0x0000000000000000      0x301 output/obj/bwexpander.o
- .debug_str     0x0000000000000000      0x714 output/obj/bwexpander.o
+ .debug_line    0x0000000000000000      0x334 output/obj/bwexpander.o
+ .debug_str     0x0000000000000000      0x7bd output/obj/bwexpander.o
  .comment       0x0000000000000000       0x12 output/obj/bwexpander.o
  .debug_frame   0x0000000000000000       0x20 output/obj/bwexpander.o
  .text          0x0000000000000000        0x0 output/obj/enc_API.o
@@ -1282,14 +1282,14 @@ Discarded input sections
                 0x0000000000000000       0x84 output/obj/enc_API.o
  .text.silk_Encode
                 0x0000000000000000      0x908 output/obj/enc_API.o
- .debug_info    0x0000000000000000     0x2511 output/obj/enc_API.o
- .debug_abbrev  0x0000000000000000      0x3a5 output/obj/enc_API.o
+ .debug_info    0x0000000000000000     0x2604 output/obj/enc_API.o
+ .debug_abbrev  0x0000000000000000      0x3ac output/obj/enc_API.o
  .debug_loc     0x0000000000000000      0xa73 output/obj/enc_API.o
  .debug_aranges
                 0x0000000000000000       0x38 output/obj/enc_API.o
  .debug_ranges  0x0000000000000000       0xf8 output/obj/enc_API.o
- .debug_line    0x0000000000000000     0x1723 output/obj/enc_API.o
- .debug_str     0x0000000000000000     0x1951 output/obj/enc_API.o
+ .debug_line    0x0000000000000000     0x1756 output/obj/enc_API.o
+ .debug_str     0x0000000000000000     0x19fa output/obj/enc_API.o
  .comment       0x0000000000000000       0x12 output/obj/enc_API.o
  .debug_frame   0x0000000000000000       0xb4 output/obj/enc_API.o
  .text          0x0000000000000000        0x0 output/obj/decode_parameters.o
@@ -1297,14 +1297,14 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 output/obj/decode_parameters.o
  .text.silk_decode_parameters
                 0x0000000000000000      0x208 output/obj/decode_parameters.o
- .debug_info    0x0000000000000000     0x1958 output/obj/decode_parameters.o
- .debug_abbrev  0x0000000000000000      0x2d2 output/obj/decode_parameters.o
+ .debug_info    0x0000000000000000     0x1a4b output/obj/decode_parameters.o
+ .debug_abbrev  0x0000000000000000      0x2d9 output/obj/decode_parameters.o
  .debug_loc     0x0000000000000000      0x149 output/obj/decode_parameters.o
  .debug_aranges
                 0x0000000000000000       0x20 output/obj/decode_parameters.o
  .debug_ranges  0x0000000000000000       0x10 output/obj/decode_parameters.o
- .debug_line    0x0000000000000000      0x590 output/obj/decode_parameters.o
- .debug_str     0x0000000000000000     0x1135 output/obj/decode_parameters.o
+ .debug_line    0x0000000000000000      0x5c3 output/obj/decode_parameters.o
+ .debug_str     0x0000000000000000     0x11de output/obj/decode_parameters.o
  .comment       0x0000000000000000       0x12 output/obj/decode_parameters.o
  .debug_frame   0x0000000000000000       0x48 output/obj/decode_parameters.o
  .text          0x0000000000000000        0x0 output/obj/resampler.o
@@ -1326,14 +1326,14 @@ Discarded input sections
                 0x0000000000000000      0x2de output/obj/resampler.o
  .text.silk_resampler
                 0x0000000000000000      0x122 output/obj/resampler.o
- .debug_info    0x0000000000000000      0xf8e output/obj/resampler.o
- .debug_abbrev  0x0000000000000000      0x29a output/obj/resampler.o
+ .debug_info    0x0000000000000000     0x1081 output/obj/resampler.o
+ .debug_abbrev  0x0000000000000000      0x2a1 output/obj/resampler.o
  .debug_loc     0x0000000000000000      0x206 output/obj/resampler.o
  .debug_aranges
                 0x0000000000000000       0x28 output/obj/resampler.o
  .debug_ranges  0x0000000000000000       0x18 output/obj/resampler.o
- .debug_line    0x0000000000000000      0x8fb output/obj/resampler.o
- .debug_str     0x0000000000000000      0x9dd output/obj/resampler.o
+ .debug_line    0x0000000000000000      0x92e output/obj/resampler.o
+ .debug_str     0x0000000000000000      0xa86 output/obj/resampler.o
  .comment       0x0000000000000000       0x12 output/obj/resampler.o
  .debug_frame   0x0000000000000000       0x68 output/obj/resampler.o
  .text          0x0000000000000000        0x0 output/obj/NLSF_unpack.o
@@ -1341,14 +1341,14 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 output/obj/NLSF_unpack.o
  .text.silk_NLSF_unpack
                 0x0000000000000000       0x86 output/obj/NLSF_unpack.o
- .debug_info    0x0000000000000000     0x117c output/obj/NLSF_unpack.o
- .debug_abbrev  0x0000000000000000      0x252 output/obj/NLSF_unpack.o
+ .debug_info    0x0000000000000000     0x126f output/obj/NLSF_unpack.o
+ .debug_abbrev  0x0000000000000000      0x259 output/obj/NLSF_unpack.o
  .debug_loc     0x0000000000000000       0x76 output/obj/NLSF_unpack.o
  .debug_aranges
                 0x0000000000000000       0x20 output/obj/NLSF_unpack.o
  .debug_ranges  0x0000000000000000       0x10 output/obj/NLSF_unpack.o
- .debug_line    0x0000000000000000      0x412 output/obj/NLSF_unpack.o
- .debug_str     0x0000000000000000      0xc90 output/obj/NLSF_unpack.o
+ .debug_line    0x0000000000000000      0x445 output/obj/NLSF_unpack.o
+ .debug_str     0x0000000000000000      0xd39 output/obj/NLSF_unpack.o
  .comment       0x0000000000000000       0x12 output/obj/NLSF_unpack.o
  .debug_frame   0x0000000000000000       0x20 output/obj/NLSF_unpack.o
  .text          0x0000000000000000        0x0 output/obj/process_gains_FIX.o
@@ -1358,14 +1358,14 @@ Discarded input sections
                 0x0000000000000000      0x2bc output/obj/process_gains_FIX.o
  .text.silk_SQRT_APPROX.part.0
                 0x0000000000000000       0x7a output/obj/process_gains_FIX.o
- .debug_info    0x0000000000000000     0x1f3b output/obj/process_gains_FIX.o
- .debug_abbrev  0x0000000000000000      0x3af output/obj/process_gains_FIX.o
+ .debug_info    0x0000000000000000     0x202e output/obj/process_gains_FIX.o
+ .debug_abbrev  0x0000000000000000      0x3b6 output/obj/process_gains_FIX.o
  .debug_loc     0x0000000000000000      0x619 output/obj/process_gains_FIX.o
  .debug_aranges
                 0x0000000000000000       0x28 output/obj/process_gains_FIX.o
  .debug_ranges  0x0000000000000000       0x70 output/obj/process_gains_FIX.o
- .debug_line    0x0000000000000000      0x8c8 output/obj/process_gains_FIX.o
- .debug_str     0x0000000000000000     0x15f6 output/obj/process_gains_FIX.o
+ .debug_line    0x0000000000000000      0x8fb output/obj/process_gains_FIX.o
+ .debug_str     0x0000000000000000     0x169f output/obj/process_gains_FIX.o
  .comment       0x0000000000000000       0x12 output/obj/process_gains_FIX.o
  .debug_frame   0x0000000000000000       0x70 output/obj/process_gains_FIX.o
  .text          0x0000000000000000        0x0 output/obj/code_signs.o
@@ -1375,14 +1375,14 @@ Discarded input sections
                 0x0000000000000000       0x9a output/obj/code_signs.o
  .text.silk_decode_signs
                 0x0000000000000000       0xa2 output/obj/code_signs.o
- .debug_info    0x0000000000000000     0x13c9 output/obj/code_signs.o
- .debug_abbrev  0x0000000000000000      0x289 output/obj/code_signs.o
+ .debug_info    0x0000000000000000     0x14bc output/obj/code_signs.o
+ .debug_abbrev  0x0000000000000000      0x290 output/obj/code_signs.o
  .debug_loc     0x0000000000000000      0x2c6 output/obj/code_signs.o
  .debug_aranges
                 0x0000000000000000       0x28 output/obj/code_signs.o
  .debug_ranges  0x0000000000000000       0x18 output/obj/code_signs.o
- .debug_line    0x0000000000000000      0x59d output/obj/code_signs.o
- .debug_str     0x0000000000000000      0xd49 output/obj/code_signs.o
+ .debug_line    0x0000000000000000      0x5d0 output/obj/code_signs.o
+ .debug_str     0x0000000000000000      0xdf2 output/obj/code_signs.o
  .comment       0x0000000000000000       0x12 output/obj/code_signs.o
  .debug_frame   0x0000000000000000       0x8c output/obj/code_signs.o
  .text          0x0000000000000000        0x0 output/obj/ana_filt_bank_1.o
@@ -1394,14 +1394,14 @@ Discarded input sections
                 0x0000000000000000        0x2 output/obj/ana_filt_bank_1.o
  .text.silk_ana_filt_bank_1
                 0x0000000000000000       0xe0 output/obj/ana_filt_bank_1.o
- .debug_info    0x0000000000000000      0xb9d output/obj/ana_filt_bank_1.o
- .debug_abbrev  0x0000000000000000      0x274 output/obj/ana_filt_bank_1.o
+ .debug_info    0x0000000000000000      0xc90 output/obj/ana_filt_bank_1.o
+ .debug_abbrev  0x0000000000000000      0x27b output/obj/ana_filt_bank_1.o
  .debug_loc     0x0000000000000000      0x145 output/obj/ana_filt_bank_1.o
  .debug_aranges
                 0x0000000000000000       0x20 output/obj/ana_filt_bank_1.o
  .debug_ranges  0x0000000000000000       0x10 output/obj/ana_filt_bank_1.o
- .debug_line    0x0000000000000000      0x452 output/obj/ana_filt_bank_1.o
- .debug_str     0x0000000000000000      0x742 output/obj/ana_filt_bank_1.o
+ .debug_line    0x0000000000000000      0x485 output/obj/ana_filt_bank_1.o
+ .debug_str     0x0000000000000000      0x7eb output/obj/ana_filt_bank_1.o
  .comment       0x0000000000000000       0x12 output/obj/ana_filt_bank_1.o
  .debug_frame   0x0000000000000000       0x34 output/obj/ana_filt_bank_1.o
  .text          0x0000000000000000        0x0 output/obj/residual_energy_FIX.o
@@ -1409,14 +1409,14 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 output/obj/residual_energy_FIX.o
  .text.silk_residual_energy_FIX
                 0x0000000000000000      0x18e output/obj/residual_energy_FIX.o
- .debug_info    0x0000000000000000     0x1347 output/obj/residual_energy_FIX.o
- .debug_abbrev  0x0000000000000000      0x2f8 output/obj/residual_energy_FIX.o
+ .debug_info    0x0000000000000000     0x143a output/obj/residual_energy_FIX.o
+ .debug_abbrev  0x0000000000000000      0x2ff output/obj/residual_energy_FIX.o
  .debug_loc     0x0000000000000000      0x2c6 output/obj/residual_energy_FIX.o
  .debug_aranges
                 0x0000000000000000       0x20 output/obj/residual_energy_FIX.o
  .debug_ranges  0x0000000000000000       0x10 output/obj/residual_energy_FIX.o
- .debug_line    0x0000000000000000      0x533 output/obj/residual_energy_FIX.o
- .debug_str     0x0000000000000000      0xd1b output/obj/residual_energy_FIX.o
+ .debug_line    0x0000000000000000      0x566 output/obj/residual_energy_FIX.o
+ .debug_str     0x0000000000000000      0xdc4 output/obj/residual_energy_FIX.o
  .comment       0x0000000000000000       0x12 output/obj/residual_energy_FIX.o
  .debug_frame   0x0000000000000000       0x6c output/obj/residual_energy_FIX.o
  .text          0x0000000000000000        0x0 output/obj/decode_pulses.o
@@ -1424,14 +1424,14 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 output/obj/decode_pulses.o
  .text.silk_decode_pulses
                 0x0000000000000000      0x178 output/obj/decode_pulses.o
- .debug_info    0x0000000000000000     0x13ba output/obj/decode_pulses.o
- .debug_abbrev  0x0000000000000000      0x289 output/obj/decode_pulses.o
+ .debug_info    0x0000000000000000     0x14ad output/obj/decode_pulses.o
+ .debug_abbrev  0x0000000000000000      0x290 output/obj/decode_pulses.o
  .debug_loc     0x0000000000000000      0x1d9 output/obj/decode_pulses.o
  .debug_aranges
                 0x0000000000000000       0x20 output/obj/decode_pulses.o
  .debug_ranges  0x0000000000000000       0x10 output/obj/decode_pulses.o
- .debug_line    0x0000000000000000      0x5c0 output/obj/decode_pulses.o
- .debug_str     0x0000000000000000      0xd82 output/obj/decode_pulses.o
+ .debug_line    0x0000000000000000      0x5f3 output/obj/decode_pulses.o
+ .debug_str     0x0000000000000000      0xe2b output/obj/decode_pulses.o
  .comment       0x0000000000000000       0x12 output/obj/decode_pulses.o
  .debug_frame   0x0000000000000000       0x58 output/obj/decode_pulses.o
  .text          0x0000000000000000        0x0 output/obj/PLC.o
@@ -1453,14 +1453,14 @@ Discarded input sections
                 0x0000000000000000      0x840 output/obj/PLC.o
  .text.silk_PLC_glue_frames
                 0x0000000000000000      0x180 output/obj/PLC.o
- .debug_info    0x0000000000000000     0x2450 output/obj/PLC.o
- .debug_abbrev  0x0000000000000000      0x4c4 output/obj/PLC.o
+ .debug_info    0x0000000000000000     0x2543 output/obj/PLC.o
+ .debug_abbrev  0x0000000000000000      0x4cb output/obj/PLC.o
  .debug_loc     0x0000000000000000     0x1103 output/obj/PLC.o
  .debug_aranges
                 0x0000000000000000       0x40 output/obj/PLC.o
  .debug_ranges  0x0000000000000000      0x1c0 output/obj/PLC.o
- .debug_line    0x0000000000000000     0x1ade output/obj/PLC.o
- .debug_str     0x0000000000000000     0x13ca output/obj/PLC.o
+ .debug_line    0x0000000000000000     0x1b11 output/obj/PLC.o
+ .debug_str     0x0000000000000000     0x1473 output/obj/PLC.o
  .comment       0x0000000000000000       0x12 output/obj/PLC.o
  .debug_frame   0x0000000000000000      0x134 output/obj/PLC.o
  .text          0x0000000000000000        0x0 output/obj/NLSF_stabilize.o
@@ -1468,14 +1468,14 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 output/obj/NLSF_stabilize.o
  .text.silk_NLSF_stabilize
                 0x0000000000000000      0x1e8 output/obj/NLSF_stabilize.o
- .debug_info    0x0000000000000000      0xc5a output/obj/NLSF_stabilize.o
- .debug_abbrev  0x0000000000000000      0x2bc output/obj/NLSF_stabilize.o
+ .debug_info    0x0000000000000000      0xd4d output/obj/NLSF_stabilize.o
+ .debug_abbrev  0x0000000000000000      0x2c3 output/obj/NLSF_stabilize.o
  .debug_loc     0x0000000000000000      0x331 output/obj/NLSF_stabilize.o
  .debug_aranges
                 0x0000000000000000       0x20 output/obj/NLSF_stabilize.o
  .debug_ranges  0x0000000000000000       0x58 output/obj/NLSF_stabilize.o
- .debug_line    0x0000000000000000      0x738 output/obj/NLSF_stabilize.o
- .debug_str     0x0000000000000000      0x7a9 output/obj/NLSF_stabilize.o
+ .debug_line    0x0000000000000000      0x76b output/obj/NLSF_stabilize.o
+ .debug_str     0x0000000000000000      0x852 output/obj/NLSF_stabilize.o
  .comment       0x0000000000000000       0x12 output/obj/NLSF_stabilize.o
  .debug_frame   0x0000000000000000       0x40 output/obj/NLSF_stabilize.o
  .text          0x0000000000000000        0x0 output/obj/entdec.o
@@ -1492,14 +1492,14 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 output/obj/decode_pitch.o
  .text.silk_decode_pitch
                 0x0000000000000000       0x94 output/obj/decode_pitch.o
- .debug_info    0x0000000000000000      0xc6c output/obj/decode_pitch.o
- .debug_abbrev  0x0000000000000000      0x241 output/obj/decode_pitch.o
+ .debug_info    0x0000000000000000      0xd5f output/obj/decode_pitch.o
+ .debug_abbrev  0x0000000000000000      0x248 output/obj/decode_pitch.o
  .debug_loc     0x0000000000000000      0x18f output/obj/decode_pitch.o
  .debug_aranges
                 0x0000000000000000       0x20 output/obj/decode_pitch.o
  .debug_ranges  0x0000000000000000       0x10 output/obj/decode_pitch.o
- .debug_line    0x0000000000000000      0x3a6 output/obj/decode_pitch.o
- .debug_str     0x0000000000000000      0x7f8 output/obj/decode_pitch.o
+ .debug_line    0x0000000000000000      0x3d9 output/obj/decode_pitch.o
+ .debug_str     0x0000000000000000      0x8a1 output/obj/decode_pitch.o
  .comment       0x0000000000000000       0x12 output/obj/decode_pitch.o
  .debug_frame   0x0000000000000000       0x20 output/obj/decode_pitch.o
  .text          0x0000000000000000        0x0 output/obj/tables_gain.o
@@ -1509,12 +1509,12 @@ Discarded input sections
                 0x0000000000000000       0x18 output/obj/tables_gain.o
  .rodata.silk_delta_gain_iCDF
                 0x0000000000000000       0x29 output/obj/tables_gain.o
- .debug_info    0x0000000000000000     0x10ff output/obj/tables_gain.o
- .debug_abbrev  0x0000000000000000      0x1f9 output/obj/tables_gain.o
+ .debug_info    0x0000000000000000     0x11f2 output/obj/tables_gain.o
+ .debug_abbrev  0x0000000000000000      0x200 output/obj/tables_gain.o
  .debug_aranges
                 0x0000000000000000       0x18 output/obj/tables_gain.o
- .debug_line    0x0000000000000000      0x255 output/obj/tables_gain.o
- .debug_str     0x0000000000000000      0xc54 output/obj/tables_gain.o
+ .debug_line    0x0000000000000000      0x288 output/obj/tables_gain.o
+ .debug_str     0x0000000000000000      0xcfd output/obj/tables_gain.o
  .comment       0x0000000000000000       0x12 output/obj/tables_gain.o
  .text          0x0000000000000000        0x0 output/obj/biquad_alt.o
  .data          0x0000000000000000        0x0 output/obj/biquad_alt.o
@@ -1551,14 +1551,14 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 output/obj/find_LPC_FIX.o
  .text.silk_find_LPC_FIX
                 0x0000000000000000      0x27e output/obj/find_LPC_FIX.o
- .debug_info    0x0000000000000000     0x1cce output/obj/find_LPC_FIX.o
- .debug_abbrev  0x0000000000000000      0x2db output/obj/find_LPC_FIX.o
+ .debug_info    0x0000000000000000     0x1dc1 output/obj/find_LPC_FIX.o
+ .debug_abbrev  0x0000000000000000      0x2e2 output/obj/find_LPC_FIX.o
  .debug_loc     0x0000000000000000      0x2ac output/obj/find_LPC_FIX.o
  .debug_aranges
                 0x0000000000000000       0x20 output/obj/find_LPC_FIX.o
  .debug_ranges  0x0000000000000000       0x28 output/obj/find_LPC_FIX.o
- .debug_line    0x0000000000000000      0x67b output/obj/find_LPC_FIX.o
- .debug_str     0x0000000000000000     0x1497 output/obj/find_LPC_FIX.o
+ .debug_line    0x0000000000000000      0x6ae output/obj/find_LPC_FIX.o
+ .debug_str     0x0000000000000000     0x1540 output/obj/find_LPC_FIX.o
  .comment       0x0000000000000000       0x12 output/obj/find_LPC_FIX.o
  .debug_frame   0x0000000000000000       0x64 output/obj/find_LPC_FIX.o
  .text          0x0000000000000000        0x0 output/obj/k2a_Q16_FIX.o
@@ -1566,14 +1566,14 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 output/obj/k2a_Q16_FIX.o
  .text.silk_k2a_Q16
                 0x0000000000000000       0xa4 output/obj/k2a_Q16_FIX.o
- .debug_info    0x0000000000000000      0xb37 output/obj/k2a_Q16_FIX.o
- .debug_abbrev  0x0000000000000000      0x241 output/obj/k2a_Q16_FIX.o
+ .debug_info    0x0000000000000000      0xc2a output/obj/k2a_Q16_FIX.o
+ .debug_abbrev  0x0000000000000000      0x248 output/obj/k2a_Q16_FIX.o
  .debug_loc     0x0000000000000000       0xae output/obj/k2a_Q16_FIX.o
  .debug_aranges
                 0x0000000000000000       0x20 output/obj/k2a_Q16_FIX.o
  .debug_ranges  0x0000000000000000       0x10 output/obj/k2a_Q16_FIX.o
- .debug_line    0x0000000000000000      0x3a0 output/obj/k2a_Q16_FIX.o
- .debug_str     0x0000000000000000      0x726 output/obj/k2a_Q16_FIX.o
+ .debug_line    0x0000000000000000      0x3d3 output/obj/k2a_Q16_FIX.o
+ .debug_str     0x0000000000000000      0x7cf output/obj/k2a_Q16_FIX.o
  .comment       0x0000000000000000       0x12 output/obj/k2a_Q16_FIX.o
  .debug_frame   0x0000000000000000       0x30 output/obj/k2a_Q16_FIX.o
  .text          0x0000000000000000        0x0 output/obj/NLSF_encode.o
@@ -1581,14 +1581,14 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 output/obj/NLSF_encode.o
  .text.silk_NLSF_encode
                 0x0000000000000000      0x3b8 output/obj/NLSF_encode.o
- .debug_info    0x0000000000000000     0x15d1 output/obj/NLSF_encode.o
- .debug_abbrev  0x0000000000000000      0x31d output/obj/NLSF_encode.o
+ .debug_info    0x0000000000000000     0x16c4 output/obj/NLSF_encode.o
+ .debug_abbrev  0x0000000000000000      0x324 output/obj/NLSF_encode.o
  .debug_loc     0x0000000000000000      0x570 output/obj/NLSF_encode.o
  .debug_aranges
                 0x0000000000000000       0x20 output/obj/NLSF_encode.o
  .debug_ranges  0x0000000000000000       0x68 output/obj/NLSF_encode.o
- .debug_line    0x0000000000000000      0x8c4 output/obj/NLSF_encode.o
- .debug_str     0x0000000000000000      0xe4b output/obj/NLSF_encode.o
+ .debug_line    0x0000000000000000      0x8f7 output/obj/NLSF_encode.o
+ .debug_str     0x0000000000000000      0xef4 output/obj/NLSF_encode.o
  .comment       0x0000000000000000       0x12 output/obj/NLSF_encode.o
  .debug_frame   0x0000000000000000       0x6c output/obj/NLSF_encode.o
  .text          0x0000000000000000        0x0 output/obj/celt_encoder.o
@@ -1596,7 +1596,7 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 output/obj/celt_encoder.o
  .text.celt_encoder_get_size
                 0x0000000000000000       0x30 output/obj/celt_encoder.o
- .rodata.C.4928
+ .rodata.C.4929
                 0x0000000000000000        0xa output/obj/celt_encoder.o
  .text          0x0000000000000000        0x0 output/obj/gain_quant.o
  .data          0x0000000000000000        0x0 output/obj/gain_quant.o
@@ -1607,14 +1607,14 @@ Discarded input sections
                 0x0000000000000000       0xce output/obj/gain_quant.o
  .text.silk_gains_ID
                 0x0000000000000000       0x1c output/obj/gain_quant.o
- .debug_info    0x0000000000000000     0x135f output/obj/gain_quant.o
- .debug_abbrev  0x0000000000000000      0x2dd output/obj/gain_quant.o
+ .debug_info    0x0000000000000000     0x1452 output/obj/gain_quant.o
+ .debug_abbrev  0x0000000000000000      0x2e4 output/obj/gain_quant.o
  .debug_loc     0x0000000000000000      0x23f output/obj/gain_quant.o
  .debug_aranges
                 0x0000000000000000       0x30 output/obj/gain_quant.o
  .debug_ranges  0x0000000000000000       0x58 output/obj/gain_quant.o
- .debug_line    0x0000000000000000      0x704 output/obj/gain_quant.o
- .debug_str     0x0000000000000000      0xd17 output/obj/gain_quant.o
+ .debug_line    0x0000000000000000      0x737 output/obj/gain_quant.o
+ .debug_str     0x0000000000000000      0xdc0 output/obj/gain_quant.o
  .comment       0x0000000000000000       0x12 output/obj/gain_quant.o
  .debug_frame   0x0000000000000000       0x90 output/obj/gain_quant.o
  .text          0x0000000000000000        0x0 output/obj/stereo_decode_pred.o
@@ -1624,14 +1624,14 @@ Discarded input sections
                 0x0000000000000000      0x106 output/obj/stereo_decode_pred.o
  .text.silk_stereo_decode_mid_only
                 0x0000000000000000       0x26 output/obj/stereo_decode_pred.o
- .debug_info    0x0000000000000000     0x1319 output/obj/stereo_decode_pred.o
- .debug_abbrev  0x0000000000000000      0x289 output/obj/stereo_decode_pred.o
+ .debug_info    0x0000000000000000     0x140c output/obj/stereo_decode_pred.o
+ .debug_abbrev  0x0000000000000000      0x290 output/obj/stereo_decode_pred.o
  .debug_loc     0x0000000000000000      0x11c output/obj/stereo_decode_pred.o
  .debug_aranges
                 0x0000000000000000       0x28 output/obj/stereo_decode_pred.o
  .debug_ranges  0x0000000000000000       0x18 output/obj/stereo_decode_pred.o
- .debug_line    0x0000000000000000      0x4f9 output/obj/stereo_decode_pred.o
- .debug_str     0x0000000000000000      0xd25 output/obj/stereo_decode_pred.o
+ .debug_line    0x0000000000000000      0x52c output/obj/stereo_decode_pred.o
+ .debug_str     0x0000000000000000      0xdce output/obj/stereo_decode_pred.o
  .comment       0x0000000000000000       0x12 output/obj/stereo_decode_pred.o
  .debug_frame   0x0000000000000000       0x58 output/obj/stereo_decode_pred.o
  .text          0x0000000000000000        0x0 output/obj/analysis.o
@@ -1643,12 +1643,12 @@ Discarded input sections
                 0x0000000000000000        0x4 output/obj/analysis.o
  .rodata.tapset_icdf
                 0x0000000000000000        0x3 output/obj/analysis.o
- .debug_info    0x0000000000000000      0xbe9 output/obj/analysis.o
- .debug_abbrev  0x0000000000000000      0x217 output/obj/analysis.o
+ .debug_info    0x0000000000000000      0xcdc output/obj/analysis.o
+ .debug_abbrev  0x0000000000000000      0x21e output/obj/analysis.o
  .debug_aranges
                 0x0000000000000000       0x18 output/obj/analysis.o
- .debug_line    0x0000000000000000      0x25b output/obj/analysis.o
- .debug_str     0x0000000000000000      0x74d output/obj/analysis.o
+ .debug_line    0x0000000000000000      0x28e output/obj/analysis.o
+ .debug_str     0x0000000000000000      0x7f6 output/obj/analysis.o
  .comment       0x0000000000000000       0x12 output/obj/analysis.o
  .text          0x0000000000000000        0x0 output/obj/encode_frame_FIX.o
  .data          0x0000000000000000        0x0 output/obj/encode_frame_FIX.o
@@ -1657,14 +1657,14 @@ Discarded input sections
                 0x0000000000000000       0x84 output/obj/encode_frame_FIX.o
  .text.silk_encode_frame_FIX
                 0x0000000000000000      0xd1a output/obj/encode_frame_FIX.o
- .debug_info    0x0000000000000000     0x288b output/obj/encode_frame_FIX.o
- .debug_abbrev  0x0000000000000000      0x40e output/obj/encode_frame_FIX.o
+ .debug_info    0x0000000000000000     0x297e output/obj/encode_frame_FIX.o
+ .debug_abbrev  0x0000000000000000      0x415 output/obj/encode_frame_FIX.o
  .debug_loc     0x0000000000000000      0xe31 output/obj/encode_frame_FIX.o
  .debug_aranges
                 0x0000000000000000       0x28 output/obj/encode_frame_FIX.o
  .debug_ranges  0x0000000000000000      0x120 output/obj/encode_frame_FIX.o
- .debug_line    0x0000000000000000     0x1256 output/obj/encode_frame_FIX.o
- .debug_str     0x0000000000000000     0x18b2 output/obj/encode_frame_FIX.o
+ .debug_line    0x0000000000000000     0x1289 output/obj/encode_frame_FIX.o
+ .debug_str     0x0000000000000000     0x195b output/obj/encode_frame_FIX.o
  .comment       0x0000000000000000       0x12 output/obj/encode_frame_FIX.o
  .debug_frame   0x0000000000000000       0x94 output/obj/encode_frame_FIX.o
  .text          0x0000000000000000        0x0 output/obj/schur64_FIX.o
@@ -1672,14 +1672,14 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 output/obj/schur64_FIX.o
  .text.silk_schur64
                 0x0000000000000000      0x1d4 output/obj/schur64_FIX.o
- .debug_info    0x0000000000000000      0xd37 output/obj/schur64_FIX.o
- .debug_abbrev  0x0000000000000000      0x343 output/obj/schur64_FIX.o
+ .debug_info    0x0000000000000000      0xe2a output/obj/schur64_FIX.o
+ .debug_abbrev  0x0000000000000000      0x34a output/obj/schur64_FIX.o
  .debug_loc     0x0000000000000000      0x36b output/obj/schur64_FIX.o
  .debug_aranges
                 0x0000000000000000       0x20 output/obj/schur64_FIX.o
  .debug_ranges  0x0000000000000000       0x50 output/obj/schur64_FIX.o
- .debug_line    0x0000000000000000      0x697 output/obj/schur64_FIX.o
- .debug_str     0x0000000000000000      0x7b6 output/obj/schur64_FIX.o
+ .debug_line    0x0000000000000000      0x6ca output/obj/schur64_FIX.o
+ .debug_str     0x0000000000000000      0x85f output/obj/schur64_FIX.o
  .comment       0x0000000000000000       0x12 output/obj/schur64_FIX.o
  .debug_frame   0x0000000000000000       0x58 output/obj/schur64_FIX.o
  .text          0x0000000000000000        0x0 output/obj/kiss_fft.o
@@ -1715,14 +1715,14 @@ Discarded input sections
                 0x0000000000000000       0x28 output/obj/vector_ops_FIX.o
  .text.silk_inner_prod16_aligned_64_c
                 0x0000000000000000       0x3a output/obj/vector_ops_FIX.o
- .debug_info    0x0000000000000000      0xdc0 output/obj/vector_ops_FIX.o
- .debug_abbrev  0x0000000000000000      0x2e3 output/obj/vector_ops_FIX.o
+ .debug_info    0x0000000000000000      0xeb3 output/obj/vector_ops_FIX.o
+ .debug_abbrev  0x0000000000000000      0x2ea output/obj/vector_ops_FIX.o
  .debug_loc     0x0000000000000000      0x2b6 output/obj/vector_ops_FIX.o
  .debug_aranges
                 0x0000000000000000       0x38 output/obj/vector_ops_FIX.o
  .debug_ranges  0x0000000000000000       0x40 output/obj/vector_ops_FIX.o
- .debug_line    0x0000000000000000      0x4b7 output/obj/vector_ops_FIX.o
- .debug_str     0x0000000000000000      0x830 output/obj/vector_ops_FIX.o
+ .debug_line    0x0000000000000000      0x4ea output/obj/vector_ops_FIX.o
+ .debug_str     0x0000000000000000      0x8d9 output/obj/vector_ops_FIX.o
  .comment       0x0000000000000000       0x12 output/obj/vector_ops_FIX.o
  .debug_frame   0x0000000000000000       0x50 output/obj/vector_ops_FIX.o
  .text          0x0000000000000000        0x0 output/obj/residual_energy16_FIX.o
@@ -1730,14 +1730,14 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 output/obj/residual_energy16_FIX.o
  .text.silk_residual_energy16_covar_FIX
                 0x0000000000000000      0x1d6 output/obj/residual_energy16_FIX.o
- .debug_info    0x0000000000000000     0x13ab output/obj/residual_energy16_FIX.o
- .debug_abbrev  0x0000000000000000      0x2d0 output/obj/residual_energy16_FIX.o
+ .debug_info    0x0000000000000000     0x149e output/obj/residual_energy16_FIX.o
+ .debug_abbrev  0x0000000000000000      0x2d7 output/obj/residual_energy16_FIX.o
  .debug_loc     0x0000000000000000      0x4f7 output/obj/residual_energy16_FIX.o
  .debug_aranges
                 0x0000000000000000       0x20 output/obj/residual_energy16_FIX.o
  .debug_ranges  0x0000000000000000       0xa8 output/obj/residual_energy16_FIX.o
- .debug_line    0x0000000000000000      0x6d3 output/obj/residual_energy16_FIX.o
- .debug_str     0x0000000000000000      0xcd9 output/obj/residual_energy16_FIX.o
+ .debug_line    0x0000000000000000      0x706 output/obj/residual_energy16_FIX.o
+ .debug_str     0x0000000000000000      0xd82 output/obj/residual_energy16_FIX.o
  .comment       0x0000000000000000       0x12 output/obj/residual_energy16_FIX.o
  .debug_frame   0x0000000000000000       0x4c output/obj/residual_energy16_FIX.o
  .text          0x0000000000000000        0x0 output/obj/mlp.o
@@ -1750,14 +1750,14 @@ Discarded input sections
  .text.tansig_approx.part.0
                 0x0000000000000000       0xa4 output/obj/mlp.o
  .rodata.cst4   0x0000000000000000       0x1c output/obj/mlp.o
- .debug_info    0x0000000000000000      0xcd6 output/obj/mlp.o
- .debug_abbrev  0x0000000000000000      0x2fe output/obj/mlp.o
+ .debug_info    0x0000000000000000      0xdc9 output/obj/mlp.o
+ .debug_abbrev  0x0000000000000000      0x305 output/obj/mlp.o
  .debug_loc     0x0000000000000000      0x337 output/obj/mlp.o
  .debug_aranges
                 0x0000000000000000       0x28 output/obj/mlp.o
  .debug_ranges  0x0000000000000000       0xe8 output/obj/mlp.o
- .debug_line    0x0000000000000000      0x6a7 output/obj/mlp.o
- .debug_str     0x0000000000000000      0x706 output/obj/mlp.o
+ .debug_line    0x0000000000000000      0x6da output/obj/mlp.o
+ .debug_str     0x0000000000000000      0x7af output/obj/mlp.o
  .comment       0x0000000000000000       0x12 output/obj/mlp.o
  .debug_frame   0x0000000000000000       0x8c output/obj/mlp.o
  .text          0x0000000000000000        0x0 output/obj/NLSF_VQ.o
@@ -1765,14 +1765,14 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 output/obj/NLSF_VQ.o
  .text.silk_NLSF_VQ
                 0x0000000000000000       0xb2 output/obj/NLSF_VQ.o
- .debug_info    0x0000000000000000     0x11e2 output/obj/NLSF_VQ.o
- .debug_abbrev  0x0000000000000000      0x252 output/obj/NLSF_VQ.o
+ .debug_info    0x0000000000000000     0x12d5 output/obj/NLSF_VQ.o
+ .debug_abbrev  0x0000000000000000      0x259 output/obj/NLSF_VQ.o
  .debug_loc     0x0000000000000000      0x2b3 output/obj/NLSF_VQ.o
  .debug_aranges
                 0x0000000000000000       0x20 output/obj/NLSF_VQ.o
  .debug_ranges  0x0000000000000000       0x10 output/obj/NLSF_VQ.o
- .debug_line    0x0000000000000000      0x469 output/obj/NLSF_VQ.o
- .debug_str     0x0000000000000000      0xcc3 output/obj/NLSF_VQ.o
+ .debug_line    0x0000000000000000      0x49c output/obj/NLSF_VQ.o
+ .debug_str     0x0000000000000000      0xd6c output/obj/NLSF_VQ.o
  .comment       0x0000000000000000       0x12 output/obj/NLSF_VQ.o
  .debug_frame   0x0000000000000000       0x30 output/obj/NLSF_VQ.o
  .text          0x0000000000000000        0x0 output/obj/check_control_input.o
@@ -1780,14 +1780,14 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 output/obj/check_control_input.o
  .text.check_control_input
                 0x0000000000000000      0x144 output/obj/check_control_input.o
- .debug_info    0x0000000000000000     0x1278 output/obj/check_control_input.o
- .debug_abbrev  0x0000000000000000      0x210 output/obj/check_control_input.o
+ .debug_info    0x0000000000000000     0x136b output/obj/check_control_input.o
+ .debug_abbrev  0x0000000000000000      0x217 output/obj/check_control_input.o
  .debug_loc     0x0000000000000000       0x2c output/obj/check_control_input.o
  .debug_aranges
                 0x0000000000000000       0x20 output/obj/check_control_input.o
  .debug_ranges  0x0000000000000000       0x10 output/obj/check_control_input.o
- .debug_line    0x0000000000000000      0x4b9 output/obj/check_control_input.o
- .debug_str     0x0000000000000000      0xe01 output/obj/check_control_input.o
+ .debug_line    0x0000000000000000      0x4ec output/obj/check_control_input.o
+ .debug_str     0x0000000000000000      0xeaa output/obj/check_control_input.o
  .comment       0x0000000000000000       0x12 output/obj/check_control_input.o
  .debug_frame   0x0000000000000000       0x20 output/obj/check_control_input.o
  .text          0x0000000000000000        0x0 output/obj/encode_indices.o
@@ -1795,14 +1795,14 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 output/obj/encode_indices.o
  .text.silk_encode_indices
                 0x0000000000000000      0x31c output/obj/encode_indices.o
- .debug_info    0x0000000000000000     0x1d66 output/obj/encode_indices.o
- .debug_abbrev  0x0000000000000000      0x2bd output/obj/encode_indices.o
+ .debug_info    0x0000000000000000     0x1e59 output/obj/encode_indices.o
+ .debug_abbrev  0x0000000000000000      0x2c4 output/obj/encode_indices.o
  .debug_loc     0x0000000000000000      0x2a4 output/obj/encode_indices.o
  .debug_aranges
                 0x0000000000000000       0x20 output/obj/encode_indices.o
  .debug_ranges  0x0000000000000000       0x10 output/obj/encode_indices.o
- .debug_line    0x0000000000000000      0x81c output/obj/encode_indices.o
- .debug_str     0x0000000000000000     0x146c output/obj/encode_indices.o
+ .debug_line    0x0000000000000000      0x84f output/obj/encode_indices.o
+ .debug_str     0x0000000000000000     0x1515 output/obj/encode_indices.o
  .comment       0x0000000000000000       0x12 output/obj/encode_indices.o
  .debug_frame   0x0000000000000000       0x58 output/obj/encode_indices.o
  .text          0x0000000000000000        0x0 output/obj/table_LSF_cos.o
@@ -1810,12 +1810,12 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 output/obj/table_LSF_cos.o
  .rodata.silk_LSFCosTab_FIX_Q12
                 0x0000000000000000      0x102 output/obj/table_LSF_cos.o
- .debug_info    0x0000000000000000     0x10f2 output/obj/table_LSF_cos.o
- .debug_abbrev  0x0000000000000000      0x1ec output/obj/table_LSF_cos.o
+ .debug_info    0x0000000000000000     0x11e5 output/obj/table_LSF_cos.o
+ .debug_abbrev  0x0000000000000000      0x1f3 output/obj/table_LSF_cos.o
  .debug_aranges
                 0x0000000000000000       0x18 output/obj/table_LSF_cos.o
- .debug_line    0x0000000000000000      0x257 output/obj/table_LSF_cos.o
- .debug_str     0x0000000000000000      0xc56 output/obj/table_LSF_cos.o
+ .debug_line    0x0000000000000000      0x28a output/obj/table_LSF_cos.o
+ .debug_str     0x0000000000000000      0xcff output/obj/table_LSF_cos.o
  .comment       0x0000000000000000       0x12 output/obj/table_LSF_cos.o
  .text          0x0000000000000000        0x0 output/obj/stereo_find_predictor.o
  .data          0x0000000000000000        0x0 output/obj/stereo_find_predictor.o
@@ -1826,14 +1826,14 @@ Discarded input sections
                 0x0000000000000000      0x1dc output/obj/stereo_find_predictor.o
  .text.silk_SQRT_APPROX.part.0
                 0x0000000000000000       0x7a output/obj/stereo_find_predictor.o
- .debug_info    0x0000000000000000     0x16d5 output/obj/stereo_find_predictor.o
- .debug_abbrev  0x0000000000000000      0x3c4 output/obj/stereo_find_predictor.o
+ .debug_info    0x0000000000000000     0x17c8 output/obj/stereo_find_predictor.o
+ .debug_abbrev  0x0000000000000000      0x3cb output/obj/stereo_find_predictor.o
  .debug_loc     0x0000000000000000      0x666 output/obj/stereo_find_predictor.o
  .debug_aranges
                 0x0000000000000000       0x30 output/obj/stereo_find_predictor.o
  .debug_ranges  0x0000000000000000      0x140 output/obj/stereo_find_predictor.o
- .debug_line    0x0000000000000000      0x929 output/obj/stereo_find_predictor.o
- .debug_str     0x0000000000000000      0xdb3 output/obj/stereo_find_predictor.o
+ .debug_line    0x0000000000000000      0x95c output/obj/stereo_find_predictor.o
+ .debug_str     0x0000000000000000      0xe5c output/obj/stereo_find_predictor.o
  .comment       0x0000000000000000       0x12 output/obj/stereo_find_predictor.o
  .debug_frame   0x0000000000000000       0x94 output/obj/stereo_find_predictor.o
  .text          0x0000000000000000        0x0 output/obj/entenc.o
@@ -1848,14 +1848,14 @@ Discarded input sections
                 0x0000000000000000      0x2f4 output/obj/find_pred_coefs_FIX.o
  .text.silk_DIV32_varQ.constprop.0
                 0x0000000000000000       0xf2 output/obj/find_pred_coefs_FIX.o
- .debug_info    0x0000000000000000     0x203c output/obj/find_pred_coefs_FIX.o
- .debug_abbrev  0x0000000000000000      0x386 output/obj/find_pred_coefs_FIX.o
+ .debug_info    0x0000000000000000     0x212f output/obj/find_pred_coefs_FIX.o
+ .debug_abbrev  0x0000000000000000      0x38d output/obj/find_pred_coefs_FIX.o
  .debug_loc     0x0000000000000000      0x560 output/obj/find_pred_coefs_FIX.o
  .debug_aranges
                 0x0000000000000000       0x28 output/obj/find_pred_coefs_FIX.o
  .debug_ranges  0x0000000000000000       0x50 output/obj/find_pred_coefs_FIX.o
- .debug_line    0x0000000000000000      0x8ed output/obj/find_pred_coefs_FIX.o
- .debug_str     0x0000000000000000     0x16e2 output/obj/find_pred_coefs_FIX.o
+ .debug_line    0x0000000000000000      0x920 output/obj/find_pred_coefs_FIX.o
+ .debug_str     0x0000000000000000     0x178b output/obj/find_pred_coefs_FIX.o
  .comment       0x0000000000000000       0x12 output/obj/find_pred_coefs_FIX.o
  .debug_frame   0x0000000000000000       0x94 output/obj/find_pred_coefs_FIX.o
  .text          0x0000000000000000        0x0 output/obj/modes.o
@@ -1874,14 +1874,14 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 output/obj/stereo_MS_to_LR.o
  .text.silk_stereo_MS_to_LR
                 0x0000000000000000      0x234 output/obj/stereo_MS_to_LR.o
- .debug_info    0x0000000000000000     0x12c5 output/obj/stereo_MS_to_LR.o
- .debug_abbrev  0x0000000000000000      0x287 output/obj/stereo_MS_to_LR.o
+ .debug_info    0x0000000000000000     0x13b8 output/obj/stereo_MS_to_LR.o
+ .debug_abbrev  0x0000000000000000      0x28e output/obj/stereo_MS_to_LR.o
  .debug_loc     0x0000000000000000      0x503 output/obj/stereo_MS_to_LR.o
  .debug_aranges
                 0x0000000000000000       0x20 output/obj/stereo_MS_to_LR.o
  .debug_ranges  0x0000000000000000       0x10 output/obj/stereo_MS_to_LR.o
- .debug_line    0x0000000000000000      0x65e output/obj/stereo_MS_to_LR.o
- .debug_str     0x0000000000000000      0xd0b output/obj/stereo_MS_to_LR.o
+ .debug_line    0x0000000000000000      0x691 output/obj/stereo_MS_to_LR.o
+ .debug_str     0x0000000000000000      0xdb4 output/obj/stereo_MS_to_LR.o
  .comment       0x0000000000000000       0x12 output/obj/stereo_MS_to_LR.o
  .debug_frame   0x0000000000000000       0x48 output/obj/stereo_MS_to_LR.o
  .text          0x0000000000000000        0x0 output/obj/schur_FIX.o
@@ -1889,20 +1889,20 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 output/obj/schur_FIX.o
  .text.silk_schur
                 0x0000000000000000      0x17c output/obj/schur_FIX.o
- .debug_info    0x0000000000000000      0xc18 output/obj/schur_FIX.o
- .debug_abbrev  0x0000000000000000      0x2ce output/obj/schur_FIX.o
+ .debug_info    0x0000000000000000      0xd0b output/obj/schur_FIX.o
+ .debug_abbrev  0x0000000000000000      0x2d5 output/obj/schur_FIX.o
  .debug_loc     0x0000000000000000      0x211 output/obj/schur_FIX.o
  .debug_aranges
                 0x0000000000000000       0x20 output/obj/schur_FIX.o
  .debug_ranges  0x0000000000000000       0x50 output/obj/schur_FIX.o
- .debug_line    0x0000000000000000      0x66e output/obj/schur_FIX.o
- .debug_str     0x0000000000000000      0x745 output/obj/schur_FIX.o
+ .debug_line    0x0000000000000000      0x6a1 output/obj/schur_FIX.o
+ .debug_str     0x0000000000000000      0x7ee output/obj/schur_FIX.o
  .comment       0x0000000000000000       0x12 output/obj/schur_FIX.o
  .debug_frame   0x0000000000000000       0x38 output/obj/schur_FIX.o
  .text          0x0000000000000000        0x0 output/obj/mathops.o
  .data          0x0000000000000000        0x0 output/obj/mathops.o
  .bss           0x0000000000000000        0x0 output/obj/mathops.o
- .rodata.C.4441
+ .rodata.C.4442
                 0x0000000000000000        0xa output/obj/mathops.o
  .text          0x0000000000000000        0x0 output/obj/NLSF2A.o
  .data          0x0000000000000000        0x0 output/obj/NLSF2A.o
@@ -1911,18 +1911,18 @@ Discarded input sections
                 0x0000000000000000       0xa8 output/obj/NLSF2A.o
  .text.silk_NLSF2A
                 0x0000000000000000      0x15a output/obj/NLSF2A.o
- .rodata.ordering16.4568
+ .rodata.ordering16.4569
                 0x0000000000000000       0x10 output/obj/NLSF2A.o
- .rodata.ordering10.4569
+ .rodata.ordering10.4570
                 0x0000000000000000        0xa output/obj/NLSF2A.o
- .debug_info    0x0000000000000000     0x13d5 output/obj/NLSF2A.o
- .debug_abbrev  0x0000000000000000      0x2f8 output/obj/NLSF2A.o
+ .debug_info    0x0000000000000000     0x14c8 output/obj/NLSF2A.o
+ .debug_abbrev  0x0000000000000000      0x2ff output/obj/NLSF2A.o
  .debug_loc     0x0000000000000000      0x2ae output/obj/NLSF2A.o
  .debug_aranges
                 0x0000000000000000       0x28 output/obj/NLSF2A.o
  .debug_ranges  0x0000000000000000       0x18 output/obj/NLSF2A.o
- .debug_line    0x0000000000000000      0x73c output/obj/NLSF2A.o
- .debug_str     0x0000000000000000      0xd1f output/obj/NLSF2A.o
+ .debug_line    0x0000000000000000      0x76f output/obj/NLSF2A.o
+ .debug_str     0x0000000000000000      0xdc8 output/obj/NLSF2A.o
  .comment       0x0000000000000000       0x12 output/obj/NLSF2A.o
  .debug_frame   0x0000000000000000       0x5c output/obj/NLSF2A.o
  .text          0x0000000000000000        0x0 output/obj/NSQ_del_dec.o
@@ -1932,14 +1932,14 @@ Discarded input sections
                 0x0000000000000000      0xb86 output/obj/NSQ_del_dec.o
  .text.silk_noise_shape_quantizer_del_dec.isra.0
                 0x0000000000000000      0xb3c output/obj/NSQ_del_dec.o
- .debug_info    0x0000000000000000     0x2af7 output/obj/NSQ_del_dec.o
- .debug_abbrev  0x0000000000000000      0x42d output/obj/NSQ_del_dec.o
+ .debug_info    0x0000000000000000     0x2bea output/obj/NSQ_del_dec.o
+ .debug_abbrev  0x0000000000000000      0x434 output/obj/NSQ_del_dec.o
  .debug_loc     0x0000000000000000     0x2216 output/obj/NSQ_del_dec.o
  .debug_aranges
                 0x0000000000000000       0x28 output/obj/NSQ_del_dec.o
  .debug_ranges  0x0000000000000000      0x168 output/obj/NSQ_del_dec.o
- .debug_line    0x0000000000000000     0x2a9a output/obj/NSQ_del_dec.o
- .debug_str     0x0000000000000000     0x17e5 output/obj/NSQ_del_dec.o
+ .debug_line    0x0000000000000000     0x2acd output/obj/NSQ_del_dec.o
+ .debug_str     0x0000000000000000     0x188e output/obj/NSQ_del_dec.o
  .comment       0x0000000000000000       0x12 output/obj/NSQ_del_dec.o
  .debug_frame   0x0000000000000000       0xc8 output/obj/NSQ_del_dec.o
  .text          0x0000000000000000        0x0 output/obj/LTP_scale_ctrl_FIX.o
@@ -1947,14 +1947,14 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 output/obj/LTP_scale_ctrl_FIX.o
  .text.silk_LTP_scale_ctrl_FIX
                 0x0000000000000000       0x80 output/obj/LTP_scale_ctrl_FIX.o
- .debug_info    0x0000000000000000     0x1bf7 output/obj/LTP_scale_ctrl_FIX.o
- .debug_abbrev  0x0000000000000000      0x257 output/obj/LTP_scale_ctrl_FIX.o
+ .debug_info    0x0000000000000000     0x1cea output/obj/LTP_scale_ctrl_FIX.o
+ .debug_abbrev  0x0000000000000000      0x25e output/obj/LTP_scale_ctrl_FIX.o
  .debug_loc     0x0000000000000000       0x74 output/obj/LTP_scale_ctrl_FIX.o
  .debug_aranges
                 0x0000000000000000       0x20 output/obj/LTP_scale_ctrl_FIX.o
  .debug_ranges  0x0000000000000000       0x10 output/obj/LTP_scale_ctrl_FIX.o
- .debug_line    0x0000000000000000      0x34f output/obj/LTP_scale_ctrl_FIX.o
- .debug_str     0x0000000000000000     0x1527 output/obj/LTP_scale_ctrl_FIX.o
+ .debug_line    0x0000000000000000      0x382 output/obj/LTP_scale_ctrl_FIX.o
+ .debug_str     0x0000000000000000     0x15d0 output/obj/LTP_scale_ctrl_FIX.o
  .comment       0x0000000000000000       0x12 output/obj/LTP_scale_ctrl_FIX.o
  .debug_frame   0x0000000000000000       0x20 output/obj/LTP_scale_ctrl_FIX.o
  .text          0x0000000000000000        0x0 output/obj/pitch_analysis_core_FIX.o
@@ -1974,14 +1974,14 @@ Discarded input sections
                 0x0000000000000000      0x188 output/obj/pitch_analysis_core_FIX.o
  .text.silk_DIV32_varQ.constprop.0
                 0x0000000000000000       0xf2 output/obj/pitch_analysis_core_FIX.o
- .debug_info    0x0000000000000000     0x1ad6 output/obj/pitch_analysis_core_FIX.o
- .debug_abbrev  0x0000000000000000      0x423 output/obj/pitch_analysis_core_FIX.o
+ .debug_info    0x0000000000000000     0x1bc9 output/obj/pitch_analysis_core_FIX.o
+ .debug_abbrev  0x0000000000000000      0x42a output/obj/pitch_analysis_core_FIX.o
  .debug_loc     0x0000000000000000     0x22c4 output/obj/pitch_analysis_core_FIX.o
  .debug_aranges
                 0x0000000000000000       0x38 output/obj/pitch_analysis_core_FIX.o
  .debug_ranges  0x0000000000000000       0xa8 output/obj/pitch_analysis_core_FIX.o
- .debug_line    0x0000000000000000     0x2150 output/obj/pitch_analysis_core_FIX.o
- .debug_str     0x0000000000000000      0xc73 output/obj/pitch_analysis_core_FIX.o
+ .debug_line    0x0000000000000000     0x2183 output/obj/pitch_analysis_core_FIX.o
+ .debug_str     0x0000000000000000      0xd1c output/obj/pitch_analysis_core_FIX.o
  .comment       0x0000000000000000       0x12 output/obj/pitch_analysis_core_FIX.o
  .debug_frame   0x0000000000000000      0x144 output/obj/pitch_analysis_core_FIX.o
  .text          0x0000000000000000        0x0 output/obj/celt.o
@@ -2003,7 +2003,7 @@ Discarded input sections
                 0x0000000000000000        0xa output/obj/celt.o
  .rodata.str1.4
                 0x0000000000000000       0x95 output/obj/celt.o
- .rodata.error_strings.5174
+ .rodata.error_strings.5175
                 0x0000000000000000       0x20 output/obj/celt.o
  .text          0x0000000000000000        0x0 output/obj/dec_API.o
  .data          0x0000000000000000        0x0 output/obj/dec_API.o
@@ -2014,14 +2014,14 @@ Discarded input sections
                 0x0000000000000000       0x38 output/obj/dec_API.o
  .text.silk_Decode
                 0x0000000000000000      0x8ba output/obj/dec_API.o
- .debug_info    0x0000000000000000     0x1e81 output/obj/dec_API.o
- .debug_abbrev  0x0000000000000000      0x31b output/obj/dec_API.o
+ .debug_info    0x0000000000000000     0x1f74 output/obj/dec_API.o
+ .debug_abbrev  0x0000000000000000      0x322 output/obj/dec_API.o
  .debug_loc     0x0000000000000000      0x7ca output/obj/dec_API.o
  .debug_aranges
                 0x0000000000000000       0x30 output/obj/dec_API.o
  .debug_ranges  0x0000000000000000       0x98 output/obj/dec_API.o
- .debug_line    0x0000000000000000     0x11a9 output/obj/dec_API.o
- .debug_str     0x0000000000000000     0x13db output/obj/dec_API.o
+ .debug_line    0x0000000000000000     0x11dc output/obj/dec_API.o
+ .debug_str     0x0000000000000000     0x1484 output/obj/dec_API.o
  .comment       0x0000000000000000       0x12 output/obj/dec_API.o
  .debug_frame   0x0000000000000000       0xa0 output/obj/dec_API.o
  .text          0x0000000000000000        0x0 output/obj/process_NLSFs.o
@@ -2029,14 +2029,14 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 output/obj/process_NLSFs.o
  .text.silk_process_NLSFs
                 0x0000000000000000      0x15a output/obj/process_NLSFs.o
- .debug_info    0x0000000000000000     0x1b95 output/obj/process_NLSFs.o
- .debug_abbrev  0x0000000000000000      0x2c3 output/obj/process_NLSFs.o
+ .debug_info    0x0000000000000000     0x1c88 output/obj/process_NLSFs.o
+ .debug_abbrev  0x0000000000000000      0x2ca output/obj/process_NLSFs.o
  .debug_loc     0x0000000000000000      0x10a output/obj/process_NLSFs.o
  .debug_aranges
                 0x0000000000000000       0x20 output/obj/process_NLSFs.o
  .debug_ranges  0x0000000000000000       0x10 output/obj/process_NLSFs.o
- .debug_line    0x0000000000000000      0x4ea output/obj/process_NLSFs.o
- .debug_str     0x0000000000000000     0x1430 output/obj/process_NLSFs.o
+ .debug_line    0x0000000000000000      0x51d output/obj/process_NLSFs.o
+ .debug_str     0x0000000000000000     0x14d9 output/obj/process_NLSFs.o
  .comment       0x0000000000000000       0x12 output/obj/process_NLSFs.o
  .debug_frame   0x0000000000000000       0x48 output/obj/process_NLSFs.o
  .text          0x0000000000000000        0x0 output/obj/VQ_WMat_EC.o
@@ -2044,14 +2044,14 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 output/obj/VQ_WMat_EC.o
  .text.silk_VQ_WMat_EC_c
                 0x0000000000000000      0x1f2 output/obj/VQ_WMat_EC.o
- .debug_info    0x0000000000000000     0x129e output/obj/VQ_WMat_EC.o
- .debug_abbrev  0x0000000000000000      0x272 output/obj/VQ_WMat_EC.o
+ .debug_info    0x0000000000000000     0x1391 output/obj/VQ_WMat_EC.o
+ .debug_abbrev  0x0000000000000000      0x279 output/obj/VQ_WMat_EC.o
  .debug_loc     0x0000000000000000      0x506 output/obj/VQ_WMat_EC.o
  .debug_aranges
                 0x0000000000000000       0x20 output/obj/VQ_WMat_EC.o
  .debug_ranges  0x0000000000000000       0x40 output/obj/VQ_WMat_EC.o
- .debug_line    0x0000000000000000      0x738 output/obj/VQ_WMat_EC.o
- .debug_str     0x0000000000000000      0xd21 output/obj/VQ_WMat_EC.o
+ .debug_line    0x0000000000000000      0x76b output/obj/VQ_WMat_EC.o
+ .debug_str     0x0000000000000000      0xdca output/obj/VQ_WMat_EC.o
  .comment       0x0000000000000000       0x12 output/obj/VQ_WMat_EC.o
  .debug_frame   0x0000000000000000       0x58 output/obj/VQ_WMat_EC.o
  .text          0x0000000000000000        0x0 output/obj/inner_prod_aligned.o
@@ -2059,14 +2059,14 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 output/obj/inner_prod_aligned.o
  .text.silk_inner_prod_aligned_scale
                 0x0000000000000000       0x2c output/obj/inner_prod_aligned.o
- .debug_info    0x0000000000000000      0xb08 output/obj/inner_prod_aligned.o
- .debug_abbrev  0x0000000000000000      0x241 output/obj/inner_prod_aligned.o
+ .debug_info    0x0000000000000000      0xbfb output/obj/inner_prod_aligned.o
+ .debug_abbrev  0x0000000000000000      0x248 output/obj/inner_prod_aligned.o
  .debug_loc     0x0000000000000000       0x74 output/obj/inner_prod_aligned.o
  .debug_aranges
                 0x0000000000000000       0x20 output/obj/inner_prod_aligned.o
  .debug_ranges  0x0000000000000000       0x10 output/obj/inner_prod_aligned.o
- .debug_line    0x0000000000000000      0x2c7 output/obj/inner_prod_aligned.o
- .debug_str     0x0000000000000000      0x720 output/obj/inner_prod_aligned.o
+ .debug_line    0x0000000000000000      0x2fa output/obj/inner_prod_aligned.o
+ .debug_str     0x0000000000000000      0x7c9 output/obj/inner_prod_aligned.o
  .comment       0x0000000000000000       0x12 output/obj/inner_prod_aligned.o
  .debug_frame   0x0000000000000000       0x20 output/obj/inner_prod_aligned.o
  .text          0x0000000000000000        0x0 output/obj/resampler_private_IIR_FIR.o
@@ -2082,14 +2082,14 @@ Discarded input sections
                 0x0000000000000000        0x6 output/obj/resampler_private_IIR_FIR.o
  .text.silk_resampler_private_IIR_FIR
                 0x0000000000000000      0x19a output/obj/resampler_private_IIR_FIR.o
- .debug_info    0x0000000000000000      0xf0d output/obj/resampler_private_IIR_FIR.o
- .debug_abbrev  0x0000000000000000      0x317 output/obj/resampler_private_IIR_FIR.o
+ .debug_info    0x0000000000000000     0x1000 output/obj/resampler_private_IIR_FIR.o
+ .debug_abbrev  0x0000000000000000      0x31e output/obj/resampler_private_IIR_FIR.o
  .debug_loc     0x0000000000000000      0x2ba output/obj/resampler_private_IIR_FIR.o
  .debug_aranges
                 0x0000000000000000       0x20 output/obj/resampler_private_IIR_FIR.o
  .debug_ranges  0x0000000000000000       0x38 output/obj/resampler_private_IIR_FIR.o
- .debug_line    0x0000000000000000      0x5d8 output/obj/resampler_private_IIR_FIR.o
- .debug_str     0x0000000000000000      0x9bb output/obj/resampler_private_IIR_FIR.o
+ .debug_line    0x0000000000000000      0x60b output/obj/resampler_private_IIR_FIR.o
+ .debug_str     0x0000000000000000      0xa64 output/obj/resampler_private_IIR_FIR.o
  .comment       0x0000000000000000       0x12 output/obj/resampler_private_IIR_FIR.o
  .debug_frame   0x0000000000000000       0x68 output/obj/resampler_private_IIR_FIR.o
  .text          0x0000000000000000        0x0 output/obj/opus_decoder.o
@@ -2136,14 +2136,14 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 output/obj/find_LTP_FIX.o
  .text.silk_find_LTP_FIX
                 0x0000000000000000      0x150 output/obj/find_LTP_FIX.o
- .debug_info    0x0000000000000000     0x12ed output/obj/find_LTP_FIX.o
- .debug_abbrev  0x0000000000000000      0x29a output/obj/find_LTP_FIX.o
+ .debug_info    0x0000000000000000     0x13e0 output/obj/find_LTP_FIX.o
+ .debug_abbrev  0x0000000000000000      0x2a1 output/obj/find_LTP_FIX.o
  .debug_loc     0x0000000000000000      0x2a4 output/obj/find_LTP_FIX.o
  .debug_aranges
                 0x0000000000000000       0x20 output/obj/find_LTP_FIX.o
  .debug_ranges  0x0000000000000000       0x10 output/obj/find_LTP_FIX.o
- .debug_line    0x0000000000000000      0x56e output/obj/find_LTP_FIX.o
- .debug_str     0x0000000000000000      0xd2b output/obj/find_LTP_FIX.o
+ .debug_line    0x0000000000000000      0x5a1 output/obj/find_LTP_FIX.o
+ .debug_str     0x0000000000000000      0xdd4 output/obj/find_LTP_FIX.o
  .comment       0x0000000000000000       0x12 output/obj/find_LTP_FIX.o
  .debug_frame   0x0000000000000000       0x58 output/obj/find_LTP_FIX.o
  .text          0x0000000000000000        0x0 output/obj/NLSF_VQ_weights_laroia.o
@@ -2151,14 +2151,14 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 output/obj/NLSF_VQ_weights_laroia.o
  .text.silk_NLSF_VQ_weights_laroia
                 0x0000000000000000       0xc8 output/obj/NLSF_VQ_weights_laroia.o
- .debug_info    0x0000000000000000      0xc4d output/obj/NLSF_VQ_weights_laroia.o
- .debug_abbrev  0x0000000000000000      0x2b4 output/obj/NLSF_VQ_weights_laroia.o
+ .debug_info    0x0000000000000000      0xd40 output/obj/NLSF_VQ_weights_laroia.o
+ .debug_abbrev  0x0000000000000000      0x2bb output/obj/NLSF_VQ_weights_laroia.o
  .debug_loc     0x0000000000000000      0x1eb output/obj/NLSF_VQ_weights_laroia.o
  .debug_aranges
                 0x0000000000000000       0x20 output/obj/NLSF_VQ_weights_laroia.o
  .debug_ranges  0x0000000000000000       0xe8 output/obj/NLSF_VQ_weights_laroia.o
- .debug_line    0x0000000000000000      0x594 output/obj/NLSF_VQ_weights_laroia.o
- .debug_str     0x0000000000000000      0x751 output/obj/NLSF_VQ_weights_laroia.o
+ .debug_line    0x0000000000000000      0x5c7 output/obj/NLSF_VQ_weights_laroia.o
+ .debug_str     0x0000000000000000      0x7fa output/obj/NLSF_VQ_weights_laroia.o
  .comment       0x0000000000000000       0x12 output/obj/NLSF_VQ_weights_laroia.o
  .debug_frame   0x0000000000000000       0x20 output/obj/NLSF_VQ_weights_laroia.o
  .text          0x0000000000000000        0x0 output/obj/tables_NLSF_CB_WB.o
@@ -2182,12 +2182,12 @@ Discarded input sections
                 0x0000000000000000       0x22 output/obj/tables_NLSF_CB_WB.o
  .rodata.silk_NLSF_CB_WB
                 0x0000000000000000       0x28 output/obj/tables_NLSF_CB_WB.o
- .debug_info    0x0000000000000000     0x1217 output/obj/tables_NLSF_CB_WB.o
- .debug_abbrev  0x0000000000000000      0x206 output/obj/tables_NLSF_CB_WB.o
+ .debug_info    0x0000000000000000     0x130a output/obj/tables_NLSF_CB_WB.o
+ .debug_abbrev  0x0000000000000000      0x20d output/obj/tables_NLSF_CB_WB.o
  .debug_aranges
                 0x0000000000000000       0x18 output/obj/tables_NLSF_CB_WB.o
- .debug_line    0x0000000000000000      0x25b output/obj/tables_NLSF_CB_WB.o
- .debug_str     0x0000000000000000      0xd14 output/obj/tables_NLSF_CB_WB.o
+ .debug_line    0x0000000000000000      0x28e output/obj/tables_NLSF_CB_WB.o
+ .debug_str     0x0000000000000000      0xdbd output/obj/tables_NLSF_CB_WB.o
  .comment       0x0000000000000000       0x12 output/obj/tables_NLSF_CB_WB.o
  .text          0x0000000000000000        0x0 output/obj/celt_decoder.o
  .data          0x0000000000000000        0x0 output/obj/celt_decoder.o
@@ -2221,14 +2221,14 @@ Discarded input sections
                 0x0000000000000000      0xafe output/obj/celt_decoder.o
  .text.opus_custom_decoder_ctl
                 0x0000000000000000      0x1ce output/obj/celt_decoder.o
- .debug_info    0x0000000000000000     0x32fc output/obj/celt_decoder.o
- .debug_abbrev  0x0000000000000000      0x57e output/obj/celt_decoder.o
+ .debug_info    0x0000000000000000     0x33ef output/obj/celt_decoder.o
+ .debug_abbrev  0x0000000000000000      0x585 output/obj/celt_decoder.o
  .debug_loc     0x0000000000000000     0x3bcc output/obj/celt_decoder.o
  .debug_aranges
                 0x0000000000000000       0x78 output/obj/celt_decoder.o
  .debug_ranges  0x0000000000000000      0x4a0 output/obj/celt_decoder.o
- .debug_line    0x0000000000000000     0x3e82 output/obj/celt_decoder.o
- .debug_str     0x0000000000000000     0x1090 output/obj/celt_decoder.o
+ .debug_line    0x0000000000000000     0x3eb5 output/obj/celt_decoder.o
+ .debug_str     0x0000000000000000     0x1139 output/obj/celt_decoder.o
  .comment       0x0000000000000000       0x12 output/obj/celt_decoder.o
  .debug_frame   0x0000000000000000      0x2a8 output/obj/celt_decoder.o
  .text          0x0000000000000000        0x0 output/obj/sigm_Q15.o
@@ -2242,14 +2242,14 @@ Discarded input sections
                 0x0000000000000000       0x18 output/obj/sigm_Q15.o
  .text.silk_sigm_Q15
                 0x0000000000000000       0x7a output/obj/sigm_Q15.o
- .debug_info    0x0000000000000000      0xb0b output/obj/sigm_Q15.o
- .debug_abbrev  0x0000000000000000      0x230 output/obj/sigm_Q15.o
+ .debug_info    0x0000000000000000      0xbfe output/obj/sigm_Q15.o
+ .debug_abbrev  0x0000000000000000      0x237 output/obj/sigm_Q15.o
  .debug_loc     0x0000000000000000       0xd1 output/obj/sigm_Q15.o
  .debug_aranges
                 0x0000000000000000       0x20 output/obj/sigm_Q15.o
  .debug_ranges  0x0000000000000000       0x10 output/obj/sigm_Q15.o
- .debug_line    0x0000000000000000      0x33f output/obj/sigm_Q15.o
- .debug_str     0x0000000000000000      0x72d output/obj/sigm_Q15.o
+ .debug_line    0x0000000000000000      0x372 output/obj/sigm_Q15.o
+ .debug_str     0x0000000000000000      0x7d6 output/obj/sigm_Q15.o
  .comment       0x0000000000000000       0x12 output/obj/sigm_Q15.o
  .debug_frame   0x0000000000000000       0x20 output/obj/sigm_Q15.o
  .text          0x0000000000000000        0x0 output/obj/corrMatrix_FIX.o
@@ -2259,14 +2259,14 @@ Discarded input sections
                 0x0000000000000000       0x92 output/obj/corrMatrix_FIX.o
  .text.silk_corrMatrix_FIX
                 0x0000000000000000      0x1ee output/obj/corrMatrix_FIX.o
- .debug_info    0x0000000000000000     0x1339 output/obj/corrMatrix_FIX.o
- .debug_abbrev  0x0000000000000000      0x28b output/obj/corrMatrix_FIX.o
+ .debug_info    0x0000000000000000     0x142c output/obj/corrMatrix_FIX.o
+ .debug_abbrev  0x0000000000000000      0x292 output/obj/corrMatrix_FIX.o
  .debug_loc     0x0000000000000000      0x72b output/obj/corrMatrix_FIX.o
  .debug_aranges
                 0x0000000000000000       0x28 output/obj/corrMatrix_FIX.o
  .debug_ranges  0x0000000000000000       0x18 output/obj/corrMatrix_FIX.o
- .debug_line    0x0000000000000000      0x802 output/obj/corrMatrix_FIX.o
- .debug_str     0x0000000000000000      0xcd3 output/obj/corrMatrix_FIX.o
+ .debug_line    0x0000000000000000      0x835 output/obj/corrMatrix_FIX.o
+ .debug_str     0x0000000000000000      0xd7c output/obj/corrMatrix_FIX.o
  .comment       0x0000000000000000       0x12 output/obj/corrMatrix_FIX.o
  .debug_frame   0x0000000000000000       0x8c output/obj/corrMatrix_FIX.o
  .text          0x0000000000000000        0x0 output/obj/find_pitch_lags_FIX.o
@@ -2274,14 +2274,14 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 output/obj/find_pitch_lags_FIX.o
  .text.silk_find_pitch_lags_FIX
                 0x0000000000000000      0x398 output/obj/find_pitch_lags_FIX.o
- .debug_info    0x0000000000000000     0x205e output/obj/find_pitch_lags_FIX.o
- .debug_abbrev  0x0000000000000000      0x377 output/obj/find_pitch_lags_FIX.o
+ .debug_info    0x0000000000000000     0x2151 output/obj/find_pitch_lags_FIX.o
+ .debug_abbrev  0x0000000000000000      0x37e output/obj/find_pitch_lags_FIX.o
  .debug_loc     0x0000000000000000      0x589 output/obj/find_pitch_lags_FIX.o
  .debug_aranges
                 0x0000000000000000       0x20 output/obj/find_pitch_lags_FIX.o
  .debug_ranges  0x0000000000000000       0x70 output/obj/find_pitch_lags_FIX.o
- .debug_line    0x0000000000000000      0x896 output/obj/find_pitch_lags_FIX.o
- .debug_str     0x0000000000000000     0x167a output/obj/find_pitch_lags_FIX.o
+ .debug_line    0x0000000000000000      0x8c9 output/obj/find_pitch_lags_FIX.o
+ .debug_str     0x0000000000000000     0x1723 output/obj/find_pitch_lags_FIX.o
  .comment       0x0000000000000000       0x12 output/obj/find_pitch_lags_FIX.o
  .debug_frame   0x0000000000000000       0x64 output/obj/find_pitch_lags_FIX.o
  .text          0x0000000000000000        0x0 output/obj/log2lin.o
@@ -2315,14 +2315,14 @@ Discarded input sections
                 0x0000000000000000       0xc4 output/obj/sort.o
  .text.silk_insertion_sort_increasing_all_values_int16
                 0x0000000000000000       0x30 output/obj/sort.o
- .debug_info    0x0000000000000000      0xbe6 output/obj/sort.o
- .debug_abbrev  0x0000000000000000      0x252 output/obj/sort.o
+ .debug_info    0x0000000000000000      0xcd9 output/obj/sort.o
+ .debug_abbrev  0x0000000000000000      0x259 output/obj/sort.o
  .debug_loc     0x0000000000000000      0x1b8 output/obj/sort.o
  .debug_aranges
                 0x0000000000000000       0x30 output/obj/sort.o
  .debug_ranges  0x0000000000000000       0x20 output/obj/sort.o
- .debug_line    0x0000000000000000      0x7db output/obj/sort.o
- .debug_str     0x0000000000000000      0x75a output/obj/sort.o
+ .debug_line    0x0000000000000000      0x80e output/obj/sort.o
+ .debug_str     0x0000000000000000      0x803 output/obj/sort.o
  .comment       0x0000000000000000       0x12 output/obj/sort.o
  .debug_frame   0x0000000000000000       0x40 output/obj/sort.o
  .text          0x0000000000000000        0x0 output/obj/decode_indices.o
@@ -2330,14 +2330,14 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 output/obj/decode_indices.o
  .text.silk_decode_indices
                 0x0000000000000000      0x312 output/obj/decode_indices.o
- .debug_info    0x0000000000000000     0x1a24 output/obj/decode_indices.o
- .debug_abbrev  0x0000000000000000      0x2c1 output/obj/decode_indices.o
+ .debug_info    0x0000000000000000     0x1b17 output/obj/decode_indices.o
+ .debug_abbrev  0x0000000000000000      0x2c8 output/obj/decode_indices.o
  .debug_loc     0x0000000000000000      0x20b output/obj/decode_indices.o
  .debug_aranges
                 0x0000000000000000       0x20 output/obj/decode_indices.o
  .debug_ranges  0x0000000000000000       0x10 output/obj/decode_indices.o
- .debug_line    0x0000000000000000      0x85d output/obj/decode_indices.o
- .debug_str     0x0000000000000000     0x1104 output/obj/decode_indices.o
+ .debug_line    0x0000000000000000      0x890 output/obj/decode_indices.o
+ .debug_str     0x0000000000000000     0x11ad output/obj/decode_indices.o
  .comment       0x0000000000000000       0x12 output/obj/decode_indices.o
  .debug_frame   0x0000000000000000       0x48 output/obj/decode_indices.o
  .text          0x0000000000000000        0x0 output/obj/opus_multistream.o
@@ -2357,14 +2357,14 @@ Discarded input sections
                 0x0000000000000000       0x28 output/obj/opus_multistream.o
  .text.get_mono_channel
                 0x0000000000000000       0x28 output/obj/opus_multistream.o
- .debug_info    0x0000000000000000      0xcfa output/obj/opus_multistream.o
- .debug_abbrev  0x0000000000000000      0x25f output/obj/opus_multistream.o
+ .debug_info    0x0000000000000000      0xded output/obj/opus_multistream.o
+ .debug_abbrev  0x0000000000000000      0x266 output/obj/opus_multistream.o
  .debug_loc     0x0000000000000000      0x1d0 output/obj/opus_multistream.o
  .debug_aranges
                 0x0000000000000000       0x38 output/obj/opus_multistream.o
  .debug_ranges  0x0000000000000000       0x28 output/obj/opus_multistream.o
- .debug_line    0x0000000000000000      0x4b5 output/obj/opus_multistream.o
- .debug_str     0x0000000000000000      0x7cd output/obj/opus_multistream.o
+ .debug_line    0x0000000000000000      0x4e8 output/obj/opus_multistream.o
+ .debug_str     0x0000000000000000      0x876 output/obj/opus_multistream.o
  .comment       0x0000000000000000       0x12 output/obj/opus_multistream.o
  .debug_frame   0x0000000000000000       0x50 output/obj/opus_multistream.o
  .text          0x0000000000000000        0x0 output/obj/resampler_private_AR2.o
@@ -2380,14 +2380,14 @@ Discarded input sections
                 0x0000000000000000        0x6 output/obj/resampler_private_AR2.o
  .text.silk_resampler_private_AR2
                 0x0000000000000000       0x64 output/obj/resampler_private_AR2.o
- .debug_info    0x0000000000000000      0xc51 output/obj/resampler_private_AR2.o
- .debug_abbrev  0x0000000000000000      0x252 output/obj/resampler_private_AR2.o
+ .debug_info    0x0000000000000000      0xd44 output/obj/resampler_private_AR2.o
+ .debug_abbrev  0x0000000000000000      0x259 output/obj/resampler_private_AR2.o
  .debug_loc     0x0000000000000000       0x84 output/obj/resampler_private_AR2.o
  .debug_aranges
                 0x0000000000000000       0x20 output/obj/resampler_private_AR2.o
  .debug_ranges  0x0000000000000000       0x10 output/obj/resampler_private_AR2.o
- .debug_line    0x0000000000000000      0x37f output/obj/resampler_private_AR2.o
- .debug_str     0x0000000000000000      0x85f output/obj/resampler_private_AR2.o
+ .debug_line    0x0000000000000000      0x3b2 output/obj/resampler_private_AR2.o
+ .debug_str     0x0000000000000000      0x908 output/obj/resampler_private_AR2.o
  .comment       0x0000000000000000       0x12 output/obj/resampler_private_AR2.o
  .debug_frame   0x0000000000000000       0x20 output/obj/resampler_private_AR2.o
  .text          0x0000000000000000        0x0 output/obj/control_audio_bandwidth.o
@@ -2395,14 +2395,14 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 output/obj/control_audio_bandwidth.o
  .text.silk_control_audio_bandwidth
                 0x0000000000000000      0x138 output/obj/control_audio_bandwidth.o
- .debug_info    0x0000000000000000     0x1ba1 output/obj/control_audio_bandwidth.o
- .debug_abbrev  0x0000000000000000      0x27d output/obj/control_audio_bandwidth.o
+ .debug_info    0x0000000000000000     0x1c94 output/obj/control_audio_bandwidth.o
+ .debug_abbrev  0x0000000000000000      0x284 output/obj/control_audio_bandwidth.o
  .debug_loc     0x0000000000000000      0x1bc output/obj/control_audio_bandwidth.o
  .debug_aranges
                 0x0000000000000000       0x20 output/obj/control_audio_bandwidth.o
  .debug_ranges  0x0000000000000000       0x10 output/obj/control_audio_bandwidth.o
- .debug_line    0x0000000000000000      0x56c output/obj/control_audio_bandwidth.o
- .debug_str     0x0000000000000000     0x14e7 output/obj/control_audio_bandwidth.o
+ .debug_line    0x0000000000000000      0x59f output/obj/control_audio_bandwidth.o
+ .debug_str     0x0000000000000000     0x1590 output/obj/control_audio_bandwidth.o
  .comment       0x0000000000000000       0x12 output/obj/control_audio_bandwidth.o
  .debug_frame   0x0000000000000000       0x34 output/obj/control_audio_bandwidth.o
  .text          0x0000000000000000        0x0 output/obj/pitch_est_tables.o
@@ -2422,26 +2422,26 @@ Discarded input sections
                 0x0000000000000000       0x18 output/obj/pitch_est_tables.o
  .rodata.silk_nb_cbk_searchs_stage3
                 0x0000000000000000        0x3 output/obj/pitch_est_tables.o
- .debug_info    0x0000000000000000      0xbc4 output/obj/pitch_est_tables.o
- .debug_abbrev  0x0000000000000000      0x1ec output/obj/pitch_est_tables.o
+ .debug_info    0x0000000000000000      0xcb7 output/obj/pitch_est_tables.o
+ .debug_abbrev  0x0000000000000000      0x1f3 output/obj/pitch_est_tables.o
  .debug_aranges
                 0x0000000000000000       0x18 output/obj/pitch_est_tables.o
- .debug_line    0x0000000000000000      0x23b output/obj/pitch_est_tables.o
- .debug_str     0x0000000000000000      0x76f output/obj/pitch_est_tables.o
+ .debug_line    0x0000000000000000      0x26e output/obj/pitch_est_tables.o
+ .debug_str     0x0000000000000000      0x818 output/obj/pitch_est_tables.o
  .comment       0x0000000000000000       0x12 output/obj/pitch_est_tables.o
  .text          0x0000000000000000        0x0 output/obj/k2a_FIX.o
  .data          0x0000000000000000        0x0 output/obj/k2a_FIX.o
  .bss           0x0000000000000000        0x0 output/obj/k2a_FIX.o
  .text.silk_k2a
                 0x0000000000000000       0x8e output/obj/k2a_FIX.o
- .debug_info    0x0000000000000000      0xb3c output/obj/k2a_FIX.o
- .debug_abbrev  0x0000000000000000      0x241 output/obj/k2a_FIX.o
+ .debug_info    0x0000000000000000      0xc2f output/obj/k2a_FIX.o
+ .debug_abbrev  0x0000000000000000      0x248 output/obj/k2a_FIX.o
  .debug_loc     0x0000000000000000       0xd2 output/obj/k2a_FIX.o
  .debug_aranges
                 0x0000000000000000       0x20 output/obj/k2a_FIX.o
  .debug_ranges  0x0000000000000000       0x10 output/obj/k2a_FIX.o
- .debug_line    0x0000000000000000      0x38e output/obj/k2a_FIX.o
- .debug_str     0x0000000000000000      0x71e output/obj/k2a_FIX.o
+ .debug_line    0x0000000000000000      0x3c1 output/obj/k2a_FIX.o
+ .debug_str     0x0000000000000000      0x7c7 output/obj/k2a_FIX.o
  .comment       0x0000000000000000       0x12 output/obj/k2a_FIX.o
  .debug_frame   0x0000000000000000       0x2c output/obj/k2a_FIX.o
  .text          0x0000000000000000        0x0 output/obj/LPC_analysis_filter.o
@@ -2449,25 +2449,25 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 output/obj/LPC_analysis_filter.o
  .text.silk_LPC_analysis_filter
                 0x0000000000000000       0xe8 output/obj/LPC_analysis_filter.o
- .debug_info    0x0000000000000000      0xb94 output/obj/LPC_analysis_filter.o
- .debug_abbrev  0x0000000000000000      0x269 output/obj/LPC_analysis_filter.o
+ .debug_info    0x0000000000000000      0xc87 output/obj/LPC_analysis_filter.o
+ .debug_abbrev  0x0000000000000000      0x270 output/obj/LPC_analysis_filter.o
  .debug_loc     0x0000000000000000      0x4bb output/obj/LPC_analysis_filter.o
  .debug_aranges
                 0x0000000000000000       0x20 output/obj/LPC_analysis_filter.o
  .debug_ranges  0x0000000000000000       0x10 output/obj/LPC_analysis_filter.o
- .debug_line    0x0000000000000000      0x436 output/obj/LPC_analysis_filter.o
- .debug_str     0x0000000000000000      0x751 output/obj/LPC_analysis_filter.o
+ .debug_line    0x0000000000000000      0x469 output/obj/LPC_analysis_filter.o
+ .debug_str     0x0000000000000000      0x7fa output/obj/LPC_analysis_filter.o
  .comment       0x0000000000000000       0x12 output/obj/LPC_analysis_filter.o
  .debug_frame   0x0000000000000000       0x30 output/obj/LPC_analysis_filter.o
  .text          0x0000000000000000        0x0 output/obj/debug.o
  .data          0x0000000000000000        0x0 output/obj/debug.o
  .bss           0x0000000000000000        0x0 output/obj/debug.o
- .debug_info    0x0000000000000000      0xa4c output/obj/debug.o
- .debug_abbrev  0x0000000000000000      0x1dd output/obj/debug.o
+ .debug_info    0x0000000000000000      0xb3f output/obj/debug.o
+ .debug_abbrev  0x0000000000000000      0x1e4 output/obj/debug.o
  .debug_aranges
                 0x0000000000000000       0x18 output/obj/debug.o
- .debug_line    0x0000000000000000      0x1ed output/obj/debug.o
- .debug_str     0x0000000000000000      0x6bb output/obj/debug.o
+ .debug_line    0x0000000000000000      0x220 output/obj/debug.o
+ .debug_str     0x0000000000000000      0x764 output/obj/debug.o
  .comment       0x0000000000000000       0x12 output/obj/debug.o
  .text          0x0000000000000000        0x0 output/obj/tables_NLSF_CB_NB_MB.o
  .data          0x0000000000000000        0x0 output/obj/tables_NLSF_CB_NB_MB.o
@@ -2490,26 +2490,26 @@ Discarded input sections
                 0x0000000000000000       0x16 output/obj/tables_NLSF_CB_NB_MB.o
  .rodata.silk_NLSF_CB_NB_MB
                 0x0000000000000000       0x28 output/obj/tables_NLSF_CB_NB_MB.o
- .debug_info    0x0000000000000000     0x1217 output/obj/tables_NLSF_CB_NB_MB.o
- .debug_abbrev  0x0000000000000000      0x206 output/obj/tables_NLSF_CB_NB_MB.o
+ .debug_info    0x0000000000000000     0x130a output/obj/tables_NLSF_CB_NB_MB.o
+ .debug_abbrev  0x0000000000000000      0x20d output/obj/tables_NLSF_CB_NB_MB.o
  .debug_aranges
                 0x0000000000000000       0x18 output/obj/tables_NLSF_CB_NB_MB.o
- .debug_line    0x0000000000000000      0x25e output/obj/tables_NLSF_CB_NB_MB.o
- .debug_str     0x0000000000000000      0xd29 output/obj/tables_NLSF_CB_NB_MB.o
+ .debug_line    0x0000000000000000      0x291 output/obj/tables_NLSF_CB_NB_MB.o
+ .debug_str     0x0000000000000000      0xdd2 output/obj/tables_NLSF_CB_NB_MB.o
  .comment       0x0000000000000000       0x12 output/obj/tables_NLSF_CB_NB_MB.o
  .text          0x0000000000000000        0x0 output/obj/bwexpander_32.o
  .data          0x0000000000000000        0x0 output/obj/bwexpander_32.o
  .bss           0x0000000000000000        0x0 output/obj/bwexpander_32.o
  .text.silk_bwexpander_32
                 0x0000000000000000       0x7e output/obj/bwexpander_32.o
- .debug_info    0x0000000000000000      0xaed output/obj/bwexpander_32.o
- .debug_abbrev  0x0000000000000000      0x252 output/obj/bwexpander_32.o
+ .debug_info    0x0000000000000000      0xbe0 output/obj/bwexpander_32.o
+ .debug_abbrev  0x0000000000000000      0x259 output/obj/bwexpander_32.o
  .debug_loc     0x0000000000000000       0x80 output/obj/bwexpander_32.o
  .debug_aranges
                 0x0000000000000000       0x20 output/obj/bwexpander_32.o
  .debug_ranges  0x0000000000000000       0x10 output/obj/bwexpander_32.o
- .debug_line    0x0000000000000000      0x304 output/obj/bwexpander_32.o
- .debug_str     0x0000000000000000      0x71a output/obj/bwexpander_32.o
+ .debug_line    0x0000000000000000      0x337 output/obj/bwexpander_32.o
+ .debug_str     0x0000000000000000      0x7c3 output/obj/bwexpander_32.o
  .comment       0x0000000000000000       0x12 output/obj/bwexpander_32.o
  .debug_frame   0x0000000000000000       0x20 output/obj/bwexpander_32.o
  .text          0x0000000000000000        0x0 output/obj/VAD.o
@@ -2523,14 +2523,14 @@ Discarded input sections
                 0x0000000000000000      0x4e0 output/obj/VAD.o
  .text.silk_SQRT_APPROX.part.0
                 0x0000000000000000       0x7a output/obj/VAD.o
- .debug_info    0x0000000000000000     0x2155 output/obj/VAD.o
- .debug_abbrev  0x0000000000000000      0x457 output/obj/VAD.o
+ .debug_info    0x0000000000000000     0x2248 output/obj/VAD.o
+ .debug_abbrev  0x0000000000000000      0x45e output/obj/VAD.o
  .debug_loc     0x0000000000000000      0xa8d output/obj/VAD.o
  .debug_aranges
                 0x0000000000000000       0x30 output/obj/VAD.o
  .debug_ranges  0x0000000000000000      0x100 output/obj/VAD.o
- .debug_line    0x0000000000000000     0x1061 output/obj/VAD.o
- .debug_str     0x0000000000000000     0x1552 output/obj/VAD.o
+ .debug_line    0x0000000000000000     0x1094 output/obj/VAD.o
+ .debug_str     0x0000000000000000     0x15fb output/obj/VAD.o
  .comment       0x0000000000000000       0x12 output/obj/VAD.o
  .debug_frame   0x0000000000000000       0xa8 output/obj/VAD.o
  .text          0x0000000000000000        0x0 output/obj/stereo_quant_pred.o
@@ -2538,14 +2538,14 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 output/obj/stereo_quant_pred.o
  .text.silk_stereo_quant_pred
                 0x0000000000000000       0xc8 output/obj/stereo_quant_pred.o
- .debug_info    0x0000000000000000     0x11d2 output/obj/stereo_quant_pred.o
- .debug_abbrev  0x0000000000000000      0x250 output/obj/stereo_quant_pred.o
+ .debug_info    0x0000000000000000     0x12c5 output/obj/stereo_quant_pred.o
+ .debug_abbrev  0x0000000000000000      0x257 output/obj/stereo_quant_pred.o
  .debug_loc     0x0000000000000000      0x15b output/obj/stereo_quant_pred.o
  .debug_aranges
                 0x0000000000000000       0x20 output/obj/stereo_quant_pred.o
  .debug_ranges  0x0000000000000000       0x10 output/obj/stereo_quant_pred.o
- .debug_line    0x0000000000000000      0x454 output/obj/stereo_quant_pred.o
- .debug_str     0x0000000000000000      0xcbb output/obj/stereo_quant_pred.o
+ .debug_line    0x0000000000000000      0x487 output/obj/stereo_quant_pred.o
+ .debug_str     0x0000000000000000      0xd64 output/obj/stereo_quant_pred.o
  .comment       0x0000000000000000       0x12 output/obj/stereo_quant_pred.o
  .debug_frame   0x0000000000000000       0x38 output/obj/stereo_quant_pred.o
  .text          0x0000000000000000        0x0 output/obj/sum_sqr_shift.o
@@ -2553,14 +2553,14 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 output/obj/sum_sqr_shift.o
  .text.silk_sum_sqr_shift
                 0x0000000000000000       0xd8 output/obj/sum_sqr_shift.o
- .debug_info    0x0000000000000000      0xbe8 output/obj/sum_sqr_shift.o
- .debug_abbrev  0x0000000000000000      0x2c7 output/obj/sum_sqr_shift.o
+ .debug_info    0x0000000000000000      0xcdb output/obj/sum_sqr_shift.o
+ .debug_abbrev  0x0000000000000000      0x2ce output/obj/sum_sqr_shift.o
  .debug_loc     0x0000000000000000      0x2ed output/obj/sum_sqr_shift.o
  .debug_aranges
                 0x0000000000000000       0x20 output/obj/sum_sqr_shift.o
  .debug_ranges  0x0000000000000000       0x40 output/obj/sum_sqr_shift.o
- .debug_line    0x0000000000000000      0x509 output/obj/sum_sqr_shift.o
- .debug_str     0x0000000000000000      0x747 output/obj/sum_sqr_shift.o
+ .debug_line    0x0000000000000000      0x53c output/obj/sum_sqr_shift.o
+ .debug_str     0x0000000000000000      0x7f0 output/obj/sum_sqr_shift.o
  .comment       0x0000000000000000       0x12 output/obj/sum_sqr_shift.o
  .debug_frame   0x0000000000000000       0x44 output/obj/sum_sqr_shift.o
  .text          0x0000000000000000        0x0 output/obj/interpolate.o
@@ -2568,14 +2568,14 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 output/obj/interpolate.o
  .text.silk_interpolate
                 0x0000000000000000       0x3c output/obj/interpolate.o
- .debug_info    0x0000000000000000     0x115f output/obj/interpolate.o
- .debug_abbrev  0x0000000000000000      0x230 output/obj/interpolate.o
+ .debug_info    0x0000000000000000     0x1252 output/obj/interpolate.o
+ .debug_abbrev  0x0000000000000000      0x237 output/obj/interpolate.o
  .debug_loc     0x0000000000000000       0x40 output/obj/interpolate.o
  .debug_aranges
                 0x0000000000000000       0x20 output/obj/interpolate.o
  .debug_ranges  0x0000000000000000       0x10 output/obj/interpolate.o
- .debug_line    0x0000000000000000      0x304 output/obj/interpolate.o
- .debug_str     0x0000000000000000      0xc6e output/obj/interpolate.o
+ .debug_line    0x0000000000000000      0x337 output/obj/interpolate.o
+ .debug_str     0x0000000000000000      0xd17 output/obj/interpolate.o
  .comment       0x0000000000000000       0x12 output/obj/interpolate.o
  .debug_frame   0x0000000000000000       0x20 output/obj/interpolate.o
  .text          0x0000000000000000        0x0 output/obj/control_SNR.o
@@ -2583,14 +2583,14 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 output/obj/control_SNR.o
  .text.silk_control_SNR
                 0x0000000000000000       0xce output/obj/control_SNR.o
- .debug_info    0x0000000000000000     0x1a1e output/obj/control_SNR.o
- .debug_abbrev  0x0000000000000000      0x26a output/obj/control_SNR.o
+ .debug_info    0x0000000000000000     0x1b11 output/obj/control_SNR.o
+ .debug_abbrev  0x0000000000000000      0x271 output/obj/control_SNR.o
  .debug_loc     0x0000000000000000       0xe4 output/obj/control_SNR.o
  .debug_aranges
                 0x0000000000000000       0x20 output/obj/control_SNR.o
  .debug_ranges  0x0000000000000000       0x10 output/obj/control_SNR.o
- .debug_line    0x0000000000000000      0x435 output/obj/control_SNR.o
- .debug_str     0x0000000000000000     0x1377 output/obj/control_SNR.o
+ .debug_line    0x0000000000000000      0x468 output/obj/control_SNR.o
+ .debug_str     0x0000000000000000     0x1420 output/obj/control_SNR.o
  .comment       0x0000000000000000       0x12 output/obj/control_SNR.o
  .debug_frame   0x0000000000000000       0x20 output/obj/control_SNR.o
  .text          0x0000000000000000        0x0 output/obj/init_encoder.o
@@ -2598,14 +2598,14 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 output/obj/init_encoder.o
  .text.silk_init_encoder
                 0x0000000000000000       0x54 output/obj/init_encoder.o
- .debug_info    0x0000000000000000     0x1b0d output/obj/init_encoder.o
- .debug_abbrev  0x0000000000000000      0x2a3 output/obj/init_encoder.o
+ .debug_info    0x0000000000000000     0x1c00 output/obj/init_encoder.o
+ .debug_abbrev  0x0000000000000000      0x2aa output/obj/init_encoder.o
  .debug_loc     0x0000000000000000       0x5b output/obj/init_encoder.o
  .debug_aranges
                 0x0000000000000000       0x20 output/obj/init_encoder.o
  .debug_ranges  0x0000000000000000       0x10 output/obj/init_encoder.o
- .debug_line    0x0000000000000000      0x362 output/obj/init_encoder.o
- .debug_str     0x0000000000000000     0x1434 output/obj/init_encoder.o
+ .debug_line    0x0000000000000000      0x395 output/obj/init_encoder.o
+ .debug_str     0x0000000000000000     0x14dd output/obj/init_encoder.o
  .comment       0x0000000000000000       0x12 output/obj/init_encoder.o
  .debug_frame   0x0000000000000000       0x34 output/obj/init_encoder.o
  .text          0x0000000000000000        0x0 output/obj/vq.o
@@ -2624,14 +2624,14 @@ Discarded input sections
                 0x0000000000000000       0xea output/obj/stereo_LR_to_MS.o
  .text.silk_stereo_LR_to_MS
                 0x0000000000000000      0x716 output/obj/stereo_LR_to_MS.o
- .debug_info    0x0000000000000000     0x17a3 output/obj/stereo_LR_to_MS.o
- .debug_abbrev  0x0000000000000000      0x343 output/obj/stereo_LR_to_MS.o
+ .debug_info    0x0000000000000000     0x1896 output/obj/stereo_LR_to_MS.o
+ .debug_abbrev  0x0000000000000000      0x34a output/obj/stereo_LR_to_MS.o
  .debug_loc     0x0000000000000000      0xcbd output/obj/stereo_LR_to_MS.o
  .debug_aranges
                 0x0000000000000000       0x28 output/obj/stereo_LR_to_MS.o
  .debug_ranges  0x0000000000000000       0x68 output/obj/stereo_LR_to_MS.o
- .debug_line    0x0000000000000000     0x1147 output/obj/stereo_LR_to_MS.o
- .debug_str     0x0000000000000000      0xede output/obj/stereo_LR_to_MS.o
+ .debug_line    0x0000000000000000     0x117a output/obj/stereo_LR_to_MS.o
+ .debug_str     0x0000000000000000      0xf87 output/obj/stereo_LR_to_MS.o
  .comment       0x0000000000000000       0x12 output/obj/stereo_LR_to_MS.o
  .debug_frame   0x0000000000000000       0x94 output/obj/stereo_LR_to_MS.o
  .text          0x0000000000000000        0x0 output/obj/cwrs.o
@@ -2650,14 +2650,14 @@ Discarded input sections
                 0x0000000000000000        0x6 output/obj/resampler_down2_3.o
  .text.silk_resampler_down2_3
                 0x0000000000000000      0x1d0 output/obj/resampler_down2_3.o
- .debug_info    0x0000000000000000      0xcfb output/obj/resampler_down2_3.o
- .debug_abbrev  0x0000000000000000      0x29a output/obj/resampler_down2_3.o
+ .debug_info    0x0000000000000000      0xdee output/obj/resampler_down2_3.o
+ .debug_abbrev  0x0000000000000000      0x2a1 output/obj/resampler_down2_3.o
  .debug_loc     0x0000000000000000      0x337 output/obj/resampler_down2_3.o
  .debug_aranges
                 0x0000000000000000       0x20 output/obj/resampler_down2_3.o
  .debug_ranges  0x0000000000000000       0x10 output/obj/resampler_down2_3.o
- .debug_line    0x0000000000000000      0x5dc output/obj/resampler_down2_3.o
- .debug_str     0x0000000000000000      0x88a output/obj/resampler_down2_3.o
+ .debug_line    0x0000000000000000      0x60f output/obj/resampler_down2_3.o
+ .debug_str     0x0000000000000000      0x933 output/obj/resampler_down2_3.o
  .comment       0x0000000000000000       0x12 output/obj/resampler_down2_3.o
  .debug_frame   0x0000000000000000       0x68 output/obj/resampler_down2_3.o
  .text          0x0000000000000000        0x0 output/obj/entcode.o
@@ -2670,14 +2670,14 @@ Discarded input sections
                 0x0000000000000000       0x8e output/obj/stereo_encode_pred.o
  .text.silk_stereo_encode_mid_only
                 0x0000000000000000       0x22 output/obj/stereo_encode_pred.o
- .debug_info    0x0000000000000000     0x12e0 output/obj/stereo_encode_pred.o
- .debug_abbrev  0x0000000000000000      0x267 output/obj/stereo_encode_pred.o
+ .debug_info    0x0000000000000000     0x13d3 output/obj/stereo_encode_pred.o
+ .debug_abbrev  0x0000000000000000      0x26e output/obj/stereo_encode_pred.o
  .debug_loc     0x0000000000000000       0xe6 output/obj/stereo_encode_pred.o
  .debug_aranges
                 0x0000000000000000       0x28 output/obj/stereo_encode_pred.o
  .debug_ranges  0x0000000000000000       0x18 output/obj/stereo_encode_pred.o
- .debug_line    0x0000000000000000      0x34e output/obj/stereo_encode_pred.o
- .debug_str     0x0000000000000000      0xd09 output/obj/stereo_encode_pred.o
+ .debug_line    0x0000000000000000      0x381 output/obj/stereo_encode_pred.o
+ .debug_str     0x0000000000000000      0xdb2 output/obj/stereo_encode_pred.o
  .comment       0x0000000000000000       0x12 output/obj/stereo_encode_pred.o
  .debug_frame   0x0000000000000000       0x54 output/obj/stereo_encode_pred.o
  .text          0x0000000000000000        0x0 output/obj/decode_frame.o
@@ -2685,14 +2685,14 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 output/obj/decode_frame.o
  .text.silk_decode_frame
                 0x0000000000000000      0x198 output/obj/decode_frame.o
- .debug_info    0x0000000000000000     0x1a99 output/obj/decode_frame.o
- .debug_abbrev  0x0000000000000000      0x2f0 output/obj/decode_frame.o
+ .debug_info    0x0000000000000000     0x1b8c output/obj/decode_frame.o
+ .debug_abbrev  0x0000000000000000      0x2f7 output/obj/decode_frame.o
  .debug_loc     0x0000000000000000      0x258 output/obj/decode_frame.o
  .debug_aranges
                 0x0000000000000000       0x20 output/obj/decode_frame.o
  .debug_ranges  0x0000000000000000       0x10 output/obj/decode_frame.o
- .debug_line    0x0000000000000000      0x4c6 output/obj/decode_frame.o
- .debug_str     0x0000000000000000     0x119b output/obj/decode_frame.o
+ .debug_line    0x0000000000000000      0x4f9 output/obj/decode_frame.o
+ .debug_str     0x0000000000000000     0x1244 output/obj/decode_frame.o
  .comment       0x0000000000000000       0x12 output/obj/decode_frame.o
  .debug_frame   0x0000000000000000       0x60 output/obj/decode_frame.o
  .text          0x0000000000000000        0x0 output/obj/NLSF_del_dec_quant.o
@@ -2700,14 +2700,14 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 output/obj/NLSF_del_dec_quant.o
  .text.silk_NLSF_del_dec_quant
                 0x0000000000000000      0x3cc output/obj/NLSF_del_dec_quant.o
- .debug_info    0x0000000000000000     0x13de output/obj/NLSF_del_dec_quant.o
- .debug_abbrev  0x0000000000000000      0x27c output/obj/NLSF_del_dec_quant.o
+ .debug_info    0x0000000000000000     0x14d1 output/obj/NLSF_del_dec_quant.o
+ .debug_abbrev  0x0000000000000000      0x283 output/obj/NLSF_del_dec_quant.o
  .debug_loc     0x0000000000000000      0xad6 output/obj/NLSF_del_dec_quant.o
  .debug_aranges
                 0x0000000000000000       0x20 output/obj/NLSF_del_dec_quant.o
  .debug_ranges  0x0000000000000000       0x10 output/obj/NLSF_del_dec_quant.o
- .debug_line    0x0000000000000000      0xc84 output/obj/NLSF_del_dec_quant.o
- .debug_str     0x0000000000000000      0xde1 output/obj/NLSF_del_dec_quant.o
+ .debug_line    0x0000000000000000      0xcb7 output/obj/NLSF_del_dec_quant.o
+ .debug_str     0x0000000000000000      0xe8a output/obj/NLSF_del_dec_quant.o
  .comment       0x0000000000000000       0x12 output/obj/NLSF_del_dec_quant.o
  .debug_frame   0x0000000000000000       0x58 output/obj/NLSF_del_dec_quant.o
  .text          0x0000000000000000        0x0 output/obj/resampler_down2.o
@@ -2723,14 +2723,14 @@ Discarded input sections
                 0x0000000000000000        0x6 output/obj/resampler_down2.o
  .text.silk_resampler_down2
                 0x0000000000000000       0xae output/obj/resampler_down2.o
- .debug_info    0x0000000000000000      0xc87 output/obj/resampler_down2.o
- .debug_abbrev  0x0000000000000000      0x263 output/obj/resampler_down2.o
+ .debug_info    0x0000000000000000      0xd7a output/obj/resampler_down2.o
+ .debug_abbrev  0x0000000000000000      0x26a output/obj/resampler_down2.o
  .debug_loc     0x0000000000000000      0x1ab output/obj/resampler_down2.o
  .debug_aranges
                 0x0000000000000000       0x20 output/obj/resampler_down2.o
  .debug_ranges  0x0000000000000000       0x10 output/obj/resampler_down2.o
- .debug_line    0x0000000000000000      0x425 output/obj/resampler_down2.o
- .debug_str     0x0000000000000000      0x856 output/obj/resampler_down2.o
+ .debug_line    0x0000000000000000      0x458 output/obj/resampler_down2.o
+ .debug_str     0x0000000000000000      0x8ff output/obj/resampler_down2.o
  .comment       0x0000000000000000       0x12 output/obj/resampler_down2.o
  .debug_frame   0x0000000000000000       0x30 output/obj/resampler_down2.o
  .text          0x0000000000000000        0x0 output/obj/shell_coder.o
@@ -2746,14 +2746,14 @@ Discarded input sections
                 0x0000000000000000      0x16c output/obj/shell_coder.o
  .text.silk_shell_decoder
                 0x0000000000000000      0x19c output/obj/shell_coder.o
- .debug_info    0x0000000000000000     0x18bd output/obj/shell_coder.o
- .debug_abbrev  0x0000000000000000      0x307 output/obj/shell_coder.o
+ .debug_info    0x0000000000000000     0x19b0 output/obj/shell_coder.o
+ .debug_abbrev  0x0000000000000000      0x30e output/obj/shell_coder.o
  .debug_loc     0x0000000000000000      0x37a output/obj/shell_coder.o
  .debug_aranges
                 0x0000000000000000       0x40 output/obj/shell_coder.o
  .debug_ranges  0x0000000000000000       0x30 output/obj/shell_coder.o
- .debug_line    0x0000000000000000      0x547 output/obj/shell_coder.o
- .debug_str     0x0000000000000000      0xd73 output/obj/shell_coder.o
+ .debug_line    0x0000000000000000      0x57a output/obj/shell_coder.o
+ .debug_str     0x0000000000000000      0xe1c output/obj/shell_coder.o
  .comment       0x0000000000000000       0x12 output/obj/shell_coder.o
  .debug_frame   0x0000000000000000       0xc0 output/obj/shell_coder.o
  .text          0x0000000000000000        0x0 output/obj/resampler_private_down_FIR.o
@@ -2769,14 +2769,14 @@ Discarded input sections
                 0x0000000000000000        0x6 output/obj/resampler_private_down_FIR.o
  .text.silk_resampler_private_down_FIR
                 0x0000000000000000      0x86e output/obj/resampler_private_down_FIR.o
- .debug_info    0x0000000000000000      0xf67 output/obj/resampler_private_down_FIR.o
- .debug_abbrev  0x0000000000000000      0x317 output/obj/resampler_private_down_FIR.o
+ .debug_info    0x0000000000000000     0x105a output/obj/resampler_private_down_FIR.o
+ .debug_abbrev  0x0000000000000000      0x31e output/obj/resampler_private_down_FIR.o
  .debug_loc     0x0000000000000000      0x696 output/obj/resampler_private_down_FIR.o
  .debug_aranges
                 0x0000000000000000       0x20 output/obj/resampler_private_down_FIR.o
  .debug_ranges  0x0000000000000000       0x50 output/obj/resampler_private_down_FIR.o
- .debug_line    0x0000000000000000      0xbf6 output/obj/resampler_private_down_FIR.o
- .debug_str     0x0000000000000000      0x9d2 output/obj/resampler_private_down_FIR.o
+ .debug_line    0x0000000000000000      0xc29 output/obj/resampler_private_down_FIR.o
+ .debug_str     0x0000000000000000      0xa7b output/obj/resampler_private_down_FIR.o
  .comment       0x0000000000000000       0x12 output/obj/resampler_private_down_FIR.o
  .debug_frame   0x0000000000000000       0x68 output/obj/resampler_private_down_FIR.o
  .text          0x0000000000000000        0x0 output/obj/CNG.o
@@ -2788,14 +2788,14 @@ Discarded input sections
                 0x0000000000000000       0x42 output/obj/CNG.o
  .text.silk_CNG
                 0x0000000000000000      0x6a4 output/obj/CNG.o
- .debug_info    0x0000000000000000     0x1c4a output/obj/CNG.o
- .debug_abbrev  0x0000000000000000      0x3e6 output/obj/CNG.o
+ .debug_info    0x0000000000000000     0x1d3d output/obj/CNG.o
+ .debug_abbrev  0x0000000000000000      0x3ed output/obj/CNG.o
  .debug_loc     0x0000000000000000      0x992 output/obj/CNG.o
  .debug_aranges
                 0x0000000000000000       0x30 output/obj/CNG.o
  .debug_ranges  0x0000000000000000       0xa8 output/obj/CNG.o
- .debug_line    0x0000000000000000      0xeb4 output/obj/CNG.o
- .debug_str     0x0000000000000000     0x11a1 output/obj/CNG.o
+ .debug_line    0x0000000000000000      0xee7 output/obj/CNG.o
+ .debug_str     0x0000000000000000     0x124a output/obj/CNG.o
  .comment       0x0000000000000000       0x12 output/obj/CNG.o
  .debug_frame   0x0000000000000000       0xa0 output/obj/CNG.o
  .text          0x0000000000000000        0x0 output/obj/burg_modified_FIX.o
@@ -2811,14 +2811,14 @@ Discarded input sections
                 0x0000000000000000        0x3 output/obj/burg_modified_FIX.o
  .text.silk_burg_modified_c
                 0x0000000000000000      0x88e output/obj/burg_modified_FIX.o
- .debug_info    0x0000000000000000     0x12fd output/obj/burg_modified_FIX.o
- .debug_abbrev  0x0000000000000000      0x3e2 output/obj/burg_modified_FIX.o
+ .debug_info    0x0000000000000000     0x13f0 output/obj/burg_modified_FIX.o
+ .debug_abbrev  0x0000000000000000      0x3e9 output/obj/burg_modified_FIX.o
  .debug_loc     0x0000000000000000      0xf2f output/obj/burg_modified_FIX.o
  .debug_aranges
                 0x0000000000000000       0x28 output/obj/burg_modified_FIX.o
  .debug_ranges  0x0000000000000000      0x110 output/obj/burg_modified_FIX.o
- .debug_line    0x0000000000000000     0x15dc output/obj/burg_modified_FIX.o
- .debug_str     0x0000000000000000      0x952 output/obj/burg_modified_FIX.o
+ .debug_line    0x0000000000000000     0x160f output/obj/burg_modified_FIX.o
+ .debug_str     0x0000000000000000      0x9fb output/obj/burg_modified_FIX.o
  .comment       0x0000000000000000       0x12 output/obj/burg_modified_FIX.o
  .debug_frame   0x0000000000000000       0x80 output/obj/burg_modified_FIX.o
  .text          0x0000000000000000        0x0 output/obj/laplace.o
@@ -2848,14 +2848,14 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 output/obj/regularize_correlations_FIX.o
  .text.silk_regularize_correlations_FIX
                 0x0000000000000000       0x24 output/obj/regularize_correlations_FIX.o
- .debug_info    0x0000000000000000     0x114d output/obj/regularize_correlations_FIX.o
- .debug_abbrev  0x0000000000000000      0x241 output/obj/regularize_correlations_FIX.o
+ .debug_info    0x0000000000000000     0x1240 output/obj/regularize_correlations_FIX.o
+ .debug_abbrev  0x0000000000000000      0x248 output/obj/regularize_correlations_FIX.o
  .debug_loc     0x0000000000000000       0x40 output/obj/regularize_correlations_FIX.o
  .debug_aranges
                 0x0000000000000000       0x20 output/obj/regularize_correlations_FIX.o
  .debug_ranges  0x0000000000000000       0x10 output/obj/regularize_correlations_FIX.o
- .debug_line    0x0000000000000000      0x2f0 output/obj/regularize_correlations_FIX.o
- .debug_str     0x0000000000000000      0xc8b output/obj/regularize_correlations_FIX.o
+ .debug_line    0x0000000000000000      0x323 output/obj/regularize_correlations_FIX.o
+ .debug_str     0x0000000000000000      0xd34 output/obj/regularize_correlations_FIX.o
  .comment       0x0000000000000000       0x12 output/obj/regularize_correlations_FIX.o
  .debug_frame   0x0000000000000000       0x20 output/obj/regularize_correlations_FIX.o
  .text          0x0000000000000000        0x0 output/obj/LTP_analysis_filter_FIX.o
@@ -2863,14 +2863,14 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 output/obj/LTP_analysis_filter_FIX.o
  .text.silk_LTP_analysis_filter_FIX
                 0x0000000000000000       0xe8 output/obj/LTP_analysis_filter_FIX.o
- .debug_info    0x0000000000000000     0x1218 output/obj/LTP_analysis_filter_FIX.o
- .debug_abbrev  0x0000000000000000      0x263 output/obj/LTP_analysis_filter_FIX.o
+ .debug_info    0x0000000000000000     0x130b output/obj/LTP_analysis_filter_FIX.o
+ .debug_abbrev  0x0000000000000000      0x26a output/obj/LTP_analysis_filter_FIX.o
  .debug_loc     0x0000000000000000      0x3e3 output/obj/LTP_analysis_filter_FIX.o
  .debug_aranges
                 0x0000000000000000       0x20 output/obj/LTP_analysis_filter_FIX.o
  .debug_ranges  0x0000000000000000       0x10 output/obj/LTP_analysis_filter_FIX.o
- .debug_line    0x0000000000000000      0x4c9 output/obj/LTP_analysis_filter_FIX.o
- .debug_str     0x0000000000000000      0xcf3 output/obj/LTP_analysis_filter_FIX.o
+ .debug_line    0x0000000000000000      0x4fc output/obj/LTP_analysis_filter_FIX.o
+ .debug_str     0x0000000000000000      0xd9c output/obj/LTP_analysis_filter_FIX.o
  .comment       0x0000000000000000       0x12 output/obj/LTP_analysis_filter_FIX.o
  .debug_frame   0x0000000000000000       0x48 output/obj/LTP_analysis_filter_FIX.o
  .text          0x0000000000000000        0x0 output/obj/tables_other.o
@@ -2926,26 +2926,26 @@ Discarded input sections
                 0x0000000000000000       0x3c output/obj/tables_other.o
  .rodata.silk_Transition_LP_A_Q28
                 0x0000000000000000       0x28 output/obj/tables_other.o
- .debug_info    0x0000000000000000     0x124a output/obj/tables_other.o
- .debug_abbrev  0x0000000000000000      0x1fd output/obj/tables_other.o
+ .debug_info    0x0000000000000000     0x133d output/obj/tables_other.o
+ .debug_abbrev  0x0000000000000000      0x204 output/obj/tables_other.o
  .debug_aranges
                 0x0000000000000000       0x18 output/obj/tables_other.o
- .debug_line    0x0000000000000000      0x256 output/obj/tables_other.o
- .debug_str     0x0000000000000000      0xc83 output/obj/tables_other.o
+ .debug_line    0x0000000000000000      0x289 output/obj/tables_other.o
+ .debug_str     0x0000000000000000      0xd2c output/obj/tables_other.o
  .comment       0x0000000000000000       0x12 output/obj/tables_other.o
  .text          0x0000000000000000        0x0 output/obj/NSQ.o
  .data          0x0000000000000000        0x0 output/obj/NSQ.o
  .bss           0x0000000000000000        0x0 output/obj/NSQ.o
  .text.silk_NSQ_c
                 0x0000000000000000      0xe50 output/obj/NSQ.o
- .debug_info    0x0000000000000000     0x2519 output/obj/NSQ.o
- .debug_abbrev  0x0000000000000000      0x406 output/obj/NSQ.o
+ .debug_info    0x0000000000000000     0x260c output/obj/NSQ.o
+ .debug_abbrev  0x0000000000000000      0x40d output/obj/NSQ.o
  .debug_loc     0x0000000000000000     0x157f output/obj/NSQ.o
  .debug_aranges
                 0x0000000000000000       0x20 output/obj/NSQ.o
  .debug_ranges  0x0000000000000000      0x1d0 output/obj/NSQ.o
- .debug_line    0x0000000000000000     0x1d68 output/obj/NSQ.o
- .debug_str     0x0000000000000000     0x16ae output/obj/NSQ.o
+ .debug_line    0x0000000000000000     0x1d9b output/obj/NSQ.o
+ .debug_str     0x0000000000000000     0x1757 output/obj/NSQ.o
  .comment       0x0000000000000000       0x12 output/obj/NSQ.o
  .debug_frame   0x0000000000000000       0x6c output/obj/NSQ.o
  .text          0x0000000000000000        0x0 output/obj/opus.o
@@ -2993,26 +2993,26 @@ Discarded input sections
                 0x0000000000000000      0x708 output/obj/mlp_data.o
  .rodata.topo   0x0000000000000000        0xc output/obj/mlp_data.o
  .rodata.net    0x0000000000000000        0xc output/obj/mlp_data.o
- .debug_info    0x0000000000000000      0xacd output/obj/mlp_data.o
- .debug_abbrev  0x0000000000000000      0x201 output/obj/mlp_data.o
+ .debug_info    0x0000000000000000      0xbc0 output/obj/mlp_data.o
+ .debug_abbrev  0x0000000000000000      0x208 output/obj/mlp_data.o
  .debug_aranges
                 0x0000000000000000       0x18 output/obj/mlp_data.o
- .debug_line    0x0000000000000000      0x1b3 output/obj/mlp_data.o
- .debug_str     0x0000000000000000      0x670 output/obj/mlp_data.o
+ .debug_line    0x0000000000000000      0x1e6 output/obj/mlp_data.o
+ .debug_str     0x0000000000000000      0x719 output/obj/mlp_data.o
  .comment       0x0000000000000000       0x12 output/obj/mlp_data.o
  .text          0x0000000000000000        0x0 output/obj/LPC_fit.o
  .data          0x0000000000000000        0x0 output/obj/LPC_fit.o
  .bss           0x0000000000000000        0x0 output/obj/LPC_fit.o
  .text.silk_LPC_fit
                 0x0000000000000000      0x13c output/obj/LPC_fit.o
- .debug_info    0x0000000000000000      0xb91 output/obj/LPC_fit.o
- .debug_abbrev  0x0000000000000000      0x26b output/obj/LPC_fit.o
+ .debug_info    0x0000000000000000      0xc84 output/obj/LPC_fit.o
+ .debug_abbrev  0x0000000000000000      0x272 output/obj/LPC_fit.o
  .debug_loc     0x0000000000000000      0x213 output/obj/LPC_fit.o
  .debug_aranges
                 0x0000000000000000       0x20 output/obj/LPC_fit.o
  .debug_ranges  0x0000000000000000       0x10 output/obj/LPC_fit.o
- .debug_line    0x0000000000000000      0x4f9 output/obj/LPC_fit.o
- .debug_str     0x0000000000000000      0x742 output/obj/LPC_fit.o
+ .debug_line    0x0000000000000000      0x52c output/obj/LPC_fit.o
+ .debug_str     0x0000000000000000      0x7eb output/obj/LPC_fit.o
  .comment       0x0000000000000000       0x12 output/obj/LPC_fit.o
  .debug_frame   0x0000000000000000       0x4c output/obj/LPC_fit.o
  .text          0x0000000000000000        0x0 output/obj/opus_multistream_encoder.o
@@ -3065,18 +3065,18 @@ Discarded input sections
                 0x0000000000000000      0x3de output/obj/opus_multistream_encoder.o
  .text.opus_multistream_encoder_destroy
                 0x0000000000000000       0x18 output/obj/opus_multistream_encoder.o
- .rodata.diff_table.5434
+ .rodata.diff_table.5435
                 0x0000000000000000       0x22 output/obj/opus_multistream_encoder.o
- .rodata.C.4932
+ .rodata.C.4933
                 0x0000000000000000        0xa output/obj/opus_multistream_encoder.o
- .debug_info    0x0000000000000000     0x3589 output/obj/opus_multistream_encoder.o
- .debug_abbrev  0x0000000000000000      0x5ef output/obj/opus_multistream_encoder.o
+ .debug_info    0x0000000000000000     0x367c output/obj/opus_multistream_encoder.o
+ .debug_abbrev  0x0000000000000000      0x5f6 output/obj/opus_multistream_encoder.o
  .debug_loc     0x0000000000000000     0x25d5 output/obj/opus_multistream_encoder.o
  .debug_aranges
                 0x0000000000000000       0xb8 output/obj/opus_multistream_encoder.o
  .debug_ranges  0x0000000000000000      0x568 output/obj/opus_multistream_encoder.o
- .debug_line    0x0000000000000000     0x371e output/obj/opus_multistream_encoder.o
- .debug_str     0x0000000000000000     0x109c output/obj/opus_multistream_encoder.o
+ .debug_line    0x0000000000000000     0x3751 output/obj/opus_multistream_encoder.o
+ .debug_str     0x0000000000000000     0x1145 output/obj/opus_multistream_encoder.o
  .comment       0x0000000000000000       0x12 output/obj/opus_multistream_encoder.o
  .debug_frame   0x0000000000000000      0x370 output/obj/opus_multistream_encoder.o
  .text          0x0000000000000000        0x0 output/obj/mdct.o
@@ -3100,14 +3100,14 @@ Discarded input sections
                 0x0000000000000000       0xae output/obj/A2NLSF.o
  .text.silk_A2NLSF
                 0x0000000000000000      0x25c output/obj/A2NLSF.o
- .debug_info    0x0000000000000000     0x1563 output/obj/A2NLSF.o
- .debug_abbrev  0x0000000000000000      0x31d output/obj/A2NLSF.o
+ .debug_info    0x0000000000000000     0x1656 output/obj/A2NLSF.o
+ .debug_abbrev  0x0000000000000000      0x324 output/obj/A2NLSF.o
  .debug_loc     0x0000000000000000      0xa0d output/obj/A2NLSF.o
  .debug_aranges
                 0x0000000000000000       0x38 output/obj/A2NLSF.o
  .debug_ranges  0x0000000000000000       0x48 output/obj/A2NLSF.o
- .debug_line    0x0000000000000000      0xc44 output/obj/A2NLSF.o
- .debug_str     0x0000000000000000      0xce1 output/obj/A2NLSF.o
+ .debug_line    0x0000000000000000      0xc77 output/obj/A2NLSF.o
+ .debug_str     0x0000000000000000      0xd8a output/obj/A2NLSF.o
  .comment       0x0000000000000000       0x12 output/obj/A2NLSF.o
  .debug_frame   0x0000000000000000       0x9c output/obj/A2NLSF.o
  .text          0x0000000000000000        0x0 output/obj/encode_pulses.o
@@ -3117,14 +3117,14 @@ Discarded input sections
                 0x0000000000000000       0x28 output/obj/encode_pulses.o
  .text.silk_encode_pulses
                 0x0000000000000000      0x3ca output/obj/encode_pulses.o
- .debug_info    0x0000000000000000     0x15f2 output/obj/encode_pulses.o
- .debug_abbrev  0x0000000000000000      0x2d8 output/obj/encode_pulses.o
+ .debug_info    0x0000000000000000     0x16e5 output/obj/encode_pulses.o
+ .debug_abbrev  0x0000000000000000      0x2df output/obj/encode_pulses.o
  .debug_loc     0x0000000000000000      0x5a2 output/obj/encode_pulses.o
  .debug_aranges
                 0x0000000000000000       0x28 output/obj/encode_pulses.o
  .debug_ranges  0x0000000000000000       0x18 output/obj/encode_pulses.o
- .debug_line    0x0000000000000000      0xa01 output/obj/encode_pulses.o
- .debug_str     0x0000000000000000      0xdfd output/obj/encode_pulses.o
+ .debug_line    0x0000000000000000      0xa34 output/obj/encode_pulses.o
+ .debug_str     0x0000000000000000      0xea6 output/obj/encode_pulses.o
  .comment       0x0000000000000000       0x12 output/obj/encode_pulses.o
  .debug_frame   0x0000000000000000       0x7c output/obj/encode_pulses.o
  .text          0x0000000000000000        0x0 output/obj/NLSF_decode.o
@@ -3132,14 +3132,14 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 output/obj/NLSF_decode.o
  .text.silk_NLSF_decode
                 0x0000000000000000      0x106 output/obj/NLSF_decode.o
- .debug_info    0x0000000000000000     0x12ee output/obj/NLSF_decode.o
- .debug_abbrev  0x0000000000000000      0x2e4 output/obj/NLSF_decode.o
+ .debug_info    0x0000000000000000     0x13e1 output/obj/NLSF_decode.o
+ .debug_abbrev  0x0000000000000000      0x2eb output/obj/NLSF_decode.o
  .debug_loc     0x0000000000000000      0x230 output/obj/NLSF_decode.o
  .debug_aranges
                 0x0000000000000000       0x20 output/obj/NLSF_decode.o
  .debug_ranges  0x0000000000000000       0x30 output/obj/NLSF_decode.o
- .debug_line    0x0000000000000000      0x49e output/obj/NLSF_decode.o
- .debug_str     0x0000000000000000      0xd38 output/obj/NLSF_decode.o
+ .debug_line    0x0000000000000000      0x4d1 output/obj/NLSF_decode.o
+ .debug_str     0x0000000000000000      0xde1 output/obj/NLSF_decode.o
  .comment       0x0000000000000000       0x12 output/obj/NLSF_decode.o
  .debug_frame   0x0000000000000000       0x3c output/obj/NLSF_decode.o
  .text          0x0000000000000000        0x0 output/obj/apply_sine_window_FIX.o
@@ -3149,14 +3149,14 @@ Discarded input sections
                 0x0000000000000000       0x36 output/obj/apply_sine_window_FIX.o
  .text.silk_apply_sine_window
                 0x0000000000000000      0x130 output/obj/apply_sine_window_FIX.o
- .debug_info    0x0000000000000000      0xb7b output/obj/apply_sine_window_FIX.o
- .debug_abbrev  0x0000000000000000      0x263 output/obj/apply_sine_window_FIX.o
+ .debug_info    0x0000000000000000      0xc6e output/obj/apply_sine_window_FIX.o
+ .debug_abbrev  0x0000000000000000      0x26a output/obj/apply_sine_window_FIX.o
  .debug_loc     0x0000000000000000      0x32c output/obj/apply_sine_window_FIX.o
  .debug_aranges
                 0x0000000000000000       0x20 output/obj/apply_sine_window_FIX.o
  .debug_ranges  0x0000000000000000       0x10 output/obj/apply_sine_window_FIX.o
- .debug_line    0x0000000000000000      0x542 output/obj/apply_sine_window_FIX.o
- .debug_str     0x0000000000000000      0x75d output/obj/apply_sine_window_FIX.o
+ .debug_line    0x0000000000000000      0x575 output/obj/apply_sine_window_FIX.o
+ .debug_str     0x0000000000000000      0x806 output/obj/apply_sine_window_FIX.o
  .comment       0x0000000000000000       0x12 output/obj/apply_sine_window_FIX.o
  .debug_frame   0x0000000000000000       0x20 output/obj/apply_sine_window_FIX.o
  .text          0x0000000000000000        0x0 output/obj/quant_bands.o
@@ -3176,21 +3176,21 @@ Discarded input sections
                 0x0000000000000000       0x7a output/obj/quant_bands.o
  .text.unquant_energy_finalise
                 0x0000000000000000       0xbe output/obj/quant_bands.o
- .rodata.C.4696
+ .rodata.C.4697
                 0x0000000000000000        0xa output/obj/quant_bands.o
  .text          0x0000000000000000        0x0 output/obj/autocorr_FIX.o
  .data          0x0000000000000000        0x0 output/obj/autocorr_FIX.o
  .bss           0x0000000000000000        0x0 output/obj/autocorr_FIX.o
  .text.silk_autocorr
                 0x0000000000000000       0x36 output/obj/autocorr_FIX.o
- .debug_info    0x0000000000000000      0xba4 output/obj/autocorr_FIX.o
- .debug_abbrev  0x0000000000000000      0x287 output/obj/autocorr_FIX.o
+ .debug_info    0x0000000000000000      0xc97 output/obj/autocorr_FIX.o
+ .debug_abbrev  0x0000000000000000      0x28e output/obj/autocorr_FIX.o
  .debug_loc     0x0000000000000000      0x15b output/obj/autocorr_FIX.o
  .debug_aranges
                 0x0000000000000000       0x20 output/obj/autocorr_FIX.o
  .debug_ranges  0x0000000000000000       0x28 output/obj/autocorr_FIX.o
- .debug_line    0x0000000000000000      0x2b0 output/obj/autocorr_FIX.o
- .debug_str     0x0000000000000000      0x758 output/obj/autocorr_FIX.o
+ .debug_line    0x0000000000000000      0x2e3 output/obj/autocorr_FIX.o
+ .debug_str     0x0000000000000000      0x801 output/obj/autocorr_FIX.o
  .comment       0x0000000000000000       0x12 output/obj/autocorr_FIX.o
  .debug_frame   0x0000000000000000       0x2c output/obj/autocorr_FIX.o
  .text          0x0000000000000000        0x0 output/obj/init_decoder.o
@@ -3198,14 +3198,14 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 output/obj/init_decoder.o
  .text.silk_init_decoder
                 0x0000000000000000       0x44 output/obj/init_decoder.o
- .debug_info    0x0000000000000000     0x1711 output/obj/init_decoder.o
- .debug_abbrev  0x0000000000000000      0x2b4 output/obj/init_decoder.o
+ .debug_info    0x0000000000000000     0x1804 output/obj/init_decoder.o
+ .debug_abbrev  0x0000000000000000      0x2bb output/obj/init_decoder.o
  .debug_loc     0x0000000000000000       0x1e output/obj/init_decoder.o
  .debug_aranges
                 0x0000000000000000       0x20 output/obj/init_decoder.o
  .debug_ranges  0x0000000000000000       0x10 output/obj/init_decoder.o
- .debug_line    0x0000000000000000      0x31e output/obj/init_decoder.o
- .debug_str     0x0000000000000000     0x107a output/obj/init_decoder.o
+ .debug_line    0x0000000000000000      0x351 output/obj/init_decoder.o
+ .debug_str     0x0000000000000000     0x1123 output/obj/init_decoder.o
  .comment       0x0000000000000000       0x12 output/obj/init_decoder.o
  .debug_frame   0x0000000000000000       0x30 output/obj/init_decoder.o
  .text          0x0000000000000000        0x0 output/obj/remote_control.o
@@ -3598,8 +3598,8 @@ LOAD d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib
  *fill*         0x00000000010005bb        0x5 
  .debug_aranges
                 0x00000000010005c0       0x28 output/obj/startup_rv32.o
- .debug_str     0x00000000010005e8       0x6e output/obj/startup_rv32.o
- *fill*         0x0000000001000656        0x2 
+ .debug_str     0x00000000010005e8       0x6f output/obj/startup_rv32.o
+ *fill*         0x0000000001000657        0x1 
  .debug_ranges  0x0000000001000658       0x20 output/obj/startup_rv32.o
                 0x0000000001001000                . = 0x1001000
 
@@ -4854,7 +4854,7 @@ LOAD d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib
  .rodata.Memory_Malloc.str1.4
                 0x00000000010170f8       0x1f output/obj/malloc.o
  *fill*         0x0000000001017117        0x1 
- .rodata.__FUNCTION__.3165
+ .rodata.__FUNCTION__.3166
                 0x0000000001017118        0xe output/obj/malloc.o
  *fill*         0x0000000001017126        0x2 
  .rodata.IPC_TxPacket.str1.4
@@ -4862,16 +4862,16 @@ LOAD d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib
  .rodata.IpcDefaultCallBack.str1.4
                 0x0000000001017150       0x16 output/obj/yc11xx_ipc.o
  *fill*         0x0000000001017166        0x2 
- .rodata.__FUNCTION__.3231
+ .rodata.__FUNCTION__.3232
                 0x0000000001017168        0xd output/obj/yc11xx_ipc.o
  *fill*         0x0000000001017175        0x3 
- .rodata.__FUNCTION__.3236
+ .rodata.__FUNCTION__.3237
                 0x0000000001017178       0x11 output/obj/yc11xx_ipc.o
  *fill*         0x0000000001017189        0x3 
- .rodata.__FUNCTION__.3241
+ .rodata.__FUNCTION__.3242
                 0x000000000101718c        0xd output/obj/yc11xx_ipc.o
  *fill*         0x0000000001017199        0x3 
- .rodata.__FUNCTION__.3246
+ .rodata.__FUNCTION__.3247
                 0x000000000101719c       0x13 output/obj/yc11xx_ipc.o
  *fill*         0x00000000010171af        0x1 
  .rodata.g_adc_cicfircoeffTtablel
@@ -5008,12 +5008,12 @@ LOAD d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib
  .rodata.tapset_icdf
                 0x0000000001017c9c        0x3 output/obj/celt_encoder.o
  *fill*         0x0000000001017c9f        0x1 
- .rodata.inv_table.5186
+ .rodata.inv_table.5187
                 0x0000000001017ca0       0x80 output/obj/celt_encoder.o
- .rodata.intensity_thresholds.5766
+ .rodata.intensity_thresholds.5767
                 0x0000000001017d20       0x2a output/obj/celt_encoder.o
  *fill*         0x0000000001017d4a        0x2 
- .rodata.intensity_histeresis.5767
+ .rodata.intensity_histeresis.5768
                 0x0000000001017d4c       0x2a output/obj/celt_encoder.o
  *fill*         0x0000000001017d76        0x2 
  .rodata.cst4   0x0000000001017d78        0xc output/obj/celt_encoder.o
@@ -5061,18 +5061,18 @@ LOAD d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib
  .rodata.tf_select_table
                 0x000000000101a0bc       0x20 output/obj/celt.o
                 0x000000000101a0bc                tf_select_table
- .rodata.gains.5154
+ .rodata.gains.5155
                 0x000000000101a0dc       0x12 output/obj/celt.o
  *fill*         0x000000000101a0ee        0x2 
  .rodata.ordery_table
                 0x000000000101a0f0       0x78 output/obj/bands.o
- .rodata.exp2_table8.5388
+ .rodata.exp2_table8.5389
                 0x000000000101a168       0x10 output/obj/bands.o
- .rodata.bit_interleave_table.5547
+ .rodata.bit_interleave_table.5548
                 0x000000000101a178       0x10 output/obj/bands.o
- .rodata.bit_deinterleave_table.5557
+ .rodata.bit_deinterleave_table.5558
                 0x000000000101a188       0x10 output/obj/bands.o
- .rodata.SPREAD_FACTOR.5019
+ .rodata.SPREAD_FACTOR.5020
                 0x000000000101a198        0xc output/obj/vq.o
  .rodata.CELT_PVQ_U_DATA
                 0x000000000101a1a4     0x13e0 output/obj/cwrs.o
@@ -5081,7 +5081,7 @@ LOAD d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib
  .rodata.SMALL_DIV_TABLE
                 0x000000000101b5c0      0x204 output/obj/entcode.o
                 0x000000000101b5c0                SMALL_DIV_TABLE
- .rodata.correction.3107
+ .rodata.correction.3108
                 0x000000000101b7c4       0x20 output/obj/entcode.o
  .rodata.eMeans
                 0x000000000101b7e4       0x19 output/obj/quant_bands.o
@@ -5544,74 +5544,74 @@ LOAD d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib
  *(.local*)
                 0x0000000010010000                . = 0x10010000
 
-.debug          0x0000000010010000    0x513b2
+.debug          0x0000000010010000    0x54017
  *(.debug_info*)
- .debug_info    0x0000000010010000      0xe02 output/obj/main.o
- .debug_info    0x0000000010010e02     0x1c96 output/obj/yc_debug.o
- .debug_info    0x0000000010012a98      0xcb4 output/obj/yc_nvic.o
- .debug_info    0x000000001001374c     0x153b output/obj/yc11xx.o
- .debug_info    0x0000000010014c87      0xd89 output/obj/malloc.o
- .debug_info    0x0000000010015a10      0xe46 output/obj/software_timer.o
- .debug_info    0x0000000010016856     0x19c3 output/obj/yc11xx_bt_interface.o
- .debug_info    0x0000000010018219     0x1115 output/obj/yc11xx_ipc.o
- .debug_info    0x000000001001932e     0x1fc4 output/obj/yc11xx_audio_adc.o
- .debug_info    0x000000001001b2f2     0x10b1 output/obj/yc11xx_gpio.o
- .debug_info    0x000000001001c3a3      0xd8b output/obj/yc11xx_iwdg.o
- .debug_info    0x000000001001d12e     0x171d output/obj/yc11xx_qspi0.o
- .debug_info    0x000000001001e84b     0x100c output/obj/yc11xx_systick.o
- .debug_info    0x000000001001f857      0xc07 output/obj/yc11xx_timer.o
- .debug_info    0x000000001002045e      0xba5 output/obj/yc11xx_lpm.o
- .debug_info    0x0000000010021003      0xf2a output/obj/yc11xx_pwm.o
- .debug_info    0x0000000010021f2d      0xd73 output/obj/yc11xx_dev_bt_aap.o
- .debug_info    0x0000000010022ca0     0x14f4 output/obj/yc11xx_dev_bt_data_trans.o
- .debug_info    0x0000000010024194      0xf35 output/obj/yc11xx_dev_qspi.o
- .debug_info    0x00000000100250c9     0x21f6 output/obj/yc_dev_bt.o
- .debug_info    0x00000000100272bf      0xf63 output/obj/yc_ota.o
- .debug_info    0x0000000010028222      0x9ba output/obj/hci_dtm_test.o
- .debug_info    0x0000000010028bdc     0x1c4f output/obj/att.o
- .debug_info    0x000000001002a82b      0xf10 output/obj/flash.o
- .debug_info    0x000000001002b73b      0xbe2 output/obj/app_queue.o
- .debug_info    0x000000001002c31d      0xf25 output/obj/app_sleep.o
- .debug_info    0x000000001002d242      0xc9c output/obj/vbat.o
- .debug_info    0x000000001002dede     0x15d6 output/obj/keyscan.o
- .debug_info    0x000000001002f4b4     0x1198 output/obj/led.o
- .debug_info    0x000000001003064c      0xebb output/obj/ir_send.o
- .debug_info    0x0000000010031507     0x122a output/obj/ir_learn_from_tv.o
- .debug_info    0x0000000010032731     0x1578 output/obj/audio.o
- .debug_info    0x0000000010033ca9     0x1dc0 output/obj/pitch.o
- .debug_info    0x0000000010035a69      0xc2c output/obj/lin2log.o
- .debug_info    0x0000000010036695     0x10be output/obj/entdec.o
- .debug_info    0x0000000010037753      0xc6a output/obj/biquad_alt.o
- .debug_info    0x00000000100383bd     0x3b00 output/obj/opus_encoder.o
- .debug_info    0x000000001003bebd     0x4721 output/obj/celt_encoder.o
- .debug_info    0x00000000100405de     0x1245 output/obj/kiss_fft.o
- .debug_info    0x0000000010041823     0x1966 output/obj/rate.o
- .debug_info    0x0000000010043189     0x12de output/obj/entenc.o
- .debug_info    0x0000000010044467     0x1173 output/obj/modes.o
- .debug_info    0x00000000100455da      0xdf6 output/obj/mathops.o
- .debug_info    0x00000000100463d0     0x1286 output/obj/celt.o
- .debug_info    0x0000000010047656     0x2520 output/obj/opus_decoder.o
- .debug_info    0x0000000010049b76      0xae8 output/obj/log2lin.o
- .debug_info    0x000000001004a65e     0x4867 output/obj/bands.o
- .debug_info    0x000000001004eec5     0x1bbc output/obj/vq.o
- .debug_info    0x0000000010050a81      0xe93 output/obj/cwrs.o
- .debug_info    0x0000000010051914      0xbf7 output/obj/entcode.o
- .debug_info    0x000000001005250b      0xe26 output/obj/laplace.o
- .debug_info    0x0000000010053331     0x11c4 output/obj/celt_lpc.o
- .debug_info    0x00000000100544f5      0xee6 output/obj/opus.o
- .debug_info    0x00000000100553db     0x1670 output/obj/repacketizer.o
- .debug_info    0x0000000010056a4b     0x120a output/obj/mdct.o
- .debug_info    0x0000000010057c55      0xd02 output/obj/opus_codec_drv.o
- .debug_info    0x0000000010058957     0x2066 output/obj/quant_bands.o
- .debug_info    0x000000001005a9bd     0x2da6 output/obj/remote_control.o
- .debug_info    0x000000001005d763     0x14c5 output/obj/att_list.o
- .debug_info    0x000000001005ec28      0x3b6 ./../../../APP/SECRETKEY\libSecretKey.a(SecretKey.o)
- .debug_info    0x000000001005efde      0xbd7 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(_clzsi2.o)
- .debug_info    0x000000001005fbb5      0x7ab d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(muldf3.o)
- .debug_info    0x0000000010060360      0x202 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(fixunsdfsi.o)
- .debug_info    0x0000000010060562      0x2c0 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(floatsidf.o)
- .debug_info    0x0000000010060822       0x26 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(save-restore.o)
- .debug_info    0x0000000010060848      0xb6a d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(_clz.o)
+ .debug_info    0x0000000010010000      0xef5 output/obj/main.o
+ .debug_info    0x0000000010010ef5     0x1d89 output/obj/yc_debug.o
+ .debug_info    0x0000000010012c7e      0xcb4 output/obj/yc_nvic.o
+ .debug_info    0x0000000010013932     0x153b output/obj/yc11xx.o
+ .debug_info    0x0000000010014e6d      0xe7c output/obj/malloc.o
+ .debug_info    0x0000000010015ce9      0xf39 output/obj/software_timer.o
+ .debug_info    0x0000000010016c22     0x1ab6 output/obj/yc11xx_bt_interface.o
+ .debug_info    0x00000000100186d8     0x1208 output/obj/yc11xx_ipc.o
+ .debug_info    0x00000000100198e0     0x20b7 output/obj/yc11xx_audio_adc.o
+ .debug_info    0x000000001001b997     0x10b1 output/obj/yc11xx_gpio.o
+ .debug_info    0x000000001001ca48      0xd8b output/obj/yc11xx_iwdg.o
+ .debug_info    0x000000001001d7d3     0x171d output/obj/yc11xx_qspi0.o
+ .debug_info    0x000000001001eef0     0x10ff output/obj/yc11xx_systick.o
+ .debug_info    0x000000001001ffef      0xc07 output/obj/yc11xx_timer.o
+ .debug_info    0x0000000010020bf6      0xc98 output/obj/yc11xx_lpm.o
+ .debug_info    0x000000001002188e      0xf2a output/obj/yc11xx_pwm.o
+ .debug_info    0x00000000100227b8      0xd73 output/obj/yc11xx_dev_bt_aap.o
+ .debug_info    0x000000001002352b     0x15e7 output/obj/yc11xx_dev_bt_data_trans.o
+ .debug_info    0x0000000010024b12      0xf35 output/obj/yc11xx_dev_qspi.o
+ .debug_info    0x0000000010025a47     0x21fe output/obj/yc_dev_bt.o
+ .debug_info    0x0000000010027c45     0x1056 output/obj/yc_ota.o
+ .debug_info    0x0000000010028c9b      0x9ba output/obj/hci_dtm_test.o
+ .debug_info    0x0000000010029655     0x1d32 output/obj/att.o
+ .debug_info    0x000000001002b387     0x1003 output/obj/flash.o
+ .debug_info    0x000000001002c38a      0xcd5 output/obj/app_queue.o
+ .debug_info    0x000000001002d05f     0x1018 output/obj/app_sleep.o
+ .debug_info    0x000000001002e077      0xd8f output/obj/vbat.o
+ .debug_info    0x000000001002ee06     0x16b9 output/obj/keyscan.o
+ .debug_info    0x00000000100304bf     0x128b output/obj/led.o
+ .debug_info    0x000000001003174a      0xfae output/obj/ir_send.o
+ .debug_info    0x00000000100326f8     0x131d output/obj/ir_learn_from_tv.o
+ .debug_info    0x0000000010033a15     0x166b output/obj/audio.o
+ .debug_info    0x0000000010035080     0x1eb3 output/obj/pitch.o
+ .debug_info    0x0000000010036f33      0xd1f output/obj/lin2log.o
+ .debug_info    0x0000000010037c52     0x11b1 output/obj/entdec.o
+ .debug_info    0x0000000010038e03      0xd5d output/obj/biquad_alt.o
+ .debug_info    0x0000000010039b60     0x3bf3 output/obj/opus_encoder.o
+ .debug_info    0x000000001003d753     0x4814 output/obj/celt_encoder.o
+ .debug_info    0x0000000010041f67     0x1338 output/obj/kiss_fft.o
+ .debug_info    0x000000001004329f     0x1a59 output/obj/rate.o
+ .debug_info    0x0000000010044cf8     0x13d1 output/obj/entenc.o
+ .debug_info    0x00000000100460c9     0x1266 output/obj/modes.o
+ .debug_info    0x000000001004732f      0xee9 output/obj/mathops.o
+ .debug_info    0x0000000010048218     0x1379 output/obj/celt.o
+ .debug_info    0x0000000010049591     0x2613 output/obj/opus_decoder.o
+ .debug_info    0x000000001004bba4      0xbdb output/obj/log2lin.o
+ .debug_info    0x000000001004c77f     0x495a output/obj/bands.o
+ .debug_info    0x00000000100510d9     0x1caf output/obj/vq.o
+ .debug_info    0x0000000010052d88      0xf86 output/obj/cwrs.o
+ .debug_info    0x0000000010053d0e      0xcea output/obj/entcode.o
+ .debug_info    0x00000000100549f8      0xf19 output/obj/laplace.o
+ .debug_info    0x0000000010055911     0x12b7 output/obj/celt_lpc.o
+ .debug_info    0x0000000010056bc8      0xfd9 output/obj/opus.o
+ .debug_info    0x0000000010057ba1     0x1763 output/obj/repacketizer.o
+ .debug_info    0x0000000010059304     0x12fd output/obj/mdct.o
+ .debug_info    0x000000001005a601      0xdf5 output/obj/opus_codec_drv.o
+ .debug_info    0x000000001005b3f6     0x2159 output/obj/quant_bands.o
+ .debug_info    0x000000001005d54f     0x2e79 output/obj/remote_control.o
+ .debug_info    0x00000000100603c8     0x14c5 output/obj/att_list.o
+ .debug_info    0x000000001006188d      0x3b6 ./../../../APP/SECRETKEY\libSecretKey.a(SecretKey.o)
+ .debug_info    0x0000000010061c43      0xbd7 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(_clzsi2.o)
+ .debug_info    0x000000001006281a      0x7ab d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(muldf3.o)
+ .debug_info    0x0000000010062fc5      0x202 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(fixunsdfsi.o)
+ .debug_info    0x00000000100631c7      0x2c0 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(floatsidf.o)
+ .debug_info    0x0000000010063487       0x26 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(save-restore.o)
+ .debug_info    0x00000000100634ad      0xb6a d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(_clz.o)
 
 .data           0x0000000010010000      0x4fc load address 0x000000000101dfcc
                 0x0000000010010000                _sdata = .
@@ -5877,73 +5877,73 @@ LOAD d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib
                 0x0000000000000001                ASSERT ((_ebss < _stack), data size overflow)
 OUTPUT(./output/out.elf elf32-littleriscv)
 
-.debug_abbrev   0x0000000000000000     0xd868
- .debug_abbrev  0x0000000000000000      0x2ba output/obj/main.o
- .debug_abbrev  0x00000000000002ba      0x52f output/obj/yc_debug.o
- .debug_abbrev  0x00000000000007e9      0x298 output/obj/yc_nvic.o
- .debug_abbrev  0x0000000000000a81      0x3af output/obj/yc11xx.o
- .debug_abbrev  0x0000000000000e30      0x2b8 output/obj/malloc.o
- .debug_abbrev  0x00000000000010e8      0x2d9 output/obj/software_timer.o
- .debug_abbrev  0x00000000000013c1      0x3e6 output/obj/yc11xx_bt_interface.o
- .debug_abbrev  0x00000000000017a7      0x2f9 output/obj/yc11xx_ipc.o
- .debug_abbrev  0x0000000000001aa0      0x426 output/obj/yc11xx_audio_adc.o
- .debug_abbrev  0x0000000000001ec6      0x28d output/obj/yc11xx_gpio.o
- .debug_abbrev  0x0000000000002153      0x287 output/obj/yc11xx_iwdg.o
- .debug_abbrev  0x00000000000023da      0x439 output/obj/yc11xx_qspi0.o
- .debug_abbrev  0x0000000000002813      0x303 output/obj/yc11xx_systick.o
- .debug_abbrev  0x0000000000002b16      0x246 output/obj/yc11xx_timer.o
- .debug_abbrev  0x0000000000002d5c      0x276 output/obj/yc11xx_lpm.o
- .debug_abbrev  0x0000000000002fd2      0x257 output/obj/yc11xx_pwm.o
- .debug_abbrev  0x0000000000003229      0x293 output/obj/yc11xx_dev_bt_aap.o
- .debug_abbrev  0x00000000000034bc      0x420 output/obj/yc11xx_dev_bt_data_trans.o
- .debug_abbrev  0x00000000000038dc      0x2d3 output/obj/yc11xx_dev_qspi.o
- .debug_abbrev  0x0000000000003baf      0x5ec output/obj/yc_dev_bt.o
- .debug_abbrev  0x000000000000419b      0x38b output/obj/yc_ota.o
- .debug_abbrev  0x0000000000004526      0x242 output/obj/hci_dtm_test.o
- .debug_abbrev  0x0000000000004768      0x3bc output/obj/att.o
- .debug_abbrev  0x0000000000004b24      0x319 output/obj/flash.o
- .debug_abbrev  0x0000000000004e3d      0x2ae output/obj/app_queue.o
- .debug_abbrev  0x00000000000050eb      0x36f output/obj/app_sleep.o
- .debug_abbrev  0x000000000000545a      0x31a output/obj/vbat.o
- .debug_abbrev  0x0000000000005774      0x3a2 output/obj/keyscan.o
- .debug_abbrev  0x0000000000005b16      0x34c output/obj/led.o
- .debug_abbrev  0x0000000000005e62      0x29f output/obj/ir_send.o
- .debug_abbrev  0x0000000000006101      0x3ba output/obj/ir_learn_from_tv.o
- .debug_abbrev  0x00000000000064bb      0x407 output/obj/audio.o
- .debug_abbrev  0x00000000000068c2      0x52a output/obj/pitch.o
- .debug_abbrev  0x0000000000006dec      0x2ed output/obj/lin2log.o
- .debug_abbrev  0x00000000000070d9      0x367 output/obj/entdec.o
- .debug_abbrev  0x0000000000007440      0x28e output/obj/biquad_alt.o
- .debug_abbrev  0x00000000000076ce      0x64b output/obj/opus_encoder.o
- .debug_abbrev  0x0000000000007d19      0x554 output/obj/celt_encoder.o
- .debug_abbrev  0x000000000000826d      0x336 output/obj/kiss_fft.o
- .debug_abbrev  0x00000000000085a3      0x3c7 output/obj/rate.o
- .debug_abbrev  0x000000000000896a      0x3cb output/obj/entenc.o
- .debug_abbrev  0x0000000000008d35      0x27e output/obj/modes.o
- .debug_abbrev  0x0000000000008fb3      0x308 output/obj/mathops.o
- .debug_abbrev  0x00000000000092bb      0x379 output/obj/celt.o
- .debug_abbrev  0x0000000000009634      0x5a7 output/obj/opus_decoder.o
- .debug_abbrev  0x0000000000009bdb      0x230 output/obj/log2lin.o
- .debug_abbrev  0x0000000000009e0b      0x633 output/obj/bands.o
- .debug_abbrev  0x000000000000a43e      0x563 output/obj/vq.o
- .debug_abbrev  0x000000000000a9a1      0x2fe output/obj/cwrs.o
- .debug_abbrev  0x000000000000ac9f      0x263 output/obj/entcode.o
- .debug_abbrev  0x000000000000af02      0x332 output/obj/laplace.o
- .debug_abbrev  0x000000000000b234      0x361 output/obj/celt_lpc.o
- .debug_abbrev  0x000000000000b595      0x364 output/obj/opus.o
- .debug_abbrev  0x000000000000b8f9      0x485 output/obj/repacketizer.o
- .debug_abbrev  0x000000000000bd7e      0x2b3 output/obj/mdct.o
- .debug_abbrev  0x000000000000c031      0x26c output/obj/opus_codec_drv.o
- .debug_abbrev  0x000000000000c29d      0x47a output/obj/quant_bands.o
- .debug_abbrev  0x000000000000c717      0x488 output/obj/remote_control.o
- .debug_abbrev  0x000000000000cb9f      0x28e output/obj/att_list.o
- .debug_abbrev  0x000000000000ce2d      0x17f ./../../../APP/SECRETKEY\libSecretKey.a(SecretKey.o)
- .debug_abbrev  0x000000000000cfac      0x242 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(_clzsi2.o)
- .debug_abbrev  0x000000000000d1ee      0x186 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(muldf3.o)
- .debug_abbrev  0x000000000000d374      0x177 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(fixunsdfsi.o)
- .debug_abbrev  0x000000000000d4eb      0x181 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(floatsidf.o)
- .debug_abbrev  0x000000000000d66c       0x14 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(save-restore.o)
- .debug_abbrev  0x000000000000d680      0x1e8 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(_clz.o)
+.debug_abbrev   0x0000000000000000     0xd9b2
+ .debug_abbrev  0x0000000000000000      0x2c1 output/obj/main.o
+ .debug_abbrev  0x00000000000002c1      0x52f output/obj/yc_debug.o
+ .debug_abbrev  0x00000000000007f0      0x298 output/obj/yc_nvic.o
+ .debug_abbrev  0x0000000000000a88      0x3af output/obj/yc11xx.o
+ .debug_abbrev  0x0000000000000e37      0x2bf output/obj/malloc.o
+ .debug_abbrev  0x00000000000010f6      0x2e0 output/obj/software_timer.o
+ .debug_abbrev  0x00000000000013d6      0x3ed output/obj/yc11xx_bt_interface.o
+ .debug_abbrev  0x00000000000017c3      0x300 output/obj/yc11xx_ipc.o
+ .debug_abbrev  0x0000000000001ac3      0x426 output/obj/yc11xx_audio_adc.o
+ .debug_abbrev  0x0000000000001ee9      0x28d output/obj/yc11xx_gpio.o
+ .debug_abbrev  0x0000000000002176      0x287 output/obj/yc11xx_iwdg.o
+ .debug_abbrev  0x00000000000023fd      0x439 output/obj/yc11xx_qspi0.o
+ .debug_abbrev  0x0000000000002836      0x30a output/obj/yc11xx_systick.o
+ .debug_abbrev  0x0000000000002b40      0x246 output/obj/yc11xx_timer.o
+ .debug_abbrev  0x0000000000002d86      0x27d output/obj/yc11xx_lpm.o
+ .debug_abbrev  0x0000000000003003      0x257 output/obj/yc11xx_pwm.o
+ .debug_abbrev  0x000000000000325a      0x293 output/obj/yc11xx_dev_bt_aap.o
+ .debug_abbrev  0x00000000000034ed      0x427 output/obj/yc11xx_dev_bt_data_trans.o
+ .debug_abbrev  0x0000000000003914      0x2d3 output/obj/yc11xx_dev_qspi.o
+ .debug_abbrev  0x0000000000003be7      0x5fb output/obj/yc_dev_bt.o
+ .debug_abbrev  0x00000000000041e2      0x392 output/obj/yc_ota.o
+ .debug_abbrev  0x0000000000004574      0x242 output/obj/hci_dtm_test.o
+ .debug_abbrev  0x00000000000047b6      0x3c3 output/obj/att.o
+ .debug_abbrev  0x0000000000004b79      0x320 output/obj/flash.o
+ .debug_abbrev  0x0000000000004e99      0x2b5 output/obj/app_queue.o
+ .debug_abbrev  0x000000000000514e      0x376 output/obj/app_sleep.o
+ .debug_abbrev  0x00000000000054c4      0x321 output/obj/vbat.o
+ .debug_abbrev  0x00000000000057e5      0x3a9 output/obj/keyscan.o
+ .debug_abbrev  0x0000000000005b8e      0x353 output/obj/led.o
+ .debug_abbrev  0x0000000000005ee1      0x2a6 output/obj/ir_send.o
+ .debug_abbrev  0x0000000000006187      0x3c1 output/obj/ir_learn_from_tv.o
+ .debug_abbrev  0x0000000000006548      0x40e output/obj/audio.o
+ .debug_abbrev  0x0000000000006956      0x531 output/obj/pitch.o
+ .debug_abbrev  0x0000000000006e87      0x2f4 output/obj/lin2log.o
+ .debug_abbrev  0x000000000000717b      0x36e output/obj/entdec.o
+ .debug_abbrev  0x00000000000074e9      0x295 output/obj/biquad_alt.o
+ .debug_abbrev  0x000000000000777e      0x652 output/obj/opus_encoder.o
+ .debug_abbrev  0x0000000000007dd0      0x55b output/obj/celt_encoder.o
+ .debug_abbrev  0x000000000000832b      0x33d output/obj/kiss_fft.o
+ .debug_abbrev  0x0000000000008668      0x3ce output/obj/rate.o
+ .debug_abbrev  0x0000000000008a36      0x3d2 output/obj/entenc.o
+ .debug_abbrev  0x0000000000008e08      0x285 output/obj/modes.o
+ .debug_abbrev  0x000000000000908d      0x30f output/obj/mathops.o
+ .debug_abbrev  0x000000000000939c      0x380 output/obj/celt.o
+ .debug_abbrev  0x000000000000971c      0x5ae output/obj/opus_decoder.o
+ .debug_abbrev  0x0000000000009cca      0x237 output/obj/log2lin.o
+ .debug_abbrev  0x0000000000009f01      0x63a output/obj/bands.o
+ .debug_abbrev  0x000000000000a53b      0x56a output/obj/vq.o
+ .debug_abbrev  0x000000000000aaa5      0x305 output/obj/cwrs.o
+ .debug_abbrev  0x000000000000adaa      0x26a output/obj/entcode.o
+ .debug_abbrev  0x000000000000b014      0x339 output/obj/laplace.o
+ .debug_abbrev  0x000000000000b34d      0x368 output/obj/celt_lpc.o
+ .debug_abbrev  0x000000000000b6b5      0x36b output/obj/opus.o
+ .debug_abbrev  0x000000000000ba20      0x48c output/obj/repacketizer.o
+ .debug_abbrev  0x000000000000beac      0x2ba output/obj/mdct.o
+ .debug_abbrev  0x000000000000c166      0x273 output/obj/opus_codec_drv.o
+ .debug_abbrev  0x000000000000c3d9      0x481 output/obj/quant_bands.o
+ .debug_abbrev  0x000000000000c85a      0x48f output/obj/remote_control.o
+ .debug_abbrev  0x000000000000cce9      0x28e output/obj/att_list.o
+ .debug_abbrev  0x000000000000cf77      0x17f ./../../../APP/SECRETKEY\libSecretKey.a(SecretKey.o)
+ .debug_abbrev  0x000000000000d0f6      0x242 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(_clzsi2.o)
+ .debug_abbrev  0x000000000000d338      0x186 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(muldf3.o)
+ .debug_abbrev  0x000000000000d4be      0x177 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(fixunsdfsi.o)
+ .debug_abbrev  0x000000000000d635      0x181 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(floatsidf.o)
+ .debug_abbrev  0x000000000000d7b6       0x14 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(save-restore.o)
+ .debug_abbrev  0x000000000000d7ca      0x1e8 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(_clz.o)
 
 .debug_aranges  0x0000000000000000     0x1cd8
  .debug_aranges
@@ -6145,206 +6145,206 @@ OUTPUT(./output/out.elf elf32-littleriscv)
  .debug_ranges  0x0000000000004178       0x30 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(fixunsdfsi.o)
  .debug_ranges  0x00000000000041a8       0x50 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(floatsidf.o)
 
-.debug_line     0x0000000000000000    0x4248d
+.debug_line     0x0000000000000000    0x42cb8
  .debug_line    0x0000000000000000      0x467 output/obj/main.o
- .debug_line    0x0000000000000467     0x1ea6 output/obj/yc_debug.o
- .debug_line    0x000000000000230d      0x303 output/obj/yc_nvic.o
- .debug_line    0x0000000000002610      0xeed output/obj/yc11xx.o
- .debug_line    0x00000000000034fd      0x86f output/obj/malloc.o
- .debug_line    0x0000000000003d6c      0x797 output/obj/software_timer.o
- .debug_line    0x0000000000004503     0x1559 output/obj/yc11xx_bt_interface.o
- .debug_line    0x0000000000005a5c      0xb8a output/obj/yc11xx_ipc.o
- .debug_line    0x00000000000065e6     0x209c output/obj/yc11xx_audio_adc.o
- .debug_line    0x0000000000008682      0xe7b output/obj/yc11xx_gpio.o
- .debug_line    0x00000000000094fd      0x60c output/obj/yc11xx_iwdg.o
- .debug_line    0x0000000000009b09     0x11da output/obj/yc11xx_qspi0.o
- .debug_line    0x000000000000ace3      0x825 output/obj/yc11xx_systick.o
- .debug_line    0x000000000000b508      0x498 output/obj/yc11xx_timer.o
- .debug_line    0x000000000000b9a0      0x519 output/obj/yc11xx_lpm.o
- .debug_line    0x000000000000beb9      0x3e1 output/obj/yc11xx_pwm.o
- .debug_line    0x000000000000c29a      0x48a output/obj/yc11xx_dev_bt_aap.o
- .debug_line    0x000000000000c724      0xdc5 output/obj/yc11xx_dev_bt_data_trans.o
- .debug_line    0x000000000000d4e9      0x8ab output/obj/yc11xx_dev_qspi.o
- .debug_line    0x000000000000dd94     0x23dd output/obj/yc_dev_bt.o
- .debug_line    0x0000000000010171      0xb30 output/obj/yc_ota.o
- .debug_line    0x0000000000010ca1      0x24a output/obj/hci_dtm_test.o
- .debug_line    0x0000000000010eeb     0x1bc0 output/obj/att.o
- .debug_line    0x0000000000012aab      0x713 output/obj/flash.o
- .debug_line    0x00000000000131be      0x513 output/obj/app_queue.o
- .debug_line    0x00000000000136d1      0xa05 output/obj/app_sleep.o
- .debug_line    0x00000000000140d6      0x5a6 output/obj/vbat.o
- .debug_line    0x000000000001467c      0x9ff output/obj/keyscan.o
- .debug_line    0x000000000001507b      0x945 output/obj/led.o
- .debug_line    0x00000000000159c0      0x373 output/obj/ir_send.o
- .debug_line    0x0000000000015d33      0xd5f output/obj/ir_learn_from_tv.o
- .debug_line    0x0000000000016a92      0xba5 output/obj/audio.o
- .debug_line    0x0000000000017637     0x266f output/obj/pitch.o
- .debug_line    0x0000000000019ca6      0x355 output/obj/lin2log.o
- .debug_line    0x0000000000019ffb      0xcab output/obj/entdec.o
- .debug_line    0x000000000001aca6      0x7c3 output/obj/biquad_alt.o
- .debug_line    0x000000000001b469     0x3df4 output/obj/opus_encoder.o
- .debug_line    0x000000000001f25d     0x6e9d output/obj/celt_encoder.o
- .debug_line    0x00000000000260fa     0x1c7c output/obj/kiss_fft.o
- .debug_line    0x0000000000027d76     0x1788 output/obj/rate.o
- .debug_line    0x00000000000294fe     0x1181 output/obj/entenc.o
- .debug_line    0x000000000002a67f      0x398 output/obj/modes.o
- .debug_line    0x000000000002aa17      0xa12 output/obj/mathops.o
- .debug_line    0x000000000002b429      0xe60 output/obj/celt.o
- .debug_line    0x000000000002c289     0x21ab output/obj/opus_decoder.o
- .debug_line    0x000000000002e434      0x2da output/obj/log2lin.o
- .debug_line    0x000000000002e70e     0x60f1 output/obj/bands.o
- .debug_line    0x00000000000347ff     0x18cc output/obj/vq.o
- .debug_line    0x00000000000360cb      0x94a output/obj/cwrs.o
- .debug_line    0x0000000000036a15      0x332 output/obj/entcode.o
- .debug_line    0x0000000000036d47      0x76e output/obj/laplace.o
- .debug_line    0x00000000000374b5     0x19e4 output/obj/celt_lpc.o
- .debug_line    0x0000000000038e99      0xbf8 output/obj/opus.o
- .debug_line    0x0000000000039a91     0x1155 output/obj/repacketizer.o
- .debug_line    0x000000000003abe6     0x128a output/obj/mdct.o
- .debug_line    0x000000000003be70      0x260 output/obj/opus_codec_drv.o
- .debug_line    0x000000000003c0d0     0x1af6 output/obj/quant_bands.o
- .debug_line    0x000000000003dbc6     0x2649 output/obj/remote_control.o
- .debug_line    0x000000000004020f      0x543 output/obj/att_list.o
- .debug_line    0x0000000000040752      0x35c ./../../../APP/SECRETKEY\libSecretKey.a(SecretKey.o)
- .debug_line    0x0000000000040aae      0x2bf d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(_clzsi2.o)
- .debug_line    0x0000000000040d6d      0xea5 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(muldf3.o)
- .debug_line    0x0000000000041c12      0x26e d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(fixunsdfsi.o)
- .debug_line    0x0000000000041e80      0x23f d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(floatsidf.o)
- .debug_line    0x00000000000420bf      0x191 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(save-restore.o)
- .debug_line    0x0000000000042250      0x23d d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(_clz.o)
+ .debug_line    0x0000000000000467     0x1ed9 output/obj/yc_debug.o
+ .debug_line    0x0000000000002340      0x303 output/obj/yc_nvic.o
+ .debug_line    0x0000000000002643      0xeed output/obj/yc11xx.o
+ .debug_line    0x0000000000003530      0x8a2 output/obj/malloc.o
+ .debug_line    0x0000000000003dd2      0x7ca output/obj/software_timer.o
+ .debug_line    0x000000000000459c     0x158c output/obj/yc11xx_bt_interface.o
+ .debug_line    0x0000000000005b28      0xbbd output/obj/yc11xx_ipc.o
+ .debug_line    0x00000000000066e5     0x20cf output/obj/yc11xx_audio_adc.o
+ .debug_line    0x00000000000087b4      0xe7b output/obj/yc11xx_gpio.o
+ .debug_line    0x000000000000962f      0x60c output/obj/yc11xx_iwdg.o
+ .debug_line    0x0000000000009c3b     0x11da output/obj/yc11xx_qspi0.o
+ .debug_line    0x000000000000ae15      0x858 output/obj/yc11xx_systick.o
+ .debug_line    0x000000000000b66d      0x498 output/obj/yc11xx_timer.o
+ .debug_line    0x000000000000bb05      0x54c output/obj/yc11xx_lpm.o
+ .debug_line    0x000000000000c051      0x3e1 output/obj/yc11xx_pwm.o
+ .debug_line    0x000000000000c432      0x48a output/obj/yc11xx_dev_bt_aap.o
+ .debug_line    0x000000000000c8bc      0xdf8 output/obj/yc11xx_dev_bt_data_trans.o
+ .debug_line    0x000000000000d6b4      0x8ab output/obj/yc11xx_dev_qspi.o
+ .debug_line    0x000000000000df5f     0x23dd output/obj/yc_dev_bt.o
+ .debug_line    0x000000000001033c      0xb30 output/obj/yc_ota.o
+ .debug_line    0x0000000000010e6c      0x24a output/obj/hci_dtm_test.o
+ .debug_line    0x00000000000110b6     0x1bc0 output/obj/att.o
+ .debug_line    0x0000000000012c76      0x746 output/obj/flash.o
+ .debug_line    0x00000000000133bc      0x546 output/obj/app_queue.o
+ .debug_line    0x0000000000013902      0xa05 output/obj/app_sleep.o
+ .debug_line    0x0000000000014307      0x5d9 output/obj/vbat.o
+ .debug_line    0x00000000000148e0      0xa32 output/obj/keyscan.o
+ .debug_line    0x0000000000015312      0x978 output/obj/led.o
+ .debug_line    0x0000000000015c8a      0x3a6 output/obj/ir_send.o
+ .debug_line    0x0000000000016030      0xd92 output/obj/ir_learn_from_tv.o
+ .debug_line    0x0000000000016dc2      0xba5 output/obj/audio.o
+ .debug_line    0x0000000000017967     0x26a2 output/obj/pitch.o
+ .debug_line    0x000000000001a009      0x388 output/obj/lin2log.o
+ .debug_line    0x000000000001a391      0xcde output/obj/entdec.o
+ .debug_line    0x000000000001b06f      0x7f6 output/obj/biquad_alt.o
+ .debug_line    0x000000000001b865     0x3e27 output/obj/opus_encoder.o
+ .debug_line    0x000000000001f68c     0x6ed0 output/obj/celt_encoder.o
+ .debug_line    0x000000000002655c     0x1caf output/obj/kiss_fft.o
+ .debug_line    0x000000000002820b     0x17bb output/obj/rate.o
+ .debug_line    0x00000000000299c6     0x11b4 output/obj/entenc.o
+ .debug_line    0x000000000002ab7a      0x3cb output/obj/modes.o
+ .debug_line    0x000000000002af45      0xa45 output/obj/mathops.o
+ .debug_line    0x000000000002b98a      0xe93 output/obj/celt.o
+ .debug_line    0x000000000002c81d     0x21de output/obj/opus_decoder.o
+ .debug_line    0x000000000002e9fb      0x30d output/obj/log2lin.o
+ .debug_line    0x000000000002ed08     0x6124 output/obj/bands.o
+ .debug_line    0x0000000000034e2c     0x18ff output/obj/vq.o
+ .debug_line    0x000000000003672b      0x97d output/obj/cwrs.o
+ .debug_line    0x00000000000370a8      0x365 output/obj/entcode.o
+ .debug_line    0x000000000003740d      0x7a1 output/obj/laplace.o
+ .debug_line    0x0000000000037bae     0x1a17 output/obj/celt_lpc.o
+ .debug_line    0x00000000000395c5      0xc2b output/obj/opus.o
+ .debug_line    0x000000000003a1f0     0x1188 output/obj/repacketizer.o
+ .debug_line    0x000000000003b378     0x12bd output/obj/mdct.o
+ .debug_line    0x000000000003c635      0x293 output/obj/opus_codec_drv.o
+ .debug_line    0x000000000003c8c8     0x1b29 output/obj/quant_bands.o
+ .debug_line    0x000000000003e3f1     0x2649 output/obj/remote_control.o
+ .debug_line    0x0000000000040a3a      0x543 output/obj/att_list.o
+ .debug_line    0x0000000000040f7d      0x35c ./../../../APP/SECRETKEY\libSecretKey.a(SecretKey.o)
+ .debug_line    0x00000000000412d9      0x2bf d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(_clzsi2.o)
+ .debug_line    0x0000000000041598      0xea5 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(muldf3.o)
+ .debug_line    0x000000000004243d      0x26e d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(fixunsdfsi.o)
+ .debug_line    0x00000000000426ab      0x23f d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(floatsidf.o)
+ .debug_line    0x00000000000428ea      0x191 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(save-restore.o)
+ .debug_line    0x0000000000042a7b      0x23d d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(_clz.o)
 
-.debug_str      0x0000000000000000     0xae1a
- .debug_str     0x0000000000000000      0x77b output/obj/main.o
-                                        0x823 (size before relaxing)
- .debug_str     0x000000000000077b      0xa65 output/obj/yc_debug.o
-                                       0x113c (size before relaxing)
- .debug_str     0x00000000000011e0      0x235 output/obj/yc_nvic.o
-                                        0x7fb (size before relaxing)
- .debug_str     0x0000000000001415      0x62a output/obj/yc11xx.o
-                                        0xc14 (size before relaxing)
- .debug_str     0x0000000000001a3f      0x23f output/obj/malloc.o
-                                        0x8a3 (size before relaxing)
- .debug_str     0x0000000000001c7e      0x2c2 output/obj/software_timer.o
-                                        0xab0 (size before relaxing)
- .debug_str     0x0000000000001f40      0x9f1 output/obj/yc11xx_bt_interface.o
-                                       0x1045 (size before relaxing)
- .debug_str     0x0000000000002931      0x192 output/obj/yc11xx_ipc.o
-                                        0x86a (size before relaxing)
- .debug_str     0x0000000000002ac3      0xf6f output/obj/yc11xx_audio_adc.o
-                                       0x1769 (size before relaxing)
- .debug_str     0x0000000000003a32      0x324 output/obj/yc11xx_gpio.o
-                                        0xfaa (size before relaxing)
- .debug_str     0x0000000000003d56       0xa0 output/obj/yc11xx_iwdg.o
-                                        0x72c (size before relaxing)
- .debug_str     0x0000000000003df6      0x289 output/obj/yc11xx_qspi0.o
-                                        0x926 (size before relaxing)
- .debug_str     0x000000000000407f      0x218 output/obj/yc11xx_systick.o
-                                        0xb03 (size before relaxing)
- .debug_str     0x0000000000004297      0x17f output/obj/yc11xx_timer.o
-                                        0x77e (size before relaxing)
- .debug_str     0x0000000000004416       0x9a output/obj/yc11xx_lpm.o
-                                        0x71b (size before relaxing)
- .debug_str     0x00000000000044b0       0x5e output/obj/yc11xx_pwm.o
-                                        0xdc6 (size before relaxing)
- .debug_str     0x000000000000450e      0x143 output/obj/yc11xx_dev_bt_aap.o
-                                        0x717 (size before relaxing)
- .debug_str     0x0000000000004651      0x32b output/obj/yc11xx_dev_bt_data_trans.o
-                                        0xa79 (size before relaxing)
- .debug_str     0x000000000000497c      0x105 output/obj/yc11xx_dev_qspi.o
-                                        0x781 (size before relaxing)
- .debug_str     0x0000000000004a81      0x92f output/obj/yc_dev_bt.o
-                                       0x10ff (size before relaxing)
- .debug_str     0x00000000000053b0      0x1a9 output/obj/yc_ota.o
-                                        0x903 (size before relaxing)
- .debug_str     0x0000000000005559       0x64 output/obj/hci_dtm_test.o
-                                        0x61b (size before relaxing)
- .debug_str     0x00000000000055bd      0x2c4 output/obj/att.o
-                                        0x9a2 (size before relaxing)
- .debug_str     0x0000000000005881      0x156 output/obj/flash.o
-                                        0x818 (size before relaxing)
- .debug_str     0x00000000000059d7       0xc5 output/obj/app_queue.o
-                                        0x74b (size before relaxing)
- .debug_str     0x0000000000005a9c      0x255 output/obj/app_sleep.o
+.debug_str      0x0000000000000000     0xae1b
+ .debug_str     0x0000000000000000      0x81f output/obj/main.o
+                                        0x8cc (size before relaxing)
+ .debug_str     0x000000000000081f      0xa65 output/obj/yc_debug.o
+                                       0x11e5 (size before relaxing)
+ .debug_str     0x0000000000001284      0x235 output/obj/yc_nvic.o
+                                        0x7fc (size before relaxing)
+ .debug_str     0x00000000000014b9      0x62a output/obj/yc11xx.o
+                                        0xc15 (size before relaxing)
+ .debug_str     0x0000000000001ae3      0x23f output/obj/malloc.o
+                                        0x94c (size before relaxing)
+ .debug_str     0x0000000000001d22      0x2c2 output/obj/software_timer.o
+                                        0xb59 (size before relaxing)
+ .debug_str     0x0000000000001fe4      0x9f1 output/obj/yc11xx_bt_interface.o
+                                       0x10ee (size before relaxing)
+ .debug_str     0x00000000000029d5      0x192 output/obj/yc11xx_ipc.o
+                                        0x913 (size before relaxing)
+ .debug_str     0x0000000000002b67      0xf6f output/obj/yc11xx_audio_adc.o
+                                       0x1812 (size before relaxing)
+ .debug_str     0x0000000000003ad6      0x324 output/obj/yc11xx_gpio.o
+                                        0xfab (size before relaxing)
+ .debug_str     0x0000000000003dfa       0xa0 output/obj/yc11xx_iwdg.o
+                                        0x72d (size before relaxing)
+ .debug_str     0x0000000000003e9a      0x289 output/obj/yc11xx_qspi0.o
+                                        0x927 (size before relaxing)
+ .debug_str     0x0000000000004123      0x218 output/obj/yc11xx_systick.o
+                                        0xbac (size before relaxing)
+ .debug_str     0x000000000000433b      0x17f output/obj/yc11xx_timer.o
+                                        0x77f (size before relaxing)
+ .debug_str     0x00000000000044ba       0x9a output/obj/yc11xx_lpm.o
+                                        0x7c4 (size before relaxing)
+ .debug_str     0x0000000000004554       0x5e output/obj/yc11xx_pwm.o
+                                        0xdc7 (size before relaxing)
+ .debug_str     0x00000000000045b2      0x143 output/obj/yc11xx_dev_bt_aap.o
+                                        0x718 (size before relaxing)
+ .debug_str     0x00000000000046f5      0x32b output/obj/yc11xx_dev_bt_data_trans.o
+                                        0xb22 (size before relaxing)
+ .debug_str     0x0000000000004a20      0x105 output/obj/yc11xx_dev_qspi.o
+                                        0x782 (size before relaxing)
+ .debug_str     0x0000000000004b25      0x88c output/obj/yc_dev_bt.o
+                                       0x1100 (size before relaxing)
+ .debug_str     0x00000000000053b1      0x1a9 output/obj/yc_ota.o
                                         0x9ac (size before relaxing)
- .debug_str     0x0000000000005cf1       0xf8 output/obj/vbat.o
-                                        0x7a4 (size before relaxing)
- .debug_str     0x0000000000005de9      0x1db output/obj/keyscan.o
-                                        0xfe7 (size before relaxing)
- .debug_str     0x0000000000005fc4       0xd6 output/obj/led.o
-                                        0xe8c (size before relaxing)
- .debug_str     0x000000000000609a       0xcb output/obj/ir_send.o
-                                        0xdaf (size before relaxing)
- .debug_str     0x0000000000006165      0x192 output/obj/ir_learn_from_tv.o
-                                        0x98e (size before relaxing)
- .debug_str     0x00000000000062f7      0x1f3 output/obj/audio.o
-                                        0xea0 (size before relaxing)
- .debug_str     0x00000000000064ea      0x333 output/obj/pitch.o
-                                        0x9bd (size before relaxing)
- .debug_str     0x000000000000681d       0x76 output/obj/lin2log.o
-                                        0x743 (size before relaxing)
- .debug_str     0x0000000000006893      0x124 output/obj/entdec.o
-                                        0x820 (size before relaxing)
- .debug_str     0x00000000000069b7       0x8e output/obj/biquad_alt.o
-                                        0x76d (size before relaxing)
- .debug_str     0x0000000000006a45      0xfd4 output/obj/opus_encoder.o
-                                       0x1992 (size before relaxing)
- .debug_str     0x0000000000007a19      0x9c9 output/obj/celt_encoder.o
-                                       0x15be (size before relaxing)
- .debug_str     0x00000000000083e2       0xc8 output/obj/kiss_fft.o
-                                        0x864 (size before relaxing)
- .debug_str     0x00000000000084aa      0x11c output/obj/rate.o
-                                        0xaca (size before relaxing)
- .debug_str     0x00000000000085c6       0xa4 output/obj/entenc.o
-                                        0x88d (size before relaxing)
- .debug_str     0x000000000000866a      0x151 output/obj/modes.o
-                                        0x9f0 (size before relaxing)
- .debug_str     0x00000000000087bb       0x57 output/obj/mathops.o
-                                        0x7ab (size before relaxing)
- .debug_str     0x0000000000008812       0x86 output/obj/celt.o
-                                        0x953 (size before relaxing)
- .debug_str     0x0000000000008898      0x458 output/obj/opus_decoder.o
-                                        0xf43 (size before relaxing)
- .debug_str     0x0000000000008cf0       0x34 output/obj/log2lin.o
-                                        0x716 (size before relaxing)
- .debug_str     0x0000000000008d24      0x4bf output/obj/bands.o
-                                       0x112a (size before relaxing)
- .debug_str     0x00000000000091e3       0xf4 output/obj/vq.o
-                                        0x989 (size before relaxing)
- .debug_str     0x00000000000092d7       0x53 output/obj/cwrs.o
-                                        0x7ea (size before relaxing)
- .debug_str     0x000000000000932a       0x36 output/obj/entcode.o
-                                        0x754 (size before relaxing)
- .debug_str     0x0000000000009360       0x6c output/obj/laplace.o
-                                        0x7d2 (size before relaxing)
- .debug_str     0x00000000000093cc       0x52 output/obj/celt_lpc.o
-                                        0x82f (size before relaxing)
- .debug_str     0x000000000000941e       0x78 output/obj/opus.o
-                                        0x80e (size before relaxing)
- .debug_str     0x0000000000009496      0x198 output/obj/repacketizer.o
-                                        0x9fe (size before relaxing)
- .debug_str     0x000000000000962e       0x3c output/obj/mdct.o
-                                        0x82c (size before relaxing)
- .debug_str     0x000000000000966a       0x65 output/obj/opus_codec_drv.o
-                                        0x711 (size before relaxing)
- .debug_str     0x00000000000096cf      0x1d4 output/obj/quant_bands.o
-                                        0xc81 (size before relaxing)
- .debug_str     0x00000000000098a3      0x51e output/obj/remote_control.o
-                                       0x15ff (size before relaxing)
- .debug_str     0x0000000000009dc1      0x788 output/obj/att_list.o
-                                        0xe49 (size before relaxing)
- .debug_str     0x000000000000a549      0x137 ./../../../APP/SECRETKEY\libSecretKey.a(SecretKey.o)
+ .debug_str     0x000000000000555a       0x64 output/obj/hci_dtm_test.o
+                                        0x61c (size before relaxing)
+ .debug_str     0x00000000000055be      0x2c4 output/obj/att.o
+                                        0xa4b (size before relaxing)
+ .debug_str     0x0000000000005882      0x156 output/obj/flash.o
+                                        0x8c1 (size before relaxing)
+ .debug_str     0x00000000000059d8       0xc5 output/obj/app_queue.o
+                                        0x7f4 (size before relaxing)
+ .debug_str     0x0000000000005a9d      0x255 output/obj/app_sleep.o
+                                        0xa55 (size before relaxing)
+ .debug_str     0x0000000000005cf2       0xf8 output/obj/vbat.o
+                                        0x84d (size before relaxing)
+ .debug_str     0x0000000000005dea      0x1db output/obj/keyscan.o
+                                       0x1090 (size before relaxing)
+ .debug_str     0x0000000000005fc5       0xd6 output/obj/led.o
+                                        0xf35 (size before relaxing)
+ .debug_str     0x000000000000609b       0xcb output/obj/ir_send.o
+                                        0xe58 (size before relaxing)
+ .debug_str     0x0000000000006166      0x192 output/obj/ir_learn_from_tv.o
+                                        0xa37 (size before relaxing)
+ .debug_str     0x00000000000062f8      0x1f3 output/obj/audio.o
+                                        0xf49 (size before relaxing)
+ .debug_str     0x00000000000064eb      0x333 output/obj/pitch.o
+                                        0xa66 (size before relaxing)
+ .debug_str     0x000000000000681e       0x76 output/obj/lin2log.o
+                                        0x7ec (size before relaxing)
+ .debug_str     0x0000000000006894      0x124 output/obj/entdec.o
+                                        0x8c9 (size before relaxing)
+ .debug_str     0x00000000000069b8       0x8e output/obj/biquad_alt.o
+                                        0x816 (size before relaxing)
+ .debug_str     0x0000000000006a46      0xfd4 output/obj/opus_encoder.o
+                                       0x1a3b (size before relaxing)
+ .debug_str     0x0000000000007a1a      0x9c9 output/obj/celt_encoder.o
+                                       0x1667 (size before relaxing)
+ .debug_str     0x00000000000083e3       0xc8 output/obj/kiss_fft.o
+                                        0x90d (size before relaxing)
+ .debug_str     0x00000000000084ab      0x11c output/obj/rate.o
+                                        0xb73 (size before relaxing)
+ .debug_str     0x00000000000085c7       0xa4 output/obj/entenc.o
+                                        0x936 (size before relaxing)
+ .debug_str     0x000000000000866b      0x151 output/obj/modes.o
+                                        0xa99 (size before relaxing)
+ .debug_str     0x00000000000087bc       0x57 output/obj/mathops.o
+                                        0x854 (size before relaxing)
+ .debug_str     0x0000000000008813       0x86 output/obj/celt.o
+                                        0x9fc (size before relaxing)
+ .debug_str     0x0000000000008899      0x458 output/obj/opus_decoder.o
+                                        0xfec (size before relaxing)
+ .debug_str     0x0000000000008cf1       0x34 output/obj/log2lin.o
+                                        0x7bf (size before relaxing)
+ .debug_str     0x0000000000008d25      0x4bf output/obj/bands.o
+                                       0x11d3 (size before relaxing)
+ .debug_str     0x00000000000091e4       0xf4 output/obj/vq.o
+                                        0xa32 (size before relaxing)
+ .debug_str     0x00000000000092d8       0x53 output/obj/cwrs.o
+                                        0x893 (size before relaxing)
+ .debug_str     0x000000000000932b       0x36 output/obj/entcode.o
+                                        0x7fd (size before relaxing)
+ .debug_str     0x0000000000009361       0x6c output/obj/laplace.o
+                                        0x87b (size before relaxing)
+ .debug_str     0x00000000000093cd       0x52 output/obj/celt_lpc.o
+                                        0x8d8 (size before relaxing)
+ .debug_str     0x000000000000941f       0x78 output/obj/opus.o
+                                        0x8b7 (size before relaxing)
+ .debug_str     0x0000000000009497      0x198 output/obj/repacketizer.o
+                                        0xaa7 (size before relaxing)
+ .debug_str     0x000000000000962f       0x3c output/obj/mdct.o
+                                        0x8d5 (size before relaxing)
+ .debug_str     0x000000000000966b       0x65 output/obj/opus_codec_drv.o
+                                        0x7ba (size before relaxing)
+ .debug_str     0x00000000000096d0      0x1d4 output/obj/quant_bands.o
+                                        0xd2a (size before relaxing)
+ .debug_str     0x00000000000098a4      0x51e output/obj/remote_control.o
+                                       0x16a8 (size before relaxing)
+ .debug_str     0x0000000000009dc2      0x788 output/obj/att_list.o
+                                        0xe4a (size before relaxing)
+ .debug_str     0x000000000000a54a      0x137 ./../../../APP/SECRETKEY\libSecretKey.a(SecretKey.o)
                                         0x28f (size before relaxing)
- .debug_str     0x000000000000a680      0x321 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(_clzsi2.o)
+ .debug_str     0x000000000000a681      0x321 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(_clzsi2.o)
                                         0x7c3 (size before relaxing)
- .debug_str     0x000000000000a9a1      0x2b9 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(muldf3.o)
+ .debug_str     0x000000000000a9a2      0x2b9 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(muldf3.o)
                                         0x43f (size before relaxing)
- .debug_str     0x000000000000ac5a       0x65 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(fixunsdfsi.o)
+ .debug_str     0x000000000000ac5b       0x65 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(fixunsdfsi.o)
                                         0x23b (size before relaxing)
- .debug_str     0x000000000000acbf      0x101 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(floatsidf.o)
+ .debug_str     0x000000000000acc0      0x101 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(floatsidf.o)
                                         0x2d2 (size before relaxing)
- .debug_str     0x000000000000adc0       0x5a d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(save-restore.o)
+ .debug_str     0x000000000000adc1       0x5a d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(save-restore.o)
                                          0xad (size before relaxing)
- .debug_str     0x000000000000ae1a      0x7a6 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(_clz.o)
+ .debug_str     0x000000000000ae1b      0x7a6 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(_clz.o)
 
 .comment        0x0000000000000000       0x11
  .comment       0x0000000000000000       0x11 output/obj/main.o
