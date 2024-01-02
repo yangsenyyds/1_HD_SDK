@@ -75,36 +75,63 @@ static const uint8_t ir_data[] = {
     0X73,
     0X72,
 };
-#define report_size (8)
+#define report_size (4)
 static const KeyBuf_TypeDef KeyBuf[] = {
     {0x00, 0x00, 0, 0},
-
+/*
     {0x66, 0x00, 8, 121},
-    {0xBB, 0x01, report_size, 125},
-    {0x21, 0x02, report_size, 125},
-    {0x2A, 0x02, report_size, 125},
-    {0x0A, 0x00, report_size, 125},
+    {0xBB, 0x01, report_size, 125},//caidan
+    {0x21, 0x02, report_size, 125},//voice
+    {0x2A, 0x02, report_size, 125},//home
+    {0x0A, 0x00, report_size, 125},//set
 
-    {0x42, 0x00, report_size, 125},//6
-    {0x44, 0x00, report_size, 125},
-    {0x41, 0x00, report_size, 125},
-    {0x45, 0x00, report_size, 125},
-    {0x43, 0x00, report_size, 125},   
+    {0x42, 0x00, report_size, 125},//6 up
+    {0x44, 0x00, report_size, 125},//left
+    {0x41, 0x00, report_size, 125},//ok
+    {0x45, 0x00, report_size, 125},//right
+    {0x43, 0x00, report_size, 125},// down
 
-    {0x89, 0x00, report_size, 125}, //11
-    {0X23, 0x02, report_size, 125}, 
-    {0x24, 0x02, report_size, 125},
-    {0xE2, 0X00, report_size, 125},//
-    {0x4b, 0X00, report_size, 121}, 
+    {0x89, 0x00, report_size, 125}, //11 live tv
+    {0X23, 0x02, report_size, 125}, //home
+    {0x24, 0x02, report_size, 125},//back
+    {0xE2, 0X00, report_size, 125},// mute
+    {0x4b, 0X00, 8, 121}, 
 
-    {0xE9, 0X00, report_size, 125},//16
-    {0xEA, 0X00, report_size, 125},
+    {0xE9, 0X00, report_size, 125},//16 vol+
+    {0xEA, 0X00, report_size, 125},//vol-
     {0x4E, 0X00, 8, 121},
-    {0x6F, 0X00, report_size, 125},
-    {0x07, 0X00, report_size, 125},
+    {0x6F, 0X00, report_size, 125},//netflix
+    {0x07, 0X00, report_size, 125},//youtube
 
-    {0x06, 0X00, report_size, 125},//21
-    {0x09, 0X00, report_size, 125},
+    {0x06, 0X00, report_size, 125},//21prime video
+    {0x09, 0X00, report_size, 125},//goole play
+    */
+    {0x66, 0x00, 8, 121},
+    {0x01, 0x00, report_size, 125},//caidan
+    {0x04, 0x00, report_size, 125},//voice
+    {0x02, 0x00, report_size, 125},//yonghu
+    {0x08, 0x00, report_size, 125},//set
+
+    {0x10, 0x00, report_size, 125},//6 up
+    {0x20, 0x00, report_size, 125},//left
+    {0x40, 0x00, report_size, 125},//ok
+    {0x80, 0x00, report_size, 125},//right
+    {0x00, 0x01, report_size, 125},// down
+
+    {0x00, 0x08, report_size, 125}, //11 live tv
+    {0X00, 0x04, report_size, 125}, //home
+    {0x00, 0x02, report_size, 125},//back
+    {0xE2, 0X40, report_size, 125},// mute
+    {0x4b, 0X00, 8, 121}, 
+
+    {0x00, 0X10, report_size, 125},//16 vol+
+    {0x00, 0X20, report_size, 125},//vol-
+    {0x4E, 0X00, 8, 121},
+    {0x6F, 0X00, report_size, 125},//netflix
+    {0x07, 0X80, report_size, 125},//youtube
+
+    {0x06, 0X00, report_size, 125},//21prime video
+    {0x09, 0X00, report_size, 125},//goole play   
 };
 
 #endif
@@ -915,7 +942,7 @@ void app_init(void)
             else 
             {
                 enter_low_sleep();
-                // DEBUG_LOG_STRING("KEEP CONNECT\r\n");
+                DEBUG_LOG_STRING("KEEP CONNECT\r\n");
             }            
 
         }
@@ -935,7 +962,7 @@ void app_init(void)
             else 
             {   
                 enter_low_sleep();
-                // DEBUG_LOG_STRING("KEEP CONNECT\r\n");
+                DEBUG_LOG_STRING("KEEP CONNECT\r\n");
             }
         }
 
