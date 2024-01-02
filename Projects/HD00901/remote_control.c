@@ -108,7 +108,7 @@ static const KeyBuf_TypeDef KeyBuf[] = {
     */
     {0x66, 0x00, 8, 121},
     {0x01, 0x00, report_size, 125},//caidan
-    {0x04, 0x00, report_size, 125},//voice
+    {0x21, 0x02, report_size, 125},//voice
     {0x02, 0x00, report_size, 125},//yonghu
     {0x08, 0x00, report_size, 125},//set
 
@@ -362,9 +362,12 @@ static void key_pressed_handle(void)
         else if(keynum == OK_Keynum && keynum_second == Back__Keynum)
         {
             key_pressed_time++;
-
+            DEBUG_LOG_STRING("365 \r\n");
             if(key_pressed_time == 3)
             {
+                DEBUG_LOG_STRING("368 \r\n");
+                keynum_second = 0;
+                key_pressed_time = 0;                
                 uint8_t feedback[4] = {0x40, 0x02, 0x00, 0x00};
                 ATT_sendNotify(125, (void*)feedback, sizeof(feedback));
                 return ;
@@ -375,11 +378,12 @@ static void key_pressed_handle(void)
 
     }
 }
-
+static uint8_t report_buf[6];
 static void keyvalue_handle(key_report_t* key_report)
 {
     key_pressed_num = key_report->key_press_cnt;
-    // DEBUG_LOG_STRING("352  %d \r\n", key_pressed_num);
+    DEBUG_LOG_STRING("352  %d \r\n", key_pressed_num);
+    memcpy(report_buf,key_report->keynum_report_buf,sizeof(report_buf));
     if (key_pressed_num == 0)
     {
         if (bt_check_le_connected() && encrypt_state)
@@ -414,7 +418,6 @@ static void keyvalue_handle(key_report_t* key_report)
             keynum += key_report->keynum_report_buf[i];
         }
         factory_KeyProcess(keynum==Voice_Keynum?0xff:keynum);
-
         // encrypt_state = 1;
         // led_state = 0;
         DEBUG_LOG_STRING("KEY [%d][%d][%d][%d][%d][%d][%d]\r\n", key_report->keynum_report_buf[0]
@@ -430,7 +433,7 @@ static void keyvalue_handle(key_report_t* key_report)
                 hid_send_buf[0] = 0x00;
             }         
             DEBUG_LOG_STRING("att send  [%x] [%x] [%d] \r\n",KeyBuf[keynum].keyvalue[0],KeyBuf[keynum].keyvalue[1],KeyBuf[keynum].key_send_len);
-
+            app_sleep_lock_set(KEY_LOCK, true);
             if (keynum == Voice_Keynum && !voice_key_state)
             {
                 // update_conn_param(false);
@@ -444,7 +447,6 @@ static void keyvalue_handle(key_report_t* key_report)
                 swtimer_start(vioce_timernum, 30000, TIMER_START_ONCE);
                 swtimer_start(vioce_send_timernum, 100, TIMER_START_ONCE);
                 led_on(LED_1,0,0);
-                
             }
             else if(keynum != Voice_Keynum)
             {
@@ -534,7 +536,7 @@ void Action_After_Prepare_Sleep(void)
     if(key_pressed_num == 1 && bt_check_le_connected() && encrypt_state){
         // DEBUG_LOG_STRING("505 \r\n");
         // keyscan_row_cfg_set();
-        key_wakeup_set_high();
+        key_wakeup_set_high(report_buf);
     }
 }
 
@@ -930,8 +932,8 @@ void app_init(void)
     {
         app_queue_reset();
         // DEBUG_LOG_STRING("903 keynum = %d \r\n",key_pressed_num);
-        // if (key_pressed_num != 1)
-        if (key_pressed_num == 0)
+        if (key_pressed_num != 1)
+        // if (key_pressed_num == 0)
         {
             if(key_wakeup_get())
             {
@@ -942,7 +944,7 @@ void app_init(void)
             else 
             {
                 enter_low_sleep();
-                DEBUG_LOG_STRING("KEEP CONNECT\r\n");
+                DEBUG_LOG_STRING("944 KEEP CONNECT\r\n");
             }            
 
         }
@@ -952,7 +954,7 @@ void app_init(void)
             {
                 key_press_time_handle_lpm();
             }
-            if(key_wakeup_get_high() && key_pressed_num != 0)
+            if(key_wakeup_get_high(report_buf) && key_pressed_num != 0)
             {
                 app_sleep_lock_set(KEY_LOCK, true);
                 sleep_time_state = 0;
@@ -962,7 +964,7 @@ void app_init(void)
             else 
             {   
                 enter_low_sleep();
-                DEBUG_LOG_STRING("KEEP CONNECT\r\n");
+                DEBUG_LOG_STRING("964 KEEP CONNECT\r\n");
             }
         }
 

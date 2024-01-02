@@ -258,6 +258,7 @@ static void keyscan_once(void)
     if (key_report.key_press_cnt > 0) {
 
         if(!key_lock_state){
+            DEBUG_LOG_STRING("261 = %d\r\n");
             app_sleep_lock_set(KEY_LOCK, true);
         }
     }
@@ -459,12 +460,12 @@ void key_wakeup_set(void)
 #endif
 }
 
-bool key_wakeup_get_high(void)
+bool key_wakeup_get_high(uint8_t *report_buf)
 {
     bool ret = false;
     
 #if (KEY_COL_NUM >= 1)
-    if(key_report.keynum_report_buf[0] != 0)
+    if(key_report.keynum_report_buf[0] != 0 || report_buf[0] != 0)
     {
         ret |= GPIO_ReadDataBit(KEY_COL1_PIN);
          DEBUG_LOG_STRING("470 ret = %d\r\n",ret);
@@ -475,7 +476,7 @@ bool key_wakeup_get_high(void)
     // }
 #endif
 #if (KEY_COL_NUM >= 2)
-    if(key_report.keynum_report_buf[1] != 0)
+    if(key_report.keynum_report_buf[1] != 0 || report_buf[1] != 0)
     {
         ret |= GPIO_ReadDataBit(KEY_COL2_PIN);
         DEBUG_LOG_STRING("481 ret = %d\r\n",ret);
@@ -486,7 +487,7 @@ bool key_wakeup_get_high(void)
     // }
 #endif
 #if (KEY_COL_NUM >= 3)
-    if(key_report.keynum_report_buf[2] != 0)
+    if(key_report.keynum_report_buf[2] != 0 || report_buf[2] != 0)
     {
         ret |= GPIO_ReadDataBit(KEY_COL3_PIN);
         DEBUG_LOG_STRING("492 ret = %d\r\n",ret);
@@ -497,7 +498,7 @@ bool key_wakeup_get_high(void)
     // }
 #endif
 #if (KEY_COL_NUM >= 4)
-    if(key_report.keynum_report_buf[3] != 0)
+    if(key_report.keynum_report_buf[3] != 0 || report_buf[3] != 0)
     {
         ret |= GPIO_ReadDataBit(KEY_COL4_PIN);
         DEBUG_LOG_STRING("503 ret = %d\r\n",ret);   
@@ -508,7 +509,7 @@ bool key_wakeup_get_high(void)
     // }
 #endif
 #if (KEY_COL_NUM >= 5)
-    if(key_report.keynum_report_buf[4] != 0)
+    if(key_report.keynum_report_buf[4] != 0 || report_buf[4] != 0)
     {
         ret |= GPIO_ReadDataBit(KEY_COL5_PIN);
         DEBUG_LOG_STRING("514 ret = %d\r\n",ret);
@@ -519,7 +520,7 @@ bool key_wakeup_get_high(void)
     // }
 #endif
 #if (KEY_COL_NUM >= 6)
-    if(key_report.keynum_report_buf[5] != 0)
+    if(key_report.keynum_report_buf[5] != 0 || report_buf[5] != 0)
     {
         ret |= GPIO_ReadDataBit(KEY_COL6_PIN);
         DEBUG_LOG_STRING("525 ret = %d\r\n",ret);
@@ -542,13 +543,14 @@ bool key_wakeup_get_high(void)
     return ret;
 }
 
-void key_wakeup_set_high(void)
+void key_wakeup_set_high(uint8_t *report_buf)
 {
 #if (KEY_COL_NUM >= 1)
-    if(key_report.keynum_report_buf[0] != 0)
+    if(key_report.keynum_report_buf[0] != 0 || report_buf[0] != 0)
     {
         GPIO_Init(KEY_COL1_PIN, GPIO_Mode_In_Up);
         GPIO_WakeUp(KEY_COL1_PIN, GPIO_WakeUpHigh);
+        DEBUG_LOG_STRING("553 \r\n");
     }
     // else
     // {
@@ -558,10 +560,11 @@ void key_wakeup_set_high(void)
 
 #endif
 #if (KEY_COL_NUM >= 2)
-    if(key_report.keynum_report_buf[1] != 0)
+    if(key_report.keynum_report_buf[1] != 0 || report_buf[1] != 0)
     {
         GPIO_Init(KEY_COL2_PIN, GPIO_Mode_In_Up);
         GPIO_WakeUp(KEY_COL2_PIN, GPIO_WakeUpHigh);
+        DEBUG_LOG_STRING("567 \r\n");
     }
     // else
     // {
@@ -570,10 +573,11 @@ void key_wakeup_set_high(void)
     // }
 #endif
 #if (KEY_COL_NUM >= 3)
-    if(key_report.keynum_report_buf[2] != 0)
+    if(key_report.keynum_report_buf[2] != 0 || report_buf[2] != 0)
     {
         GPIO_Init(KEY_COL3_PIN, GPIO_Mode_In_Up);
         GPIO_WakeUp(KEY_COL3_PIN, GPIO_WakeUpHigh);
+        DEBUG_LOG_STRING("580 \r\n");
     }
     // else
     // {
@@ -582,10 +586,11 @@ void key_wakeup_set_high(void)
     // }
 #endif
 #if (KEY_COL_NUM >= 4)
-    if(key_report.keynum_report_buf[3] != 0)
+    if(key_report.keynum_report_buf[3] != 0 || report_buf[3] != 0)
     {
         GPIO_Init(KEY_COL4_PIN, GPIO_Mode_In_Up);
         GPIO_WakeUp(KEY_COL4_PIN, GPIO_WakeUpHigh);
+        DEBUG_LOG_STRING("593 \r\n");        
     }
     // else
     // {
@@ -594,10 +599,11 @@ void key_wakeup_set_high(void)
     // }
 #endif
 #if (KEY_COL_NUM >= 5)
-    if(key_report.keynum_report_buf[4] != 0)
+    if(key_report.keynum_report_buf[4] != 0 || report_buf[4] != 0)
     {
         GPIO_Init(KEY_COL5_PIN, GPIO_Mode_In_Up);
         GPIO_WakeUp(KEY_COL5_PIN, GPIO_WakeUpHigh);
+        DEBUG_LOG_STRING("606 \r\n");                
     }
     // else
     // {
@@ -606,9 +612,10 @@ void key_wakeup_set_high(void)
     // }
 #endif
 #if (KEY_COL_NUM >= 6)
-    if(key_report.keynum_report_buf[5] != 0){
+    if(key_report.keynum_report_buf[5] != 0 || report_buf[5] != 0){
         GPIO_Init(KEY_COL6_PIN, GPIO_Mode_In_Up);
         GPIO_WakeUp(KEY_COL6_PIN, GPIO_WakeUpHigh);
+        DEBUG_LOG_STRING("618 \r\n");         
     }
     // else
     // {

@@ -164,7 +164,8 @@ void prepare_before_sleep(void)
         GPIO_Init(IR_RCV_PIN, GPIO_Mode_Out_High);
 #endif
         key_wakeup_set();
-        Action_After_Prepare_Sleep();        
+        Action_After_Prepare_Sleep();
+        DEBUG_LOG_STRING("PREPARE BEFORE SLEEP end  \r\n");
     }
 }
 
