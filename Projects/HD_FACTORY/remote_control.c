@@ -341,6 +341,7 @@ void Write_DataParse(const ATT_TABLE_TYPE *table, uint8_t *data, uint8_t len)
             uint8_t sendbuf[22] = {FRAME_HEADER, RCU << 4 + PC, CMD_NAME_CHECK, 0x00, 0x10, 0x00};
 
             QSPI_ReadFlashData(CODE_BURN_FLASHADDR2 + CODE_OFFSET_LEN, 16, SerialName);
+            // QSPI_ReadFlashData(CODE_BURN_FLASHADDR1 + CODE_OFFSET_LEN, 16, SerialName);
             memcpy((void *)&sendbuf[6], SerialName, 16);
             ATT_sendNotify(DONGLE_SEND_HANDLE, sendbuf, 22);
         }
