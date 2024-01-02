@@ -121,7 +121,7 @@ static const KeyBuf_TypeDef KeyBuf[] = {
     {0x00, 0x08, report_size, 125}, //11 live tv
     {0X00, 0x04, report_size, 125}, //home
     {0x00, 0x02, report_size, 125},//back
-    {0xE2, 0X40, report_size, 125},// mute
+    {0x00, 0X40, report_size, 125},// mute
     {0x4b, 0X00, 8, 121}, 
 
     {0x00, 0X10, report_size, 125},//16 vol+
@@ -365,7 +365,7 @@ static void key_pressed_handle(void)
 
             if(key_pressed_time == 3)
             {
-                uint8_t feedback[4] = {0x12, 0x00, 0x00, 0x00};
+                uint8_t feedback[4] = {0x40, 0x02, 0x00, 0x00};
                 ATT_sendNotify(125, (void*)feedback, sizeof(feedback));
                 return ;
             }else{
