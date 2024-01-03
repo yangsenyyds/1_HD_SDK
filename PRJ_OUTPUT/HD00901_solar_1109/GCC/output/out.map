@@ -1037,7 +1037,7 @@ LOAD d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib
  .debug_ranges  0x0000000001000658       0x20 output/obj/startup_rv32.o
                 0x0000000001001000                . = 0x1001000
 
-.text1          0x0000000001001000     0xce14
+.text1          0x0000000001001000     0xcdf0
  *(.text*)
  .text.bt_init  0x0000000001001000       0x52 output/obj/main.o
  .text.chip_task_run
@@ -1831,167 +1831,167 @@ LOAD d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib
                 0x0000000001009430                Adpcm_FrameEncode_Restart
  .text.SecretKey_Check
                 0x0000000001009450       0xc6 output/obj/remote_control.o
- .text.key_press_time_handle_lpm
-                0x0000000001009516       0xca output/obj/remote_control.o
- .text.key_press_time_handle
-                0x00000000010095e0       0x60 output/obj/remote_control.o
- .text.low_power_handle
-                0x0000000001009640       0x76 output/obj/remote_control.o
- .text.voice_send_handle
-                0x00000000010096b6       0x3a output/obj/remote_control.o
- .text.key_pressed_handle
-                0x00000000010096f0      0x152 output/obj/remote_control.o
- .text.keyvalue_handle
-                0x0000000001009842      0x4b0 output/obj/remote_control.o
- .text.Action_After_Prepare_Sleep
-                0x0000000001009cf2       0x38 output/obj/remote_control.o
-                0x0000000001009cf2                Action_After_Prepare_Sleep
- .text.action_after_mic_close
-                0x0000000001009d2a       0x1e output/obj/remote_control.o
-                0x0000000001009d2a                action_after_mic_close
- .text.action_after_led_blk
-                0x0000000001009d48       0x76 output/obj/remote_control.o
-                0x0000000001009d48                action_after_led_blk
- .text.power_handle
-                0x0000000001009dbe       0x6c output/obj/remote_control.o
  .text.remote_control_reinit
-                0x0000000001009e2a       0x28 output/obj/remote_control.o
+                0x0000000001009516       0x28 output/obj/remote_control.o
+ .text.key_press_time_handle_lpm
+                0x000000000100953e       0xca output/obj/remote_control.o
+ .text.key_press_time_handle
+                0x0000000001009608       0x60 output/obj/remote_control.o
+ .text.low_power_handle
+                0x0000000001009668       0x76 output/obj/remote_control.o
+ .text.voice_send_handle
+                0x00000000010096de       0x3a output/obj/remote_control.o
+ .text.key_pressed_handle
+                0x0000000001009718      0x152 output/obj/remote_control.o
+ .text.keyvalue_handle
+                0x000000000100986a      0x4b4 output/obj/remote_control.o
+ .text.Action_After_Prepare_Sleep
+                0x0000000001009d1e       0x38 output/obj/remote_control.o
+                0x0000000001009d1e                Action_After_Prepare_Sleep
+ .text.action_after_mic_close
+                0x0000000001009d56       0x1e output/obj/remote_control.o
+                0x0000000001009d56                action_after_mic_close
+ .text.action_after_led_blk
+                0x0000000001009d74       0x76 output/obj/remote_control.o
+                0x0000000001009d74                action_after_led_blk
+ .text.power_handle
+                0x0000000001009dea       0x6c output/obj/remote_control.o
  .text.update_conn_param
-                0x0000000001009e52       0x46 output/obj/remote_control.o
-                0x0000000001009e52                update_conn_param
+                0x0000000001009e56       0x46 output/obj/remote_control.o
+                0x0000000001009e56                update_conn_param
  .text.CONN_PARAM_ACCEPTED
-                0x0000000001009e98       0x6e output/obj/remote_control.o
-                0x0000000001009e98                CONN_PARAM_ACCEPTED
+                0x0000000001009e9c       0x6e output/obj/remote_control.o
+                0x0000000001009e9c                CONN_PARAM_ACCEPTED
  .text.stop_adv
-                0x0000000001009f06       0x32 output/obj/remote_control.o
-                0x0000000001009f06                stop_adv
+                0x0000000001009f0a       0x32 output/obj/remote_control.o
+                0x0000000001009f0a                stop_adv
  .text.start_adv
-                0x0000000001009f38       0x76 output/obj/remote_control.o
-                0x0000000001009f38                start_adv
+                0x0000000001009f3c       0x76 output/obj/remote_control.o
+                0x0000000001009f3c                start_adv
  .text.Read_Blob_Parse
-                0x0000000001009fae       0x80 output/obj/remote_control.o
-                0x0000000001009fae                Read_Blob_Parse
+                0x0000000001009fb2       0x80 output/obj/remote_control.o
+                0x0000000001009fb2                Read_Blob_Parse
  .text.Read_Parse
-                0x000000000100a02e       0x76 output/obj/remote_control.o
-                0x000000000100a02e                Read_Parse
+                0x000000000100a032       0x76 output/obj/remote_control.o
+                0x000000000100a032                Read_Parse
  .text.Write_DataParse
-                0x000000000100a0a4      0x156 output/obj/remote_control.o
-                0x000000000100a0a4                Write_DataParse
+                0x000000000100a0a8      0x156 output/obj/remote_control.o
+                0x000000000100a0a8                Write_DataParse
  .text.LE_LTK_LOST
-                0x000000000100a1fa       0x3e output/obj/remote_control.o
-                0x000000000100a1fa                LE_LTK_LOST
+                0x000000000100a1fe       0x3e output/obj/remote_control.o
+                0x000000000100a1fe                LE_LTK_LOST
  .text.ENCRYPT_DONE
-                0x000000000100a238       0x46 output/obj/remote_control.o
-                0x000000000100a238                ENCRYPT_DONE
+                0x000000000100a23c       0x46 output/obj/remote_control.o
+                0x000000000100a23c                ENCRYPT_DONE
  .text.PAIR_FAIL
-                0x000000000100a27e       0x16 output/obj/remote_control.o
-                0x000000000100a27e                PAIR_FAIL
+                0x000000000100a282       0x16 output/obj/remote_control.o
+                0x000000000100a282                PAIR_FAIL
  .text.PAIR_DONE
-                0x000000000100a294       0xae output/obj/remote_control.o
-                0x000000000100a294                PAIR_DONE
+                0x000000000100a298       0xae output/obj/remote_control.o
+                0x000000000100a298                PAIR_DONE
  .text.LE_DISCONNECTED
-                0x000000000100a342       0xd8 output/obj/remote_control.o
-                0x000000000100a342                LE_DISCONNECTED
+                0x000000000100a346       0xd8 output/obj/remote_control.o
+                0x000000000100a346                LE_DISCONNECTED
  .text.LE_CONNECTED
-                0x000000000100a41a       0x40 output/obj/remote_control.o
-                0x000000000100a41a                LE_CONNECTED
+                0x000000000100a41e       0x40 output/obj/remote_control.o
+                0x000000000100a41e                LE_CONNECTED
  .text.Dev_PowerOn
-                0x000000000100a45a       0x5a output/obj/remote_control.o
-                0x000000000100a45a                Dev_PowerOn
+                0x000000000100a45e       0x5a output/obj/remote_control.o
+                0x000000000100a45e                Dev_PowerOn
  .text.tx_power_switch_set
-                0x000000000100a4b4        0xa output/obj/remote_control.o
-                0x000000000100a4b4                tx_power_switch_set
+                0x000000000100a4b8        0xa output/obj/remote_control.o
+                0x000000000100a4b8                tx_power_switch_set
  .text.app_task_run
-                0x000000000100a4be       0x1c output/obj/remote_control.o
-                0x000000000100a4be                app_task_run
+                0x000000000100a4c2       0x1c output/obj/remote_control.o
+                0x000000000100a4c2                app_task_run
  .text.app_init
-                0x000000000100a4da      0x17e output/obj/remote_control.o
-                0x000000000100a4da                app_init
+                0x000000000100a4de      0x17e output/obj/remote_control.o
+                0x000000000100a4de                app_init
  .text.Find_AttTable_ByHandle
-                0x000000000100a658       0x2e output/obj/att_list.o
-                0x000000000100a658                Find_AttTable_ByHandle
+                0x000000000100a65c       0x2e output/obj/att_list.o
+                0x000000000100a65c                Find_AttTable_ByHandle
  .text.Find_AttTable_ByHandleRange_Type
-                0x000000000100a686       0x72 output/obj/att_list.o
-                0x000000000100a686                Find_AttTable_ByHandleRange_Type
+                0x000000000100a68a       0x72 output/obj/att_list.o
+                0x000000000100a68a                Find_AttTable_ByHandleRange_Type
  .text.Find_AttTable_ByHandleRange_Type_Data
-                0x000000000100a6f8       0x92 output/obj/att_list.o
-                0x000000000100a6f8                Find_AttTable_ByHandleRange_Type_Data
+                0x000000000100a6fc       0x92 output/obj/att_list.o
+                0x000000000100a6fc                Find_AttTable_ByHandleRange_Type_Data
  .text.BitsReverse
-                0x000000000100a78a       0x26 ./../../../APP/SECRETKEY\libSecretKey.a(SecretKey.o)
- .text.GetCRC   0x000000000100a7b0       0x8a ./../../../APP/SECRETKEY\libSecretKey.a(SecretKey.o)
+                0x000000000100a78e       0x26 ./../../../APP/SECRETKEY\libSecretKey.a(SecretKey.o)
+ .text.GetCRC   0x000000000100a7b4       0x8a ./../../../APP/SECRETKEY\libSecretKey.a(SecretKey.o)
  .text.SecretKey_Generate
-                0x000000000100a83a       0x4a ./../../../APP/SECRETKEY\libSecretKey.a(SecretKey.o)
-                0x000000000100a83a                SecretKey_Generate
- .text          0x000000000100a884      0x5b6 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(muldf3.o)
-                0x000000000100a884                __muldf3
- .text          0x000000000100ae3a       0x9c d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(fixunsdfsi.o)
-                0x000000000100ae3a                __fixunsdfsi
- .text          0x000000000100aed6       0x6c d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(floatsidf.o)
-                0x000000000100aed6                __floatsidf
- .text          0x000000000100af42       0x60 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(save-restore.o)
-                0x000000000100af42                __riscv_save_12
-                0x000000000100af4a                __riscv_save_9
-                0x000000000100af4a                __riscv_save_11
-                0x000000000100af4a                __riscv_save_10
-                0x000000000100af4a                __riscv_save_8
-                0x000000000100af58                __riscv_save_4
-                0x000000000100af58                __riscv_save_6
-                0x000000000100af58                __riscv_save_5
-                0x000000000100af58                __riscv_save_7
-                0x000000000100af72                __riscv_save_3
-                0x000000000100af72                __riscv_save_2
-                0x000000000100af72                __riscv_save_1
-                0x000000000100af72                __riscv_save_0
-                0x000000000100af7e                __riscv_restore_12
-                0x000000000100af82                __riscv_restore_11
-                0x000000000100af82                __riscv_restore_9
-                0x000000000100af82                __riscv_restore_10
-                0x000000000100af82                __riscv_restore_8
-                0x000000000100af8c                __riscv_restore_5
-                0x000000000100af8c                __riscv_restore_7
-                0x000000000100af8c                __riscv_restore_6
-                0x000000000100af8c                __riscv_restore_4
-                0x000000000100af96                __riscv_restore_3
-                0x000000000100af96                __riscv_restore_0
-                0x000000000100af96                __riscv_restore_2
-                0x000000000100af96                __riscv_restore_1
- .text          0x000000000100afa2       0x3c d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(_clzsi2.o)
-                0x000000000100afa2                __clzsi2
- .text          0x000000000100afde       0x26 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0/../../../../riscv32-unknown-elf/lib\libc.a(lib_a-memcmp.o)
-                0x000000000100afde                memcmp
- .text          0x000000000100b004       0xba d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0/../../../../riscv32-unknown-elf/lib\libc.a(lib_a-memcpy.o)
-                0x000000000100b004                memcpy
- .text          0x000000000100b0be       0xa8 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0/../../../../riscv32-unknown-elf/lib\libc.a(lib_a-memset.o)
-                0x000000000100b0be                memset
+                0x000000000100a83e       0x4a ./../../../APP/SECRETKEY\libSecretKey.a(SecretKey.o)
+                0x000000000100a83e                SecretKey_Generate
+ .text          0x000000000100a888      0x5b6 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(muldf3.o)
+                0x000000000100a888                __muldf3
+ .text          0x000000000100ae3e       0x9c d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(fixunsdfsi.o)
+                0x000000000100ae3e                __fixunsdfsi
+ .text          0x000000000100aeda       0x6c d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(floatsidf.o)
+                0x000000000100aeda                __floatsidf
+ .text          0x000000000100af46       0x60 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(save-restore.o)
+                0x000000000100af46                __riscv_save_12
+                0x000000000100af4e                __riscv_save_9
+                0x000000000100af4e                __riscv_save_11
+                0x000000000100af4e                __riscv_save_10
+                0x000000000100af4e                __riscv_save_8
+                0x000000000100af5c                __riscv_save_4
+                0x000000000100af5c                __riscv_save_6
+                0x000000000100af5c                __riscv_save_5
+                0x000000000100af5c                __riscv_save_7
+                0x000000000100af76                __riscv_save_3
+                0x000000000100af76                __riscv_save_2
+                0x000000000100af76                __riscv_save_1
+                0x000000000100af76                __riscv_save_0
+                0x000000000100af82                __riscv_restore_12
+                0x000000000100af86                __riscv_restore_11
+                0x000000000100af86                __riscv_restore_9
+                0x000000000100af86                __riscv_restore_10
+                0x000000000100af86                __riscv_restore_8
+                0x000000000100af90                __riscv_restore_5
+                0x000000000100af90                __riscv_restore_7
+                0x000000000100af90                __riscv_restore_6
+                0x000000000100af90                __riscv_restore_4
+                0x000000000100af9a                __riscv_restore_3
+                0x000000000100af9a                __riscv_restore_0
+                0x000000000100af9a                __riscv_restore_2
+                0x000000000100af9a                __riscv_restore_1
+ .text          0x000000000100afa6       0x3c d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(_clzsi2.o)
+                0x000000000100afa6                __clzsi2
+ .text          0x000000000100afe2       0x26 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0/../../../../riscv32-unknown-elf/lib\libc.a(lib_a-memcmp.o)
+                0x000000000100afe2                memcmp
+ .text          0x000000000100b008       0xba d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0/../../../../riscv32-unknown-elf/lib\libc.a(lib_a-memcpy.o)
+                0x000000000100b008                memcpy
+ .text          0x000000000100b0c2       0xa8 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0/../../../../riscv32-unknown-elf/lib\libc.a(lib_a-memset.o)
+                0x000000000100b0c2                memset
  *(.rdata*)
  *(.rodata*)
- *fill*         0x000000000100b166        0x2 
+ *fill*         0x000000000100b16a        0x2 
  .rodata.print_string_log_raw.str1.4
-                0x000000000100b168       0x32 output/obj/yc_debug.o
- *fill*         0x000000000100b19a        0x2 
+                0x000000000100b16c       0x32 output/obj/yc_debug.o
+ *fill*         0x000000000100b19e        0x2 
  .rodata.Memory_Malloc.str1.4
-                0x000000000100b19c       0x1f output/obj/malloc.o
- *fill*         0x000000000100b1bb        0x1 
+                0x000000000100b1a0       0x1f output/obj/malloc.o
+ *fill*         0x000000000100b1bf        0x1 
  .rodata.__FUNCTION__.3613
-                0x000000000100b1bc        0xe output/obj/malloc.o
- *fill*         0x000000000100b1ca        0x2 
+                0x000000000100b1c0        0xe output/obj/malloc.o
+ *fill*         0x000000000100b1ce        0x2 
  .rodata.IPC_TxPacket.str1.4
-                0x000000000100b1cc       0x28 output/obj/yc11xx_ipc.o
+                0x000000000100b1d0       0x28 output/obj/yc11xx_ipc.o
  .rodata.IpcDefaultCallBack.str1.4
-                0x000000000100b1f4       0x16 output/obj/yc11xx_ipc.o
- *fill*         0x000000000100b20a        0x2 
+                0x000000000100b1f8       0x16 output/obj/yc11xx_ipc.o
+ *fill*         0x000000000100b20e        0x2 
  .rodata.__FUNCTION__.3679
-                0x000000000100b20c        0xd output/obj/yc11xx_ipc.o
- *fill*         0x000000000100b219        0x3 
+                0x000000000100b210        0xd output/obj/yc11xx_ipc.o
+ *fill*         0x000000000100b21d        0x3 
  .rodata.__FUNCTION__.3684
-                0x000000000100b21c       0x11 output/obj/yc11xx_ipc.o
- *fill*         0x000000000100b22d        0x3 
+                0x000000000100b220       0x11 output/obj/yc11xx_ipc.o
+ *fill*         0x000000000100b231        0x3 
  .rodata.__FUNCTION__.3689
-                0x000000000100b230        0xd output/obj/yc11xx_ipc.o
- *fill*         0x000000000100b23d        0x3 
+                0x000000000100b234        0xd output/obj/yc11xx_ipc.o
+ *fill*         0x000000000100b241        0x3 
  .rodata.__FUNCTION__.3694
-                0x000000000100b240       0x13 output/obj/yc11xx_ipc.o
- *fill*         0x000000000100b253        0x5 
+                0x000000000100b244       0x13 output/obj/yc11xx_ipc.o
+ *fill*         0x000000000100b257        0x1 
  .rodata.g_adc_cicfircoeffTtablel
                 0x000000000100b258      0x1f8 output/obj/yc11xx_audio_adc.o
                 0x000000000100b258                g_adc_cicfircoeffTtablel
@@ -3028,194 +3028,195 @@ LOAD d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib
                 0x000000000100d4a8        0x2 output/obj/att_list.o
  *fill*         0x000000000100d4aa        0x2 
  .rodata.report_map_value
-                0x000000000100d4ac       0x88 output/obj/att_list.o
+                0x000000000100d4ac       0x63 output/obj/att_list.o
+ *fill*         0x000000000100d50f        0x1 
  .rodata.CHRCTR_HID_INFO
-                0x000000000100d534        0x2 output/obj/att_list.o
- *fill*         0x000000000100d536        0x2 
+                0x000000000100d510        0x2 output/obj/att_list.o
+ *fill*         0x000000000100d512        0x2 
  .rodata.hid_info_value
-                0x000000000100d538        0x4 output/obj/att_list.o
+                0x000000000100d514        0x4 output/obj/att_list.o
  .rodata.CHRCTR_HID_CTRL_POINT
-                0x000000000100d53c        0x2 output/obj/att_list.o
- *fill*         0x000000000100d53e        0x2 
+                0x000000000100d518        0x2 output/obj/att_list.o
+ *fill*         0x000000000100d51a        0x2 
  .rodata.CHRCTR_REPORT
-                0x000000000100d540        0x2 output/obj/att_list.o
- *fill*         0x000000000100d542        0x2 
+                0x000000000100d51c        0x2 output/obj/att_list.o
+ *fill*         0x000000000100d51e        0x2 
  .rodata.report1_rr
-                0x000000000100d544        0x2 output/obj/att_list.o
- *fill*         0x000000000100d546        0x2 
+                0x000000000100d520        0x2 output/obj/att_list.o
+ *fill*         0x000000000100d522        0x2 
  .rodata.report2_rr
-                0x000000000100d548        0x2 output/obj/att_list.o
- *fill*         0x000000000100d54a        0x2 
+                0x000000000100d524        0x2 output/obj/att_list.o
+ *fill*         0x000000000100d526        0x2 
  .rodata.report3_rr
-                0x000000000100d54c        0x2 output/obj/att_list.o
- *fill*         0x000000000100d54e        0x2 
+                0x000000000100d528        0x2 output/obj/att_list.o
+ *fill*         0x000000000100d52a        0x2 
  .rodata.CHRCTR_ATV_214e100
-                0x000000000100d550       0x10 output/obj/att_list.o
+                0x000000000100d52c       0x10 output/obj/att_list.o
  .rodata.CHRCTR_ATV_214e101
-                0x000000000100d560       0x10 output/obj/att_list.o
+                0x000000000100d53c       0x10 output/obj/att_list.o
  .rodata.CHRCTR_ATV_214e102
-                0x000000000100d570       0x10 output/obj/att_list.o
+                0x000000000100d54c       0x10 output/obj/att_list.o
  .rodata.CHRCTR_ATV_214e103
-                0x000000000100d580       0x10 output/obj/att_list.o
+                0x000000000100d55c       0x10 output/obj/att_list.o
  .rodata.CHRCTR_ATV_f494_50
-                0x000000000100d590       0x10 output/obj/att_list.o
+                0x000000000100d56c       0x10 output/obj/att_list.o
  .rodata.CHRCTR_ATV_f494_52
-                0x000000000100d5a0       0x10 output/obj/att_list.o
+                0x000000000100d57c       0x10 output/obj/att_list.o
  .rodata.CHRCTR_ATV_f494_51
-                0x000000000100d5b0       0x10 output/obj/att_list.o
+                0x000000000100d58c       0x10 output/obj/att_list.o
  .rodata.CHRCTR_fa3b8fb0
-                0x000000000100d5c0       0x10 output/obj/att_list.o
+                0x000000000100d59c       0x10 output/obj/att_list.o
  .rodata.CHRCTR_16737201
-                0x000000000100d5d0       0x10 output/obj/att_list.o
+                0x000000000100d5ac       0x10 output/obj/att_list.o
  .rodata.CHRCTR_ATV_Voice_Service_uuid_128
-                0x000000000100d5e0       0x10 output/obj/att_list.o
+                0x000000000100d5bc       0x10 output/obj/att_list.o
  .rodata.CHRCTR_Write_uuid_128
-                0x000000000100d5f0       0x10 output/obj/att_list.o
+                0x000000000100d5cc       0x10 output/obj/att_list.o
  .rodata.CHRCTR_Read_uuid_128
-                0x000000000100d600       0x10 output/obj/att_list.o
+                0x000000000100d5dc       0x10 output/obj/att_list.o
  .rodata.CHRCTR_Control_uuid_128
-                0x000000000100d610       0x10 output/obj/att_list.o
+                0x000000000100d5ec       0x10 output/obj/att_list.o
  .rodata.OTA_SERVICE
-                0x000000000100d620        0x2 output/obj/att_list.o
- *fill*         0x000000000100d622        0x2 
+                0x000000000100d5fc        0x2 output/obj/att_list.o
+ *fill*         0x000000000100d5fe        0x2 
  .rodata.CHRCTR_OTA_NOTIFY
-                0x000000000100d624        0x2 output/obj/att_list.o
- *fill*         0x000000000100d626        0x2 
+                0x000000000100d600        0x2 output/obj/att_list.o
+ *fill*         0x000000000100d602        0x2 
  .rodata.CHRCTR_OTA_WRITE
-                0x000000000100d628        0x2 output/obj/att_list.o
- *fill*         0x000000000100d62a        0x2 
+                0x000000000100d604        0x2 output/obj/att_list.o
+ *fill*         0x000000000100d606        0x2 
  .rodata.factory_primary_uuid
-                0x000000000100d62c       0x10 output/obj/att_list.o
+                0x000000000100d608       0x10 output/obj/att_list.o
  .rodata.factory_characteristic_uuid
-                0x000000000100d63c       0x10 output/obj/att_list.o
+                0x000000000100d618       0x10 output/obj/att_list.o
  .rodata.product_id_s
-                0x000000000100d64c        0x4 output/obj/att_list.o
+                0x000000000100d628        0x4 output/obj/att_list.o
  .rodata.Att_List
-                0x000000000100d650      0x640 output/obj/att_list.o
-                0x000000000100d650                Att_List
+                0x000000000100d62c      0x640 output/obj/att_list.o
+                0x000000000100d62c                Att_List
  .rodata.s_crcInfoTab
-                0x000000000100dc90       0x18 ./../../../APP/SECRETKEY\libSecretKey.a(SecretKey.o)
+                0x000000000100dc6c       0x18 ./../../../APP/SECRETKEY\libSecretKey.a(SecretKey.o)
  .rodata.PublicKey_1228
-                0x000000000100dca8       0x10 ./../../../APP/SECRETKEY\libSecretKey.a(SecretKey.o)
+                0x000000000100dc84       0x10 ./../../../APP/SECRETKEY\libSecretKey.a(SecretKey.o)
  .rodata.PublicKey_3527
-                0x000000000100dcb8       0x10 ./../../../APP/SECRETKEY\libSecretKey.a(SecretKey.o)
+                0x000000000100dc94       0x10 ./../../../APP/SECRETKEY\libSecretKey.a(SecretKey.o)
  .rodata.PublicKey_5815
-                0x000000000100dcc8       0x10 ./../../../APP/SECRETKEY\libSecretKey.a(SecretKey.o)
- .rodata        0x000000000100dcd8       0x3c d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(muldf3.o)
- .rodata        0x000000000100dd14      0x100 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(_clz.o)
-                0x000000000100dd14                __clz_tab
+                0x000000000100dca4       0x10 ./../../../APP/SECRETKEY\libSecretKey.a(SecretKey.o)
+ .rodata        0x000000000100dcb4       0x3c d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(muldf3.o)
+ .rodata        0x000000000100dcf0      0x100 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(_clz.o)
+                0x000000000100dcf0                __clz_tab
  *(.srodata*)
  *(.eh_frame*)
  *(.srodata.cst*)
-                0x000000000100de14                _sidata = ALIGN (0x4)
+                0x000000000100ddf0                _sidata = ALIGN (0x4)
 
-.rela.dyn       0x000000000100de14        0x0
+.rela.dyn       0x000000000100ddf0        0x0
  .rela.text.chip_init
-                0x000000000100de14        0x0 output/obj/main.o
+                0x000000000100ddf0        0x0 output/obj/main.o
  .rela.text.uart_txChar
-                0x000000000100de14        0x0 output/obj/main.o
+                0x000000000100ddf0        0x0 output/obj/main.o
  .rela.text.init_debugUart
-                0x000000000100de14        0x0 output/obj/main.o
+                0x000000000100ddf0        0x0 output/obj/main.o
  .rela.text.print_log_to_uart
-                0x000000000100de14        0x0 output/obj/main.o
+                0x000000000100ddf0        0x0 output/obj/main.o
  .rela.text.CoreReg_LpmWriteCommon
-                0x000000000100de14        0x0 output/obj/main.o
+                0x000000000100ddf0        0x0 output/obj/main.o
  .rela.text.Memory_Malloc
-                0x000000000100de14        0x0 output/obj/main.o
+                0x000000000100ddf0        0x0 output/obj/main.o
  .rela.text.swtimer_task
-                0x000000000100de14        0x0 output/obj/main.o
+                0x000000000100ddf0        0x0 output/obj/main.o
  .rela.text.swtimer_start
-                0x000000000100de14        0x0 output/obj/main.o
+                0x000000000100ddf0        0x0 output/obj/main.o
  .rela.text.ipcRx
-                0x000000000100de14        0x0 output/obj/main.o
+                0x000000000100ddf0        0x0 output/obj/main.o
  .rela.text.ipcTx
-                0x000000000100de14        0x0 output/obj/main.o
+                0x000000000100ddf0        0x0 output/obj/main.o
  .rela.text.IPC_TxCommon
-                0x000000000100de14        0x0 output/obj/main.o
+                0x000000000100ddf0        0x0 output/obj/main.o
  .rela.text.IPC_TxControlCmd
-                0x000000000100de14        0x0 output/obj/main.o
+                0x000000000100ddf0        0x0 output/obj/main.o
  .rela.text.IPC_TxAclCmd
-                0x000000000100de14        0x0 output/obj/main.o
+                0x000000000100ddf0        0x0 output/obj/main.o
  .rela.text.IPC_HandleRxPacket
-                0x000000000100de14        0x0 output/obj/main.o
+                0x000000000100ddf0        0x0 output/obj/main.o
  .rela.text.Lpm_PollingWork
-                0x000000000100de14        0x0 output/obj/main.o
+                0x000000000100ddf0        0x0 output/obj/main.o
  .rela.text.Bt_HciFifo_Init
-                0x000000000100de14        0x0 output/obj/main.o
+                0x000000000100ddf0        0x0 output/obj/main.o
  .rela.text.Bt_SndToBtData
-                0x000000000100de14        0x0 output/obj/main.o
+                0x000000000100ddf0        0x0 output/obj/main.o
  .rela.text.Bt_DataBufferCallBack
-                0x000000000100de14        0x0 output/obj/main.o
+                0x000000000100ddf0        0x0 output/obj/main.o
  .rela.text.QSPI_ReadFlashData
-                0x000000000100de14        0x0 output/obj/main.o
+                0x000000000100ddf0        0x0 output/obj/main.o
  .rela.text.QSPI_WriteFlashData
-                0x000000000100de14        0x0 output/obj/main.o
+                0x000000000100ddf0        0x0 output/obj/main.o
  .rela.text.QSPI_SectorEraseFlash
-                0x000000000100de14        0x0 output/obj/main.o
+                0x000000000100ddf0        0x0 output/obj/main.o
  .rela.text.QSPI_EraseFlashPage
-                0x000000000100de14        0x0 output/obj/main.o
+                0x000000000100ddf0        0x0 output/obj/main.o
  .rela.text.QSPI_FlashWriteLock
-                0x000000000100de14        0x0 output/obj/main.o
+                0x000000000100ddf0        0x0 output/obj/main.o
  .rela.data.gpRecinfo
-                0x000000000100de14        0x0 output/obj/main.o
+                0x000000000100ddf0        0x0 output/obj/main.o
  .rela.text.Flash_LoadFlashRecord
-                0x000000000100de14        0x0 output/obj/main.o
+                0x000000000100ddf0        0x0 output/obj/main.o
  .rela.text.Flash_UpdateFlashRecordInfo
-                0x000000000100de14        0x0 output/obj/main.o
+                0x000000000100ddf0        0x0 output/obj/main.o
  .rela.text.Bt_EvtCallBack
-                0x000000000100de14        0x0 output/obj/main.o
+                0x000000000100ddf0        0x0 output/obj/main.o
  .rela.text.Bt_ClearRemoteDevInfo
-                0x000000000100de14        0x0 output/obj/main.o
+                0x000000000100ddf0        0x0 output/obj/main.o
  .rela.text.ATT_ExecuteWriteReq
-                0x000000000100de14        0x0 output/obj/main.o
+                0x000000000100ddf0        0x0 output/obj/main.o
  .rela.text.ATT_PrepareWriteReq
-                0x000000000100de14        0x0 output/obj/main.o
+                0x000000000100ddf0        0x0 output/obj/main.o
  .rela.text.app_queue_insert
-                0x000000000100de14        0x0 output/obj/main.o
+                0x000000000100ddf0        0x0 output/obj/main.o
  .rela.text.app_queue_task
-                0x000000000100de14        0x0 output/obj/main.o
+                0x000000000100ddf0        0x0 output/obj/main.o
  .rela.text.enter_deep_sleep
-                0x000000000100de14        0x0 output/obj/main.o
+                0x000000000100ddf0        0x0 output/obj/main.o
  .rela.text.Voice_Send
-                0x000000000100de14        0x0 output/obj/main.o
+                0x000000000100ddf0        0x0 output/obj/main.o
  .rela.text.Voice_Encode
-                0x000000000100de14        0x0 output/obj/main.o
+                0x000000000100ddf0        0x0 output/obj/main.o
  .rela.text.audio_task
-                0x000000000100de14        0x0 output/obj/main.o
+                0x000000000100ddf0        0x0 output/obj/main.o
  .rela.text.timeout_timer_cb
-                0x000000000100de14        0x0 output/obj/main.o
+                0x000000000100ddf0        0x0 output/obj/main.o
  .rela.text.start_ntf_timer_cb
-                0x000000000100de14        0x0 output/obj/main.o
+                0x000000000100ddf0        0x0 output/obj/main.o
  .rela.text.voice_status_change
-                0x000000000100de14        0x0 output/obj/main.o
+                0x000000000100ddf0        0x0 output/obj/main.o
  .rela.text.mic_close
-                0x000000000100de14        0x0 output/obj/main.o
+                0x000000000100ddf0        0x0 output/obj/main.o
  .rela.text.mic_open
-                0x000000000100de14        0x0 output/obj/main.o
+                0x000000000100ddf0        0x0 output/obj/main.o
  .rela.text.voice_report_reinit
-                0x000000000100de14        0x0 output/obj/main.o
+                0x000000000100ddf0        0x0 output/obj/main.o
  .rela.text.ADPCM_Encode_Google_TV_Audio
-                0x000000000100de14        0x0 output/obj/main.o
+                0x000000000100ddf0        0x0 output/obj/main.o
  .rela.text.Adpcm_FrameEncode_Google_TV_Audio
-                0x000000000100de14        0x0 output/obj/main.o
+                0x000000000100ddf0        0x0 output/obj/main.o
  .rela.text.Adpcm_FrameEncode_Restart
-                0x000000000100de14        0x0 output/obj/main.o
+                0x000000000100ddf0        0x0 output/obj/main.o
  .rela.text.keyvalue_handle
-                0x000000000100de14        0x0 output/obj/main.o
+                0x000000000100ddf0        0x0 output/obj/main.o
  .rela.text.Write_DataParse
-                0x000000000100de14        0x0 output/obj/main.o
+                0x000000000100ddf0        0x0 output/obj/main.o
  .rela.text.PAIR_DONE
-                0x000000000100de14        0x0 output/obj/main.o
+                0x000000000100ddf0        0x0 output/obj/main.o
  .rela.text.startup
-                0x000000000100de14        0x0 output/obj/main.o
+                0x000000000100ddf0        0x0 output/obj/main.o
  .rela.text.trap
-                0x000000000100de14        0x0 output/obj/main.o
+                0x000000000100ddf0        0x0 output/obj/main.o
 
 .local
  *(.local*)
                 0x0000000010010000                . = 0x10010000
 
-.debug          0x0000000010010000    0x318d0
+.debug          0x0000000010010000    0x318cb
  *(.debug_info*)
  .debug_info    0x0000000010010000      0xf14 output/obj/main.o
  .debug_info    0x0000000010010f14     0x1da1 output/obj/yc_debug.o
@@ -3251,17 +3252,17 @@ LOAD d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib
  .debug_info    0x0000000010037355     0x18f9 output/obj/audio.o
  .debug_info    0x0000000010038c4e      0xd9e output/obj/factory_test_off_line.o
  .debug_info    0x00000000100399ec      0xbde output/obj/adpcm.o
- .debug_info    0x000000001003a5ca     0x34f3 output/obj/remote_control.o
- .debug_info    0x000000001003dabd     0x1689 output/obj/att_list.o
- .debug_info    0x000000001003f146      0x3b6 ./../../../APP/SECRETKEY\libSecretKey.a(SecretKey.o)
- .debug_info    0x000000001003f4fc      0x7ab d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(muldf3.o)
- .debug_info    0x000000001003fca7      0x202 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(fixunsdfsi.o)
- .debug_info    0x000000001003fea9      0x2c0 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(floatsidf.o)
- .debug_info    0x0000000010040169       0x26 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(save-restore.o)
- .debug_info    0x000000001004018f      0xbd7 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(_clzsi2.o)
- .debug_info    0x0000000010040d66      0xb6a d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(_clz.o)
+ .debug_info    0x000000001003a5ca     0x34fe output/obj/remote_control.o
+ .debug_info    0x000000001003dac8     0x1679 output/obj/att_list.o
+ .debug_info    0x000000001003f141      0x3b6 ./../../../APP/SECRETKEY\libSecretKey.a(SecretKey.o)
+ .debug_info    0x000000001003f4f7      0x7ab d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(muldf3.o)
+ .debug_info    0x000000001003fca2      0x202 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(fixunsdfsi.o)
+ .debug_info    0x000000001003fea4      0x2c0 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(floatsidf.o)
+ .debug_info    0x0000000010040164       0x26 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(save-restore.o)
+ .debug_info    0x000000001004018a      0xbd7 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(_clzsi2.o)
+ .debug_info    0x0000000010040d61      0xb6a d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(_clz.o)
 
-.data           0x0000000010010000       0xc8 load address 0x000000000100de14
+.data           0x0000000010010000       0xc8 load address 0x000000000100ddf0
                 0x0000000010010000                _sdata = .
  *(.data*)
  .data.gWdtInit
@@ -3323,7 +3324,7 @@ LOAD d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib
  *(.sdata)
                 0x00000000100100c8                _edata = .
 
-.bss            0x00000000100100c8      0x28c load address 0x000000000100dedc
+.bss            0x00000000100100c8      0x28c load address 0x000000000100deb8
                 0x00000000100100c8                _sbss = .
  *(EXCLUDE_FILE(*audio.o) *.bss*)
  .bss.g_yc_debug_manager
@@ -3542,7 +3543,7 @@ LOAD d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib
                 0x0000000010011000                . = 0x10011000
                 0x0000000000000001                ASSERT ((_retention_end < .), retention data size overflow)
 
-.noretention0   0x0000000010011000     0x3648 load address 0x000000000100ee14
+.noretention0   0x0000000010011000     0x3648 load address 0x000000000100edf0
  *(*.memory_protect_under_lpm*)
  .memory_protect_under_lpm
                 0x0000000010011000     0x2000 output/obj/main.o
@@ -3566,7 +3567,7 @@ LOAD d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib
  .memory_protect_under_lpm
                 0x00000000100137b8      0xe90 output/obj/audio.o
 
-.noretention    0x0000000010014648        0xc load address 0x000000000101245c
+.noretention    0x0000000010014648        0xc load address 0x0000000001012438
  *(*.bss*)
  .bss.send_num_cnt
                 0x0000000010014648        0x2 output/obj/audio.o
@@ -3580,7 +3581,7 @@ LOAD d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib
                 0x0000000000000001                ASSERT ((_ebss < _stack), data size overflow)
 OUTPUT(./output/out.elf elf32-littleriscv)
 
-.debug_abbrev   0x0000000000000000     0x81e5
+.debug_abbrev   0x0000000000000000     0x81aa
  .debug_abbrev  0x0000000000000000      0x2c1 output/obj/main.o
  .debug_abbrev  0x00000000000002c1      0x52f output/obj/yc_debug.o
  .debug_abbrev  0x00000000000007f0      0x298 output/obj/yc_nvic.o
@@ -3615,15 +3616,15 @@ OUTPUT(./output/out.elf elf32-littleriscv)
  .debug_abbrev  0x00000000000066ba      0x428 output/obj/audio.o
  .debug_abbrev  0x0000000000006ae2      0x27f output/obj/factory_test_off_line.o
  .debug_abbrev  0x0000000000006d61      0x28a output/obj/adpcm.o
- .debug_abbrev  0x0000000000006feb      0x50e output/obj/remote_control.o
- .debug_abbrev  0x00000000000074f9      0x2b1 output/obj/att_list.o
- .debug_abbrev  0x00000000000077aa      0x17f ./../../../APP/SECRETKEY\libSecretKey.a(SecretKey.o)
- .debug_abbrev  0x0000000000007929      0x186 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(muldf3.o)
- .debug_abbrev  0x0000000000007aaf      0x177 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(fixunsdfsi.o)
- .debug_abbrev  0x0000000000007c26      0x181 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(floatsidf.o)
- .debug_abbrev  0x0000000000007da7       0x14 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(save-restore.o)
- .debug_abbrev  0x0000000000007dbb      0x242 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(_clzsi2.o)
- .debug_abbrev  0x0000000000007ffd      0x1e8 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(_clz.o)
+ .debug_abbrev  0x0000000000006feb      0x4f3 output/obj/remote_control.o
+ .debug_abbrev  0x00000000000074de      0x291 output/obj/att_list.o
+ .debug_abbrev  0x000000000000776f      0x17f ./../../../APP/SECRETKEY\libSecretKey.a(SecretKey.o)
+ .debug_abbrev  0x00000000000078ee      0x186 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(muldf3.o)
+ .debug_abbrev  0x0000000000007a74      0x177 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(fixunsdfsi.o)
+ .debug_abbrev  0x0000000000007beb      0x181 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(floatsidf.o)
+ .debug_abbrev  0x0000000000007d6c       0x14 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(save-restore.o)
+ .debug_abbrev  0x0000000000007d80      0x242 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(_clzsi2.o)
+ .debug_abbrev  0x0000000000007fc2      0x1e8 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(_clz.o)
 
 .debug_aranges  0x0000000000000000     0x1578
  .debug_aranges
@@ -3756,7 +3757,7 @@ OUTPUT(./output/out.elf elf32-littleriscv)
  .debug_ranges  0x0000000000002070       0x50 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(floatsidf.o)
  .debug_ranges  0x00000000000020c0       0x20 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(_clzsi2.o)
 
-.debug_line     0x0000000000000000    0x1fcfa
+.debug_line     0x0000000000000000    0x1fd00
  .debug_line    0x0000000000000000      0x50d output/obj/main.o
  .debug_line    0x000000000000050d     0x1f93 output/obj/yc_debug.o
  .debug_line    0x00000000000024a0      0x303 output/obj/yc_nvic.o
@@ -3791,15 +3792,15 @@ OUTPUT(./output/out.elf elf32-littleriscv)
  .debug_line    0x0000000000019cde      0xf1a output/obj/audio.o
  .debug_line    0x000000000001abf8      0x4a0 output/obj/factory_test_off_line.o
  .debug_line    0x000000000001b098      0x570 output/obj/adpcm.o
- .debug_line    0x000000000001b608     0x23ef output/obj/remote_control.o
- .debug_line    0x000000000001d9f7      0x5c8 output/obj/att_list.o
- .debug_line    0x000000000001dfbf      0x35c ./../../../APP/SECRETKEY\libSecretKey.a(SecretKey.o)
- .debug_line    0x000000000001e31b      0xea5 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(muldf3.o)
- .debug_line    0x000000000001f1c0      0x26e d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(fixunsdfsi.o)
- .debug_line    0x000000000001f42e      0x23f d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(floatsidf.o)
- .debug_line    0x000000000001f66d      0x191 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(save-restore.o)
- .debug_line    0x000000000001f7fe      0x2bf d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(_clzsi2.o)
- .debug_line    0x000000000001fabd      0x23d d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(_clz.o)
+ .debug_line    0x000000000001b608     0x23f5 output/obj/remote_control.o
+ .debug_line    0x000000000001d9fd      0x5c8 output/obj/att_list.o
+ .debug_line    0x000000000001dfc5      0x35c ./../../../APP/SECRETKEY\libSecretKey.a(SecretKey.o)
+ .debug_line    0x000000000001e321      0xea5 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(muldf3.o)
+ .debug_line    0x000000000001f1c6      0x26e d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(fixunsdfsi.o)
+ .debug_line    0x000000000001f434      0x23f d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(floatsidf.o)
+ .debug_line    0x000000000001f673      0x191 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(save-restore.o)
+ .debug_line    0x000000000001f804      0x2bf d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(_clzsi2.o)
+ .debug_line    0x000000000001fac3      0x23d d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(_clz.o)
 
 .debug_str      0x0000000000000000     0xa89a
  .debug_str     0x0000000000000000      0x830 output/obj/main.o

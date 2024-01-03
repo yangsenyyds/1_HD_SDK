@@ -78,7 +78,7 @@ static const uint8_t ir_data[] = {
 #define report_size (4)
 static const KeyBuf_TypeDef KeyBuf[] = {
     {0x00, 0x00, 0, 0},
-/*
+
     {0x66, 0x00, 8, 121},
     {0xBB, 0x01, report_size, 125},//caidan
     {0x21, 0x02, report_size, 125},//voice
@@ -105,7 +105,8 @@ static const KeyBuf_TypeDef KeyBuf[] = {
 
     {0x06, 0X00, report_size, 125},//21prime video
     {0x09, 0X00, report_size, 125},//goole play
-    */
+    
+   /*
     {0x66, 0x00, 8, 121},
     {0x01, 0x00, report_size, 125},//caidan
     {0x21, 0x02, report_size, 125},//voice
@@ -132,6 +133,7 @@ static const KeyBuf_TypeDef KeyBuf[] = {
 
     {0x06, 0X00, report_size, 125},//21prime video
     {0x09, 0X00, report_size, 125},//goole play   
+    */
 };
 
 #endif
@@ -244,6 +246,16 @@ static bool SecretKey_Check(void)
     return (memcmp((void *)secretkey_Ori, (void *)secretkey_Gen, 16) == 0) ? true : false;
 }
 
+static void remote_control_reinit(void)
+{
+    key_lock_state = 0;
+    keyscan_start();
+    software_timer_start(SYSTEM_CURRENT_CLOCK, TIMER_UNIT_MS);
+    vbat_reinit();
+    led_reinit();
+    voice_report_reinit();
+}
+
 static void key_press_time_handle_lpm(void){
     if(key_pressed_num == 1 && bt_check_le_connected())
     {
@@ -281,6 +293,7 @@ static void key_press_time_handle(void){
         key_pressed_time = 0;
     }
 }
+
 
 static void low_power_handle(void)
 {
@@ -450,6 +463,7 @@ static void keyvalue_handle(key_report_t* key_report)
             }
             else if(keynum != Voice_Keynum)
             {
+                remote_control_reinit();                
                 if(led_state == 0 || led_state == 2) {
                     led_state = 2;
                     led_on(LED_1,0,120);
@@ -590,15 +604,6 @@ static void power_handle(uint8_t batlevel)
     }
 }
 
-static void remote_control_reinit(void)
-{
-    key_lock_state = 0;
-    keyscan_start();
-    software_timer_start(SYSTEM_CURRENT_CLOCK, TIMER_UNIT_MS);
-    vbat_reinit();
-    led_reinit();
-    voice_report_reinit();
-}
 
 void update_conn_param(bool is_sleep)
 {
