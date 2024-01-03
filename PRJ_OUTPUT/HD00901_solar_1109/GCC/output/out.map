@@ -3741,7 +3741,7 @@ OUTPUT(./output/out.elf elf32-littleriscv)
  .debug_ranges  0x0000000000002070       0x50 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(floatsidf.o)
  .debug_ranges  0x00000000000020c0       0x20 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(_clzsi2.o)
 
-.debug_line     0x0000000000000000    0x1fc4e
+.debug_line     0x0000000000000000    0x1fc4c
  .debug_line    0x0000000000000000      0x50d output/obj/main.o
  .debug_line    0x000000000000050d     0x1f93 output/obj/yc_debug.o
  .debug_line    0x00000000000024a0      0x303 output/obj/yc_nvic.o
@@ -3776,15 +3776,15 @@ OUTPUT(./output/out.elf elf32-littleriscv)
  .debug_line    0x0000000000019c5a      0xf1a output/obj/audio.o
  .debug_line    0x000000000001ab74      0x4a0 output/obj/factory_test_off_line.o
  .debug_line    0x000000000001b014      0x570 output/obj/adpcm.o
- .debug_line    0x000000000001b584     0x23c7 output/obj/remote_control.o
- .debug_line    0x000000000001d94b      0x5c8 output/obj/att_list.o
- .debug_line    0x000000000001df13      0x35c ./../../../APP/SECRETKEY\libSecretKey.a(SecretKey.o)
- .debug_line    0x000000000001e26f      0xea5 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(muldf3.o)
- .debug_line    0x000000000001f114      0x26e d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(fixunsdfsi.o)
- .debug_line    0x000000000001f382      0x23f d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(floatsidf.o)
- .debug_line    0x000000000001f5c1      0x191 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(save-restore.o)
- .debug_line    0x000000000001f752      0x2bf d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(_clzsi2.o)
- .debug_line    0x000000000001fa11      0x23d d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(_clz.o)
+ .debug_line    0x000000000001b584     0x23c5 output/obj/remote_control.o
+ .debug_line    0x000000000001d949      0x5c8 output/obj/att_list.o
+ .debug_line    0x000000000001df11      0x35c ./../../../APP/SECRETKEY\libSecretKey.a(SecretKey.o)
+ .debug_line    0x000000000001e26d      0xea5 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(muldf3.o)
+ .debug_line    0x000000000001f112      0x26e d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(fixunsdfsi.o)
+ .debug_line    0x000000000001f380      0x23f d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(floatsidf.o)
+ .debug_line    0x000000000001f5bf      0x191 d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(save-restore.o)
+ .debug_line    0x000000000001f750      0x2bf d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(_clzsi2.o)
+ .debug_line    0x000000000001fa0f      0x23d d:/environment/risc-v/riscv32-unknown-elf-gcc-8.3.0_rv32imafc_ilp32f_newlib/bin/../lib/gcc/riscv32-unknown-elf/8.3.0\libgcc.a(_clz.o)
 
 .debug_str      0x0000000000000000     0xa89a
  .debug_str     0x0000000000000000      0x830 output/obj/main.o

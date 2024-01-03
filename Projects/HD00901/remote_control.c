@@ -897,7 +897,7 @@ void app_init(void)
 {
     if (!Lpm_GetWakeFlag())
     {
-             bt_set_le_mtu_size(251);
+        bt_set_le_mtu_size(251);
         bt_set_ce_length_num(0x0F);//小包用  大包用0x08
         software_timer_start(SYSTEM_CURRENT_CLOCK, 10);
         app_sleep_init();
