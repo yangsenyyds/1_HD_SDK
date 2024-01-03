@@ -115,7 +115,7 @@ void SysTick_IrqInit(uint32_t system_clk, uint32_t uint_us, SysTickIRQ_CB_Handle
     }
 
     if(CLOCK_XTAL_24M_multiple == system_clk) {
-        System_LdoCoreVsel(0);
+        // System_LdoCoreVsel(0);
         SysTick_Config(SysTick_TimerGet1usTicks() * g_systick_unitUs);
     }
     else {
@@ -159,7 +159,7 @@ void System_ChangeDPLL(SYSTEM_CLOCK_TypeDef system_clk)
     tmp &= 0xf9;
     tmp |= tmpVal << 1;
 
-    System_LdoCoreVsel(4);
+    //System_LdoCoreVsel(4);
 
     HWRITE(CORE_CLOCK_CTRL, tmp);
     HWRITE(CORE_CLOCK_SELECT, 0x05);
