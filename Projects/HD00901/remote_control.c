@@ -375,10 +375,10 @@ static void key_pressed_handle(void)
         else if(keynum == OK_Keynum && keynum_second == Back__Keynum)
         {
             key_pressed_time++;
-            DEBUG_LOG_STRING("365 \r\n");
+
             if(key_pressed_time == 3)
             {
-                DEBUG_LOG_STRING("368 \r\n");
+                //DEBUG_LOG_STRING("368 \r\n");
                 keynum_second = 0;
                 key_pressed_time = 0;                
                 uint8_t feedback[4] = {0x40, 0x02, 0x00, 0x00};
@@ -395,7 +395,7 @@ static uint8_t report_buf[6];
 static void keyvalue_handle(key_report_t* key_report)
 {
     key_pressed_num = key_report->key_press_cnt;
-    DEBUG_LOG_STRING("352  %d \r\n", key_pressed_num);
+    //DEBUG_LOG_STRING("352  %d \r\n", key_pressed_num);
     memcpy(report_buf,key_report->keynum_report_buf,sizeof(report_buf));
     if (key_pressed_num == 0)
     {
@@ -469,7 +469,6 @@ static void keyvalue_handle(key_report_t* key_report)
                     led_on(LED_1,0,120);
                 }
                 ATT_sendNotify(KeyBuf[keynum].handle, (void*)hid_send_buf, KeyBuf[keynum].key_send_len);
-                DEBUG_LOG_STRING("424  %d %d\r\n", HREADW(M0_LPM_REG),led_state);
             }
         }
         else

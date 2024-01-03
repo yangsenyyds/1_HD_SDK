@@ -97,7 +97,7 @@ static void app_sleep_task(void)
     }
     else if (!remote_control_status.sleep_ready)
     {
-        DEBUG_LOG_STRING("96 \r\n"); 
+        //DEBUG_LOG_STRING("96 \r\n"); 
         remote_control_status.sleep_ready = true;
         app_queue_insert(app_sleep_task);
     }
@@ -165,7 +165,7 @@ void prepare_before_sleep(void)
 #endif
         key_wakeup_set();
         Action_After_Prepare_Sleep();
-        DEBUG_LOG_STRING("PREPARE BEFORE SLEEP end  \r\n");
+        //DEBUG_LOG_STRING("PREPARE BEFORE SLEEP end  \r\n");
     }
 }
 

@@ -430,8 +430,6 @@ void mic_open(void)
 {
     DEBUG_LOG_STRING("mic open \r\n");
     // DEBUG_LOG_STRING("HciUsedBufferNum [%d] \r\n", Bt_HciGetUsedBufferNum());
-
-
     app_sleep_lock_set(AUDIO_LOCK, true);
     tx_power_switch_set(false);
     bt_set_tx_power(TX_POWER_5DB);
