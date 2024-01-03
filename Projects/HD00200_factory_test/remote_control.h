@@ -7,7 +7,7 @@
 #include "yc_dev_bt.h"
 #include "att_list.h"
 #include "factory_test_off_line.h"
-#define Project_key  (218)
+#define Project_key  (253)
 /* WATCH_DOG */
 #define FUNCTION_WATCH_DOG
 
