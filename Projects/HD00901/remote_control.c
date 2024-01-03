@@ -450,7 +450,7 @@ static void keyvalue_handle(key_report_t* key_report)
             }
             else if(keynum != Voice_Keynum)
             {
-                if(led_state == 0) {
+                if(led_state == 0 || led_state == 2) {
                     led_state = 2;
                     led_on(LED_1,0,120);
                 }
