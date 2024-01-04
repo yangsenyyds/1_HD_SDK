@@ -369,7 +369,7 @@ static const uint8_t ir_data[] = {
     0X63, // 15
 
     0X34,
-    0XCD, // 17
+    0X00, // 17
     0X64, // 方框
     0X23, // 19
     0X25,
@@ -384,7 +384,7 @@ static const uint8_t ir_data[] = {
 static const KeyBuf_TypeDef KeyBuf[] = {
     {0x00, 0x00, 0, 0},
 
-    {0x55, 0x00, 2, 35}, // 1
+    {0x30, 0x00, 2, 35}, // 1
     {0x21, 0x02, 2, 35}, //
     {0x96, 0x00, 4, 35}, // 3
     {0x9C, 0x00, 4, 35}, //
@@ -523,7 +523,6 @@ static void key_pressed_handle(void)
         if (keynum == Power__Keynum)
         {
             ir_comm_send(ir_data[keynum]);
-
             if (key_pressed_num == 1)
             {
                 set_key_press_state(true);
@@ -569,7 +568,6 @@ static void keyvalue_handle(key_report_t *key_report)
 {
     key_pressed_num = key_report->key_press_cnt;
     DEBUG_LOG_STRING("key_pressed_num = %d\r\n", key_pressed_num);
-    DEBUG_LOG_STRING("%d %d\r\n", bt_check_le_connected(), encrypt_state);
     if (key_pressed_num == 0)
     {
         if (get_ir_learn_state() && (keynum == INPUT_Keynum || keynum == Power__Keynum || keynum == MUTE_Keynum || keynum == VOL_Keynum || keynum == VOL__Keynum))
@@ -619,100 +617,109 @@ static void keyvalue_handle(key_report_t *key_report)
             keynum += key_report->keynum_report_buf[i];
         }
         DEBUG_LOG_STRING("KEY [%d][%d][%d][%d][%d][%d] \r\n", key_report->keynum_report_buf[0], key_report->keynum_report_buf[1], key_report->keynum_report_buf[2], key_report->keynum_report_buf[3], key_report->keynum_report_buf[4], key_report->keynum_report_buf[5]);
-        // if(keynum == Power__Keynum) {
-        //     if(led_state == 0) {
-        //         led_on(LED_1,100,0);
-        //     }
-        //     swtimer_start(key_pressed_timernum, 100, TIMER_START_ONCE);
-        // }
+        memset(learn_ble_send, 0, sizeof(learn_ble_send));
         if (get_ir_learn_state() && (keynum == INPUT_Keynum || keynum == Power__Keynum || keynum == MUTE_Keynum || keynum == VOL_Keynum || keynum == VOL__Keynum))
         {
             memset(learn_ble_send, 0, sizeof(learn_ble_send));
-            if (get_ir_learn_state() && (keynum == INPUT_Keynum || keynum == Power__Keynum || keynum == MUTE_Keynum || keynum == VOL_Keynum || keynum == VOL__Keynum))
+            switch (keynum)
             {
-                memset(learn_ble_send, 0, sizeof(learn_ble_send));
-                switch (keynum)
-                {
-                case INPUT_Keynum:
-                    learn_ble_send[2] = 0xB2;
-                    break;
-                case Power__Keynum:
-                    learn_ble_send[2] = 0x1A;
-                    break;
-                case MUTE_Keynum:
-                    learn_ble_send[2] = 0xA4;
-                    break;
-                case VOL_Keynum:
-                    learn_ble_send[2] = 0x18;
-                    break;
-                case VOL__Keynum:
-                    learn_ble_send[2] = 0x19;
-                    break;
-                }
-                ATT_sendNotify(76, (void *)learn_ble_send, sizeof(learn_ble_send));
-                SysTick_DelayMs(100);
-                ir_tv_learn_send(keynum);
-                set_key_press_state(true);
-                // uint8_t a = 0x55;
-                // ATT_sendNotify(BAT_REPORT_HANDLE, &a, 1);
+            case INPUT_Keynum:
+                learn_ble_send[2] = 0xB2;
+                break;
+            case Power__Keynum:
+                learn_ble_send[2] = 0x1A;
+                break;
+            case MUTE_Keynum:
+                learn_ble_send[2] = 0xA4;
+                break;
+            case VOL_Keynum:
+                learn_ble_send[2] = 0x18;
+                break;
+            case VOL__Keynum:
+                learn_ble_send[2] = 0x19;
+                break;
             }
-            else if (bt_check_le_connected() && encrypt_state)
-            {
-                DEBUG_LOG_STRING("%d %d\r\n", bt_check_le_connected(), encrypt_state);
-                uint8_t hid_send_buf[KeyBuf[keynum].key_send_len];
-                memset((void *)hid_send_buf, 0, KeyBuf[keynum].key_send_len);
-                memcpy((void *)hid_send_buf, (void *)KeyBuf[keynum].keyvalue, 2);
-                if (KeyBuf[keynum].key_send_len == 8)
-                {
-                    hid_send_buf[2] = hid_send_buf[0];
-                    hid_send_buf[0] = 0x00;
-                }
-                DEBUG_LOG_STRING("att send  [%x] [%x] [%d] [%d]\r\n", KeyBuf[keynum].keyvalue[0], KeyBuf[keynum].keyvalue[1], KeyBuf[keynum].key_send_len, KeyBuf[keynum].handle);
-
-                if (keynum == Voice_Keynum && !voice_key_state)
-                {
-                    ATT_sendNotify(KeyBuf[keynum].handle, (void *)hid_send_buf, KeyBuf[keynum].key_send_len);
-
-                    voice_key_state = true;
-                    voice_send_state = true;
-                    voice_status.search = true;
-                    app_sleep_lock_set(AUDIO_LOCK, true);
-                    voice_status_change();
-                    swtimer_start(vioce_send_timernum, 100, TIMER_START_ONCE);
-                    swtimer_start(vioce_timernum, 10000, TIMER_START_ONCE);
-                    led_state = true;
-                    led_on(LED_1, 0, 0);
-                }
-                else if (keynum != Voice_Keynum)
-                {
-                    if (led_state == 0)
-                    {
-                        led_on(LED_1, 100, 0);
-                    }
-                    ATT_sendNotify(KeyBuf[keynum].handle, (void *)hid_send_buf, KeyBuf[keynum].key_send_len);
-                }
-            }
-            else
+            ATT_sendNotify(76, (void *)learn_ble_send, sizeof(learn_ble_send));
+            SysTick_DelayMs(100);
+            ir_tv_learn_send(keynum);
+            set_key_press_state(true);
+             uint8_t hid_send_buf[KeyBuf[keynum].key_send_len];
+            memset((void *)hid_send_buf, 0, KeyBuf[keynum].key_send_len);
+            memcpy((void *)hid_send_buf, (void *)KeyBuf[keynum].keyvalue, 2);
+            if (keynum == Power__Keynum)
             {
                 if (led_state == 0)
                 {
                     led_on(LED_1, 100, 0);
                 }
-                swtimer_start(key_pressed_timernum, 100, TIMER_START_ONCE);
+                ATT_sendNotify(KeyBuf[keynum].handle, (void *)hid_send_buf, KeyBuf[keynum].key_send_len);
             }
         }
-        else if (key_pressed_num == 2)
+        else if (bt_check_le_connected() && encrypt_state)
         {
-            DEBUG_LOG_STRING("KEY [%d][%d][%d][%d][%d][%d] \r\n", key_report->keynum_report_buf[0], key_report->keynum_report_buf[1], key_report->keynum_report_buf[2], key_report->keynum_report_buf[3], key_report->keynum_report_buf[4], key_report->keynum_report_buf[5]);
-            key_pressed_time = 0;
-            if (key_report->keynum_report_buf[0] == Back_Keynum && key_report->keynum_report_buf[5] == HOME__Keynum)
+            uint8_t hid_send_buf[KeyBuf[keynum].key_send_len];
+            memset((void *)hid_send_buf, 0, KeyBuf[keynum].key_send_len);
+            memcpy((void *)hid_send_buf, (void *)KeyBuf[keynum].keyvalue, 2);
+            if (KeyBuf[keynum].key_send_len == 8)
             {
-                if (!bt_check_le_connected())
+                hid_send_buf[2] = hid_send_buf[0];
+                hid_send_buf[0] = 0x00;
+            }
+            DEBUG_LOG_STRING("att send  [%x] [%x] [%d] [%d]\r\n", KeyBuf[keynum].keyvalue[0], KeyBuf[keynum].keyvalue[1], KeyBuf[keynum].key_send_len, KeyBuf[keynum].handle);
+
+            if (keynum == Power__Keynum)
+            {
+                if (led_state == 0)
                 {
-                    keynum = Back_Keynum;
-                    keynum_second = HOME__Keynum;
-                    swtimer_start(key_pressed_timernum, 1000, TIMER_START_ONCE);
+                    led_on(LED_1, 100, 0);
                 }
+                ATT_sendNotify(KeyBuf[keynum].handle, (void *)hid_send_buf, KeyBuf[keynum].key_send_len);
+            }
+
+            if (keynum == Voice_Keynum && !voice_key_state)
+            {
+                ATT_sendNotify(KeyBuf[keynum].handle, (void *)hid_send_buf, KeyBuf[keynum].key_send_len);
+
+                voice_key_state = true;
+                voice_send_state = true;
+                voice_status.search = true;
+                app_sleep_lock_set(AUDIO_LOCK, true);
+                voice_status_change();
+                swtimer_start(vioce_send_timernum, 100, TIMER_START_ONCE);
+                swtimer_start(vioce_timernum, 10000, TIMER_START_ONCE);
+                led_state = true;
+                led_on(LED_1, 0, 0);
+            }
+            else if (keynum != Voice_Keynum)
+            {
+                if (led_state == 0)
+                {
+                    led_on(LED_1, 100, 0);
+                }
+                ATT_sendNotify(KeyBuf[keynum].handle, (void *)hid_send_buf, KeyBuf[keynum].key_send_len);
+            }
+        }
+        else
+        {
+            if (led_state == 0)
+            {
+                led_on(LED_1, 100, 0);
+            }
+            swtimer_start(key_pressed_timernum, 100, TIMER_START_ONCE);
+        }
+    }
+
+    else if (key_pressed_num == 2)
+    {
+        DEBUG_LOG_STRING("KEY [%d][%d][%d][%d][%d][%d] \r\n", key_report->keynum_report_buf[0], key_report->keynum_report_buf[1], key_report->keynum_report_buf[2], key_report->keynum_report_buf[3], key_report->keynum_report_buf[4], key_report->keynum_report_buf[5]);
+        key_pressed_time = 0;
+        if (key_report->keynum_report_buf[0] == Back_Keynum && key_report->keynum_report_buf[5] == HOME__Keynum)
+        {
+            if (!bt_check_le_connected())
+            {
+                keynum = Back_Keynum;
+                keynum_second = HOME__Keynum;
+                swtimer_start(key_pressed_timernum, 1000, TIMER_START_ONCE);
             }
         }
     }
