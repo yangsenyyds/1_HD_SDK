@@ -30,6 +30,8 @@ MEMORY_NOT_PROTECT_UNDER_LPM_ATT static uint8_t learn_data_from_tv[5][256];
 MEMORY_NOT_PROTECT_UNDER_LPM_ATT static uint8_t learn_data_num;
 static uint8_t learn_ble_send[3];
 static uint8_t learn_ble_send_pressed[3];
+static bool ir_state = true;
+
 typedef struct
 {
     uint8_t keyvalue[2];
@@ -570,20 +572,22 @@ static void keyvalue_handle(key_report_t *key_report)
     DEBUG_LOG_STRING("key_pressed_num = %d\r\n", key_pressed_num);
     if (key_pressed_num == 0)
     {
+        DEBUG_LOG_STRING("333333333333333333333333\r\n");
         if (get_ir_learn_state() && (keynum == INPUT_Keynum || keynum == Power__Keynum || keynum == MUTE_Keynum || keynum == VOL_Keynum || keynum == VOL__Keynum))
         {
+            memset(learn_ble_send, 0, sizeof(learn_ble_send));
             learn_ble_send[0] = 0x01;
             ATT_sendNotify(76, (void *)learn_ble_send, sizeof(learn_ble_send));
             set_key_press_state(false);
         }
-        if (bt_check_le_connected() && encrypt_state)
+        else if (bt_check_le_connected() && encrypt_state)
         {
             uint8_t hid_send_buf[KeyBuf[keynum].key_send_len];
             memset((void *)hid_send_buf, 0, KeyBuf[keynum].key_send_len);
 
             if (KeyBuf[keynum].key_send_len == 8)
             {
-                hid_send_buf[2] = hid_send_buf[0];
+                hid_send_buf[2] = hid_send_buf[0]; 
                 hid_send_buf[0] = 0x00;
             }
             if (keynum == Voice_Keynum && voice_send_state == true)
@@ -608,6 +612,7 @@ static void keyvalue_handle(key_report_t *key_report)
         }
 
         set_key_press_state(false);
+         DEBUG_LOG_STRING("222222222222222222222222\r\n");
     }
     else if (key_pressed_num == 1)
     {
@@ -643,17 +648,19 @@ static void keyvalue_handle(key_report_t *key_report)
             SysTick_DelayMs(100);
             ir_tv_learn_send(keynum);
             set_key_press_state(true);
-             uint8_t hid_send_buf[KeyBuf[keynum].key_send_len];
-            memset((void *)hid_send_buf, 0, KeyBuf[keynum].key_send_len);
-            memcpy((void *)hid_send_buf, (void *)KeyBuf[keynum].keyvalue, 2);
-            if (keynum == Power__Keynum)
+            
+            if (keynum == Power__Keynum && !ir_state)
             {
                 if (led_state == 0)
                 {
                     led_on(LED_1, 100, 0);
                 }
+                uint8_t hid_send_buf[KeyBuf[keynum].key_send_len];
+                memset((void *)hid_send_buf, 0, KeyBuf[keynum].key_send_len);
+                memcpy((void *)hid_send_buf, (void *)KeyBuf[keynum].keyvalue, 2);
                 ATT_sendNotify(KeyBuf[keynum].handle, (void *)hid_send_buf, KeyBuf[keynum].key_send_len);
             }
+            DEBUG_LOG_STRING("9999999999999999999999999\r\n");
         }
         else if (bt_check_le_connected() && encrypt_state)
         {
@@ -939,6 +946,7 @@ void Write_DataParse(const ATT_TABLE_TYPE *table, uint8_t *data, uint8_t len)
             learn_data_num = 0;
             memset(learn_data_from_tv, 0x00, sizeof(learn_data_from_tv));
             ir_learn_data_clr();
+            ir_state = true;
         }
         else if (len == 1 && data[0] == 0x00)
         {
@@ -956,11 +964,35 @@ void Write_DataParse(const ATT_TABLE_TYPE *table, uint8_t *data, uint8_t len)
         {
             learn_data_from_tv[learn_data_num][0] = data[1];
         }
+        else if (len == 2 && data[1] == 0x1A)
+        {
+            DEBUG_LOG_STRING("asfdsfgdg\r\n");
+        }
     }
     else if (table->handle == 72)
     {
         memcpy(&learn_data_from_tv[learn_data_num][1], data, len);
         learn_data_num++;
+    }
+    else if (table->handle == 77)
+    {
+        
+        if (len == 2 && data[0] == 0x01)
+        {
+            ir_state = true;
+            //cec切换到红外
+        }
+        else if (len == 2 && data[0] == 0x00)
+        {
+             ir_state = false;
+            //红外切换成cec
+        }
+    }
+    else if (table->handle == 59){
+        for(int i = 0;i < len;i++){
+            DEBUG_LOG_STRING("%d",data[i]);
+        }
+        DEBUG_LOG_STRING("\r\n");
     }
     else if (table->dataLen >= len)
     {
