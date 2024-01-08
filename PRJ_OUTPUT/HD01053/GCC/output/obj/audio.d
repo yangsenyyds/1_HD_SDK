@@ -15,6 +15,7 @@ output/obj/audio.o: ../../../APP/custom_audio/audio_134size/audio.c \
  ../../../Platform/core/reg_addr.h \
  ../../../Vendor/Remote_Control/app_config.h \
  ../../../Platform/core/yc_debug.h ../../../Platform/core/yc11xx.h \
+ ../../../Platform/sdk/yc11xx_iwdg.h \
  ../../../APP/custom_audio/audio_134size/encode/adpcm/adpcm.h
 
 ../../../APP/custom_audio/audio_134size/audio.h:
@@ -54,5 +55,7 @@ output/obj/audio.o: ../../../APP/custom_audio/audio_134size/audio.c \
 ../../../Platform/core/yc_debug.h:
 
 ../../../Platform/core/yc11xx.h:
+
+../../../Platform/sdk/yc11xx_iwdg.h:
 
 ../../../APP/custom_audio/audio_134size/encode/adpcm/adpcm.h:

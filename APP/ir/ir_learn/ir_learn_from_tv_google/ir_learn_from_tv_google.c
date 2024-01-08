@@ -147,7 +147,7 @@ void ir_learn_data_fill(uint8_t *tv_ir_learn_data)
         irparams.rawbuf[buf_num++] = IR_2BIT_FILL(&tv_ir_learn_data[data_len_offest]);
         data_len_offest += 1;
         irparams.rawbuf[buf_num++] = IR_3BIT_FILL(&tv_ir_learn_data[data_len_offest]);
-        irparams.repeat_stop = buf_num;
+        irparams.repeat_stop = buf_num - irparams.len;;
     }
     else if (tv_ir_learn_data[IR_TYPE] == IR_TYPE_TOGGLE)
     {

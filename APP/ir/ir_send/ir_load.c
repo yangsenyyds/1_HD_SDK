@@ -49,7 +49,6 @@ static bool gemini_state;
 static uint16_t coust_code = 0;
 static void ir_without_freq(void)
 {
-    DEBUG_LOG_STRING("ir_without_freq");
     app_sleep_lock_set(IR_LOCK,true);
     for (uint16_t i = 0; i < ir_send_param.length; )
     {
@@ -76,7 +75,6 @@ static void ir_without_freq(void)
     }
 
     if (get_key_press_state() || ir_send_param.user_repeat-- > 0) {
-        DEBUG_LOG_STRING("555555555\r\n");
         app_queue_insert(ir_without_freq);
         return;
     }
@@ -86,10 +84,8 @@ static void ir_without_freq(void)
 void ir_send(void)
 {
     app_sleep_lock_set(IR_LOCK,true);
-    // DEBUG_LOG_STRING("ir_send_param.length %d\r\n", ir_send_param.length);
     for (uint16_t i = 0; i < ir_send_param.length; i)
     {
-        // DEBUG_LOG_STRING("ir_send_param.length %d i %d pwm_buf_p %d\r\n", ir_send_param.length, i, ir_send_param.pwm_buf_p[i]);
         if (ir_send_param.pwm_buf_p[i] == 0) {
             i++;
             if (ir_send_param.pwm_buf_p[i] != 0) {
@@ -118,16 +114,13 @@ void ir_send(void)
             4 * ir_send_param.length);
     }
     if (get_key_press_state() || ir_send_param.user_repeat-- > 0) {
-        DEBUG_LOG_STRING("//////1 get_key_press_state \r\n");
         app_queue_insert(ir_send);
-        DEBUG_LOG_STRING("*************2 get_key_press_state \r\n");
         return;
     }
     else if (gemini_state == 0 && (en_type == GEMINI_C10_32_08 || en_type == GEMINI_C10_38_09 || en_type == GEMINI_C10_32_10)) {
         gemini_state = 1;
         memcpy(&ir_send_param.pwm_buf_p[0], &gemini_hand[0], sizeof(gemini_hand));
         ir_send_param.length = sizeof(gemini_hand) / 4;
-        DEBUG_LOG_STRING("0000000\r\n");
         app_queue_insert(ir_send);
         return;
     }
@@ -895,8 +888,8 @@ void ir_remote_learn_send(ir_receive_param_t irparams)
         memset((void *)&ir_endcode_param, 0x00, sizeof(ir_endcode_param));
         ir_endcode_param.endcode_en = 1;
         ir_endcode_param.endcode_start_offset = ir_send_param.length;
-        DEBUG_LOG_STRING("894 %d %d %d\r\n",ir_endcode_param.endcode_start_offset,irparams.repeat_stop,ir_send_param.length /2);
-        for(uint16_t i = 0; i < 4; i++)
+        DEBUG_LOG_STRING("894 %d %d\r\n",ir_endcode_param.endcode_start_offset,irparams.repeat_stop);
+        for(uint16_t i = 0; i < irparams.repeat_stop; i++)
         {
             if(i % 2 == 0){
                 ir_send_param.pwm_buf_p[ir_send_param.length] = 1;
@@ -906,14 +899,11 @@ void ir_remote_learn_send(ir_receive_param_t irparams)
             }
             ir_send_param.length++;
             ir_send_param.pwm_buf_p[ir_send_param.length] = irparams.rawbuf[irparams.len + i];
-               DEBUG_LOG_STRING("909 %d %d\r\n",ir_send_param.pwm_buf_p[ir_send_param.length],i);
             ir_send_param.length++;
         }
         ir_endcode_param.endcode_end_offset = ir_send_param.length;
         ir_send_param.length = ir_endcode_param.endcode_start_offset;
-        DEBUG_LOG_STRING("904 %d\r\n",ir_endcode_param.endcode_end_offset);
     }
-    DEBUG_LOG_STRING("+++++ir_remote_learn_send\r\n");
     app_queue_insert(ir_send);
 }
 #endif 
@@ -940,7 +930,6 @@ void ir_time_send(const uint16_t *time_data)
         ir_send_param.pwm_buf_p[j] = time_data[i] * 10;
         j++;
     }
-    DEBUG_LOG_STRING("11111111\r\n");
     app_queue_insert(ir_send);
 }
 
@@ -950,13 +939,11 @@ void ir_comm_send(uint16_t irnum)
     if (brand_type[FREQ_SIZE] != 0) {
         set_pwm_freq_div();
         if (!ir_ready(irnum)) {
-            DEBUG_LOG_STRING("2222222\r\n");
             app_queue_insert(ir_send);
         }
     }
     else {
         if (!ir_ready(irnum)) {
-            DEBUG_LOG_STRING("333333333\r\n");
             app_queue_insert(ir_without_freq);
         }
     }

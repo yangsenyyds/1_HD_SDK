@@ -647,7 +647,7 @@ static void keyvalue_handle(key_report_t *key_report)
             SysTick_DelayMs(100);
             ir_tv_learn_send(keynum);
             set_key_press_state(true);
-            
+
             if (keynum == Power__Keynum && !ir_state)
             {
                 if (led_state == 0)
@@ -660,6 +660,7 @@ static void keyvalue_handle(key_report_t *key_report)
                 ATT_sendNotify(KeyBuf[keynum].handle, (void *)hid_send_buf, KeyBuf[keynum].key_send_len);
             }
         }
+
         else if (bt_check_le_connected() && encrypt_state)
         {
             uint8_t hid_send_buf[KeyBuf[keynum].key_send_len];
@@ -988,10 +989,10 @@ void Write_DataParse(const ATT_TABLE_TYPE *table, uint8_t *data, uint8_t len)
         }
     }
     else if (table->handle == 59){
-        for(int i = 0;i < len;i++){
-            DEBUG_LOG_STRING("%d",data[i]);
-        }
-        DEBUG_LOG_STRING("\r\n");
+       if (len == 6 && data[0] == 0x0a){
+            ir_state = false;
+            //重启之前开关状态是cec
+       }
     }
     else if (table->dataLen >= len)
     {
