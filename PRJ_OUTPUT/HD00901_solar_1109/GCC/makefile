@@ -95,8 +95,8 @@ VPATH += $(APP_ROOT)/led
 VPATH += $(APP_ROOT)/flash/YC
 VPATH += $(APP_ROOT)/ir/ir_send
 VPATH += $(APP_ROOT)/ir/ir_lib
-VPATH += $(APP_ROOT)/audio
-VPATH += $(APP_ROOT)/audio/encode/adpcm
+VPATH += $(APP_ROOT)/custom_audio/audio_134size
+VPATH += $(APP_ROOT)/custom_audio/audio_134size/encode/adpcm
 VPATH += $(APP_ROOT)/factory
 
 SRCINCLUDE += -I$(MAIN_DIR)
@@ -118,8 +118,8 @@ SRCINCLUDE += -I$(APP_ROOT)/led
 SRCINCLUDE += -I$(APP_ROOT)/flash/YC
 SRCINCLUDE += -I$(APP_ROOT)/ir/ir_send
 SRCINCLUDE += -I$(APP_ROOT)/ir/ir_lib
-SRCINCLUDE += -I$(APP_ROOT)/audio
-SRCINCLUDE += -I$(APP_ROOT)/audio/encode/adpcm
+SRCINCLUDE += -I$(APP_ROOT)/custom_audio/audio_134size
+SRCINCLUDE += -I$(APP_ROOT)/custom_audio/audio_134size/encode/adpcm
 SRCINCLUDE += -I$(APP_ROOT)/factory
 
 CORE := \

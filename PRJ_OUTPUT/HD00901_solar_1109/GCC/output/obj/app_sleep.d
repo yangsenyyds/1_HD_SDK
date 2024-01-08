@@ -12,8 +12,9 @@ output/obj/app_sleep.o: ../../../APP/app_sleep/app_sleep.c \
  ../../../Platform/sdk/yc11xx_systick.h \
  ../../../APP/app_queue/app_queue.h ../../../APP/key/keyscan.h \
  ../../../APP/power/vbat.h ../../../APP/led/led.h \
- ../../../APP/audio/audio.h ../../../Platform/sdk/yc11xx_iic.h \
- ../../../Platform/sdk/yc11xx_lpm.h ../../../Platform/core/btreg.h \
+ ../../../APP/custom_audio/audio_134size/audio.h \
+ ../../../Platform/sdk/yc11xx_iic.h ../../../Platform/sdk/yc11xx_lpm.h \
+ ../../../Platform/core/btreg.h \
  ../../../Platform/sdk/bt/yc11xx_bt_interface.h \
  ../../../Platform/core/yc_debug.h ../../../Platform/core/yc11xx.h \
  ../../../Vendor/Remote_Control/app_config.h
@@ -50,7 +51,7 @@ output/obj/app_sleep.o: ../../../APP/app_sleep/app_sleep.c \
 
 ../../../APP/led/led.h:
 
-../../../APP/audio/audio.h:
+../../../APP/custom_audio/audio_134size/audio.h:
 
 ../../../Platform/sdk/yc11xx_iic.h:
 

@@ -10,7 +10,8 @@ output/obj/factory_test_off_line.o: \
  ../../../APP/factory/factory_test_off_line.h \
  ../../../Platform/devices/ble/att/att.h \
  ../../../Platform/core/yc_debug.h ../../../Platform/core/yc11xx.h \
- ../../../Vendor/Remote_Control/app_config.h ../../../APP/audio/audio.h
+ ../../../Vendor/Remote_Control/app_config.h \
+ ../../../APP/custom_audio/audio_134size/audio.h
 
 ../../../APP/factory/factory_test_off_line.h:
 
@@ -38,4 +39,4 @@ output/obj/factory_test_off_line.o: \
 
 ../../../Vendor/Remote_Control/app_config.h:
 
-../../../APP/audio/audio.h:
+../../../APP/custom_audio/audio_134size/audio.h:

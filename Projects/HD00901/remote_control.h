@@ -75,7 +75,7 @@
 #define ENCODE_TIMES_ONCE       (1)
 #define ENCODE_INPUT_SIZE       (512)
 #define ENCODE_OUTPUT_SIZE      (134)
-#define AUDIO_SEND_NTF_SIZE     (20)
+#define AUDIO_SEND_NTF_SIZE     (134)
 
 /* IR */
 #define IR_IO           (GPIO_4)

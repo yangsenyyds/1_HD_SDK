@@ -20,9 +20,9 @@ output/obj/remote_control.o: ../../../Projects/HD00901/remote_control.c \
  ../../../APP/software_timer/software_timer.h \
  ../../../Platform/sdk/yc11xx_systick.h ../../../APP/power/vbat.h \
  ../../../APP/led/led.h ../../../APP/key/keyscan.h \
- ../../../APP/audio/audio.h ../../../APP/flash/YC/flash.h \
- ../../../APP/ir/ir_send/ir_send.h ../../../APP/ir/ir_send/ir_load.h \
- ../../../APP/ir/ir_lib/ir_lib.h \
+ ../../../APP/custom_audio/audio_134size/audio.h \
+ ../../../APP/flash/YC/flash.h ../../../APP/ir/ir_send/ir_send.h \
+ ../../../APP/ir/ir_send/ir_load.h ../../../APP/ir/ir_lib/ir_lib.h \
  ../../../Platform/devices/flash/yc11xx_dev_qspi.h \
  ../../../Platform/sdk/yc11xx_qspi0.h ../../../APP/SECRETKEY/SecretKey.h \
  ../../../Platform/sdk/yc11xx_iwdg.h
@@ -79,7 +79,7 @@ output/obj/remote_control.o: ../../../Projects/HD00901/remote_control.c \
 
 ../../../APP/key/keyscan.h:
 
-../../../APP/audio/audio.h:
+../../../APP/custom_audio/audio_134size/audio.h:
 
 ../../../APP/flash/YC/flash.h:
 
