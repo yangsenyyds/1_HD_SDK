@@ -362,7 +362,7 @@ static const uint8_t ir_data[] = {
     0X19, // 7
     0X32,
     0X17, // 9
-    0X27,
+    0X60,
 
     0X74, // 11
     0X47,
@@ -396,7 +396,7 @@ static const KeyBuf_TypeDef KeyBuf[] = {
     {0x41, 0x00, 4, 35}, //
     {0x8D, 0x00, 4, 35}, // 8
     {0x44, 0x00, 4, 35}, //
-    {0x9C, 0x00, 0, 0},  // 10
+    {0xbb, 0x01, 0, 0},  // 10
 
     {0x2A, 0x02, 4, 35}, // 11
     {0x23, 0x02, 2, 35}, // -
@@ -647,7 +647,10 @@ static void keyvalue_handle(key_report_t *key_report)
             SysTick_DelayMs(100);
             ir_tv_learn_send(keynum);
             set_key_press_state(true);
-
+            if(!flash_record_exist(ir_learn_tag)){
+                flash_read(ir_learn_tag, (uint8_t*)&ir_state, 1);
+            }
+            DEBUG_LOG_STRING("ir_learn_tag %d", ir_state);
             if (keynum == Power__Keynum && !ir_state)
             {
                 if (led_state == 0)
@@ -946,7 +949,6 @@ void Write_DataParse(const ATT_TABLE_TYPE *table, uint8_t *data, uint8_t len)
             learn_data_num = 0;
             memset(learn_data_from_tv, 0x00, sizeof(learn_data_from_tv));
             ir_learn_data_clr();
-            ir_state = true;
         }
         else if (len == 1 && data[0] == 0x00)
         {
@@ -976,22 +978,21 @@ void Write_DataParse(const ATT_TABLE_TYPE *table, uint8_t *data, uint8_t len)
     }
     else if (table->handle == 77)
     {
-        
         if (len == 2 && data[0] == 0x01)
         {
             ir_state = true;
+            flash_write(ir_learn_tag, (uint8_t*)&ir_state, 1, STATE_INF);
             //cec切换到红外
         }
         else if (len == 2 && data[0] == 0x00)
         {
-             ir_state = false;
+            ir_state = false;
+            flash_write(ir_learn_tag, (uint8_t*)&ir_state, 1, STATE_INF);
             //红外切换成cec
         }
     }
     else if (table->handle == 59){
        if (len == 6 && data[0] == 0x0a){
-            ir_state = false;
-            //重启之前开关状态是cec
        }
     }
     else if (table->dataLen >= len)
