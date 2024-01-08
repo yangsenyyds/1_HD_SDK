@@ -12,7 +12,7 @@ output/obj/yc_ota.o: ../../../Platform/devices/ota/yc_ota.c \
  ../../../Platform/sdk/yc11xx_audio_adc.h \
  ../../../Projects/HD01053/att_list.h \
  ../../../Platform/devices/ble/att/att.h \
- ../../../Projects/HD01053/att_list.h ../../../Platform/sdk/yc11xx_iwdg.h
+ ../../../Projects/HD01053/att_list.h
 
 ../../../Platform/devices/ota/yc_ota.h:
 
@@ -45,5 +45,3 @@ output/obj/yc_ota.o: ../../../Platform/devices/ota/yc_ota.c \
 ../../../Platform/devices/ble/att/att.h:
 
 ../../../Projects/HD01053/att_list.h:
-
-../../../Platform/sdk/yc11xx_iwdg.h:

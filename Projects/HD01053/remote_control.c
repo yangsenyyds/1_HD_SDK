@@ -572,7 +572,6 @@ static void keyvalue_handle(key_report_t *key_report)
     DEBUG_LOG_STRING("key_pressed_num = %d\r\n", key_pressed_num);
     if (key_pressed_num == 0)
     {
-        DEBUG_LOG_STRING("333333333333333333333333\r\n");
         if (get_ir_learn_state() && (keynum == INPUT_Keynum || keynum == Power__Keynum || keynum == MUTE_Keynum || keynum == VOL_Keynum || keynum == VOL__Keynum))
         {
             memset(learn_ble_send, 0, sizeof(learn_ble_send));
@@ -580,7 +579,8 @@ static void keyvalue_handle(key_report_t *key_report)
             ATT_sendNotify(76, (void *)learn_ble_send, sizeof(learn_ble_send));
             set_key_press_state(false);
         }
-        else if (bt_check_le_connected() && encrypt_state)
+
+        if (bt_check_le_connected() && encrypt_state)
         {
             uint8_t hid_send_buf[KeyBuf[keynum].key_send_len];
             memset((void *)hid_send_buf, 0, KeyBuf[keynum].key_send_len);
@@ -612,7 +612,6 @@ static void keyvalue_handle(key_report_t *key_report)
         }
 
         set_key_press_state(false);
-         DEBUG_LOG_STRING("222222222222222222222222\r\n");
     }
     else if (key_pressed_num == 1)
     {
@@ -660,7 +659,6 @@ static void keyvalue_handle(key_report_t *key_report)
                 memcpy((void *)hid_send_buf, (void *)KeyBuf[keynum].keyvalue, 2);
                 ATT_sendNotify(KeyBuf[keynum].handle, (void *)hid_send_buf, KeyBuf[keynum].key_send_len);
             }
-            DEBUG_LOG_STRING("9999999999999999999999999\r\n");
         }
         else if (bt_check_le_connected() && encrypt_state)
         {
@@ -697,7 +695,8 @@ static void keyvalue_handle(key_report_t *key_report)
                 led_state = true;
                 led_on(LED_1, 0, 0);
             }
-            else if (keynum != Voice_Keynum)
+
+            if (keynum != Voice_Keynum)
             {
                 if (led_state == 0)
                 {
@@ -954,7 +953,7 @@ void Write_DataParse(const ATT_TABLE_TYPE *table, uint8_t *data, uint8_t len)
             {
                 ir_learn_data_fill(&learn_data_from_tv[i][0]);
             }
-            ir_learn_init();
+            // ir_learn_init();
             app_sleep_lock_set(APP_LOCK, false);
         }
     }
