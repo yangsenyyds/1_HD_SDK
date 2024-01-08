@@ -16,7 +16,7 @@
 #define DEBUG_GPIO_DEFINE   (GPIO_9)
 
 /* SecretKey_Check_enable */
-#define SecretKey_Check_enable (1)
+// #define SecretKey_Check_enable (1)
 // #define ADV_TIME (1)
 /* sleep 1 hour*/
 // #define SLEEP_ONE_HOUR      (1)
@@ -61,7 +61,7 @@
 
 /* audio */
 #define AUDIO_CMD_HANDLE        (514)
-#define audio_start_20          (1)
+
 #define ADPCM                   (1)
 #define AUDIO_SNED_HANDLE       (get_VoiceHandle())
 #define AUDIO_CTRL_HANDLE       (AUDIO_SNED_HANDLE+3)
@@ -71,11 +71,11 @@
 #define AdcAnaDiffConfig_VOLTAGE_GAIN       (20)
 
 #define MICRECORD_CACHE_NUM     (2)
-#define ENCODE_CACHE_NUM        (20)
+#define ENCODE_CACHE_NUM        (134)
 #define ENCODE_TIMES_ONCE       (1)
 #define ENCODE_INPUT_SIZE       (512)
 #define ENCODE_OUTPUT_SIZE      (134)
-#define AUDIO_SEND_NTF_SIZE     (20)
+#define AUDIO_SEND_NTF_SIZE     (134)
 
 /* IR */
 #define IR_IO           (GPIO_4)

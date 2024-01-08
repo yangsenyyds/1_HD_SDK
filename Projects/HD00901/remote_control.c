@@ -779,7 +779,7 @@ void ENCRYPT_DONE(void)
     encrypt_state = true;
     dis_encrypt_state = false;
     // led_on(LED_1,200,1200);
-    ATT_SendExchangeMtuReq();
+    // ATT_SendExchangeMtuReq();
 
 }
 
