@@ -901,6 +901,7 @@ void app_init(void)
         bt_set_ce_length_num(0x0F);//小包用  大包用0x08
         software_timer_start(SYSTEM_CURRENT_CLOCK, 10);
         app_sleep_init();
+        bt_update_dle();
         vbat_init(power_handle);
         led_init();
         voice_report_init();
