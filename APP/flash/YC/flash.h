@@ -6,9 +6,9 @@
 #include "remote_control.h"
 
 typedef enum {
-    STATE_INF,
-    DATA_INF,
-    CHUNK_INF,
+    STATE_INF,//状态
+    DATA_INF,//连续的数据
+    CHUNK_INF,//存储512字节
 }Inf_TypedDef;
 
 typedef enum {
